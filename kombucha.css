@@ -201,8 +201,8 @@
 			linear-gradient(135deg, #4F7B58, #C57B57);
 	}
 	.site-footer {
-		margin: 3rem calc(0px - var(--page-pad)) -1rem;
-		width: calc(100% + var(--page-pad) + var(--page-pad));
+		margin: 3rem calc(50% - 50vw) -1rem;
+		width: 100vw;
 		max-width: none;
 		padding: 1.25rem var(--page-pad) 1.5rem;
 		color: var(--section);
