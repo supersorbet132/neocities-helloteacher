@@ -107,16 +107,24 @@
 	.home-card-grid {
 		display: grid;
 		grid-template-columns: 1fr;
-		gap: 1.25rem;
-		overflow: visible;
+		gap: clamp(4rem, 12vh, 7rem);
+		width: 100vw;
+		max-width: none;
+		margin-left: calc(50% - 50vw);
+		overflow-x: clip;
+		overflow-y: visible;
 	}
 	.home-card {
 		--card-accent: var(--link);
+		--card-edge-overlap: clamp(1.5rem, 6vw, 5rem);
 		--card-media: var(--border);
+		--card-pad: clamp(1.5rem, 4vw, 3.5rem);
 		position: relative;
 		display: grid;
-		grid-template-rows: minmax(8rem, 45%) 1fr;
-		min-height: 20rem;
+		grid-template-rows: minmax(18rem, 58%) 1fr;
+		width: min(74rem, calc(100vw - 2rem));
+		max-width: none;
+		min-height: clamp(36rem, 78vh, 46rem);
 		overflow: hidden;
 		color: var(--text);
 		background: var(--section);
@@ -143,7 +151,7 @@
 	}
 	.home-card__media {
 		display: block;
-		min-height: 9rem;
+		min-height: 18rem;
 		background: var(--card-media);
 		border-bottom: 2px solid var(--card-accent);
 	}
@@ -156,9 +164,9 @@
 	.home-card__body {
 		display: grid;
 		align-content: start;
-		gap: 0.55rem;
-		min-height: 10rem;
-		padding: 1rem;
+		gap: 0.8rem;
+		min-height: 14rem;
+		padding: var(--card-pad);
 	}
 	.home-card__label {
 		width: fit-content;
@@ -172,11 +180,29 @@
 	}
 	.home-card strong {
 		font-family: var(--headingfont), serif;
-		font-size: 1.6rem;
+		font-size: clamp(2.4rem, 6vw, 5.5rem);
 		line-height: 1.1;
 	}
 	.home-card span {
 		line-height: 1.4;
+	}
+	.home-card__body > span:last-child {
+		max-width: 42rem;
+		font-size: clamp(1rem, 2vw, 1.45rem);
+	}
+	.home-card--edge-left {
+		justify-self: start;
+		margin-left: calc(0px - var(--card-edge-overlap));
+	}
+	.home-card--edge-left .home-card__body {
+		padding-left: calc(var(--card-pad) + var(--card-edge-overlap));
+	}
+	.home-card--edge-right {
+		justify-self: end;
+		margin-right: calc(0px - var(--card-edge-overlap));
+	}
+	.home-card--edge-right .home-card__body {
+		padding-right: calc(var(--card-pad) + var(--card-edge-overlap));
 	}
 	.home-card--art {
 		--card-accent: #A04668;
@@ -236,10 +262,7 @@
 			font-size: 4.75rem;
 		}
 		.home-card-grid {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-		.home-card--overlap {
-			margin-left: calc(0px - var(--page-pad));
+			grid-template-columns: 1fr;
 		}
 	}
 	@media (prefers-reduced-motion: reduce) {
