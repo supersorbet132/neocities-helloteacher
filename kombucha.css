@@ -3,8 +3,8 @@
 		--width: 900px; /* sets the maximum width of the middle section */
 		--headingfont: "Georgia"; 
 		--bodyfont: "Verdana"; 
-		--borderwidth: 7px;
-		--borderstyle: dotted;
+		--borderwidth: 0;
+		--borderstyle: solid;
 	}
 
 /* light mode colors */
@@ -30,7 +30,6 @@
 /* page layout */ 	
 	* { 
 		scrollbar-color: var(--link) var(--border);
-		overscroll-behavior: none;
 		box-sizing: border-box;
 		max-width: 100%; /* so everything adjusts on smaller screens */
 	}
@@ -101,6 +100,36 @@
 		margin: 0 0 1rem;
 		font-size: 1.05rem;
 	}
+	.home-artwork {
+		margin: 1rem calc(50% - 50vw) 4rem;
+		width: 100vw;
+		max-width: none;
+		overflow: clip;
+		pointer-events: none;
+	}
+	.home-artwork__stage {
+		position: relative;
+		aspect-ratio: 2560 / 3263;
+		width: 100%;
+		overflow: hidden;
+		background: var(--text);
+		isolation: isolate;
+	}
+	.home-artwork__layer {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		display: block;
+		width: 100%;
+		height: 100%;
+		max-width: none;
+		object-fit: contain;
+		object-position: center center;
+		pointer-events: none;
+		transform: translate3d(0, 0, 0);
+		will-change: transform;
+	}
 	.home-directory {
 		margin: 2rem 0 3rem;
 	}
@@ -132,7 +161,7 @@
 		border-radius: 8px;
 		text-decoration: none;
 		box-shadow: 0.35rem 0.35rem 0 var(--border);
-		transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+		transition: border-color 180ms ease, box-shadow 180ms ease;
 	}
 	.home-card:visited {
 		color: var(--text);
@@ -144,7 +173,6 @@
 		box-shadow: 0.5rem 0.5rem 0 var(--card-accent);
 		outline: none;
 		text-decoration: none;
-		transform: translateY(-0.2rem);
 	}
 	.home-card:focus-visible {
 		box-shadow: 0 0 0 3px var(--section), 0 0 0 6px var(--card-accent);
@@ -266,6 +294,10 @@
 		}
 	}
 	@media (prefers-reduced-motion: reduce) {
+		.home-artwork__layer {
+			transform: none !important;
+			will-change: auto;
+		}
 		.home-card {
 			transition: none;
 		}
