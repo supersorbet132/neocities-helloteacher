@@ -92,11 +92,17 @@
 			#6e4fd8 100%
 		);
 		--gradient-shader-opacity: 0.58;
-		--gradient-shader-resolution-scale: 0.72;
+		--gradient-shader-resolution-scale: 0.22;
 		--gradient-shader-fps: 30;
-		--gradient-current-speed: 0.62;
-		--gradient-current-scale: 1;
-		--gradient-current-strength: 1;
+		--gradient-simulation-width: 256;
+		--gradient-simulation-height: 128;
+		--gradient-current-speed: 1.62;
+		--gradient-current-scale: 2.8;
+		--gradient-current-strength: 4.4;
+		--gradient-wavefront-feedback: 0.986;
+		--gradient-wavefront-diffusion: 1.74;
+		--gradient-wavefront-injection: 0.58;
+		--gradient-wavefront-contrast: 0.25;
 		overflow-x: hidden;
 		background: #01040f;
 		background-attachment: scroll;
