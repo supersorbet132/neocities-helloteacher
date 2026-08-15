@@ -1,0 +1,2442 @@
+{
+  "generatedAt": "2026-08-14T23:44:10.847035Z",
+  "alphaRule": "Tight crop includes every pixel whose alpha channel is greater than 0; no low-alpha threshold was applied.",
+  "coordinateSystem": "Pixel coordinates use the original uncropped canvas with origin at the top-left. right and bottom are exclusive.",
+  "positioningNote": "To preserve the original placement after cropping, position each cropped sprite at original anchor + offset.x and original anchor + offset.y.",
+  "finderDateAdded": {
+    "available": false,
+    "note": "mdls and the com.apple.metadata:kMDItemDateAdded xattr did not expose Finder Date Added in this shell. nativeDirectoryIndex records os.listdir order captured before cropping; birthTime/modifiedTime record filesystem timestamps captured before cropping."
+  },
+  "folders": {
+    "art": {
+      "path": "assets/images/site/art",
+      "nativeDirectoryOrderBeforeCrop": [
+        "art_sun_overlay.png",
+        "art_character.png",
+        "art_triangle1.png",
+        "art_a.png",
+        "art_triangle2.png",
+        "art_t.png",
+        "art_colordodge.png",
+        "art_triangle3.png",
+        "art_triangle7.png",
+        "art_triangle6.png",
+        "art_triangle4.png",
+        "art_r.png",
+        "art_triangle5.png",
+        "art_pinkwave.png",
+        "art_splotches.png",
+        "art_bluewave.png",
+        "art_waves.png",
+        "art_ipad.png",
+        "art_triangle10.png",
+        "art_hull.png",
+        "art_pic4.png",
+        "art_star4.png",
+        "art_triangle8.png",
+        "art_triangle9.png",
+        "art_star5.png",
+        "art_star2.png",
+        "art_pic.png",
+        "art_pic2.png",
+        "art_sun.png",
+        "art_pic3.png",
+        "art_star3.png",
+        "art_moon_overlay.png",
+        "art_pencil.png",
+        "art_star1.png",
+        "art_moon.png"
+      ],
+      "sprites": [
+        {
+          "file": "art_sun_overlay.png",
+          "nativeDirectoryIndex": 0,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 627998,
+            "birthTime": "2026-08-11T22:31:58Z",
+            "modifiedTime": "2026-08-11T22:31:58Z"
+          },
+          "cropBox": {
+            "left": 44,
+            "top": 2240,
+            "right": 580,
+            "bottom": 2776,
+            "width": 536,
+            "height": 536
+          },
+          "offset": {
+            "x": 44,
+            "y": 2240
+          },
+          "originalInsets": {
+            "right": 1980,
+            "bottom": 7016
+          },
+          "cropped": {
+            "width": 536,
+            "height": 536,
+            "bytes": 114113
+          }
+        },
+        {
+          "file": "art_character.png",
+          "nativeDirectoryIndex": 1,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 523762,
+            "birthTime": "2026-08-11T22:31:51Z",
+            "modifiedTime": "2026-08-11T22:31:51Z"
+          },
+          "cropBox": {
+            "left": 1077,
+            "top": 2452,
+            "right": 1694,
+            "bottom": 3065,
+            "width": 617,
+            "height": 613
+          },
+          "offset": {
+            "x": 1077,
+            "y": 2452
+          },
+          "originalInsets": {
+            "right": 866,
+            "bottom": 6727
+          },
+          "cropped": {
+            "width": 617,
+            "height": 613,
+            "bytes": 40726
+          }
+        },
+        {
+          "file": "art_triangle1.png",
+          "nativeDirectoryIndex": 2,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 455936,
+            "birthTime": "2026-08-11T22:31:53Z",
+            "modifiedTime": "2026-08-11T22:42:54.555233Z"
+          },
+          "cropBox": {
+            "left": 413,
+            "top": 3199,
+            "right": 622,
+            "bottom": 3429,
+            "width": 209,
+            "height": 230
+          },
+          "offset": {
+            "x": 413,
+            "y": 3199
+          },
+          "originalInsets": {
+            "right": 1938,
+            "bottom": 6363
+          },
+          "cropped": {
+            "width": 209,
+            "height": 230,
+            "bytes": 8332
+          }
+        },
+        {
+          "file": "art_a.png",
+          "nativeDirectoryIndex": 3,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 509840,
+            "birthTime": "2026-08-11T22:31:52Z",
+            "modifiedTime": "2026-08-11T22:31:52Z"
+          },
+          "cropBox": {
+            "left": 360,
+            "top": 2564,
+            "right": 1365,
+            "bottom": 3168,
+            "width": 1005,
+            "height": 604
+          },
+          "offset": {
+            "x": 360,
+            "y": 2564
+          },
+          "originalInsets": {
+            "right": 1195,
+            "bottom": 6624
+          },
+          "cropped": {
+            "width": 1005,
+            "height": 604,
+            "bytes": 34547
+          }
+        },
+        {
+          "file": "art_triangle2.png",
+          "nativeDirectoryIndex": 4,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 444686,
+            "birthTime": "2026-08-11T22:31:53Z",
+            "modifiedTime": "2026-08-11T22:43:17.122725Z"
+          },
+          "cropBox": {
+            "left": 564,
+            "top": 3008,
+            "right": 700,
+            "bottom": 3182,
+            "width": 136,
+            "height": 174
+          },
+          "offset": {
+            "x": 564,
+            "y": 3008
+          },
+          "originalInsets": {
+            "right": 1860,
+            "bottom": 6610
+          },
+          "cropped": {
+            "width": 136,
+            "height": 174,
+            "bytes": 3226
+          }
+        },
+        {
+          "file": "art_t.png",
+          "nativeDirectoryIndex": 5,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 493075,
+            "birthTime": "2026-08-11T22:31:51Z",
+            "modifiedTime": "2026-08-11T22:31:51Z"
+          },
+          "cropBox": {
+            "left": 877,
+            "top": 2603,
+            "right": 1282,
+            "bottom": 3030,
+            "width": 405,
+            "height": 427
+          },
+          "offset": {
+            "x": 877,
+            "y": 2603
+          },
+          "originalInsets": {
+            "right": 1278,
+            "bottom": 6762
+          },
+          "cropped": {
+            "width": 405,
+            "height": 427,
+            "bytes": 42350
+          }
+        },
+        {
+          "file": "art_colordodge.png",
+          "nativeDirectoryIndex": 6,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 2086862,
+            "birthTime": "2026-08-11T22:31:55Z",
+            "modifiedTime": "2026-08-11T22:31:55Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 2230,
+            "right": 2397,
+            "bottom": 3693,
+            "width": 2397,
+            "height": 1463
+          },
+          "offset": {
+            "x": 0,
+            "y": 2230
+          },
+          "originalInsets": {
+            "right": 163,
+            "bottom": 6099
+          },
+          "cropped": {
+            "width": 2397,
+            "height": 1463,
+            "bytes": 1098252
+          }
+        },
+        {
+          "file": "art_triangle3.png",
+          "nativeDirectoryIndex": 7,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 447384,
+            "birthTime": "2026-08-11T22:31:53Z",
+            "modifiedTime": "2026-08-11T22:43:39.746491Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 2626,
+            "right": 109,
+            "bottom": 2923,
+            "width": 109,
+            "height": 297
+          },
+          "offset": {
+            "x": 0,
+            "y": 2626
+          },
+          "originalInsets": {
+            "right": 2451,
+            "bottom": 6869
+          },
+          "cropped": {
+            "width": 109,
+            "height": 297,
+            "bytes": 4387
+          }
+        },
+        {
+          "file": "art_triangle7.png",
+          "nativeDirectoryIndex": 8,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 447763,
+            "birthTime": "2026-08-11T22:31:53Z",
+            "modifiedTime": "2026-08-11T22:45:29.315699Z"
+          },
+          "cropBox": {
+            "left": 571,
+            "top": 3292,
+            "right": 761,
+            "bottom": 3523,
+            "width": 190,
+            "height": 231
+          },
+          "offset": {
+            "x": 571,
+            "y": 3292
+          },
+          "originalInsets": {
+            "right": 1799,
+            "bottom": 6269
+          },
+          "cropped": {
+            "width": 190,
+            "height": 231,
+            "bytes": 4945
+          }
+        },
+        {
+          "file": "art_triangle6.png",
+          "nativeDirectoryIndex": 9,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 446680,
+            "birthTime": "2026-08-11T22:31:53Z",
+            "modifiedTime": "2026-08-11T22:45:15.966949Z"
+          },
+          "cropBox": {
+            "left": 377,
+            "top": 3104,
+            "right": 508,
+            "bottom": 3260,
+            "width": 131,
+            "height": 156
+          },
+          "offset": {
+            "x": 377,
+            "y": 3104
+          },
+          "originalInsets": {
+            "right": 2052,
+            "bottom": 6532
+          },
+          "cropped": {
+            "width": 131,
+            "height": 156,
+            "bytes": 4345
+          }
+        },
+        {
+          "file": "art_triangle4.png",
+          "nativeDirectoryIndex": 10,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 440204,
+            "birthTime": "2026-08-11T22:31:53Z",
+            "modifiedTime": "2026-08-11T22:43:51.594800Z"
+          },
+          "cropBox": {
+            "left": 421,
+            "top": 3030,
+            "right": 476,
+            "bottom": 3089,
+            "width": 55,
+            "height": 59
+          },
+          "offset": {
+            "x": 421,
+            "y": 3030
+          },
+          "originalInsets": {
+            "right": 2084,
+            "bottom": 6703
+          },
+          "cropped": {
+            "width": 55,
+            "height": 59,
+            "bytes": 1589
+          }
+        },
+        {
+          "file": "art_r.png",
+          "nativeDirectoryIndex": 11,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 566827,
+            "birthTime": "2026-08-11T22:31:52Z",
+            "modifiedTime": "2026-08-11T22:31:52Z"
+          },
+          "cropBox": {
+            "left": 711,
+            "top": 2635,
+            "right": 1059,
+            "bottom": 3044,
+            "width": 348,
+            "height": 409
+          },
+          "offset": {
+            "x": 711,
+            "y": 2635
+          },
+          "originalInsets": {
+            "right": 1501,
+            "bottom": 6748
+          },
+          "cropped": {
+            "width": 348,
+            "height": 409,
+            "bytes": 115386
+          }
+        },
+        {
+          "file": "art_triangle5.png",
+          "nativeDirectoryIndex": 12,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 444303,
+            "birthTime": "2026-08-11T22:31:53Z",
+            "modifiedTime": "2026-08-11T22:44:56.235145Z"
+          },
+          "cropBox": {
+            "left": 317,
+            "top": 2915,
+            "right": 438,
+            "bottom": 3055,
+            "width": 121,
+            "height": 140
+          },
+          "offset": {
+            "x": 317,
+            "y": 2915
+          },
+          "originalInsets": {
+            "right": 2122,
+            "bottom": 6737
+          },
+          "cropped": {
+            "width": 121,
+            "height": 140,
+            "bytes": 2960
+          }
+        },
+        {
+          "file": "art_pinkwave.png",
+          "nativeDirectoryIndex": 13,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 742430,
+            "birthTime": "2026-08-11T22:31:54Z",
+            "modifiedTime": "2026-08-11T22:31:54Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 2911,
+            "right": 1285,
+            "bottom": 3676,
+            "width": 1285,
+            "height": 765
+          },
+          "offset": {
+            "x": 0,
+            "y": 2911
+          },
+          "originalInsets": {
+            "right": 1275,
+            "bottom": 6116
+          },
+          "cropped": {
+            "width": 1285,
+            "height": 765,
+            "bytes": 175312
+          }
+        },
+        {
+          "file": "art_splotches.png",
+          "nativeDirectoryIndex": 14,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 493655,
+            "birthTime": "2026-08-11T22:31:49Z",
+            "modifiedTime": "2026-08-11T22:31:49Z"
+          },
+          "cropBox": {
+            "left": 926,
+            "top": 2428,
+            "right": 2147,
+            "bottom": 3421,
+            "width": 1221,
+            "height": 993
+          },
+          "offset": {
+            "x": 926,
+            "y": 2428
+          },
+          "originalInsets": {
+            "right": 413,
+            "bottom": 6371
+          },
+          "cropped": {
+            "width": 1221,
+            "height": 993,
+            "bytes": 31854
+          }
+        },
+        {
+          "file": "art_bluewave.png",
+          "nativeDirectoryIndex": 15,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 591767,
+            "birthTime": "2026-08-11T22:31:55Z",
+            "modifiedTime": "2026-08-11T22:31:55Z"
+          },
+          "cropBox": {
+            "left": 523,
+            "top": 3233,
+            "right": 1918,
+            "bottom": 3761,
+            "width": 1395,
+            "height": 528
+          },
+          "offset": {
+            "x": 523,
+            "y": 3233
+          },
+          "originalInsets": {
+            "right": 642,
+            "bottom": 6031
+          },
+          "cropped": {
+            "width": 1395,
+            "height": 528,
+            "bytes": 90355
+          }
+        },
+        {
+          "file": "art_waves.png",
+          "nativeDirectoryIndex": 16,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 490968,
+            "birthTime": "2026-08-11T22:31:50Z",
+            "modifiedTime": "2026-08-11T22:31:50Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 2573,
+            "right": 1384,
+            "bottom": 3398,
+            "width": 1384,
+            "height": 825
+          },
+          "offset": {
+            "x": 0,
+            "y": 2573
+          },
+          "originalInsets": {
+            "right": 1176,
+            "bottom": 6394
+          },
+          "cropped": {
+            "width": 1384,
+            "height": 825,
+            "bytes": 26044
+          }
+        },
+        {
+          "file": "art_ipad.png",
+          "nativeDirectoryIndex": 17,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 453737,
+            "birthTime": "2026-08-11T22:31:54Z",
+            "modifiedTime": "2026-08-11T22:31:54Z"
+          },
+          "cropBox": {
+            "left": 1163,
+            "top": 3418,
+            "right": 1959,
+            "bottom": 3697,
+            "width": 796,
+            "height": 279
+          },
+          "offset": {
+            "x": 1163,
+            "y": 3418
+          },
+          "originalInsets": {
+            "right": 601,
+            "bottom": 6095
+          },
+          "cropped": {
+            "width": 796,
+            "height": 279,
+            "bytes": 7828
+          }
+        },
+        {
+          "file": "art_triangle10.png",
+          "nativeDirectoryIndex": 18,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 462601,
+            "birthTime": "2026-08-11T22:31:57Z",
+            "modifiedTime": "2026-08-11T22:31:57Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 3453,
+            "right": 611,
+            "bottom": 3836,
+            "width": 611,
+            "height": 383
+          },
+          "offset": {
+            "x": 0,
+            "y": 3453
+          },
+          "originalInsets": {
+            "right": 1949,
+            "bottom": 5956
+          },
+          "cropped": {
+            "width": 611,
+            "height": 383,
+            "bytes": 12219
+          }
+        },
+        {
+          "file": "art_hull.png",
+          "nativeDirectoryIndex": 19,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 531440,
+            "birthTime": "2026-08-11T22:31:52Z",
+            "modifiedTime": "2026-08-11T22:31:52Z"
+          },
+          "cropBox": {
+            "left": 440,
+            "top": 2933,
+            "right": 1842,
+            "bottom": 3578,
+            "width": 1402,
+            "height": 645
+          },
+          "offset": {
+            "x": 440,
+            "y": 2933
+          },
+          "originalInsets": {
+            "right": 718,
+            "bottom": 6214
+          },
+          "cropped": {
+            "width": 1402,
+            "height": 645,
+            "bytes": 46378
+          }
+        },
+        {
+          "file": "art_pic4.png",
+          "nativeDirectoryIndex": 20,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 636342,
+            "birthTime": "2026-08-11T22:31:51Z",
+            "modifiedTime": "2026-08-11T22:31:51Z"
+          },
+          "cropBox": {
+            "left": 225,
+            "top": 2644,
+            "right": 879,
+            "bottom": 3234,
+            "width": 654,
+            "height": 590
+          },
+          "offset": {
+            "x": 225,
+            "y": 2644
+          },
+          "originalInsets": {
+            "right": 1681,
+            "bottom": 6558
+          },
+          "cropped": {
+            "width": 654,
+            "height": 590,
+            "bytes": 132410
+          }
+        },
+        {
+          "file": "art_star4.png",
+          "nativeDirectoryIndex": 21,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 455437,
+            "birthTime": "2026-08-11T22:31:56Z",
+            "modifiedTime": "2026-08-11T22:31:56Z"
+          },
+          "cropBox": {
+            "left": 664,
+            "top": 3497,
+            "right": 1015,
+            "bottom": 3832,
+            "width": 351,
+            "height": 335
+          },
+          "offset": {
+            "x": 664,
+            "y": 3497
+          },
+          "originalInsets": {
+            "right": 1545,
+            "bottom": 5960
+          },
+          "cropped": {
+            "width": 351,
+            "height": 335,
+            "bytes": 8086
+          }
+        },
+        {
+          "file": "art_triangle8.png",
+          "nativeDirectoryIndex": 22,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 456797,
+            "birthTime": "2026-08-11T22:31:56Z",
+            "modifiedTime": "2026-08-11T22:31:56Z"
+          },
+          "cropBox": {
+            "left": 286,
+            "top": 3431,
+            "right": 754,
+            "bottom": 3907,
+            "width": 468,
+            "height": 476
+          },
+          "offset": {
+            "x": 286,
+            "y": 3431
+          },
+          "originalInsets": {
+            "right": 1806,
+            "bottom": 5885
+          },
+          "cropped": {
+            "width": 468,
+            "height": 476,
+            "bytes": 11084
+          }
+        },
+        {
+          "file": "art_triangle9.png",
+          "nativeDirectoryIndex": 23,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 466731,
+            "birthTime": "2026-08-11T22:31:56Z",
+            "modifiedTime": "2026-08-11T22:31:56Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 3464,
+            "right": 548,
+            "bottom": 3793,
+            "width": 548,
+            "height": 329
+          },
+          "offset": {
+            "x": 0,
+            "y": 3464
+          },
+          "originalInsets": {
+            "right": 2012,
+            "bottom": 5999
+          },
+          "cropped": {
+            "width": 548,
+            "height": 329,
+            "bytes": 13792
+          }
+        },
+        {
+          "file": "art_star5.png",
+          "nativeDirectoryIndex": 24,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 458283,
+            "birthTime": "2026-08-11T22:31:57Z",
+            "modifiedTime": "2026-08-11T22:31:57Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 3050,
+            "right": 1253,
+            "bottom": 3706,
+            "width": 1253,
+            "height": 656
+          },
+          "offset": {
+            "x": 0,
+            "y": 3050
+          },
+          "originalInsets": {
+            "right": 1307,
+            "bottom": 6086
+          },
+          "cropped": {
+            "width": 1253,
+            "height": 656,
+            "bytes": 13797
+          }
+        },
+        {
+          "file": "art_star2.png",
+          "nativeDirectoryIndex": 25,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 441482,
+            "birthTime": "2026-08-11T22:31:54Z",
+            "modifiedTime": "2026-08-11T22:46:12.154201Z"
+          },
+          "cropBox": {
+            "left": 426,
+            "top": 2715,
+            "right": 496,
+            "bottom": 2825,
+            "width": 70,
+            "height": 110
+          },
+          "offset": {
+            "x": 426,
+            "y": 2715
+          },
+          "originalInsets": {
+            "right": 2064,
+            "bottom": 6967
+          },
+          "cropped": {
+            "width": 70,
+            "height": 110,
+            "bytes": 2089
+          }
+        },
+        {
+          "file": "art_pic.png",
+          "nativeDirectoryIndex": 26,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 763198,
+            "birthTime": "2026-08-11T22:31:50Z",
+            "modifiedTime": "2026-08-11T22:31:50Z"
+          },
+          "cropBox": {
+            "left": 558,
+            "top": 2413,
+            "right": 1027,
+            "bottom": 2977,
+            "width": 469,
+            "height": 564
+          },
+          "offset": {
+            "x": 558,
+            "y": 2413
+          },
+          "originalInsets": {
+            "right": 1533,
+            "bottom": 6815
+          },
+          "cropped": {
+            "width": 469,
+            "height": 564,
+            "bytes": 218318
+          }
+        },
+        {
+          "file": "art_pic2.png",
+          "nativeDirectoryIndex": 27,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 698658,
+            "birthTime": "2026-08-11T22:31:50Z",
+            "modifiedTime": "2026-08-11T22:31:50Z"
+          },
+          "cropBox": {
+            "left": 318,
+            "top": 3021,
+            "right": 821,
+            "bottom": 3499,
+            "width": 503,
+            "height": 478
+          },
+          "offset": {
+            "x": 318,
+            "y": 3021
+          },
+          "originalInsets": {
+            "right": 1739,
+            "bottom": 6293
+          },
+          "cropped": {
+            "width": 503,
+            "height": 478,
+            "bytes": 172063
+          }
+        },
+        {
+          "file": "art_sun.png",
+          "nativeDirectoryIndex": 28,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 459735,
+            "birthTime": "2026-08-11T22:31:57Z",
+            "modifiedTime": "2026-08-11T22:31:57Z"
+          },
+          "cropBox": {
+            "left": 112,
+            "top": 2308,
+            "right": 513,
+            "bottom": 2709,
+            "width": 401,
+            "height": 401
+          },
+          "offset": {
+            "x": 112,
+            "y": 2308
+          },
+          "originalInsets": {
+            "right": 2047,
+            "bottom": 7083
+          },
+          "cropped": {
+            "width": 401,
+            "height": 401,
+            "bytes": 8653
+          }
+        },
+        {
+          "file": "art_pic3.png",
+          "nativeDirectoryIndex": 29,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 778150,
+            "birthTime": "2026-08-11T22:31:51Z",
+            "modifiedTime": "2026-08-11T22:31:51Z"
+          },
+          "cropBox": {
+            "left": 73,
+            "top": 2465,
+            "right": 664,
+            "bottom": 3133,
+            "width": 591,
+            "height": 668
+          },
+          "offset": {
+            "x": 73,
+            "y": 2465
+          },
+          "originalInsets": {
+            "right": 1896,
+            "bottom": 6659
+          },
+          "cropped": {
+            "width": 591,
+            "height": 668,
+            "bytes": 317062
+          }
+        },
+        {
+          "file": "art_star3.png",
+          "nativeDirectoryIndex": 30,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 447519,
+            "birthTime": "2026-08-11T22:31:54Z",
+            "modifiedTime": "2026-08-11T22:46:16.649479Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 2735,
+            "right": 290,
+            "bottom": 2973,
+            "width": 290,
+            "height": 238
+          },
+          "offset": {
+            "x": 0,
+            "y": 2735
+          },
+          "originalInsets": {
+            "right": 2270,
+            "bottom": 6819
+          },
+          "cropped": {
+            "width": 290,
+            "height": 238,
+            "bytes": 4810
+          }
+        },
+        {
+          "file": "art_moon_overlay.png",
+          "nativeDirectoryIndex": 31,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 640369,
+            "birthTime": "2026-08-11T22:31:49Z",
+            "modifiedTime": "2026-08-11T22:31:49Z"
+          },
+          "cropBox": {
+            "left": 1612,
+            "top": 2414,
+            "right": 2136,
+            "bottom": 3204,
+            "width": 524,
+            "height": 790
+          },
+          "offset": {
+            "x": 1612,
+            "y": 2414
+          },
+          "originalInsets": {
+            "right": 424,
+            "bottom": 6588
+          },
+          "cropped": {
+            "width": 524,
+            "height": 790,
+            "bytes": 130043
+          }
+        },
+        {
+          "file": "art_pencil.png",
+          "nativeDirectoryIndex": 32,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 445525,
+            "birthTime": "2026-08-11T22:31:55Z",
+            "modifiedTime": "2026-08-11T22:31:55Z"
+          },
+          "cropBox": {
+            "left": 1628,
+            "top": 3172,
+            "right": 1965,
+            "bottom": 3285,
+            "width": 337,
+            "height": 113
+          },
+          "offset": {
+            "x": 1628,
+            "y": 3172
+          },
+          "originalInsets": {
+            "right": 595,
+            "bottom": 6507
+          },
+          "cropped": {
+            "width": 337,
+            "height": 113,
+            "bytes": 3525
+          }
+        },
+        {
+          "file": "art_star1.png",
+          "nativeDirectoryIndex": 33,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 457475,
+            "birthTime": "2026-08-11T22:31:54Z",
+            "modifiedTime": "2026-08-11T22:46:04.869099Z"
+          },
+          "cropBox": {
+            "left": 668,
+            "top": 3179,
+            "right": 1096,
+            "bottom": 3478,
+            "width": 428,
+            "height": 299
+          },
+          "offset": {
+            "x": 668,
+            "y": 3179
+          },
+          "originalInsets": {
+            "right": 1464,
+            "bottom": 6314
+          },
+          "cropped": {
+            "width": 428,
+            "height": 299,
+            "bytes": 9150
+          }
+        },
+        {
+          "file": "art_moon.png",
+          "nativeDirectoryIndex": 34,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 472268,
+            "birthTime": "2026-08-11T22:31:49Z",
+            "modifiedTime": "2026-08-11T22:31:49Z"
+          },
+          "cropBox": {
+            "left": 1727,
+            "top": 2528,
+            "right": 1996,
+            "bottom": 3120,
+            "width": 269,
+            "height": 592
+          },
+          "offset": {
+            "x": 1727,
+            "y": 2528
+          },
+          "originalInsets": {
+            "right": 564,
+            "bottom": 6672
+          },
+          "cropped": {
+            "width": 269,
+            "height": 592,
+            "bytes": 15710
+          }
+        }
+      ]
+    },
+    "cad": {
+      "path": "assets/images/site/cad",
+      "nativeDirectoryOrderBeforeCrop": [
+        "cad_engine_center_right.png",
+        "cad_engine_mask_add.png",
+        "cad_beam_colordodge.png",
+        "cad_title.png",
+        "cad_engine_front_left.png",
+        "cad_beam_add2.png",
+        "cad_beam_color.png",
+        "cad_engine_front_right.png",
+        "cad_back3.png",
+        "cad_top_structure.png",
+        "cad_beam_add.png",
+        "cad_back2.png",
+        "cad_front_colordodge.png",
+        "cad_title_shell.png",
+        "cad_back1.png",
+        "cad_engine_center_left.png",
+        "cad_title_colordodge.png",
+        "cad_desk.png",
+        "cad_engine_back_right.png",
+        "cad_engine_back_left.png",
+        "cad_title_add.png",
+        "cad_left_structure2.png",
+        "cad_left_structure1.png"
+      ],
+      "sprites": [
+        {
+          "file": "cad_engine_center_right.png",
+          "nativeDirectoryIndex": 0,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 470727,
+            "birthTime": "2026-08-11T22:54:54Z",
+            "modifiedTime": "2026-08-11T22:58:52.304468Z"
+          },
+          "cropBox": {
+            "left": 2147,
+            "top": 4312,
+            "right": 2366,
+            "bottom": 5104,
+            "width": 219,
+            "height": 792
+          },
+          "offset": {
+            "x": 2147,
+            "y": 4312
+          },
+          "originalInsets": {
+            "right": 194,
+            "bottom": 4688
+          },
+          "cropped": {
+            "width": 219,
+            "height": 792,
+            "bytes": 15030
+          }
+        },
+        {
+          "file": "cad_engine_mask_add.png",
+          "nativeDirectoryIndex": 1,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 773350,
+            "birthTime": "2026-08-11T22:54:56Z",
+            "modifiedTime": "2026-08-11T22:54:56Z"
+          },
+          "cropBox": {
+            "left": 7,
+            "top": 4110,
+            "right": 2560,
+            "bottom": 5317,
+            "width": 2553,
+            "height": 1207
+          },
+          "offset": {
+            "x": 7,
+            "y": 4110
+          },
+          "originalInsets": {
+            "right": 0,
+            "bottom": 4475
+          },
+          "cropped": {
+            "width": 2553,
+            "height": 1207,
+            "bytes": 311154
+          }
+        },
+        {
+          "file": "cad_beam_colordodge.png",
+          "nativeDirectoryIndex": 2,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 685383,
+            "birthTime": "2026-08-14T23:40:42Z",
+            "modifiedTime": "2026-08-14T23:40:42Z"
+          },
+          "cropBox": {
+            "left": 173,
+            "top": 4361,
+            "right": 2268,
+            "bottom": 5024,
+            "width": 2095,
+            "height": 663
+          },
+          "offset": {
+            "x": 173,
+            "y": 4361
+          },
+          "originalInsets": {
+            "right": 292,
+            "bottom": 4768
+          },
+          "cropped": {
+            "width": 2095,
+            "height": 663,
+            "bytes": 223192
+          }
+        },
+        {
+          "file": "cad_title.png",
+          "nativeDirectoryIndex": 3,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 456052,
+            "birthTime": "2026-08-11T22:54:56Z",
+            "modifiedTime": "2026-08-11T22:54:56Z"
+          },
+          "cropBox": {
+            "left": 1163,
+            "top": 4210,
+            "right": 1868,
+            "bottom": 4610,
+            "width": 705,
+            "height": 400
+          },
+          "offset": {
+            "x": 1163,
+            "y": 4210
+          },
+          "originalInsets": {
+            "right": 692,
+            "bottom": 5182
+          },
+          "cropped": {
+            "width": 705,
+            "height": 400,
+            "bytes": 12763
+          }
+        },
+        {
+          "file": "cad_engine_front_left.png",
+          "nativeDirectoryIndex": 4,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 460771,
+            "birthTime": "2026-08-11T23:00:55Z",
+            "modifiedTime": "2026-08-11T23:01:19.414745Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 4284,
+            "right": 225,
+            "bottom": 5088,
+            "width": 225,
+            "height": 804
+          },
+          "offset": {
+            "x": 0,
+            "y": 4284
+          },
+          "originalInsets": {
+            "right": 2335,
+            "bottom": 4704
+          },
+          "cropped": {
+            "width": 225,
+            "height": 804,
+            "bytes": 10768
+          }
+        },
+        {
+          "file": "cad_beam_add2.png",
+          "nativeDirectoryIndex": 5,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 1710079,
+            "birthTime": "2026-08-14T23:40:43Z",
+            "modifiedTime": "2026-08-14T23:40:43Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 3704,
+            "right": 2560,
+            "bottom": 5740,
+            "width": 2560,
+            "height": 2036
+          },
+          "offset": {
+            "x": 0,
+            "y": 3704
+          },
+          "originalInsets": {
+            "right": 0,
+            "bottom": 4052
+          },
+          "cropped": {
+            "width": 2560,
+            "height": 2036,
+            "bytes": 914531
+          }
+        },
+        {
+          "file": "cad_beam_color.png",
+          "nativeDirectoryIndex": 6,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 442482,
+            "birthTime": "2026-08-14T23:40:42Z",
+            "modifiedTime": "2026-08-14T23:40:42Z"
+          },
+          "cropBox": {
+            "left": 149,
+            "top": 4409,
+            "right": 2253,
+            "bottom": 4977,
+            "width": 2104,
+            "height": 568
+          },
+          "offset": {
+            "x": 149,
+            "y": 4409
+          },
+          "originalInsets": {
+            "right": 307,
+            "bottom": 4815
+          },
+          "cropped": {
+            "width": 2104,
+            "height": 568,
+            "bytes": 6872
+          }
+        },
+        {
+          "file": "cad_engine_front_right.png",
+          "nativeDirectoryIndex": 8,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 527875,
+            "birthTime": "2026-08-11T22:54:55Z",
+            "modifiedTime": "2026-08-11T23:00:23.358542Z"
+          },
+          "cropBox": {
+            "left": 2232,
+            "top": 4103,
+            "right": 2560,
+            "bottom": 5313,
+            "width": 328,
+            "height": 1210
+          },
+          "offset": {
+            "x": 2232,
+            "y": 4103
+          },
+          "originalInsets": {
+            "right": 0,
+            "bottom": 4479
+          },
+          "cropped": {
+            "width": 328,
+            "height": 1210,
+            "bytes": 40035
+          }
+        },
+        {
+          "file": "cad_back3.png",
+          "nativeDirectoryIndex": 9,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 450804,
+            "birthTime": "2026-08-11T22:54:52Z",
+            "modifiedTime": "2026-08-11T22:57:42.891867Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 4359,
+            "right": 1106,
+            "bottom": 4599,
+            "width": 1106,
+            "height": 240
+          },
+          "offset": {
+            "x": 0,
+            "y": 4359
+          },
+          "originalInsets": {
+            "right": 1454,
+            "bottom": 5193
+          },
+          "cropped": {
+            "width": 1106,
+            "height": 240,
+            "bytes": 7782
+          }
+        },
+        {
+          "file": "cad_top_structure.png",
+          "nativeDirectoryIndex": 10,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 442782,
+            "birthTime": "2026-08-11T22:54:57Z",
+            "modifiedTime": "2026-08-11T23:03:12.511797Z"
+          },
+          "cropBox": {
+            "left": 1567,
+            "top": 4070,
+            "right": 2560,
+            "bottom": 4173,
+            "width": 993,
+            "height": 103
+          },
+          "offset": {
+            "x": 1567,
+            "y": 4070
+          },
+          "originalInsets": {
+            "right": 0,
+            "bottom": 5619
+          },
+          "cropped": {
+            "width": 993,
+            "height": 103,
+            "bytes": 3358
+          }
+        },
+        {
+          "file": "cad_beam_add.png",
+          "nativeDirectoryIndex": 11,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 2034458,
+            "birthTime": "2026-08-14T23:40:42Z",
+            "modifiedTime": "2026-08-14T23:40:42Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 4286,
+            "right": 2560,
+            "bottom": 4927,
+            "width": 2560,
+            "height": 641
+          },
+          "offset": {
+            "x": 0,
+            "y": 4286
+          },
+          "originalInsets": {
+            "right": 0,
+            "bottom": 4865
+          },
+          "cropped": {
+            "width": 2560,
+            "height": 641,
+            "bytes": 1295110
+          }
+        },
+        {
+          "file": "cad_back2.png",
+          "nativeDirectoryIndex": 12,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 458070,
+            "birthTime": "2026-08-11T22:54:52Z",
+            "modifiedTime": "2026-08-11T22:57:23.297081Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 4607,
+            "right": 1291,
+            "bottom": 5008,
+            "width": 1291,
+            "height": 401
+          },
+          "offset": {
+            "x": 0,
+            "y": 4607
+          },
+          "originalInsets": {
+            "right": 1269,
+            "bottom": 4784
+          },
+          "cropped": {
+            "width": 1291,
+            "height": 401,
+            "bytes": 12415
+          }
+        },
+        {
+          "file": "cad_front_colordodge.png",
+          "nativeDirectoryIndex": 13,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 1448942,
+            "birthTime": "2026-08-11T22:54:58Z",
+            "modifiedTime": "2026-08-11T22:54:58Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 4116,
+            "right": 2517,
+            "bottom": 5181,
+            "width": 2517,
+            "height": 1065
+          },
+          "offset": {
+            "x": 0,
+            "y": 4116
+          },
+          "originalInsets": {
+            "right": 43,
+            "bottom": 4611
+          },
+          "cropped": {
+            "width": 2517,
+            "height": 1065,
+            "bytes": 799598
+          }
+        },
+        {
+          "file": "cad_title_shell.png",
+          "nativeDirectoryIndex": 14,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 454522,
+            "birthTime": "2026-08-11T22:54:57Z",
+            "modifiedTime": "2026-08-11T22:54:57Z"
+          },
+          "cropBox": {
+            "left": 1161,
+            "top": 4205,
+            "right": 1875,
+            "bottom": 4617,
+            "width": 714,
+            "height": 412
+          },
+          "offset": {
+            "x": 1161,
+            "y": 4205
+          },
+          "originalInsets": {
+            "right": 685,
+            "bottom": 5175
+          },
+          "cropped": {
+            "width": 714,
+            "height": 412,
+            "bytes": 10641
+          }
+        },
+        {
+          "file": "cad_back1.png",
+          "nativeDirectoryIndex": 15,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 484744,
+            "birthTime": "2026-08-11T22:54:52Z",
+            "modifiedTime": "2026-08-11T22:56:47.274553Z"
+          },
+          "cropBox": {
+            "left": 1233,
+            "top": 4617,
+            "right": 2560,
+            "bottom": 5071,
+            "width": 1327,
+            "height": 454
+          },
+          "offset": {
+            "x": 1233,
+            "y": 4617
+          },
+          "originalInsets": {
+            "right": 0,
+            "bottom": 4721
+          },
+          "cropped": {
+            "width": 1327,
+            "height": 454,
+            "bytes": 26512
+          }
+        },
+        {
+          "file": "cad_engine_center_left.png",
+          "nativeDirectoryIndex": 17,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 469277,
+            "birthTime": "2026-08-11T22:54:54Z",
+            "modifiedTime": "2026-08-11T22:59:04.105087Z"
+          },
+          "cropBox": {
+            "left": 63,
+            "top": 4366,
+            "right": 268,
+            "bottom": 5016,
+            "width": 205,
+            "height": 650
+          },
+          "offset": {
+            "x": 63,
+            "y": 4366
+          },
+          "originalInsets": {
+            "right": 2292,
+            "bottom": 4776
+          },
+          "cropped": {
+            "width": 205,
+            "height": 650,
+            "bytes": 13929
+          }
+        },
+        {
+          "file": "cad_title_colordodge.png",
+          "nativeDirectoryIndex": 18,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 718700,
+            "birthTime": "2026-08-11T22:54:57Z",
+            "modifiedTime": "2026-08-11T22:54:57Z"
+          },
+          "cropBox": {
+            "left": 1152,
+            "top": 4210,
+            "right": 1878,
+            "bottom": 4620,
+            "width": 726,
+            "height": 410
+          },
+          "offset": {
+            "x": 1152,
+            "y": 4210
+          },
+          "originalInsets": {
+            "right": 682,
+            "bottom": 5172
+          },
+          "cropped": {
+            "width": 726,
+            "height": 410,
+            "bytes": 217765
+          }
+        },
+        {
+          "file": "cad_desk.png",
+          "nativeDirectoryIndex": 19,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 489275,
+            "birthTime": "2026-08-11T22:54:57Z",
+            "modifiedTime": "2026-08-11T23:02:57.333622Z"
+          },
+          "cropBox": {
+            "left": 1003,
+            "top": 4581,
+            "right": 2560,
+            "bottom": 5676,
+            "width": 1557,
+            "height": 1095
+          },
+          "offset": {
+            "x": 1003,
+            "y": 4581
+          },
+          "originalInsets": {
+            "right": 0,
+            "bottom": 4116
+          },
+          "cropped": {
+            "width": 1557,
+            "height": 1095,
+            "bytes": 36461
+          }
+        },
+        {
+          "file": "cad_engine_back_right.png",
+          "nativeDirectoryIndex": 20,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 489009,
+            "birthTime": "2026-08-11T22:54:53Z",
+            "modifiedTime": "2026-08-11T22:58:30.141382Z"
+          },
+          "cropBox": {
+            "left": 2148,
+            "top": 4152,
+            "right": 2360,
+            "bottom": 5263,
+            "width": 212,
+            "height": 1111
+          },
+          "offset": {
+            "x": 2148,
+            "y": 4152
+          },
+          "originalInsets": {
+            "right": 200,
+            "bottom": 4529
+          },
+          "cropped": {
+            "width": 212,
+            "height": 1111,
+            "bytes": 19766
+          }
+        },
+        {
+          "file": "cad_engine_back_left.png",
+          "nativeDirectoryIndex": 21,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 462726,
+            "birthTime": "2026-08-11T22:54:53Z",
+            "modifiedTime": "2026-08-11T22:58:34.255054Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 4298,
+            "right": 234,
+            "bottom": 5077,
+            "width": 234,
+            "height": 779
+          },
+          "offset": {
+            "x": 0,
+            "y": 4298
+          },
+          "originalInsets": {
+            "right": 2326,
+            "bottom": 4715
+          },
+          "cropped": {
+            "width": 234,
+            "height": 779,
+            "bytes": 11364
+          }
+        },
+        {
+          "file": "cad_title_add.png",
+          "nativeDirectoryIndex": 22,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 549911,
+            "birthTime": "2026-08-11T22:54:56Z",
+            "modifiedTime": "2026-08-11T22:54:56Z"
+          },
+          "cropBox": {
+            "left": 1170,
+            "top": 4230,
+            "right": 1860,
+            "bottom": 4600,
+            "width": 690,
+            "height": 370
+          },
+          "offset": {
+            "x": 1170,
+            "y": 4230
+          },
+          "originalInsets": {
+            "right": 700,
+            "bottom": 5192
+          },
+          "cropped": {
+            "width": 690,
+            "height": 370,
+            "bytes": 92150
+          }
+        },
+        {
+          "file": "cad_left_structure2.png",
+          "nativeDirectoryIndex": 23,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 451208,
+            "birthTime": "2026-08-11T22:54:57Z",
+            "modifiedTime": "2026-08-11T23:03:56.732198Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 4896,
+            "right": 769,
+            "bottom": 5250,
+            "width": 769,
+            "height": 354
+          },
+          "offset": {
+            "x": 0,
+            "y": 4896
+          },
+          "originalInsets": {
+            "right": 1791,
+            "bottom": 4542
+          },
+          "cropped": {
+            "width": 769,
+            "height": 354,
+            "bytes": 8227
+          }
+        },
+        {
+          "file": "cad_left_structure1.png",
+          "nativeDirectoryIndex": 24,
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 447312,
+            "birthTime": "2026-08-11T22:54:57Z",
+            "modifiedTime": "2026-08-11T23:03:31.882389Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 4498,
+            "right": 863,
+            "bottom": 4746,
+            "width": 863,
+            "height": 248
+          },
+          "offset": {
+            "x": 0,
+            "y": 4498
+          },
+          "originalInsets": {
+            "right": 1697,
+            "bottom": 5046
+          },
+          "cropped": {
+            "width": 863,
+            "height": 248,
+            "bytes": 6390
+          }
+        }
+      ]
+    },
+    "journal": {
+      "path": "assets/images/site/journal",
+      "nativeDirectoryOrderBeforeCrop": [
+        "journal_grass.png",
+        "journal_tree.png",
+        "journal_splotches.png",
+        "journal_leaffront.png",
+        "journal_leafback1.png",
+        "journal_overlay.png",
+        "journal_leafback2.png",
+        "journal_add.png",
+        "journal_character.png",
+        "journal_waterfall.png",
+        "journal_grass_detail.png",
+        "journal_book.png",
+        "journal_flowers.png",
+        "journal_title.png",
+        "journal_rocks.png"
+      ],
+      "sprites": [
+        {
+          "file": "journal_grass.png",
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 561534,
+            "birthTime": "2026-08-13T20:57:26Z",
+            "modifiedTime": "2026-08-13T20:57:26Z"
+          },
+          "cropBox": {
+            "left": 202,
+            "top": 6574,
+            "right": 1520,
+            "bottom": 6978,
+            "width": 1318,
+            "height": 404
+          },
+          "offset": {
+            "x": 202,
+            "y": 6574
+          },
+          "originalInsets": {
+            "right": 1040,
+            "bottom": 2814
+          },
+          "cropped": {
+            "width": 1318,
+            "height": 404,
+            "bytes": 68317
+          },
+          "nativeDirectoryIndex": 0
+        },
+        {
+          "file": "journal_tree.png",
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 567368,
+            "birthTime": "2026-08-13T20:57:27Z",
+            "modifiedTime": "2026-08-13T20:57:27Z"
+          },
+          "cropBox": {
+            "left": 26,
+            "top": 5501,
+            "right": 1290,
+            "bottom": 6892,
+            "width": 1264,
+            "height": 1391
+          },
+          "offset": {
+            "x": 26,
+            "y": 5501
+          },
+          "originalInsets": {
+            "right": 1270,
+            "bottom": 2900
+          },
+          "cropped": {
+            "width": 1264,
+            "height": 1391,
+            "bytes": 65468
+          },
+          "nativeDirectoryIndex": 1
+        },
+        {
+          "file": "journal_splotches.png",
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 494036,
+            "birthTime": "2026-08-13T20:57:25Z",
+            "modifiedTime": "2026-08-13T20:57:25Z"
+          },
+          "cropBox": {
+            "left": 949,
+            "top": 6120,
+            "right": 2042,
+            "bottom": 6745,
+            "width": 1093,
+            "height": 625
+          },
+          "offset": {
+            "x": 949,
+            "y": 6120
+          },
+          "originalInsets": {
+            "right": 518,
+            "bottom": 3047
+          },
+          "cropped": {
+            "width": 1093,
+            "height": 625,
+            "bytes": 29702
+          },
+          "nativeDirectoryIndex": 2
+        },
+        {
+          "file": "journal_leaffront.png",
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 554927,
+            "birthTime": "2026-08-13T20:57:27Z",
+            "modifiedTime": "2026-08-13T20:57:27Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 5408,
+            "right": 1280,
+            "bottom": 6230,
+            "width": 1280,
+            "height": 822
+          },
+          "offset": {
+            "x": 0,
+            "y": 5408
+          },
+          "originalInsets": {
+            "right": 1280,
+            "bottom": 3562
+          },
+          "cropped": {
+            "width": 1280,
+            "height": 822,
+            "bytes": 59356
+          },
+          "nativeDirectoryIndex": 3
+        },
+        {
+          "file": "journal_leafback1.png",
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 499505,
+            "birthTime": "2026-08-13T20:57:26Z",
+            "modifiedTime": "2026-08-13T20:57:26Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 5429,
+            "right": 1455,
+            "bottom": 6005,
+            "width": 1455,
+            "height": 576
+          },
+          "offset": {
+            "x": 0,
+            "y": 5429
+          },
+          "originalInsets": {
+            "right": 1105,
+            "bottom": 3787
+          },
+          "cropped": {
+            "width": 1455,
+            "height": 576,
+            "bytes": 33654
+          },
+          "nativeDirectoryIndex": 4
+        },
+        {
+          "file": "journal_overlay.png",
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 1242562,
+            "birthTime": "2026-08-13T20:57:29Z",
+            "modifiedTime": "2026-08-13T20:57:29Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 6098,
+            "right": 655,
+            "bottom": 7066,
+            "width": 655,
+            "height": 968
+          },
+          "offset": {
+            "x": 0,
+            "y": 6098
+          },
+          "originalInsets": {
+            "right": 1905,
+            "bottom": 2726
+          },
+          "cropped": {
+            "width": 655,
+            "height": 968,
+            "bytes": 537775
+          },
+          "nativeDirectoryIndex": 5
+        },
+        {
+          "file": "journal_leafback2.png",
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 507723,
+            "birthTime": "2026-08-13T20:57:27Z",
+            "modifiedTime": "2026-08-13T20:57:27Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 5361,
+            "right": 1102,
+            "bottom": 6079,
+            "width": 1102,
+            "height": 718
+          },
+          "offset": {
+            "x": 0,
+            "y": 5361
+          },
+          "originalInsets": {
+            "right": 1458,
+            "bottom": 3713
+          },
+          "cropped": {
+            "width": 1102,
+            "height": 718,
+            "bytes": 34949
+          },
+          "nativeDirectoryIndex": 6
+        },
+        {
+          "file": "journal_add.png",
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 3840166,
+            "birthTime": "2026-08-13T20:57:30Z",
+            "modifiedTime": "2026-08-13T20:57:30Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 5151,
+            "right": 2025,
+            "bottom": 7714,
+            "width": 2025,
+            "height": 2563
+          },
+          "offset": {
+            "x": 0,
+            "y": 5151
+          },
+          "originalInsets": {
+            "right": 535,
+            "bottom": 2078
+          },
+          "cropped": {
+            "width": 2025,
+            "height": 2563,
+            "bytes": 2510406
+          },
+          "nativeDirectoryIndex": 7
+        },
+        {
+          "file": "journal_character.png",
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 504005,
+            "birthTime": "2026-08-13T20:57:28Z",
+            "modifiedTime": "2026-08-13T20:57:28Z"
+          },
+          "cropBox": {
+            "left": 444,
+            "top": 6146,
+            "right": 963,
+            "bottom": 6751,
+            "width": 519,
+            "height": 605
+          },
+          "offset": {
+            "x": 444,
+            "y": 6146
+          },
+          "originalInsets": {
+            "right": 1597,
+            "bottom": 3041
+          },
+          "cropped": {
+            "width": 519,
+            "height": 605,
+            "bytes": 29491
+          },
+          "nativeDirectoryIndex": 8
+        },
+        {
+          "file": "journal_waterfall.png",
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 532945,
+            "birthTime": "2026-08-13T20:57:28Z",
+            "modifiedTime": "2026-08-13T20:57:28Z"
+          },
+          "cropBox": {
+            "left": 407,
+            "top": 6341,
+            "right": 1528,
+            "bottom": 7359,
+            "width": 1121,
+            "height": 1018
+          },
+          "offset": {
+            "x": 407,
+            "y": 6341
+          },
+          "originalInsets": {
+            "right": 1032,
+            "bottom": 2433
+          },
+          "cropped": {
+            "width": 1121,
+            "height": 1018,
+            "bytes": 52015
+          },
+          "nativeDirectoryIndex": 9
+        },
+        {
+          "file": "journal_grass_detail.png",
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 460265,
+            "birthTime": "2026-08-13T20:57:29Z",
+            "modifiedTime": "2026-08-13T20:57:29Z"
+          },
+          "cropBox": {
+            "left": 327,
+            "top": 6670,
+            "right": 1428,
+            "bottom": 6825,
+            "width": 1101,
+            "height": 155
+          },
+          "offset": {
+            "x": 327,
+            "y": 6670
+          },
+          "originalInsets": {
+            "right": 1132,
+            "bottom": 2967
+          },
+          "cropped": {
+            "width": 1101,
+            "height": 155,
+            "bytes": 14472
+          },
+          "nativeDirectoryIndex": 10
+        },
+        {
+          "file": "journal_book.png",
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 572923,
+            "birthTime": "2026-08-13T20:57:26Z",
+            "modifiedTime": "2026-08-13T20:57:26Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 6273,
+            "right": 1331,
+            "bottom": 7252,
+            "width": 1331,
+            "height": 979
+          },
+          "offset": {
+            "x": 0,
+            "y": 6273
+          },
+          "originalInsets": {
+            "right": 1229,
+            "bottom": 2540
+          },
+          "cropped": {
+            "width": 1331,
+            "height": 979,
+            "bytes": 58609
+          },
+          "nativeDirectoryIndex": 11
+        },
+        {
+          "file": "journal_flowers.png",
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 445079,
+            "birthTime": "2026-08-13T20:57:28Z",
+            "modifiedTime": "2026-08-13T20:57:28Z"
+          },
+          "cropBox": {
+            "left": 922,
+            "top": 6508,
+            "right": 1179,
+            "bottom": 6678,
+            "width": 257,
+            "height": 170
+          },
+          "offset": {
+            "x": 922,
+            "y": 6508
+          },
+          "originalInsets": {
+            "right": 1381,
+            "bottom": 3114
+          },
+          "cropped": {
+            "width": 257,
+            "height": 170,
+            "bytes": 3449
+          },
+          "nativeDirectoryIndex": 12
+        },
+        {
+          "file": "journal_title.png",
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 486155,
+            "birthTime": "2026-08-13T20:57:28Z",
+            "modifiedTime": "2026-08-13T20:57:28Z"
+          },
+          "cropBox": {
+            "left": 1001,
+            "top": 6078,
+            "right": 1976,
+            "bottom": 6471,
+            "width": 975,
+            "height": 393
+          },
+          "offset": {
+            "x": 1001,
+            "y": 6078
+          },
+          "originalInsets": {
+            "right": 584,
+            "bottom": 3321
+          },
+          "cropped": {
+            "width": 975,
+            "height": 393,
+            "bytes": 23747
+          },
+          "nativeDirectoryIndex": 13
+        },
+        {
+          "file": "journal_rocks.png",
+          "original": {
+            "width": 2560,
+            "height": 9792,
+            "bytes": 505322,
+            "birthTime": "2026-08-13T20:57:29Z",
+            "modifiedTime": "2026-08-13T20:57:29Z"
+          },
+          "cropBox": {
+            "left": 255,
+            "top": 6540,
+            "right": 1537,
+            "bottom": 7310,
+            "width": 1282,
+            "height": 770
+          },
+          "offset": {
+            "x": 255,
+            "y": 6540
+          },
+          "originalInsets": {
+            "right": 1023,
+            "bottom": 2482
+          },
+          "cropped": {
+            "width": 1282,
+            "height": 770,
+            "bytes": 36554
+          },
+          "nativeDirectoryIndex": 14
+        }
+      ]
+    }
+  }
+}

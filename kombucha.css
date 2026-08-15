@@ -1,8 +1,8 @@
 /* quick customization */
 	:root {
 		--width: 900px; /* sets the maximum width of the middle section */
-		--headingfont: "Georgia"; 
-		--bodyfont: "Verdana"; 
+		--headingfont: "Georgia";
+		--bodyfont: "Verdana";
 		--borderwidth: 0;
 		--borderstyle: solid;
 	}
@@ -26,103 +26,160 @@
 			--bgimage: linear-gradient(var(--link),var(--border)); /* you could also use an image! formatting: url("example.png") */
 		}
 	}
-	
-/* page layout */ 	
-	* { 
+
+/* page layout */
+	* {
 		scrollbar-color: var(--link) var(--border);
 		box-sizing: border-box;
 		max-width: 100%; /* so everything adjusts on smaller screens */
 	}
-	body { 
+	body {
 		margin: 0; padding: 0;
 		color: var(--text);
 		background: var(--border) var(--bgimage);
 		background-attachment: fixed;
 		font-family: var(--bodyfont), sans-serif;
 	}
-	.container { 
+	.container {
 		--page-pad: calc(2.25rem + 1vw);
 		max-width: var(--width);
 		min-height: 100vh;
 		margin: 0 auto;
-		padding: 1rem var(--page-pad); 
-		background: var(--section); 
+		padding: 1rem var(--page-pad);
+		background: var(--section);
 	}
-	main { 
+	main {
 		margin: 1rem 0;
 	}
-	nav { 
+	nav {
 		margin: 1.5rem 0 1rem 0;
 		padding: 0.5rem 0 1rem 0;
 		border-top: var(--borderwidth) var(--borderstyle) var(--border);
 		border-bottom: var(--borderwidth) var(--borderstyle) var(--border);
 	}
-	nav li { 
+	nav li {
 		margin: 0.25rem;
 	}
 	footer {
 		padding: 1rem 0 1.5rem 0;
 	}
-	hr { 
+	hr {
 		border: 0;
 		border-top: var(--borderwidth) var(--borderstyle) var(--border);
 	}
-	.container > ul, footer p { 
+	.container > ul, footer p {
 		margin: 0;
 		padding: 0;
 		text-align: right;
 	}
-	.container > ul li { 
+	.container > ul li {
 		list-style-type: none;
 		display: inline-block;
 		padding: 0 0.5rem;
 	}
 
 /* homepage */
+	body.home-page {
+		--site-gradient: linear-gradient(
+			180deg,
+			#f3996d 0%,
+			#f39270 14.29%,
+			#e8767f 28.57%,
+			#d955a1 42.86%,
+			#b647c4 57.14%,
+			#8952d4 71.43%,
+			#7354d8 85.71%,
+			#6e4fd8 100%
+		);
+		--gradient-shader-opacity: 0.58;
+		--gradient-shader-resolution-scale: 0.72;
+		--gradient-shader-fps: 30;
+		--gradient-current-speed: 0.62;
+		--gradient-current-scale: 1;
+		--gradient-current-strength: 1;
+		overflow-x: hidden;
+		background: #01040f;
+		background-attachment: scroll;
+	}
 	.home-page .container {
+		--page-pad: calc(2.25rem + 1vw);
 		display: flex;
 		flex-direction: column;
+		max-width: none;
+		margin: 0;
+		padding: 0;
+		background: transparent;
 		overflow: visible;
 	}
 	.home-main {
+		position: relative;
 		flex: 1;
-		margin: 1.5rem 0 0;
+		margin: 0;
+		background: var(--site-gradient);
 	}
-	.home-intro {
-		padding: 2rem 0 1rem;
-	}
-	.home-intro h1 {
-		font-size: 2rem;
-		overflow-wrap: anywhere;
-	}
-	.home-kicker {
-		max-width: 42rem;
-		margin: 0 0 1rem;
-		font-size: 1.05rem;
+	.home-gradient-shader {
+		position: fixed;
+		inset: 0;
+		z-index: 0;
+		display: block;
+		width: 100vw;
+		height: 100vh;
+		max-width: none;
+		opacity: var(--gradient-shader-opacity);
+		pointer-events: none;
 	}
 	.home-artwork {
-		margin: 1rem calc(50% - 50vw) 4rem;
+		/* Increase these if manual layer placement pushes sprites beyond the art section. */
+		--artwork-overflow-top: 26vw;
+		--artwork-overflow-bottom: 82vw;
+		--artwork-navy-fade-start: 44%;
+		--artwork-navy-fade-end: 64%;
+		position: relative;
+		z-index: 1;
+		isolation: isolate;
+		margin: 0;
+		padding: var(--artwork-overflow-top) 0 var(--artwork-overflow-bottom);
 		width: 100vw;
 		max-width: none;
-		overflow: clip;
+		overflow: visible;
+		pointer-events: none;
+		background: transparent;
+	}
+	.home-artwork::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		display: block;
+		max-width: none;
+		background: linear-gradient(
+			180deg,
+			#01040f 0%,
+			#020817 var(--artwork-navy-fade-start),
+			rgba(7, 20, 33, 0) var(--artwork-navy-fade-end)
+		);
 		pointer-events: none;
 	}
 	.home-artwork__stage {
 		position: relative;
+		z-index: 1;
 		aspect-ratio: 2560 / 3263;
 		width: 100%;
-		overflow: hidden;
-		background: var(--text);
+		overflow: visible;
+		background: transparent;
 		isolation: isolate;
 	}
 	.home-artwork__layer {
+		--layer-x: 0%;
+		--layer-y: 0%;
+		--layer-width: 100%;
 		position: absolute;
-		top: 0;
-		left: 0;
+		top: var(--layer-y);
+		left: var(--layer-x);
 		z-index: 1;
 		display: block;
-		width: 100%;
-		height: 100%;
+		width: var(--layer-width);
+		height: auto;
 		max-width: none;
 		object-fit: contain;
 		object-position: center center;
@@ -130,8 +187,63 @@
 		transform: translate3d(0, 0, 0);
 		will-change: transform;
 	}
+	/* Manual parallax layer placement.
+	   X/Y are percentages of the artwork stage. Width is relative to viewport/stage width. */
+	.home-artwork__layer--bg {
+		--layer-x: 0%;
+		--layer-y: 0%;
+		--layer-width: 100%;
+	}
+	.home-artwork__layer--arch {
+		--layer-x: 0%;
+		--layer-y: 0%;
+		--layer-width: 100%;
+	}
+	.home-artwork__layer--water {
+		--layer-x: 0%;
+		--layer-y: 80%;
+		--layer-width: 100%;
+	}
+	.home-artwork__layer--statue {
+		--layer-x: 34%;
+		--layer-y: 25%;
+		--layer-width: 31.5%;
+	}
+	.home-artwork__layer--water2 {
+		--layer-x: 0%;
+		--layer-y: 82%;
+		--layer-width: 100%;
+	}
+	.home-artwork__layer--water3 {
+		--layer-x: 0%;
+		--layer-y: 90%;
+		--layer-width: 100%;
+	}
+	.home-artwork__layer--arch2 {
+		--layer-x: 0%;
+		--layer-y: -21%;
+		--layer-width: 100%;
+	}
+	.home-artwork__layer--water4 {
+		--layer-x: 0%;
+		--layer-y: 96%;
+		--layer-width: 100%;
+	}
+	.home-artwork__layer--separation {
+		--layer-x: 0%;
+		--layer-y: 105%;
+		--layer-width: 100%;
+	}
 	.home-directory {
-		margin: 2rem 0 3rem;
+		position: relative;
+		z-index: 1;
+		margin: 0;
+		padding: clamp(4rem, 10vw, 9rem) 0 clamp(4rem, 10vw, 8rem);
+		width: 100vw;
+		max-width: none;
+		overflow-x: clip;
+		overflow-y: visible;
+		background: transparent;
 	}
 	.home-card-grid {
 		display: grid;
@@ -139,9 +251,438 @@
 		gap: clamp(4rem, 12vh, 7rem);
 		width: 100vw;
 		max-width: none;
-		margin-left: calc(50% - 50vw);
+		margin: 0;
 		overflow-x: clip;
 		overflow-y: visible;
+	}
+	.art-sprite-card {
+		--art-source-width: 2560;
+		--art-source-height: 1800;
+		--art-source-x: 0;
+		--art-source-y: 2200;
+		/* Moves the whole clickable Art card, including hover/click detection. */
+		--art-card-shift-y: -500px;
+		--art-card-rest-x: -30px;
+		--art-motion-ease: cubic-bezier(0.16, 0.92, 0.18, 1);
+		--art-move-base-duration: 1100ms;
+		--art-move-duration-spread: 420ms;
+		--art-hidden-fade-duration: 440ms;
+		--art-regular-fade-duration: 360ms;
+		--art-splotches-move-duration: 1300ms;
+		--art-splotches-fade-ratio: 0.25;
+		--art-stagger-ms: 14;
+		--art-float-settle-duration: 520ms;
+		--art-star-jitter-amplitude: 5;
+		--art-triangle-jitter-amplitude: 2.5;
+		--art-triangle-drift-amplitude: 10;
+		--art-letter-sway-amplitude: 5;
+		--art-letter-sway-period: 2600;
+		--art-letter-sway-motion-duration: 1900;
+		--art-sun-moon-bob-amplitude: 5;
+		--art-card-parallax-range: 76px;
+		--art-card-parallax-min-strength: 0.18;
+		--art-card-parallax-max-strength: 1;
+		--art-hitbox-top: 150px;
+		--art-hitbox-right: 33.333vw;
+		--art-hitbox-bottom: 150px;
+		--art-hitbox-left: 0px;
+		position: relative;
+		display: block;
+		justify-self: start;
+		width: 100vw;
+		max-width: none;
+		aspect-ratio: var(--art-source-width) / var(--art-source-height);
+		overflow: visible;
+		text-decoration: none;
+		transform: translate3d(0, var(--art-card-shift-y), 0);
+		transform-origin: left top;
+		isolation: isolate;
+		will-change: transform;
+		pointer-events: none;
+	}
+	.art-sprite-card:focus-visible {
+		outline: 3px solid rgba(255, 253, 237, 0.9);
+		outline-offset: -3px;
+	}
+	.art-sprite-card__scene {
+		position: absolute;
+		inset: 0;
+		display: block;
+		max-width: none;
+		pointer-events: none;
+	}
+	.art-sprite-card__sprite {
+		position: absolute;
+		left: var(--sprite-left);
+		top: var(--sprite-top);
+		z-index: var(--sprite-z);
+		display: block;
+		width: var(--sprite-width);
+		height: auto;
+		max-width: none;
+		opacity: var(--sprite-rest-opacity, 1);
+		mix-blend-mode: var(--sprite-blend, normal);
+		pointer-events: none;
+		transform: translate3d(var(--art-card-rest-x), var(--sprite-rest-y, 0px), 0) rotate(var(--sprite-rest-rotate, 0deg)) scale(var(--sprite-rest-scale, 1));
+		transform-origin: center center;
+		transition-property: transform, opacity;
+		transition-duration: var(--sprite-move-duration, 680ms), var(--sprite-fade-duration, 280ms);
+		transition-timing-function: var(--art-motion-ease), ease;
+		transition-delay: var(--sprite-out-delay, 0ms), var(--sprite-out-delay, 0ms);
+		will-change: transform, opacity;
+	}
+	.art-sprite-card__parallax {
+		display: block;
+		width: 100%;
+		height: auto;
+		max-width: none;
+		transform: translate3d(0, var(--sprite-parallax-y, 0px), 0);
+		will-change: transform;
+	}
+	.art-sprite-card__sprite-image {
+		display: block;
+		width: 100%;
+		height: auto;
+		max-width: none;
+		transform: translate3d(var(--sprite-float-x, 0px), var(--sprite-float-y, 0px), 0);
+		transition: transform var(--art-float-settle-duration) var(--art-motion-ease);
+		will-change: transform;
+	}
+	.art-sprite-card__hitbox {
+		position: absolute;
+		top: var(--art-hitbox-top);
+		right: var(--art-hitbox-right);
+		bottom: var(--art-hitbox-bottom);
+		left: var(--art-hitbox-left);
+		z-index: 10000;
+		display: block;
+		max-width: none;
+		cursor: pointer;
+		pointer-events: auto;
+	}
+	.art-sprite-card.is-hovered .art-sprite-card__sprite,
+	.art-sprite-card:focus-visible .art-sprite-card__sprite {
+		opacity: var(--sprite-hover-opacity, 1);
+		transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+		transition-delay: var(--sprite-in-delay, 0ms), var(--sprite-in-delay, 0ms);
+	}
+	.art-sprite-card__fallback {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		padding: 0;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
+	}
+	.cad-sprite-card {
+		--cad-source-width: 2560;
+		--cad-source-height: 2039;
+		--cad-source-x: 0;
+		--cad-source-y: 3702;
+		--cad-unit: calc(100vw / var(--cad-source-width));
+		/* Places CAD visually about 200px below the shifted Art card. */
+		--cad-card-shift-y: -750px;
+		--cad-rest-left-x: -40px;
+		--cad-rest-right-x: 40px;
+		--cad-motion-ease: cubic-bezier(0.42, 0, 0.58, 1);
+		--cad-motion-return-ease: var(--cad-motion-ease);
+		--cad-move-duration: 1320ms;
+		--cad-engine-center-move-duration: 1680ms;
+		--cad-back-move-delay: 0ms;
+		--cad-front-move-delay: 120ms;
+		--cad-center-move-delay: 540ms;
+		--cad-engine-move-delay: 540ms;
+		--cad-center-move-out-delay: 560ms;
+		--cad-engine-move-out-delay: 1180ms;
+		--cad-front-move-out-delay: 1640ms;
+		--cad-back-move-out-delay: 1760ms;
+		--cad-effect-delay: 1860ms;
+		--cad-effect-fade-duration: 560ms;
+		--cad-effect-flicker-out-duration: 520ms;
+		--cad-hover-flicker-duration: 1800ms;
+		--cad-leave-animation-window: 3200ms;
+		--cad-card-parallax-range: 64px;
+		--cad-parallax-front-strength: 0.22;
+		--cad-parallax-title-strength: 0.55;
+		--cad-parallax-engine-strength: 0.68;
+		--cad-parallax-back-strength: 0.85;
+		--cad-parallax-fallback-strength: 0.4;
+		--cad-hitbox-top: 250px;
+		--cad-hitbox-right: 0px;
+		--cad-hitbox-bottom: 250px;
+		--cad-hitbox-left: 0px;
+		position: relative;
+		display: block;
+		justify-self: end;
+		width: 100vw;
+		max-width: none;
+		aspect-ratio: var(--cad-source-width) / var(--cad-source-height);
+		overflow: visible;
+		text-decoration: none;
+		transform: translate3d(0, var(--cad-card-shift-y), 0);
+		transform-origin: right top;
+		isolation: isolate;
+		will-change: transform;
+		pointer-events: none;
+	}
+	.cad-sprite-card:focus-visible {
+		outline: 3px solid rgba(255, 253, 237, 0.9);
+		outline-offset: -3px;
+	}
+	.cad-sprite-card__scene {
+		position: absolute;
+		inset: 0;
+		display: block;
+		max-width: none;
+		pointer-events: none;
+	}
+	.cad-sprite-card__sprite {
+		position: absolute;
+		left: calc(var(--sprite-left) * var(--cad-unit));
+		top: calc(var(--sprite-top) * var(--cad-unit));
+		z-index: var(--sprite-z);
+		display: block;
+		width: calc(var(--sprite-width) * var(--cad-unit));
+		height: calc(var(--sprite-height) * var(--cad-unit));
+		max-width: none;
+		opacity: var(--sprite-rest-opacity, 1);
+		mix-blend-mode: var(--sprite-blend, normal);
+		pointer-events: none;
+		transform: translate3d(var(--sprite-rest-x, 0px), 0, 0);
+		transform-origin: center center;
+		transition-property: transform, opacity;
+		transition-duration: var(--sprite-move-duration, var(--cad-move-duration)), var(--sprite-fade-duration, var(--cad-effect-fade-duration));
+		transition-timing-function: var(--cad-motion-return-ease), ease;
+		transition-delay: var(--sprite-move-out-delay, 0ms), var(--sprite-out-delay, 0ms);
+		animation: none;
+		will-change: transform, opacity;
+	}
+	.cad-sprite-card__parallax {
+		display: block;
+		width: 100%;
+		height: 100%;
+		max-width: none;
+		transform: translate3d(0, var(--sprite-parallax-y, 0px), 0);
+		will-change: transform;
+	}
+	.cad-sprite-card__parallax.is-masked {
+		-webkit-mask-image: var(--sprite-mask-image);
+		mask-image: var(--sprite-mask-image);
+		-webkit-mask-position: var(--sprite-mask-position);
+		mask-position: var(--sprite-mask-position);
+		-webkit-mask-size: var(--sprite-mask-size);
+		mask-size: var(--sprite-mask-size);
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+	}
+	.cad-sprite-card__sprite-image {
+		display: block;
+		width: 100%;
+		height: 100%;
+		max-width: none;
+	}
+	.cad-sprite-card__hitbox {
+		position: absolute;
+		top: var(--cad-hitbox-top);
+		right: var(--cad-hitbox-right);
+		bottom: var(--cad-hitbox-bottom);
+		left: var(--cad-hitbox-left);
+		z-index: 10000;
+		display: block;
+		max-width: none;
+		cursor: pointer;
+		pointer-events: auto;
+	}
+	.cad-sprite-card:focus-visible .cad-sprite-card__sprite,
+	.cad-sprite-card.is-hovered .cad-sprite-card__sprite {
+		opacity: var(--sprite-hover-opacity, 1);
+		transform: translate3d(0, 0, 0);
+		transition-timing-function: var(--cad-motion-return-ease), ease;
+		transition-delay: var(--sprite-move-in-delay, 0ms), var(--sprite-in-delay, 0ms);
+	}
+	.cad-sprite-card:focus-visible .cad-sprite-card__sprite.is-flicker-in,
+	.cad-sprite-card.is-hovered .cad-sprite-card__sprite.is-flicker-in {
+		animation: cad-flicker-in var(--sprite-fade-duration, var(--cad-effect-fade-duration)) steps(1, end) var(--sprite-in-delay, 0ms) both;
+	}
+	.cad-sprite-card:focus-visible .cad-sprite-card__sprite.is-strong-hover-flicker,
+	.cad-sprite-card.is-hovered .cad-sprite-card__sprite.is-strong-hover-flicker {
+		animation:
+			cad-flicker-in var(--sprite-fade-duration, var(--cad-effect-fade-duration)) steps(1, end) var(--sprite-in-delay, 0ms) both,
+			cad-hover-flicker-strong var(--cad-hover-flicker-duration) ease-in-out var(--sprite-loop-delay, 0ms) infinite;
+	}
+	.cad-sprite-card:focus-visible .cad-sprite-card__sprite.is-soft-hover-flicker,
+	.cad-sprite-card.is-hovered .cad-sprite-card__sprite.is-soft-hover-flicker {
+		animation:
+			cad-flicker-in var(--sprite-fade-duration, var(--cad-effect-fade-duration)) steps(1, end) var(--sprite-in-delay, 0ms) both,
+			cad-hover-flicker-soft var(--cad-hover-flicker-duration) ease-in-out var(--sprite-loop-delay, 0ms) infinite;
+	}
+	.cad-sprite-card.is-leaving .cad-sprite-card__sprite.is-hover-only {
+		animation: cad-flicker-out var(--cad-effect-flicker-out-duration) steps(1, end) 0ms both;
+	}
+	.cad-sprite-card__fallback {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		padding: 0;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
+	}
+	.journal-sprite-card {
+		--journal-source-width: 2560;
+		--journal-source-height: 2563;
+		--journal-source-x: 0;
+		--journal-source-y: 5151;
+		--journal-unit: calc(100vw / var(--journal-source-width));
+		--journal-card-shift-y: -1100px;
+		--journal-card-rest-x: -30px;
+		--journal-motion-ease: cubic-bezier(0.16, 0.92, 0.18, 1);
+		--journal-motion-return-ease: cubic-bezier(0.42, 0, 0.58, 1);
+		--journal-move-duration: 1200ms;
+		--journal-locked-move-duration: var(--journal-move-duration);
+		--journal-late-move-duration: var(--journal-move-duration);
+		--journal-fade-duration: 520ms;
+		--journal-regular-move-delay: 0ms;
+		--journal-locked-move-delay: var(--journal-regular-move-delay);
+		--journal-rocks-move-delay: 160ms;
+		--journal-splotches-move-delay: 300ms;
+		--journal-title-move-delay: 440ms;
+		--journal-regular-move-out-delay: 440ms;
+		--journal-rocks-move-out-delay: 280ms;
+		--journal-splotches-move-out-delay: 140ms;
+		--journal-title-move-out-delay: 0ms;
+		--journal-effect-fade-in-delay: 0ms;
+		--journal-effect-fade-out-delay: 0ms;
+		--journal-hitbox-top: 200px;
+		--journal-hitbox-right: 400px;
+		--journal-hitbox-bottom: 400px;
+		--journal-hitbox-left: 0px;
+		position: relative;
+		display: block;
+		justify-self: start;
+		width: 100vw;
+		max-width: none;
+		aspect-ratio: var(--journal-source-width) / var(--journal-source-height);
+		overflow: visible;
+		text-decoration: none;
+		transform: translate3d(0, var(--journal-card-shift-y), 0);
+		transform-origin: left top;
+		isolation: isolate;
+		will-change: transform;
+		pointer-events: none;
+	}
+	.journal-sprite-card:focus-visible {
+		outline: 3px solid rgba(255, 253, 237, 0.9);
+		outline-offset: -3px;
+	}
+	.journal-sprite-card__scene {
+		position: absolute;
+		inset: 0;
+		display: block;
+		max-width: none;
+		pointer-events: none;
+	}
+	.journal-sprite-card__sprite {
+		position: absolute;
+		left: calc(var(--sprite-left) * var(--journal-unit));
+		top: calc(var(--sprite-top) * var(--journal-unit));
+		z-index: var(--sprite-z);
+		display: block;
+		width: calc(var(--sprite-width) * var(--journal-unit));
+		height: calc(var(--sprite-height) * var(--journal-unit));
+		max-width: none;
+		opacity: var(--sprite-rest-opacity, 1);
+		mix-blend-mode: var(--sprite-blend, normal);
+		pointer-events: none;
+		transform: translate3d(var(--journal-card-rest-x), 0, 0);
+		transform-origin: center center;
+		transition-property: transform, opacity;
+		transition-duration: var(--sprite-move-duration, var(--journal-move-duration)), var(--sprite-fade-duration, var(--journal-fade-duration));
+		transition-timing-function: var(--journal-motion-return-ease), ease;
+		transition-delay: var(--sprite-move-out-delay, 0ms), var(--sprite-fade-out-delay, 0ms);
+		will-change: transform, opacity;
+	}
+	.journal-sprite-card__sprite.is-masked {
+		-webkit-mask-image: var(--sprite-mask-image);
+		mask-image: var(--sprite-mask-image);
+		-webkit-mask-position: var(--sprite-mask-position);
+		mask-position: var(--sprite-mask-position);
+		-webkit-mask-size: var(--sprite-mask-size);
+		mask-size: var(--sprite-mask-size);
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+	}
+	.journal-sprite-card__sprite-image {
+		display: block;
+		width: 100%;
+		height: 100%;
+		max-width: none;
+	}
+	.journal-sprite-card__hitbox {
+		position: absolute;
+		top: var(--journal-hitbox-top);
+		right: var(--journal-hitbox-right);
+		bottom: var(--journal-hitbox-bottom);
+		left: var(--journal-hitbox-left);
+		z-index: 10000;
+		display: block;
+		max-width: none;
+		cursor: pointer;
+		pointer-events: auto;
+	}
+	.journal-sprite-card:focus-visible .journal-sprite-card__sprite,
+	.journal-sprite-card.is-hovered .journal-sprite-card__sprite {
+		opacity: var(--sprite-hover-opacity, 1);
+		transform: translate3d(0, 0, 0);
+		transition-timing-function: var(--journal-motion-ease), ease;
+		transition-delay: var(--sprite-move-in-delay, 0ms), var(--sprite-fade-in-delay, 0ms);
+	}
+	.journal-sprite-card__fallback {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		padding: 0;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
+	}
+	@keyframes cad-flicker-in {
+		0% { opacity: 0; }
+		14% { opacity: 0.75; }
+		22% { opacity: 0.18; }
+		34% { opacity: 1; }
+		46% { opacity: 0.42; }
+		58% { opacity: 0.9; }
+		72% { opacity: 0.68; }
+		100% { opacity: 1; }
+	}
+	@keyframes cad-flicker-out {
+		0% { opacity: 1; }
+		16% { opacity: 0.22; }
+		30% { opacity: 0.92; }
+		46% { opacity: 0.12; }
+		64% { opacity: 0.55; }
+		100% { opacity: 0; }
+	}
+	@keyframes cad-hover-flicker-strong {
+		0%, 100% { opacity: 1; }
+		18% { opacity: 0.58; }
+		26% { opacity: 0.95; }
+		52% { opacity: 0.72; }
+		70% { opacity: 1; }
+		84% { opacity: 0.64; }
+	}
+	@keyframes cad-hover-flicker-soft {
+		0%, 100% { opacity: 1; }
+		18% { opacity: 0.84; }
+		26% { opacity: 0.98; }
+		52% { opacity: 0.9; }
+		70% { opacity: 1; }
+		84% { opacity: 0.86; }
 	}
 	.home-card {
 		--card-accent: var(--link);
@@ -263,6 +804,12 @@
 		background: var(--text);
 		border-top: var(--borderwidth) var(--borderstyle) var(--border);
 	}
+	.home-page .site-footer {
+		position: relative;
+		z-index: 2;
+		margin: 0;
+		background: #01040f;
+	}
 	.footer-nav {
 		display: flex;
 		flex-wrap: wrap;
@@ -286,16 +833,39 @@
 		color: var(--border);
 	}
 	@media (min-width: 48rem) {
-		.home-intro h1 {
-			font-size: 4.75rem;
-		}
 		.home-card-grid {
 			grid-template-columns: 1fr;
 		}
 	}
 	@media (prefers-reduced-motion: reduce) {
+		.home-gradient-shader {
+			display: none;
+		}
 		.home-artwork__layer {
 			transform: none !important;
+			will-change: auto;
+		}
+		.art-sprite-card__parallax,
+		.cad-sprite-card__parallax {
+			transform: none !important;
+			will-change: auto;
+		}
+		.art-sprite-card__sprite {
+			transition: none;
+			will-change: auto;
+		}
+		.art-sprite-card__sprite-image {
+			transition: none;
+			transform: none !important;
+			will-change: auto;
+		}
+		.cad-sprite-card,
+		.cad-sprite-card__sprite,
+		.cad-sprite-card__sprite-image,
+		.journal-sprite-card,
+		.journal-sprite-card__sprite {
+			animation: none !important;
+			transition: none;
 			will-change: auto;
 		}
 		.home-card {
@@ -306,73 +876,73 @@
 			transform: none;
 		}
 	}
-	
+
 /* headings */
-	h1, h2, h3, h4, nav p { 
+	h1, h2, h3, h4, nav p {
 		font-family: var(--headingfont), serif;
 		line-height: 1;
 		font-weight: bold;
 		margin: 1rem 0;
 	}
-	h1 { 
+	h1 {
 		font-size: calc(2.25rem + 2.5vw);
 		margin: 3rem 0 1.5rem 0;
 		border-bottom: var(--borderwidth) var(--borderstyle) var(--border);
 		padding-bottom: 1rem;
 	}
-	h2, nav p { 
+	h2, nav p {
 		font-size: calc(1.75rem + 1.25vw);
 	}
-	h3 { 
+	h3 {
 		font-size: calc(1.25rem + 1.125vw);
 	}
-	h4 { 
+	h4 {
 		font-size: calc(1rem + 1vw);
 	}
-	
+
 /* link style */
-	a:link { 
+	a:link {
 		color: var(--link);
 		text-underline-offset: 2px;
 		text-decoration-thickness: 2px;
 		text-decoration-color: var(--border);
 	}
-	a:visited { 
+	a:visited {
 		color: var(--text);
 		text-decoration-color: var(--border);
 	}
-	a:hover, a:focus { 
+	a:hover, a:focus {
 		color: var(--link);
 		text-decoration-style: wavy;
 		text-decoration-thickness: 1px;
 	}
-	
+
 /* other page elements */
 	p, ul, ol, details, table {
 		margin: 1rem 0;
 	}
-	p, li, dd, dt, cite, code { 
+	p, li, dd, dt, cite, code {
 		line-height: 1.4;
 	}
-	sup, sub { 
+	sup, sub {
 		line-height: 0.5;
 	}
-	s, del { 
-		text-decoration-color: var(--link); 
+	s, del {
+		text-decoration-color: var(--link);
 		text-decoration-thickness: 2px;
 	}
 	ul ul, ol ul {
 		margin: 0;
 	}
-	ul li::marker { 
+	ul li::marker {
 		color: var(--border);
 		font-size: 125%;
 		line-height: 1;
 	}
-	ul ul li::marker, ol ul li::marker { 
+	ul ul li::marker, ol ul li::marker {
 		color: var(--text);
 	}
-	figure { 
+	figure {
 		background: var(--border);
 		border: 10px solid var(--border);
 		border-radius: 8px;
@@ -380,10 +950,10 @@
 		width: fit-content;
 		display: table;
 	}
-	figure img { 
+	figure img {
 		border-radius: 5px;
 	}
-	figcaption { 
+	figcaption {
 		text-align: center;
 		display: table-caption;
 		caption-side: bottom;
@@ -396,29 +966,29 @@
 	figcaption a:link, figcaption a:visited {
 		text-decoration-color: var(--section);
 	}
-	table { 
+	table {
 		max-width: 100%;
 		margin: 1rem auto;
 	}
-	th, td { 
+	th, td {
 		border-radius: 8px;
 		padding: 3px 5px;
 	}
-	th { 
+	th {
 		color: var(--section);
 		background: var(--link);
 		border: 2px solid var(--link);
 	}
-	td { 
+	td {
 		border: 2px solid var(--border);
 	}
-	code { 
+	code {
 		display: inline-block;
 		border: 2px solid var(--border);
 		border-radius: 8px;
 		padding: 2px 5px;
 	}
-	pre code { 
+	pre code {
 		display: block;
 		overflow-x: auto;
 	}
@@ -427,15 +997,15 @@
 		margin: 1rem 0 1rem 1rem;
 		padding-left: 1rem;
 	}
-	details { 
+	details {
 		background: var(--border);
 		border-radius: 8px;
 		padding: 1rem 2rem 1rem 1rem;
 	}
-	details summary { 
+	details summary {
 		cursor: pointer;
 	}
-	details > *:not(summary) { 
+	details > *:not(summary) {
 		margin-left: 1.5rem;
 	}
 	details ul li::marker {
@@ -447,11 +1017,11 @@
 	details code {
 		border: 2px solid var(--section);
 	}
-	details table { 
+	details table {
 		max-width: 100%;
 		margin: 1rem auto;
 	}
-	details td { 
+	details td {
 		border: 2px solid var(--section);
 	}
 	::selection {

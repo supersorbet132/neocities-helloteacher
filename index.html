@@ -5,59 +5,50 @@
 	<meta name="description" content="Art, CAD projects, journal entries, and notes from HELLOTEACHER.">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
-	<link href="kombucha.css?v=20260630-2" rel="stylesheet" type="text/css" media="all">
-	<script src="/assets/js/main.js?v=20260630-3" defer></script>
+	<link href="kombucha.css?v=20260815-7" rel="stylesheet" type="text/css" media="all">
+	<script src="/assets/js/shader-background.js?v=20260815-3" defer></script>
+	<script src="/assets/js/main.js?v=20260815-4" defer></script>
 </head>
 <body class="home-page">
 
 	<div class="container">
 
 		<main id="content" class="home-main">
-			<section class="home-intro" aria-labelledby="home-title">
-				<p class="home-kicker">A small workshop for visual experiments, models, notes, and whatever else earns a place here.</p>
-				<h1 id="home-title">HELLOTEACHER</h1>
-			</section>
+			<canvas class="home-gradient-shader" data-gradient-shader aria-hidden="true"></canvas>
 
-			<section class="home-artwork" aria-label="Homepage artwork">
-				<div class="home-artwork__stage" data-parallax-scene>
-					<img class="home-artwork__layer" src="/assets/images/site/bg/bg.jpg" alt="" aria-hidden="true" data-parallax-speed="-0.40" decoding="async">
-					<img class="home-artwork__layer" src="/assets/images/site/bg/bg_arch.webp" alt="" aria-hidden="true" data-parallax-speed="0.20" decoding="async">
-					<img class="home-artwork__layer" src="/assets/images/site/bg/bg_water.webp" alt="" aria-hidden="true" data-parallax-speed="1.25" decoding="async">
-					<img class="home-artwork__layer" src="/assets/images/site/bg/bg_statue.webp" alt="" aria-hidden="true" data-parallax-speed="1" decoding="async">
-					<img class="home-artwork__layer" src="/assets/images/site/bg/bg_water2.webp" alt="" aria-hidden="true" data-parallax-speed="1.5" decoding="async">
-					<img class="home-artwork__layer" src="/assets/images/site/bg/bg_arch2.webp" alt="" aria-hidden="true" data-parallax-speed="2" decoding="async">
+			<section class="home-artwork" aria-label="Homepage artwork" data-parallax-scene>
+				<div class="home-artwork__stage">
+					<img class="home-artwork__layer home-artwork__layer--bg" src="/assets/images/site/bg/bg.png" alt="" aria-hidden="true" data-parallax-speed="-1.0" decoding="async">
+					<img class="home-artwork__layer home-artwork__layer--arch" src="/assets/images/site/bg/bg_arch.png" alt="" aria-hidden="true" data-parallax-speed="0.20" decoding="async">
+					<img class="home-artwork__layer home-artwork__layer--water" src="/assets/images/site/bg/bg_water.png" alt="" aria-hidden="true" data-parallax-speed="1.25" decoding="async">
+					<img class="home-artwork__layer home-artwork__layer--statue" src="/assets/images/site/bg/bg_statue.png" alt="" aria-hidden="true" data-parallax-speed="1" decoding="async">
+					<img class="home-artwork__layer home-artwork__layer--water2" src="/assets/images/site/bg/bg_water2.png" alt="" aria-hidden="true" data-parallax-speed="1.5" decoding="async">
+					<img class="home-artwork__layer home-artwork__layer--water3" src="/assets/images/site/bg/bg_water3.png" alt="" aria-hidden="true" data-parallax-speed="1.65" decoding="async">
+					<img class="home-artwork__layer home-artwork__layer--arch2" src="/assets/images/site/bg/bg_arch2.png" alt="" aria-hidden="true" data-parallax-speed="2" decoding="async">
+					<img class="home-artwork__layer home-artwork__layer--water4" src="/assets/images/site/bg/bg_water4.png" alt="" aria-hidden="true" data-parallax-speed="2.15" decoding="async">
+					<img class="home-artwork__layer home-artwork__layer--separation" src="/assets/images/site/bg/bg_separation.png" alt="" aria-hidden="true" data-parallax-speed="3.25" decoding="async">
 				</div>
 			</section>
 
-			<section class="home-directory" aria-labelledby="directory-title">
-				<h2 id="directory-title">Pages</h2>
+			<section class="home-directory" aria-label="Pages">
 
 				<div class="home-card-grid">
-					<a class="home-card home-card--art home-card--edge-left" href="/art/">
-						<span class="home-card__media" aria-hidden="true"></span>
-						<span class="home-card__body">
-							<span class="home-card__label">Gallery</span>
-							<strong>Art</strong>
-							<span>Finished pieces, studies, image experiments, and future gallery work.</span>
-						</span>
+					<a class="art-sprite-card" href="/art/" aria-label="Art" data-sprite-card="art">
+						<span class="art-sprite-card__scene" aria-hidden="true" data-art-card-scene></span>
+						<span class="art-sprite-card__hitbox" aria-hidden="true" data-card-hitbox></span>
+						<span class="art-sprite-card__fallback">Art</span>
 					</a>
 
-					<a class="home-card home-card--cad home-card--edge-right" href="/cad/">
-						<span class="home-card__media" aria-hidden="true"></span>
-						<span class="home-card__body">
-							<span class="home-card__label">Models</span>
-							<strong>CAD</strong>
-							<span>Mechanical ideas, 3D models, process notes, and project previews.</span>
-						</span>
+					<a class="cad-sprite-card" href="/cad/" aria-label="CAD" data-sprite-card="cad">
+						<span class="cad-sprite-card__scene" aria-hidden="true" data-cad-card-scene></span>
+						<span class="cad-sprite-card__hitbox" aria-hidden="true" data-card-hitbox></span>
+						<span class="cad-sprite-card__fallback">CAD</span>
 					</a>
 
-					<a class="home-card home-card--journal home-card--edge-left" href="/journal/">
-						<span class="home-card__media" aria-hidden="true"></span>
-						<span class="home-card__body">
-							<span class="home-card__label">Writing</span>
-							<strong>Journal</strong>
-							<span>Updates, notes, logs, and longer thoughts as the site takes shape.</span>
-						</span>
+					<a class="journal-sprite-card" href="/journal/" aria-label="Journal" data-sprite-card="journal">
+						<span class="journal-sprite-card__scene" aria-hidden="true" data-journal-card-scene></span>
+						<span class="journal-sprite-card__hitbox" aria-hidden="true" data-card-hitbox></span>
+						<span class="journal-sprite-card__fallback">Journal</span>
 					</a>
 
 					<a class="home-card home-card--about home-card--edge-right" href="/about/">
