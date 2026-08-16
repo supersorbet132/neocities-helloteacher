@@ -184,6 +184,31 @@
 	let activeDescriptionGlint = null;
 	let descriptionGlintQueued = false;
 
+	const waitForImageReady = (image) => {
+		const timeout = new Promise((resolve) => {
+			window.setTimeout(resolve, 160);
+		});
+
+		if (typeof image.decode === "function") {
+			return Promise.race([
+				image.decode().catch(() => {}),
+				timeout,
+			]);
+		}
+
+		if (image.complete) {
+			return Promise.resolve();
+		}
+
+		return Promise.race([
+			new Promise((resolve) => {
+				image.addEventListener("load", resolve, { once: true });
+				image.addEventListener("error", resolve, { once: true });
+			}),
+			timeout,
+		]);
+	};
+
 	const viewer = document.createElement("div");
 	viewer.className = "art-viewer";
 	viewer.setAttribute("aria-hidden", "true");
@@ -277,7 +302,28 @@
 		state.card.style.setProperty("--artwork-width", `${state.cardWidth}px`);
 	};
 
-	const updateLayering = () => {
+	const measureParallaxContext = () => {
+		const galleryRect = gallery.getBoundingClientRect();
+		const viewport = getViewport();
+		const scrollCenter = viewport.height * 0.5;
+		const galleryProgress = clamp((scrollCenter - galleryRect.top) / Math.max(galleryRect.height, 1), 0, 1);
+		const scrollTravel = galleryRect.height * PARALLAX_SCROLL_SCALE;
+
+		return {
+			galleryProgress,
+			scrollTravel,
+		};
+	};
+
+	const calculateParallaxY = (context, effectiveParallax) => (
+		-context.scrollTravel * context.galleryProgress * effectiveParallax
+	);
+
+	const updateLayering = ({ preserveVisualPosition = false } = {}) => {
+		const visualYByState = preserveVisualPosition
+			? new Map(states.map((state) => [state, state.y + state.parallaxY]))
+			: null;
+		const parallaxContext = preserveVisualPosition ? measureParallaxContext() : null;
 		const layerSorted = [...states].sort((first, second) => {
 			if (first.layerRank === second.layerRank) {
 				return first.artwork.id.localeCompare(second.artwork.id);
@@ -291,27 +337,28 @@
 			state.zIndex = 20 + index;
 			state.layerIndex = index;
 			state.effectiveParallax = state.baseParallax + ((index / maxIndex) * PARALLAX_LAYER_BOOST);
+
+			if (preserveVisualPosition) {
+				state.parallaxY = calculateParallaxY(parallaxContext, state.effectiveParallax);
+				state.y = visualYByState.get(state) - state.parallaxY;
+			}
+
 			renderArtwork(state);
 		});
 	};
 
-	const bringToFront = (state) => {
+	const bringToFront = (state, options = {}) => {
 		topLayerRank += 1;
 		state.layerRank = topLayerRank;
-		updateLayering();
+		updateLayering(options);
 	};
 
 	const updateParallax = () => {
 		parallaxQueued = false;
-
-		const galleryRect = gallery.getBoundingClientRect();
-		const viewport = getViewport();
-		const scrollCenter = viewport.height * 0.5;
-		const galleryProgress = clamp((scrollCenter - galleryRect.top) / Math.max(galleryRect.height, 1), 0, 1);
-		const scrollTravel = galleryRect.height * PARALLAX_SCROLL_SCALE;
+		const parallaxContext = measureParallaxContext();
 
 		states.forEach((state) => {
-			state.parallaxY = -scrollTravel * galleryProgress * state.effectiveParallax;
+			state.parallaxY = calculateParallaxY(parallaxContext, state.effectiveParallax);
 			renderArtwork(state);
 		});
 	};
@@ -716,6 +763,27 @@
 		positionViewerDescription(target);
 	};
 
+	const activateViewer = (state) => {
+		if (viewerState?.source !== state || viewerState.isClosing) {
+			return;
+		}
+
+		viewer.classList.add("is-active");
+		viewer.setAttribute("aria-hidden", "false");
+		document.body.classList.add("is-art-viewer-open");
+		state.card.classList.add("is-viewer-source");
+		viewerImage.getBoundingClientRect();
+
+		window.requestAnimationFrame(() => {
+			if (viewerState?.source !== state || viewerState.isClosing) {
+				return;
+			}
+
+			viewer.classList.add("is-open");
+			syncOpenViewerLayout();
+		});
+	};
+
 	const openViewer = (state) => {
 		if (viewerState) {
 			return;
@@ -728,24 +796,12 @@
 		renderViewerDescription(state.artwork);
 		positionViewerDescription(target);
 		resetDescriptionGlint();
-		viewerImage.src = state.artwork.thumbSrc;
+		viewerImage.src = state.image.currentSrc || state.image.src || state.artwork.thumbSrc;
 		viewerImage.alt = state.artwork.title;
 		viewerImage.style.width = `${sourceRect.width}px`;
 		viewerImage.style.height = `${sourceRect.height}px`;
 		viewerImage.style.transform = `translate3d(${sourceRect.left}px, ${sourceRect.top}px, 0)`;
-		viewer.classList.add("is-active");
-		viewer.setAttribute("aria-hidden", "false");
-		document.body.classList.add("is-art-viewer-open");
-		state.card.classList.add("is-viewer-source");
-
-		window.requestAnimationFrame(() => {
-			if (!viewerState) {
-				return;
-			}
-
-			viewer.classList.add("is-open");
-			syncOpenViewerLayout();
-		});
+		waitForImageReady(viewerImage).then(() => activateViewer(state));
 
 		const fullImage = new Image();
 		fullImage.decoding = "async";
@@ -796,7 +852,8 @@
 			state.hasCustomPosition = true;
 			state.card.classList.add("is-dragging");
 			resetTilt(state);
-			bringToFront(state);
+			bringToFront(state, { preserveVisualPosition: true });
+			activeDrag.startY = state.y;
 		}
 
 		if (!activeDrag.isDragging) {
