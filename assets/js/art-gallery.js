@@ -1,33 +1,34 @@
 (() => {
 	const gallery = document.querySelector("[data-art-gallery]");
+	const homeLink = document.querySelector("[data-art-home-link]");
 
 	if (!gallery) {
 		return;
 	}
 
 	const ARTWORKS = [
-		{ file: "ark.jpg", width: 2732, height: 2048 },
-		{ file: "bananasplit.png", width: 2793, height: 2732 },
-		{ file: "black.jpg", width: 2426, height: 2048 },
-		{ file: "blackhole.jpg", width: 1326, height: 1768 },
-		{ file: "cosmicdress.jpg", width: 1536, height: 2048 },
-		{ file: "dog.jpg", width: 4096, height: 1714 },
-		{ file: "green.jpg", width: 1536, height: 2048 },
-		{ file: "hornet.jpg", width: 1579, height: 2049 },
-		{ file: "kimiacity.jpg", width: 1536, height: 2048 },
-		{ file: "kimiaclouds.jpg", width: 1536, height: 2048 },
-		{ file: "kimiacomets.jpg", width: 1536, height: 2048 },
-		{ file: "kimiadescent.jpg", width: 1536, height: 2048 },
-		{ file: "kimialog.jpg", width: 1536, height: 2048 },
-		{ file: "kimiaruins.jpg", width: 1536, height: 2048 },
-		{ file: "kimiasunrise.jpg", width: 1536, height: 2048 },
-		{ file: "kimiasword.jpg", width: 1536, height: 2048 },
-		{ file: "pillars.jpg", width: 4877, height: 2048 },
-		{ file: "providence.jpg", width: 3851, height: 2539 },
-		{ file: "ruinedrobot.jpg", width: 2048, height: 2732 },
-		{ file: "solyn.jpg", width: 6095, height: 3833 },
-		{ file: "soma.jpg", width: 2048, height: 2732 },
-		{ file: "twins.jpg", width: 2048, height: 2732 },
+		{ file: "ark.jpg", year: "2025", width: 2732, height: 2048 },
+		{ file: "bananasplit.png", year: "2025", width: 2793, height: 2732 },
+		{ file: "black.jpg", year: "2025", width: 2426, height: 2048 },
+		{ file: "blackhole.jpg", year: "2026", width: 1326, height: 1768 },
+		{ file: "cosmicdress.jpg", year: "2025", width: 1536, height: 2048 },
+		{ file: "dog.jpg", year: "2026", width: 4096, height: 1714 },
+		{ file: "green.jpg", year: "2025", width: 1536, height: 2048 },
+		{ file: "hornet.jpg", year: "2025", width: 1579, height: 2049 },
+		{ file: "kimiacity.jpg", year: "2026", width: 1536, height: 2048 },
+		{ file: "kimiaclouds.jpg", year: "2026", width: 1536, height: 2048 },
+		{ file: "kimiacomets.jpg", year: "2026", width: 1536, height: 2048 },
+		{ file: "kimiadescent.jpg", year: "2026", width: 1536, height: 2048 },
+		{ file: "kimialog.jpg", year: "2026", width: 1536, height: 2048 },
+		{ file: "kimiaruins.jpg", year: "2026", width: 1536, height: 2048 },
+		{ file: "kimiasunrise.jpg", year: "2026", width: 1536, height: 2048 },
+		{ file: "kimiasword.jpg", year: "2026", width: 1536, height: 2048 },
+		{ file: "pillars.jpg", year: "2025", width: 4877, height: 2048 },
+		{ file: "providence.jpg", year: "2025", width: 3851, height: 2539 },
+		{ file: "ruinedrobot.jpg", year: "2025", width: 2048, height: 2732 },
+		{ file: "solyn.jpg", year: "2025", width: 6095, height: 3833 },
+		{ file: "soma.jpg", year: "2025", width: 2048, height: 2732 },
+		{ file: "twins.jpg", year: "2025", width: 2048, height: 2732 },
 	];
 
 	const THUMB_ROOT = "/assets/images/art/thumbs/";
@@ -40,8 +41,27 @@
 	const INERTIA_MAX_VELOCITY = 1.05;
 	const PARALLAX_LAYER_BOOST = 1.7;
 	const PARALLAX_SCROLL_SCALE = 0.52;
-	const MAX_SIDE_OVERLAP_RATIO = 1 / 3;
 	const TILT_MAX_DEGREES = 18;
+	const LAYOUT_EDGE_PAD_RATIO = 0.035;
+	const LAYOUT_EDGE_PAD_MIN = 30;
+	const LAYOUT_EDGE_PAD_MAX = 70;
+	const LAYOUT_COLUMN_GAP_RATIO = 0.025;
+	const LAYOUT_COLUMN_GAP_MIN = 12;
+	const LAYOUT_COLUMN_GAP_MAX = 38;
+	const LAYOUT_HORIZONTAL_OVERLAP_RATIO = 0.31;
+	const LAYOUT_HORIZONTAL_OVERLAP_MOBILE_RATIO = 0.17;
+	const LAYOUT_HORIZONTAL_OVERLAP_MAX = 142;
+	const LAYOUT_ROW_CLEARANCE_RATIO = 0.15;
+	const LAYOUT_ROW_CLEARANCE_MIN = 52;
+	const LAYOUT_ROW_CLEARANCE_MAX = 170;
+	const LAYOUT_TOP_PAD_RATIO = 0.2;
+	const LAYOUT_TOP_PAD_MIN = 82;
+	const LAYOUT_TOP_PAD_MAX = 220;
+	const LAYOUT_BOTTOM_PAD_RATIO = 0.48;
+	const LAYOUT_BOTTOM_PAD_MIN = 180;
+	const LAYOUT_BOTTOM_PAD_MAX = 560;
+	const LAYOUT_JITTER_X_MAX = 30;
+	const LAYOUT_JITTER_Y_MAX = 34;
 	const RELAYOUT_WIDTH_THRESHOLD = 12;
 	const VIEWER_SIDE_LAYOUT_MIN_WIDTH = 760;
 	const VIEWER_DESCRIPTION_MIN_WIDTH = 260;
@@ -131,28 +151,52 @@
 		return Math.round(clamp(width, minWidth, maxWidth + 70));
 	};
 
-	const getBounds = (state) => {
-		const viewport = getViewport();
-		const galleryHeight = gallery.offsetHeight;
-		const width = state.cardWidth;
-		const height = state.cardHeight;
-		const sideOverlap = width * MAX_SIDE_OVERLAP_RATIO;
+	const getLayoutMetrics = (viewport) => {
+		const isSmall = viewport.width < 520;
 
 		return {
-			minX: -sideOverlap,
-			maxX: viewport.width - width + sideOverlap,
-			minY: 36,
-			maxY: Math.max(36, galleryHeight - height - 120),
+			edgePad: clamp(
+				viewport.width * LAYOUT_EDGE_PAD_RATIO,
+				isSmall ? 28 : LAYOUT_EDGE_PAD_MIN,
+				isSmall ? 52 : LAYOUT_EDGE_PAD_MAX
+			),
+			columnGap: clamp(
+				viewport.width * LAYOUT_COLUMN_GAP_RATIO,
+				isSmall ? 10 : LAYOUT_COLUMN_GAP_MIN,
+				isSmall ? 26 : LAYOUT_COLUMN_GAP_MAX
+			),
+			rowClearance: clamp(
+				viewport.height * (isSmall ? 0.16 : LAYOUT_ROW_CLEARANCE_RATIO),
+				isSmall ? 46 : LAYOUT_ROW_CLEARANCE_MIN,
+				isSmall ? 108 : LAYOUT_ROW_CLEARANCE_MAX
+			),
+			topPad: clamp(
+				viewport.height * (isSmall ? 0.18 : LAYOUT_TOP_PAD_RATIO),
+				isSmall ? 76 : LAYOUT_TOP_PAD_MIN,
+				isSmall ? 138 : LAYOUT_TOP_PAD_MAX
+			),
+			bottomPad: clamp(
+				viewport.height * LAYOUT_BOTTOM_PAD_RATIO,
+				LAYOUT_BOTTOM_PAD_MIN,
+				LAYOUT_BOTTOM_PAD_MAX
+			),
 		};
 	};
 
-	const constrain = (state, x, y) => {
-		const bounds = getBounds(state);
+	const constrainLayoutPosition = (state, x, y, metrics, galleryHeight) => {
+		const maxX = Math.max(metrics.edgePad, getViewport().width - state.cardWidth - metrics.edgePad);
+		const maxY = Math.max(metrics.topPad, galleryHeight - state.cardHeight - metrics.bottomPad * 0.45);
 
 		return {
-			x: clamp(x, bounds.minX, bounds.maxX),
-			y: clamp(y, bounds.minY, bounds.maxY),
+			x: clamp(x, metrics.edgePad, maxX),
+			y: clamp(y, metrics.topPad * 0.5, maxY),
 		};
+	};
+
+	const getFullArtworkSrc = (artwork) => {
+		const yearSegment = artwork.year ? `${artwork.year}/` : "";
+
+		return `${FULL_ROOT}${yearSegment}${artwork.file}`;
 	};
 
 	const normalizedArtworks = ARTWORKS
@@ -164,7 +208,7 @@
 				...artwork,
 				id,
 				title,
-				fullSrc: `${FULL_ROOT}${artwork.file}`,
+				fullSrc: getFullArtworkSrc(artwork),
 				thumbSrc: `${THUMB_ROOT}${artwork.file}`,
 			};
 		})
@@ -183,6 +227,8 @@
 	let artworkDescriptions = {};
 	let activeDescriptionGlint = null;
 	let descriptionGlintQueued = false;
+	let activeHomeTilt = null;
+	let homeTiltQueued = false;
 
 	const waitForImageReady = (image) => {
 		const timeout = new Promise((resolve) => {
@@ -374,46 +420,107 @@
 
 	const calculateLayout = () => {
 		const viewport = getViewport();
-		const columns = getColumns(viewport.width);
-		const rows = Math.ceil(states.length / columns);
-		const topPad = clamp(viewport.height * 0.22, 120, 220);
-		const rowGap = clamp(viewport.height * 0.68, viewport.width < 520 ? 380 : 470, 760);
-		const galleryHeight = Math.max(
-			viewport.height * 5.2,
-			topPad + (rows * rowGap) + viewport.height * 0.9
-		);
-		const cellWidth = viewport.width / columns;
+		const layoutColumns = getColumns(viewport.width);
+		const metrics = getLayoutMetrics(viewport);
+		const availableWidth = Math.max(1, viewport.width - (metrics.edgePad * 2));
 		const shuffled = shuffleWithSeed(states, 0xA7172026);
+		const layoutItems = shuffled.map((state) => {
+			const aspect = state.artwork.width / state.artwork.height;
+			const width = Math.min(getCardWidth(state.artwork, viewport.width), availableWidth);
+			const height = width / aspect;
+			const overlapRatio = viewport.width < 520
+				? LAYOUT_HORIZONTAL_OVERLAP_MOBILE_RATIO
+				: LAYOUT_HORIZONTAL_OVERLAP_RATIO;
+			const overlap = Math.min(width * overlapRatio, LAYOUT_HORIZONTAL_OVERLAP_MAX);
+			const advanceWidth = Math.max(width - overlap + metrics.columnGap, width * 0.58);
 
-		lastLayoutWidth = viewport.width;
-		lastLayoutColumns = columns;
-		gallery.style.setProperty("--art-gallery-height", `${Math.ceil(galleryHeight)}px`);
+			return {
+				state,
+				width,
+				height,
+				advanceWidth,
+				offsetX: 0,
+				random: seededRandom(hashString(`${state.artwork.id}-layout`)),
+			};
+		});
+		const layoutRows = [];
+		let currentRow = [];
+		let currentRowAdvance = 0;
+		let currentRowVisualWidth = 0;
 
-		shuffled.forEach((state, index) => {
-			const random = seededRandom(hashString(`${state.artwork.id}-layout`));
-			const row = Math.floor(index / columns);
-			const column = index % columns;
-			const width = getCardWidth(state.artwork, viewport.width);
-			const height = width / (state.artwork.width / state.artwork.height);
-			const jitterX = (random() - 0.5) * Math.min(cellWidth * 0.42, 140);
-			const jitterY = (random() - 0.5) * Math.min(rowGap * 0.36, 170);
-			const targetX = (column * cellWidth) + ((cellWidth - width) / 2) + jitterX;
-			const targetY = topPad + (row * rowGap) + jitterY;
-
-			state.cardWidth = width;
-			state.cardHeight = height;
-
-			if (!state.hasCustomPosition) {
-				const constrained = constrain(state, targetX, targetY);
-				state.x = constrained.x;
-				state.y = constrained.y;
-			} else {
-				const constrained = constrain(state, state.x, state.y);
-				state.x = constrained.x;
-				state.y = constrained.y;
+		const commitRow = () => {
+			if (currentRow.length === 0) {
+				return;
 			}
 
-			renderArtwork(state);
+			layoutRows.push({
+				items: currentRow,
+				width: currentRowVisualWidth,
+				height: Math.max(...currentRow.map((item) => item.height)),
+			});
+			currentRow = [];
+			currentRowAdvance = 0;
+			currentRowVisualWidth = 0;
+		};
+
+		layoutItems.forEach((item) => {
+			let offsetX = currentRow.length === 0 ? 0 : currentRowAdvance;
+			let nextVisualWidth = offsetX + item.width;
+
+			if (currentRow.length > 0 && nextVisualWidth > availableWidth) {
+				commitRow();
+				offsetX = 0;
+				nextVisualWidth = item.width;
+			}
+
+			item.offsetX = offsetX;
+			currentRow.push(item);
+			currentRowVisualWidth = Math.max(currentRowVisualWidth, nextVisualWidth);
+			currentRowAdvance = offsetX + item.advanceWidth;
+		});
+
+		commitRow();
+
+		let cursorY = metrics.topPad;
+
+		layoutRows.forEach((row) => {
+			row.top = cursorY;
+			cursorY += row.height + metrics.rowClearance;
+		});
+
+		const galleryHeight = Math.max(
+			viewport.height * 3.47,
+			cursorY + metrics.bottomPad
+		);
+
+		lastLayoutWidth = viewport.width;
+		lastLayoutColumns = layoutColumns;
+		gallery.style.setProperty("--art-gallery-height", `${Math.ceil(galleryHeight)}px`);
+
+		layoutRows.forEach((row) => {
+			const rowLeft = metrics.edgePad + Math.max(0, (availableWidth - row.width) / 2);
+			const rowSlack = Math.max(0, availableWidth - row.width);
+
+			row.items.forEach((item) => {
+				const { state, width, height, random } = item;
+				const xJitterLimit = Math.min(LAYOUT_JITTER_X_MAX, rowSlack * 0.42, width * 0.08);
+				const yJitterLimit = Math.min(LAYOUT_JITTER_Y_MAX, metrics.rowClearance * 0.18);
+				const jitterX = (random() - 0.5) * 2 * xJitterLimit;
+				const jitterY = (random() - 0.5) * 2 * yJitterLimit;
+				const targetX = rowLeft + item.offsetX + jitterX;
+				const targetY = row.top + ((row.height - height) * 0.5) + jitterY;
+
+				state.cardWidth = width;
+				state.cardHeight = height;
+
+				if (!state.hasCustomPosition) {
+					const constrained = constrainLayoutPosition(state, targetX, targetY, metrics, galleryHeight);
+					state.x = constrained.x;
+					state.y = constrained.y;
+				}
+
+				renderArtwork(state);
+			});
 		});
 
 		updateLayering();
@@ -488,6 +595,70 @@
 		viewerDescription.style.setProperty("--description-glint-y", "50%");
 		viewerDescription.style.setProperty("--description-glint-angle", "135deg");
 		viewerDescription.style.setProperty("--description-glint-opacity", "0");
+	};
+
+	const resetHomeTilt = () => {
+		if (!homeLink) {
+			return;
+		}
+
+		activeHomeTilt = null;
+		homeLink.style.setProperty("--home-tilt-x", "0deg");
+		homeLink.style.setProperty("--home-tilt-y", "0deg");
+		homeLink.style.setProperty("--home-glint-x", "50%");
+		homeLink.style.setProperty("--home-glint-y", "50%");
+		homeLink.style.setProperty("--home-glint-angle", "135deg");
+		homeLink.style.setProperty("--home-glint-opacity", "0");
+	};
+
+	const updateHomeTilt = () => {
+		homeTiltQueued = false;
+
+		if (!homeLink || !activeHomeTilt || viewerState || reduceMotion.matches) {
+			resetHomeTilt();
+			return;
+		}
+
+		const rect = homeLink.getBoundingClientRect();
+
+		if (rect.width <= 0 || rect.height <= 0) {
+			return;
+		}
+
+		const x = clamp((activeHomeTilt.clientX - rect.left) / rect.width, 0, 1);
+		const y = clamp((activeHomeTilt.clientY - rect.top) / rect.height, 0, 1);
+		const offsetX = x - 0.5;
+		const offsetY = y - 0.5;
+		const tiltX = -offsetY * 14;
+		const tiltY = offsetX * 18;
+		const edgeEnergy = clamp(Math.hypot(offsetX, offsetY) * 1.9, 0, 1);
+		const glintAngle = 122 + (offsetX * 64) - (offsetY * 38);
+		const glintOpacity = lerp(0.28, 0.88, edgeEnergy);
+
+		homeLink.style.setProperty("--home-tilt-x", `${tiltX.toFixed(2)}deg`);
+		homeLink.style.setProperty("--home-tilt-y", `${tiltY.toFixed(2)}deg`);
+		homeLink.style.setProperty("--home-glint-x", `${(x * 100).toFixed(2)}%`);
+		homeLink.style.setProperty("--home-glint-y", `${(y * 100).toFixed(2)}%`);
+		homeLink.style.setProperty("--home-glint-angle", `${glintAngle.toFixed(2)}deg`);
+		homeLink.style.setProperty("--home-glint-opacity", glintOpacity.toFixed(3));
+	};
+
+	const requestHomeTilt = (event) => {
+		if (!homeLink || event.pointerType === "touch" || viewerState || reduceMotion.matches) {
+			return;
+		}
+
+		activeHomeTilt = {
+			clientX: event.clientX,
+			clientY: event.clientY,
+		};
+
+		if (homeTiltQueued) {
+			return;
+		}
+
+		homeTiltQueued = true;
+		window.requestAnimationFrame(updateHomeTilt);
 	};
 
 	const updateDescriptionGlint = () => {
@@ -601,9 +772,6 @@
 		let vy = clamp(velocityY * INERTIA_RELEASE_DAMPING, -INERTIA_MAX_VELOCITY, INERTIA_MAX_VELOCITY);
 
 		if (Math.hypot(vx, vy) <= INERTIA_MIN_SPEED) {
-			const constrained = constrain(state, state.x, state.y);
-			state.x = constrained.x;
-			state.y = constrained.y;
 			renderArtwork(state);
 			return;
 		}
@@ -617,17 +785,6 @@
 
 			let nextX = state.x + (vx * delta);
 			let nextY = state.y + (vy * delta);
-			const bounds = getBounds(state);
-
-			if (nextX <= bounds.minX || nextX >= bounds.maxX) {
-				nextX = clamp(nextX, bounds.minX, bounds.maxX);
-				vx = 0;
-			}
-
-			if (nextY <= bounds.minY || nextY >= bounds.maxY) {
-				nextY = clamp(nextY, bounds.minY, bounds.maxY);
-				vy = 0;
-			}
 
 			state.x = nextX;
 			state.y = nextY;
@@ -642,9 +799,6 @@
 				return;
 			}
 
-			const constrained = constrain(state, state.x, state.y);
-			state.x = constrained.x;
-			state.y = constrained.y;
 			renderArtwork(state);
 			state.inertiaFrame = null;
 			state.card.classList.remove("is-settling");
@@ -862,10 +1016,9 @@
 
 		const now = performance.now();
 		const delta = Math.max(now - activeDrag.lastTime, 1);
-		const constrained = constrain(state, activeDrag.startX + moveX, activeDrag.startY + moveY);
 
-		state.x = constrained.x;
-		state.y = constrained.y;
+		state.x = activeDrag.startX + moveX;
+		state.y = activeDrag.startY + moveY;
 		activeDrag.velocityX = (event.clientX - activeDrag.lastClientX) / delta;
 		activeDrag.velocityY = (event.clientY - activeDrag.lastClientY) / delta;
 		activeDrag.lastClientX = event.clientX;
@@ -998,22 +1151,29 @@
 	viewerDescription.addEventListener("pointerenter", requestDescriptionGlint);
 	viewerDescription.addEventListener("pointermove", requestDescriptionGlint);
 	viewerDescription.addEventListener("pointerleave", resetDescriptionGlint);
+	if (homeLink) {
+		homeLink.addEventListener("pointerenter", requestHomeTilt);
+		homeLink.addEventListener("pointermove", requestHomeTilt);
+		homeLink.addEventListener("pointerleave", resetHomeTilt);
+	}
 	window.addEventListener("keydown", (event) => {
 		if (event.key === "Escape") {
 			closeViewer();
 		}
 	});
-		if (typeof reduceMotion.addEventListener === "function") {
-			reduceMotion.addEventListener("change", () => {
-				states.forEach(resetTilt);
-				requestParallax();
-			});
-		} else {
-			reduceMotion.addListener(() => {
-				states.forEach(resetTilt);
-				requestParallax();
-			});
-		}
+	if (typeof reduceMotion.addEventListener === "function") {
+		reduceMotion.addEventListener("change", () => {
+			states.forEach(resetTilt);
+			resetHomeTilt();
+			requestParallax();
+		});
+	} else {
+		reduceMotion.addListener(() => {
+			states.forEach(resetTilt);
+			resetHomeTilt();
+			requestParallax();
+		});
+	}
 
 	loadArtworkDescriptions();
 	calculateLayout();
