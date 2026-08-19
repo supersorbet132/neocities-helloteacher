@@ -67,7 +67,9 @@
 	const getParallaxRange = (card) => {
 		const rangeVar = card.dataset.spriteCard === "cad"
 			? "--cad-card-parallax-range"
-			: "--art-card-parallax-range";
+			: card.dataset.spriteCard === "projects"
+				? "--projects-card-parallax-range"
+				: "--art-card-parallax-range";
 
 		return getNumberVar(card, rangeVar, 70);
 	};
@@ -794,6 +796,417 @@
 		})
 		.catch((error) => {
 			console.warn("Journal card sprites were not loaded", error);
+		});
+})();
+
+(() => {
+	const projectsCards = [...document.querySelectorAll("[data-sprite-card='projects']")];
+
+	if (!projectsCards.length) {
+		return;
+	}
+
+	const layerOrderTopToBottom = [
+		"projects_o_colordodge",
+		"projects_p_colordodge",
+		"projects_j_colordodge",
+		"projects_t_colordodge",
+		"projects_s_outline",
+		"projects_t_outline",
+		"projects_c_outline",
+		"projects_e_outline",
+		"projects_j_outline",
+		"projects_o_outline",
+		"projects_r_outline",
+		"projects_p_outline",
+		"projects_s_hardmix",
+		"projects_j_hardmix",
+		"projects_p_hardmix",
+		"projects_s",
+		"projects_t",
+		"projects_c",
+		"projects_e",
+		"projects_j",
+		"projects_o",
+		"projects_r",
+		"projects_p",
+		"projects_board",
+		"projects_blueprint_glow_colordodge",
+		"projects_blueprint_jimbo_colordodge",
+		"projects_blueprint",
+		"projects_metal",
+		"projects_ruler",
+		"projects_pencil",
+		"projects_triangle",
+		"projects_eraser",
+	];
+	const layerOrderBottomToTop = [...layerOrderTopToBottom].reverse();
+	const topIndexByLayer = new Map(layerOrderTopToBottom.map((name, index) => [name, index]));
+	const letterLayers = new Set([
+		"projects_p",
+		"projects_r",
+		"projects_o",
+		"projects_j",
+		"projects_e",
+		"projects_c",
+		"projects_t",
+		"projects_s",
+	]);
+	const lockedMotionTargets = new Map([
+		["projects_p_outline", "projects_p"],
+		["projects_r_outline", "projects_r"],
+		["projects_o_outline", "projects_o"],
+		["projects_j_outline", "projects_j"],
+		["projects_e_outline", "projects_e"],
+		["projects_c_outline", "projects_c"],
+		["projects_t_outline", "projects_t"],
+		["projects_s_outline", "projects_s"],
+		["projects_p_colordodge", "projects_p"],
+		["projects_o_colordodge", "projects_o"],
+		["projects_j_colordodge", "projects_j"],
+		["projects_t_colordodge", "projects_t"],
+		["projects_p_hardmix", "projects_p"],
+		["projects_j_hardmix", "projects_j"],
+		["projects_s_hardmix", "projects_s"],
+		["projects_blueprint_glow_colordodge", "projects_blueprint"],
+		["projects_blueprint_jimbo_colordodge", "projects_blueprint"],
+	]);
+	const nonTitleMotionGroups = new Map([
+		["projects_board", "board"],
+		["projects_blueprint", "blueprint"],
+		["projects_metal", "metal"],
+		["projects_ruler", "ruler"],
+		["projects_pencil", "pencil"],
+		["projects_triangle", "triangle"],
+		["projects_eraser", "eraser"],
+	]);
+	const hiddenAtRest = new Set(layerOrderTopToBottom.filter((name) => (
+		name.includes("_colordodge") || name.includes("_hardmix")
+	)));
+	const blendMaskTargets = new Map([...lockedMotionTargets]
+		.filter(([layerName]) => hiddenAtRest.has(layerName))
+		.map(([layerName, targetName]) => [layerName, [targetName]]));
+	const blendModes = new Map([
+		...layerOrderTopToBottom
+			.filter((name) => name.includes("_colordodge"))
+			.map((name) => [name, "color-dodge"]),
+		// CSS does not support Photoshop's exact "hard mix"; hard-light is the closest native blend fallback.
+		...layerOrderTopToBottom
+			.filter((name) => name.includes("_hardmix"))
+			.map((name) => [name, "hard-light"]),
+	]);
+	const manifestUrl = "/assets/images/site/sprite-crop-manifest.json";
+	const assetBase = "/assets/images/site/projects/";
+	const leaveTimers = new WeakMap();
+
+	const getNumberVar = (element, name, fallback) => {
+		const value = getComputedStyle(element).getPropertyValue(name).trim();
+		const parsed = Number.parseFloat(value);
+
+		return Number.isFinite(parsed) ? parsed : fallback;
+	};
+
+	const getLetterPart = (layerName) => {
+		const match = layerName.match(/^projects_([a-z])(?:_(outline|colordodge|hardmix))?$/);
+
+		if (!match) {
+			return null;
+		}
+
+		return {
+			letter: match[1],
+			variant: match[2] || "base",
+		};
+	};
+
+	const usesFullCanvasCoordinates = (spriteData) => {
+		const original = spriteData.original || {};
+
+		return original.width === 2560 && original.height === 7130;
+	};
+
+	const projectsCalc = (...terms) => `calc((${terms.filter(Boolean).join(" + ")}) * var(--projects-unit))`;
+	const cssLengthList = (items) => items.join(", ");
+	const cssUrlList = (items) => items.map((item) => `url("${assetBase}${item}.png")`).join(", ");
+
+	const getPositionTerm = (spriteData, layerName, axis, sourceOffset) => {
+		const box = spriteData.cropBox;
+		const letterPart = getLetterPart(layerName);
+		const coordinate = axis === "x" ? box.left : box.top;
+
+		if (letterPart && letterPart.variant !== "colordodge") {
+			const baseVar = `var(--projects-${letterPart.letter}-${axis})`;
+			const variantVar = letterPart.variant === "base"
+				? "0"
+				: `var(--projects-${letterPart.letter}-${letterPart.variant}-${axis})`;
+
+			return projectsCalc(`var(--projects-title-${axis})`, baseVar, variantVar, coordinate);
+		}
+
+		if (letterPart && letterPart.variant === "colordodge") {
+			return projectsCalc(
+				`var(--projects-title-${axis})`,
+				`var(--projects-${letterPart.letter}-colordodge-${axis})`,
+				coordinate - (usesFullCanvasCoordinates(spriteData) ? sourceOffset : 0),
+			);
+		}
+
+		const layerDialName = layerName.replace(/^projects_/, "").replaceAll("_", "-");
+		const layerDial = `var(--projects-${layerDialName}-${axis}, 0)`;
+		const adjustedCoordinate = coordinate - (usesFullCanvasCoordinates(spriteData) ? sourceOffset : 0);
+
+		return projectsCalc(layerDial, adjustedCoordinate);
+	};
+
+	const setMask = (maskElement, layerName, spriteData, spritesByName, sourceX, sourceY) => {
+		const targets = blendMaskTargets.get(layerName);
+
+		if (!targets) {
+			return;
+		}
+
+		const validTargets = targets
+			.map((targetName) => ({
+				name: targetName,
+				data: spritesByName.get(targetName),
+			}))
+			.filter((target) => target.data);
+
+		if (!validTargets.length) {
+			return;
+		}
+
+		const effectLeft = getPositionTerm(spriteData, layerName, "x", sourceX);
+		const effectTop = getPositionTerm(spriteData, layerName, "y", sourceY);
+
+		maskElement.classList.add("is-masked");
+		maskElement.style.setProperty("--sprite-mask-image", cssUrlList(validTargets.map((target) => target.data.file.replace(/\.png$/i, ""))));
+		maskElement.style.setProperty("--sprite-mask-position", cssLengthList(validTargets.map((target) => {
+			const targetLeft = getPositionTerm(target.data, target.name, "x", sourceX);
+			const targetTop = getPositionTerm(target.data, target.name, "y", sourceY);
+
+			return `calc(${targetLeft} - ${effectLeft}) calc(${targetTop} - ${effectTop})`;
+		})));
+		maskElement.style.setProperty("--sprite-mask-size", cssLengthList(validTargets.map((target) => {
+			const box = target.data.cropBox;
+
+			return `calc(${box.width} * var(--projects-unit)) calc(${box.height} * var(--projects-unit))`;
+		})));
+	};
+
+	const getProjectsParallaxStrength = (card, layerName) => {
+		const motionTarget = lockedMotionTargets.get(layerName) || layerName;
+
+		if (letterLayers.has(motionTarget)) {
+			return getNumberVar(card, "--projects-parallax-title-strength", 0.72);
+		}
+
+		if (motionTarget.startsWith("projects_blueprint")) {
+			return getNumberVar(card, "--projects-parallax-blueprint-strength", 0.62);
+		}
+
+		if (motionTarget === "projects_board" || motionTarget === "projects_metal") {
+			return getNumberVar(card, "--projects-parallax-board-strength", 0.42);
+		}
+
+		if (
+			motionTarget === "projects_ruler" ||
+			motionTarget === "projects_pencil" ||
+			motionTarget === "projects_triangle" ||
+			motionTarget === "projects_eraser"
+		) {
+			return getNumberVar(card, "--projects-parallax-tool-strength", 0.84);
+		}
+
+		return getNumberVar(card, "--projects-parallax-fallback-strength", 0.55);
+	};
+
+	const setSpriteTiming = (card, sprite, layerName) => {
+		const motionTarget = lockedMotionTargets.get(layerName) || layerName;
+		const targetTopIndex = topIndexByLayer.get(motionTarget) ?? topIndexByLayer.get(layerName) ?? 0;
+		const isTitleMotion = letterLayers.has(motionTarget);
+		const nonTitleMotionGroup = nonTitleMotionGroups.get(motionTarget);
+		const hasNonTitleMotion = Boolean(nonTitleMotionGroup);
+		const staggerMs = getNumberVar(card, "--projects-stagger-ms", 18);
+		const nonTitleLeadMs = getNumberVar(card, "--projects-nontitle-lead-ms", 80);
+		const baseDuration = getNumberVar(card, "--projects-move-base-duration", 1120);
+		const durationSpread = getNumberVar(card, "--projects-move-duration-spread", 360);
+		const moveDuration = baseDuration + ((targetTopIndex * 31) % durationSpread);
+		const inDelay = (layerOrderTopToBottom.length - 1 - targetTopIndex) * staggerMs;
+		const outDelay = targetTopIndex * staggerMs;
+		const moveInDelay = hasNonTitleMotion ? Math.max(0, inDelay - nonTitleLeadMs) : inDelay;
+		const moveOutDelay = hasNonTitleMotion ? outDelay + nonTitleLeadMs : outDelay;
+		const hasMotion = isTitleMotion || hasNonTitleMotion;
+
+		sprite.style.setProperty("--sprite-move-duration", `${moveDuration}ms`);
+
+		if (isTitleMotion) {
+			sprite.style.setProperty("--sprite-rest-x", "var(--projects-title-rest-x)");
+			sprite.style.setProperty("--sprite-rest-y", "0px");
+			sprite.style.setProperty("--sprite-hover-x", "0px");
+			sprite.style.setProperty("--sprite-hover-y", "0px");
+			sprite.style.setProperty("--sprite-move-in-delay", `${moveInDelay}ms`);
+			sprite.style.setProperty("--sprite-move-out-delay", `${moveOutDelay}ms`);
+		} else if (hasNonTitleMotion) {
+			sprite.style.setProperty("--sprite-rest-x", `calc(var(--projects-${nonTitleMotionGroup}-hover-shift-x) + var(--projects-rest-offset-x))`);
+			sprite.style.setProperty("--sprite-rest-y", `calc(var(--projects-${nonTitleMotionGroup}-hover-shift-y) + var(--projects-rest-offset-y))`);
+			sprite.style.setProperty("--sprite-hover-x", `var(--projects-${nonTitleMotionGroup}-hover-shift-x)`);
+			sprite.style.setProperty("--sprite-hover-y", `var(--projects-${nonTitleMotionGroup}-hover-shift-y)`);
+			sprite.style.setProperty("--sprite-move-in-delay", `${moveInDelay}ms`);
+			sprite.style.setProperty("--sprite-move-out-delay", `${moveOutDelay}ms`);
+		} else {
+			sprite.style.setProperty("--sprite-move-in-delay", "0ms");
+			sprite.style.setProperty("--sprite-move-out-delay", "0ms");
+		}
+
+		if (hiddenAtRest.has(layerName)) {
+			sprite.classList.add("is-hover-only", "is-flicker-in");
+			sprite.style.setProperty("--sprite-rest-opacity", "0");
+			sprite.style.setProperty("--sprite-hover-opacity", "1");
+			sprite.style.setProperty("--sprite-fade-in-delay", hasMotion
+				? "calc(var(--sprite-move-in-delay) + var(--projects-effect-delay))"
+				: "var(--projects-effect-delay)");
+			sprite.style.setProperty("--sprite-fade-out-delay", "0ms");
+			sprite.style.setProperty("--sprite-fade-duration", "var(--projects-effect-fade-duration)");
+			return;
+		}
+
+		sprite.style.setProperty("--sprite-fade-in-delay", hasMotion ? "var(--sprite-move-in-delay)" : "0ms");
+		sprite.style.setProperty("--sprite-fade-out-delay", hasMotion ? "var(--sprite-move-out-delay)" : "0ms");
+		sprite.style.setProperty("--sprite-fade-duration", "var(--projects-effect-fade-duration)");
+	};
+
+	const bindProjectsCardState = (card) => {
+		if (card.dataset.projectsStateBound === "true") {
+			return;
+		}
+
+		const hitbox = card.querySelector("[data-card-hitbox]") || card;
+		const enter = () => {
+			const timer = leaveTimers.get(card);
+
+			if (timer) {
+				window.clearTimeout(timer);
+			}
+
+			card.classList.remove("is-leaving");
+			card.classList.add("is-hovered");
+		};
+		const leave = () => {
+			if (card.matches(":focus-within")) {
+				return;
+			}
+
+			if (!card.classList.contains("is-hovered")) {
+				return;
+			}
+
+			const leaveWindow = getNumberVar(card, "--projects-leave-animation-window", 2000);
+			const existingTimer = leaveTimers.get(card);
+
+			if (existingTimer) {
+				window.clearTimeout(existingTimer);
+			}
+
+			card.classList.remove("is-hovered");
+			card.classList.add("is-leaving");
+			leaveTimers.set(card, window.setTimeout(() => {
+				card.classList.remove("is-leaving");
+				leaveTimers.delete(card);
+			}, leaveWindow));
+		};
+
+		hitbox.addEventListener("pointerenter", enter);
+		hitbox.addEventListener("pointerleave", leave);
+		card.addEventListener("focusin", enter);
+		card.addEventListener("focusout", (event) => {
+			if (!card.contains(event.relatedTarget)) {
+				leave();
+			}
+		});
+		card.dataset.projectsStateBound = "true";
+	};
+
+	const buildProjectsCard = (card, sprites) => {
+		const scene = card.querySelector("[data-projects-card-scene]");
+
+		if (!scene) {
+			return;
+		}
+
+		const sourceX = getNumberVar(card, "--projects-source-x", 0);
+		const sourceY = getNumberVar(card, "--projects-source-y", 1800);
+		const spritesByName = new Map(sprites.map((sprite) => [sprite.file.replace(/\.png$/i, ""), sprite]));
+		const missingLayers = layerOrderTopToBottom.filter((name) => !spritesByName.has(name));
+		const extraLayers = [...spritesByName.keys()].filter((name) => !topIndexByLayer.has(name));
+
+		if (missingLayers.length || extraLayers.length) {
+			console.warn("Projects card layer mismatch", { missingLayers, extraLayers });
+		}
+
+		const fragment = document.createDocumentFragment();
+
+		layerOrderBottomToTop.forEach((layerName, bottomIndex) => {
+			const spriteData = spritesByName.get(layerName);
+
+			if (!spriteData) {
+				return;
+			}
+
+			const box = spriteData.cropBox;
+			const sprite = document.createElement("span");
+			const parallax = document.createElement("span");
+			const image = document.createElement("img");
+
+			sprite.className = "projects-sprite-card__sprite";
+			sprite.dataset.projectsLayer = layerName;
+			parallax.className = "projects-sprite-card__parallax";
+			parallax.dataset.cardParallaxLayer = layerName;
+			parallax.dataset.spriteParallaxStrength = getProjectsParallaxStrength(card, layerName).toFixed(3);
+			image.className = "projects-sprite-card__sprite-image";
+			image.src = `${assetBase}${spriteData.file}`;
+			image.alt = "";
+			image.decoding = "async";
+			image.loading = "lazy";
+			sprite.setAttribute("aria-hidden", "true");
+			sprite.style.setProperty("--sprite-left", getPositionTerm(spriteData, layerName, "x", sourceX));
+			sprite.style.setProperty("--sprite-top", getPositionTerm(spriteData, layerName, "y", sourceY));
+			sprite.style.setProperty("--sprite-width", box.width);
+			sprite.style.setProperty("--sprite-height", box.height);
+			sprite.style.setProperty("--sprite-z", bottomIndex + 1);
+
+			if (blendModes.has(layerName)) {
+				sprite.style.setProperty("--sprite-blend", blendModes.get(layerName));
+			}
+
+			setMask(parallax, layerName, spriteData, spritesByName, sourceX, sourceY);
+			setSpriteTiming(card, sprite, layerName);
+			parallax.append(image);
+			sprite.append(parallax);
+			fragment.append(sprite);
+		});
+
+		scene.replaceChildren(fragment);
+		bindProjectsCardState(card);
+		window.helloTeacherSpriteParallax?.register(card);
+		card.dataset.spriteCardReady = "true";
+	};
+
+	fetch(manifestUrl)
+		.then((response) => {
+			if (!response.ok) {
+				throw new Error(`Could not load ${manifestUrl}`);
+			}
+
+			return response.json();
+		})
+		.then((manifest) => {
+			const projectsSprites = manifest?.folders?.projects?.sprites || [];
+
+			projectsCards.forEach((card) => buildProjectsCard(card, projectsSprites));
+		})
+		.catch((error) => {
+			console.warn("Projects card sprites were not loaded", error);
 		});
 })();
 

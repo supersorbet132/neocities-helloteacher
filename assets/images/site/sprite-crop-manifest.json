@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T23:44:10.847035Z",
+  "generatedAt": "2026-08-19T20:41:41.413558Z",
   "alphaRule": "Tight crop includes every pixel whose alpha channel is greater than 0; no low-alpha threshold was applied.",
   "coordinateSystem": "Pixel coordinates use the original uncropped canvas with origin at the top-left. right and bottom are exclusive.",
   "positioningNote": "To preserve the original placement after cropping, position each cropped sprite at original anchor + offset.x and original anchor + offset.y.",
@@ -2435,6 +2435,1069 @@
             "bytes": 36554
           },
           "nativeDirectoryIndex": 14
+        }
+      ]
+    },
+    "projects": {
+      "path": "assets/images/site/projects",
+      "nativeDirectoryOrderBeforeCrop": [
+        "projects_blueprint.png",
+        "projects_p_outline.png",
+        "projects_p_hardmix.png",
+        "projects_o_outline.png",
+        "projects_o_colordodge.png",
+        "projects_pencil.png",
+        "projects_c_outline.png",
+        "projects_j_outline.png",
+        "projects_j_hardmix.png",
+        "projects_r.png",
+        "projects_e.png",
+        "projects_s.png",
+        "projects_p.png",
+        "projects_ruler.png",
+        "projects_e_outline.png",
+        "projects_c.png",
+        "projects_t.png",
+        "projects_blueprint_jimbo_colordodge.png",
+        "projects_metal.png",
+        "projects_j_colordodge.png",
+        "projects_s_hardmix.png",
+        "projects_s_outline.png",
+        "projects_t_outline.png",
+        "projects_triangle.png",
+        "projects_o.png",
+        "projects_eraser.png",
+        "projects_p_colordodge.png",
+        "projects_j.png",
+        "projects_r_outline.png",
+        "projects_blueprint_glow_colordodge.png",
+        "projects_board.png",
+        "projects_t_colordodge.png"
+      ],
+      "sprites": [
+        {
+          "file": "projects_blueprint.png",
+          "original": {
+            "width": 2560,
+            "height": 7130,
+            "bytes": 367197,
+            "birthTime": "2026-08-19T20:26:02Z",
+            "modifiedTime": "2026-08-19T20:26:02Z"
+          },
+          "cropBox": {
+            "left": 888,
+            "top": 2529,
+            "right": 1935,
+            "bottom": 3435,
+            "width": 1047,
+            "height": 906
+          },
+          "offset": {
+            "x": 888,
+            "y": 2529
+          },
+          "originalInsets": {
+            "right": 625,
+            "bottom": 3695
+          },
+          "cropped": {
+            "width": 1047,
+            "height": 906,
+            "bytes": 31455
+          },
+          "nativeDirectoryIndex": 0
+        },
+        {
+          "file": "projects_p_outline.png",
+          "original": {
+            "width": 497,
+            "height": 959,
+            "bytes": 15697,
+            "birthTime": "2026-08-19T20:26:03Z",
+            "modifiedTime": "2026-08-19T20:33:57.130396Z"
+          },
+          "cropBox": {
+            "left": 25,
+            "top": 40,
+            "right": 442,
+            "bottom": 904,
+            "width": 417,
+            "height": 864
+          },
+          "offset": {
+            "x": 25,
+            "y": 40
+          },
+          "originalInsets": {
+            "right": 55,
+            "bottom": 55
+          },
+          "cropped": {
+            "width": 417,
+            "height": 864,
+            "bytes": 6447
+          },
+          "nativeDirectoryIndex": 1
+        },
+        {
+          "file": "projects_p_hardmix.png",
+          "original": {
+            "width": 620,
+            "height": 998,
+            "bytes": 52211,
+            "birthTime": "2026-08-19T20:26:03Z",
+            "modifiedTime": "2026-08-19T20:32:10.798659Z"
+          },
+          "cropBox": {
+            "left": 144,
+            "top": 108,
+            "right": 488,
+            "bottom": 840,
+            "width": 344,
+            "height": 732
+          },
+          "offset": {
+            "x": 144,
+            "y": 108
+          },
+          "originalInsets": {
+            "right": 132,
+            "bottom": 158
+          },
+          "cropped": {
+            "width": 344,
+            "height": 732,
+            "bytes": 31207
+          },
+          "nativeDirectoryIndex": 2
+        },
+        {
+          "file": "projects_o_outline.png",
+          "original": {
+            "width": 368,
+            "height": 902,
+            "bytes": 13288,
+            "birthTime": "2026-08-19T20:26:03Z",
+            "modifiedTime": "2026-08-19T20:34:54.106946Z"
+          },
+          "cropBox": {
+            "left": 8,
+            "top": 155,
+            "right": 346,
+            "bottom": 854,
+            "width": 338,
+            "height": 699
+          },
+          "offset": {
+            "x": 8,
+            "y": 155
+          },
+          "originalInsets": {
+            "right": 22,
+            "bottom": 48
+          },
+          "cropped": {
+            "width": 338,
+            "height": 699,
+            "bytes": 5923
+          },
+          "nativeDirectoryIndex": 3
+        },
+        {
+          "file": "projects_o_colordodge.png",
+          "original": {
+            "width": 2560,
+            "height": 7130,
+            "bytes": 767650,
+            "birthTime": "2026-08-19T20:26:04Z",
+            "modifiedTime": "2026-08-19T20:26:04Z"
+          },
+          "cropBox": {
+            "left": 370,
+            "top": 2019,
+            "right": 1382,
+            "bottom": 3300,
+            "width": 1012,
+            "height": 1281
+          },
+          "offset": {
+            "x": 370,
+            "y": 2019
+          },
+          "originalInsets": {
+            "right": 1178,
+            "bottom": 3830
+          },
+          "cropped": {
+            "width": 1012,
+            "height": 1281,
+            "bytes": 159125
+          },
+          "nativeDirectoryIndex": 4
+        },
+        {
+          "file": "projects_pencil.png",
+          "original": {
+            "width": 581,
+            "height": 1852,
+            "bytes": 34711,
+            "birthTime": "2026-08-19T20:26:01Z",
+            "modifiedTime": "2026-08-19T20:27:08.856347Z"
+          },
+          "cropBox": {
+            "left": 236,
+            "top": 121,
+            "right": 298,
+            "bottom": 1612,
+            "width": 62,
+            "height": 1491
+          },
+          "offset": {
+            "x": 236,
+            "y": 121
+          },
+          "originalInsets": {
+            "right": 283,
+            "bottom": 240
+          },
+          "cropped": {
+            "width": 62,
+            "height": 1491,
+            "bytes": 5541
+          },
+          "nativeDirectoryIndex": 5
+        },
+        {
+          "file": "projects_c_outline.png",
+          "original": {
+            "width": 260,
+            "height": 803,
+            "bytes": 9586,
+            "birthTime": "2026-08-19T20:26:03Z",
+            "modifiedTime": "2026-08-19T20:36:20.274565Z"
+          },
+          "cropBox": {
+            "left": 17,
+            "top": 17,
+            "right": 238,
+            "bottom": 707,
+            "width": 221,
+            "height": 690
+          },
+          "offset": {
+            "x": 17,
+            "y": 17
+          },
+          "originalInsets": {
+            "right": 22,
+            "bottom": 96
+          },
+          "cropped": {
+            "width": 221,
+            "height": 690,
+            "bytes": 4011
+          },
+          "nativeDirectoryIndex": 6
+        },
+        {
+          "file": "projects_j_outline.png",
+          "original": {
+            "width": 376,
+            "height": 921,
+            "bytes": 11997,
+            "birthTime": "2026-08-19T20:26:03Z",
+            "modifiedTime": "2026-08-19T20:35:28.232930Z"
+          },
+          "cropBox": {
+            "left": 16,
+            "top": 165,
+            "right": 353,
+            "bottom": 871,
+            "width": 337,
+            "height": 706
+          },
+          "offset": {
+            "x": 16,
+            "y": 165
+          },
+          "originalInsets": {
+            "right": 23,
+            "bottom": 50
+          },
+          "cropped": {
+            "width": 337,
+            "height": 706,
+            "bytes": 4844
+          },
+          "nativeDirectoryIndex": 7
+        },
+        {
+          "file": "projects_j_hardmix.png",
+          "original": {
+            "width": 476,
+            "height": 786,
+            "bytes": 35289,
+            "birthTime": "2026-08-19T20:26:03Z",
+            "modifiedTime": "2026-08-19T20:32:40.050249Z"
+          },
+          "cropBox": {
+            "left": 140,
+            "top": 80,
+            "right": 335,
+            "bottom": 691,
+            "width": 195,
+            "height": 611
+          },
+          "offset": {
+            "x": 140,
+            "y": 80
+          },
+          "originalInsets": {
+            "right": 141,
+            "bottom": 95
+          },
+          "cropped": {
+            "width": 195,
+            "height": 611,
+            "bytes": 21382
+          },
+          "nativeDirectoryIndex": 8
+        },
+        {
+          "file": "projects_r.png",
+          "original": {
+            "width": 287,
+            "height": 488,
+            "bytes": 12414,
+            "birthTime": "2026-08-19T20:26:03Z",
+            "modifiedTime": "2026-08-19T20:28:36.161635Z"
+          },
+          "cropBox": {
+            "left": 18,
+            "top": 22,
+            "right": 271,
+            "bottom": 403,
+            "width": 253,
+            "height": 381
+          },
+          "offset": {
+            "x": 18,
+            "y": 22
+          },
+          "originalInsets": {
+            "right": 16,
+            "bottom": 85
+          },
+          "cropped": {
+            "width": 253,
+            "height": 381,
+            "bytes": 6025
+          },
+          "nativeDirectoryIndex": 9
+        },
+        {
+          "file": "projects_e.png",
+          "original": {
+            "width": 307,
+            "height": 729,
+            "bytes": 18731,
+            "birthTime": "2026-08-19T20:26:03Z",
+            "modifiedTime": "2026-08-19T20:29:25.893832Z"
+          },
+          "cropBox": {
+            "left": 25,
+            "top": 27,
+            "right": 285,
+            "bottom": 681,
+            "width": 260,
+            "height": 654
+          },
+          "offset": {
+            "x": 25,
+            "y": 27
+          },
+          "originalInsets": {
+            "right": 22,
+            "bottom": 48
+          },
+          "cropped": {
+            "width": 260,
+            "height": 654,
+            "bytes": 9072
+          },
+          "nativeDirectoryIndex": 10
+        },
+        {
+          "file": "projects_s.png",
+          "original": {
+            "width": 346,
+            "height": 820,
+            "bytes": 15339,
+            "birthTime": "2026-08-19T20:26:03Z",
+            "modifiedTime": "2026-08-19T20:30:06.534512Z"
+          },
+          "cropBox": {
+            "left": 22,
+            "top": 45,
+            "right": 228,
+            "bottom": 663,
+            "width": 206,
+            "height": 618
+          },
+          "offset": {
+            "x": 22,
+            "y": 45
+          },
+          "originalInsets": {
+            "right": 118,
+            "bottom": 157
+          },
+          "cropped": {
+            "width": 206,
+            "height": 618,
+            "bytes": 5897
+          },
+          "nativeDirectoryIndex": 11
+        },
+        {
+          "file": "projects_p.png",
+          "original": {
+            "width": 527,
+            "height": 1079,
+            "bytes": 25217,
+            "birthTime": "2026-08-19T20:26:03Z",
+            "modifiedTime": "2026-08-19T20:28:23.656074Z"
+          },
+          "cropBox": {
+            "left": 85,
+            "top": 160,
+            "right": 473,
+            "bottom": 955,
+            "width": 388,
+            "height": 795
+          },
+          "offset": {
+            "x": 85,
+            "y": 160
+          },
+          "originalInsets": {
+            "right": 54,
+            "bottom": 124
+          },
+          "cropped": {
+            "width": 388,
+            "height": 795,
+            "bytes": 10236
+          },
+          "nativeDirectoryIndex": 12
+        },
+        {
+          "file": "projects_ruler.png",
+          "original": {
+            "width": 2560,
+            "height": 7130,
+            "bytes": 364511,
+            "birthTime": "2026-08-19T20:26:01Z",
+            "modifiedTime": "2026-08-19T20:26:01Z"
+          },
+          "cropBox": {
+            "left": 98,
+            "top": 2767,
+            "right": 1572,
+            "bottom": 2968,
+            "width": 1474,
+            "height": 201
+          },
+          "offset": {
+            "x": 98,
+            "y": 2767
+          },
+          "originalInsets": {
+            "right": 988,
+            "bottom": 4162
+          },
+          "cropped": {
+            "width": 1474,
+            "height": 201,
+            "bytes": 21507
+          },
+          "nativeDirectoryIndex": 13
+        },
+        {
+          "file": "projects_e_outline.png",
+          "original": {
+            "width": 307,
+            "height": 784,
+            "bytes": 9831,
+            "birthTime": "2026-08-19T20:26:03Z",
+            "modifiedTime": "2026-08-19T20:35:49.885340Z"
+          },
+          "cropBox": {
+            "left": 10,
+            "top": 38,
+            "right": 296,
+            "bottom": 735,
+            "width": 286,
+            "height": 697
+          },
+          "offset": {
+            "x": 10,
+            "y": 38
+          },
+          "originalInsets": {
+            "right": 11,
+            "bottom": 49
+          },
+          "cropped": {
+            "width": 286,
+            "height": 697,
+            "bytes": 4418
+          },
+          "nativeDirectoryIndex": 14
+        },
+        {
+          "file": "projects_c.png",
+          "original": {
+            "width": 247,
+            "height": 654,
+            "bytes": 12912,
+            "birthTime": "2026-08-19T20:26:03Z",
+            "modifiedTime": "2026-08-19T20:29:41.990623Z"
+          },
+          "cropBox": {
+            "left": 20,
+            "top": 26,
+            "right": 210,
+            "bottom": 620,
+            "width": 190,
+            "height": 594
+          },
+          "offset": {
+            "x": 20,
+            "y": 26
+          },
+          "originalInsets": {
+            "right": 37,
+            "bottom": 34
+          },
+          "cropped": {
+            "width": 190,
+            "height": 594,
+            "bytes": 6255
+          },
+          "nativeDirectoryIndex": 15
+        },
+        {
+          "file": "projects_t.png",
+          "original": {
+            "width": 710,
+            "height": 1335,
+            "bytes": 33481,
+            "birthTime": "2026-08-19T20:26:03Z",
+            "modifiedTime": "2026-08-19T20:29:55.486907Z"
+          },
+          "cropBox": {
+            "left": 170,
+            "top": 289,
+            "right": 512,
+            "bottom": 1146,
+            "width": 342,
+            "height": 857
+          },
+          "offset": {
+            "x": 170,
+            "y": 289
+          },
+          "originalInsets": {
+            "right": 198,
+            "bottom": 189
+          },
+          "cropped": {
+            "width": 342,
+            "height": 857,
+            "bytes": 10981
+          },
+          "nativeDirectoryIndex": 16
+        },
+        {
+          "file": "projects_blueprint_jimbo_colordodge.png",
+          "original": {
+            "width": 2560,
+            "height": 7130,
+            "bytes": 355379,
+            "birthTime": "2026-08-19T20:26:02Z",
+            "modifiedTime": "2026-08-19T20:26:02Z"
+          },
+          "cropBox": {
+            "left": 1050,
+            "top": 2597,
+            "right": 1717,
+            "bottom": 3405,
+            "width": 667,
+            "height": 808
+          },
+          "offset": {
+            "x": 1050,
+            "y": 2597
+          },
+          "originalInsets": {
+            "right": 843,
+            "bottom": 3725
+          },
+          "cropped": {
+            "width": 667,
+            "height": 808,
+            "bytes": 16111
+          },
+          "nativeDirectoryIndex": 17
+        },
+        {
+          "file": "projects_metal.png",
+          "original": {
+            "width": 2560,
+            "height": 7130,
+            "bytes": 378580,
+            "birthTime": "2026-08-19T20:26:01Z",
+            "modifiedTime": "2026-08-19T20:26:01Z"
+          },
+          "cropBox": {
+            "left": 598,
+            "top": 2488,
+            "right": 1928,
+            "bottom": 3189,
+            "width": 1330,
+            "height": 701
+          },
+          "offset": {
+            "x": 598,
+            "y": 2488
+          },
+          "originalInsets": {
+            "right": 632,
+            "bottom": 3941
+          },
+          "cropped": {
+            "width": 1330,
+            "height": 701,
+            "bytes": 30849
+          },
+          "nativeDirectoryIndex": 18
+        },
+        {
+          "file": "projects_j_colordodge.png",
+          "original": {
+            "width": 2560,
+            "height": 7130,
+            "bytes": 816822,
+            "birthTime": "2026-08-19T20:26:04Z",
+            "modifiedTime": "2026-08-19T20:26:04Z"
+          },
+          "cropBox": {
+            "left": 802,
+            "top": 2161,
+            "right": 1738,
+            "bottom": 3355,
+            "width": 936,
+            "height": 1194
+          },
+          "offset": {
+            "x": 802,
+            "y": 2161
+          },
+          "originalInsets": {
+            "right": 822,
+            "bottom": 3775
+          },
+          "cropped": {
+            "width": 936,
+            "height": 1194,
+            "bytes": 181986
+          },
+          "nativeDirectoryIndex": 19
+        },
+        {
+          "file": "projects_s_hardmix.png",
+          "original": {
+            "width": 333,
+            "height": 764,
+            "bytes": 34213,
+            "birthTime": "2026-08-19T20:26:03Z",
+            "modifiedTime": "2026-08-19T20:33:05.166178Z"
+          },
+          "cropBox": {
+            "left": 49,
+            "top": 57,
+            "right": 277,
+            "bottom": 673,
+            "width": 228,
+            "height": 616
+          },
+          "offset": {
+            "x": 49,
+            "y": 57
+          },
+          "originalInsets": {
+            "right": 56,
+            "bottom": 91
+          },
+          "cropped": {
+            "width": 228,
+            "height": 616,
+            "bytes": 24549
+          },
+          "nativeDirectoryIndex": 20
+        },
+        {
+          "file": "projects_s_outline.png",
+          "original": {
+            "width": 344,
+            "height": 725,
+            "bytes": 10525,
+            "birthTime": "2026-08-19T20:26:03Z",
+            "modifiedTime": "2026-08-19T20:37:29.291576Z"
+          },
+          "cropBox": {
+            "left": 15,
+            "top": 32,
+            "right": 253,
+            "bottom": 668,
+            "width": 238,
+            "height": 636
+          },
+          "offset": {
+            "x": 15,
+            "y": 32
+          },
+          "originalInsets": {
+            "right": 91,
+            "bottom": 57
+          },
+          "cropped": {
+            "width": 238,
+            "height": 636,
+            "bytes": 3980
+          },
+          "nativeDirectoryIndex": 21
+        },
+        {
+          "file": "projects_t_outline.png",
+          "original": {
+            "width": 455,
+            "height": 983,
+            "bytes": 14099,
+            "birthTime": "2026-08-19T20:26:03Z",
+            "modifiedTime": "2026-08-19T20:37:06.054498Z"
+          },
+          "cropBox": {
+            "left": 10,
+            "top": 15,
+            "right": 433,
+            "bottom": 950,
+            "width": 423,
+            "height": 935
+          },
+          "offset": {
+            "x": 10,
+            "y": 15
+          },
+          "originalInsets": {
+            "right": 22,
+            "bottom": 33
+          },
+          "cropped": {
+            "width": 423,
+            "height": 935,
+            "bytes": 6101
+          },
+          "nativeDirectoryIndex": 22
+        },
+        {
+          "file": "projects_triangle.png",
+          "original": {
+            "width": 974,
+            "height": 923,
+            "bytes": 45000,
+            "birthTime": "2026-08-19T20:26:01Z",
+            "modifiedTime": "2026-08-19T20:27:17.346210Z"
+          },
+          "cropBox": {
+            "left": 362,
+            "top": 153,
+            "right": 804,
+            "bottom": 789,
+            "width": 442,
+            "height": 636
+          },
+          "offset": {
+            "x": 362,
+            "y": 153
+          },
+          "originalInsets": {
+            "right": 170,
+            "bottom": 134
+          },
+          "cropped": {
+            "width": 442,
+            "height": 636,
+            "bytes": 15499
+          },
+          "nativeDirectoryIndex": 23
+        },
+        {
+          "file": "projects_o.png",
+          "original": {
+            "width": 372,
+            "height": 916,
+            "bytes": 24104,
+            "birthTime": "2026-08-19T20:26:03Z",
+            "modifiedTime": "2026-08-19T20:28:48.170614Z"
+          },
+          "cropBox": {
+            "left": 38,
+            "top": 152,
+            "right": 332,
+            "bottom": 798,
+            "width": 294,
+            "height": 646
+          },
+          "offset": {
+            "x": 38,
+            "y": 152
+          },
+          "originalInsets": {
+            "right": 40,
+            "bottom": 118
+          },
+          "cropped": {
+            "width": 294,
+            "height": 646,
+            "bytes": 10734
+          },
+          "nativeDirectoryIndex": 24
+        },
+        {
+          "file": "projects_eraser.png",
+          "original": {
+            "width": 803,
+            "height": 455,
+            "bytes": 17443,
+            "birthTime": "2026-08-19T20:26:01Z",
+            "modifiedTime": "2026-08-19T20:27:21.639456Z"
+          },
+          "cropBox": {
+            "left": 226,
+            "top": 110,
+            "right": 625,
+            "bottom": 277,
+            "width": 399,
+            "height": 167
+          },
+          "offset": {
+            "x": 226,
+            "y": 110
+          },
+          "originalInsets": {
+            "right": 178,
+            "bottom": 178
+          },
+          "cropped": {
+            "width": 399,
+            "height": 167,
+            "bytes": 5751
+          },
+          "nativeDirectoryIndex": 25
+        },
+        {
+          "file": "projects_p_colordodge.png",
+          "original": {
+            "width": 2560,
+            "height": 7130,
+            "bytes": 978636,
+            "birthTime": "2026-08-19T20:26:04Z",
+            "modifiedTime": "2026-08-19T20:26:04Z"
+          },
+          "cropBox": {
+            "left": 17,
+            "top": 1974,
+            "right": 1043,
+            "bottom": 3442,
+            "width": 1026,
+            "height": 1468
+          },
+          "offset": {
+            "x": 17,
+            "y": 1974
+          },
+          "originalInsets": {
+            "right": 1517,
+            "bottom": 3688
+          },
+          "cropped": {
+            "width": 1026,
+            "height": 1468,
+            "bytes": 275889
+          },
+          "nativeDirectoryIndex": 26
+        },
+        {
+          "file": "projects_j.png",
+          "original": {
+            "width": 348,
+            "height": 909,
+            "bytes": 11995,
+            "birthTime": "2026-08-19T20:26:03Z",
+            "modifiedTime": "2026-08-19T20:29:04.422387Z"
+          },
+          "cropBox": {
+            "left": 30,
+            "top": 152,
+            "right": 331,
+            "bottom": 799,
+            "width": 301,
+            "height": 647
+          },
+          "offset": {
+            "x": 30,
+            "y": 152
+          },
+          "originalInsets": {
+            "right": 17,
+            "bottom": 110
+          },
+          "cropped": {
+            "width": 301,
+            "height": 647,
+            "bytes": 5268
+          },
+          "nativeDirectoryIndex": 27
+        },
+        {
+          "file": "projects_r_outline.png",
+          "original": {
+            "width": 302,
+            "height": 480,
+            "bytes": 7080,
+            "birthTime": "2026-08-19T20:26:03Z",
+            "modifiedTime": "2026-08-19T20:34:18.871127Z"
+          },
+          "cropBox": {
+            "left": 9,
+            "top": 7,
+            "right": 292,
+            "bottom": 447,
+            "width": 283,
+            "height": 440
+          },
+          "offset": {
+            "x": 9,
+            "y": 7
+          },
+          "originalInsets": {
+            "right": 10,
+            "bottom": 33
+          },
+          "cropped": {
+            "width": 283,
+            "height": 440,
+            "bytes": 3394
+          },
+          "nativeDirectoryIndex": 28
+        },
+        {
+          "file": "projects_blueprint_glow_colordodge.png",
+          "original": {
+            "width": 2560,
+            "height": 7130,
+            "bytes": 795049,
+            "birthTime": "2026-08-19T20:26:02Z",
+            "modifiedTime": "2026-08-19T20:26:02Z"
+          },
+          "cropBox": {
+            "left": 556,
+            "top": 2763,
+            "right": 1574,
+            "bottom": 3782,
+            "width": 1018,
+            "height": 1019
+          },
+          "offset": {
+            "x": 556,
+            "y": 2763
+          },
+          "originalInsets": {
+            "right": 986,
+            "bottom": 3348
+          },
+          "cropped": {
+            "width": 1018,
+            "height": 1019,
+            "bytes": 186588
+          },
+          "nativeDirectoryIndex": 29
+        },
+        {
+          "file": "projects_board.png",
+          "original": {
+            "width": 2560,
+            "height": 7130,
+            "bytes": 461448,
+            "birthTime": "2026-08-19T20:26:02Z",
+            "modifiedTime": "2026-08-19T20:26:02Z"
+          },
+          "cropBox": {
+            "left": 1538,
+            "top": 2105,
+            "right": 2560,
+            "bottom": 3264,
+            "width": 1022,
+            "height": 1159
+          },
+          "offset": {
+            "x": 1538,
+            "y": 2105
+          },
+          "originalInsets": {
+            "right": 0,
+            "bottom": 3866
+          },
+          "cropped": {
+            "width": 1022,
+            "height": 1159,
+            "bytes": 70558
+          },
+          "nativeDirectoryIndex": 30
+        },
+        {
+          "file": "projects_t_colordodge.png",
+          "original": {
+            "width": 2560,
+            "height": 7130,
+            "bytes": 1071782,
+            "birthTime": "2026-08-19T20:26:03Z",
+            "modifiedTime": "2026-08-19T20:26:03Z"
+          },
+          "cropBox": {
+            "left": 1560,
+            "top": 1807,
+            "right": 2531,
+            "bottom": 3323,
+            "width": 971,
+            "height": 1516
+          },
+          "offset": {
+            "x": 1560,
+            "y": 1807
+          },
+          "originalInsets": {
+            "right": 29,
+            "bottom": 3807
+          },
+          "cropped": {
+            "width": 971,
+            "height": 1516,
+            "bytes": 297616
+          },
+          "nativeDirectoryIndex": 31
         }
       ]
     }

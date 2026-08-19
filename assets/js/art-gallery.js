@@ -6,30 +6,9 @@
 		return;
 	}
 
-	const ARTWORKS = [
-		{ file: "ark.jpg", year: "2025", width: 2732, height: 2048 },
-		{ file: "bananasplit.png", year: "2025", width: 2793, height: 2732 },
-		{ file: "black.jpg", year: "2025", width: 2426, height: 2048 },
-		{ file: "blackhole.jpg", year: "2026", width: 1326, height: 1768 },
-		{ file: "cosmicdress.jpg", year: "2025", width: 1536, height: 2048 },
-		{ file: "dog.jpg", year: "2026", width: 4096, height: 1714 },
-		{ file: "green.jpg", year: "2025", width: 1536, height: 2048 },
-		{ file: "hornet.jpg", year: "2025", width: 1579, height: 2049 },
-		{ file: "kimiacity.jpg", year: "2026", width: 1536, height: 2048 },
-		{ file: "kimiaclouds.jpg", year: "2026", width: 1536, height: 2048 },
-		{ file: "kimiacomets.jpg", year: "2026", width: 1536, height: 2048 },
-		{ file: "kimiadescent.jpg", year: "2026", width: 1536, height: 2048 },
-		{ file: "kimialog.jpg", year: "2026", width: 1536, height: 2048 },
-		{ file: "kimiaruins.jpg", year: "2026", width: 1536, height: 2048 },
-		{ file: "kimiasunrise.jpg", year: "2026", width: 1536, height: 2048 },
-		{ file: "kimiasword.jpg", year: "2026", width: 1536, height: 2048 },
-		{ file: "pillars.jpg", year: "2025", width: 4877, height: 2048 },
-		{ file: "providence.jpg", year: "2025", width: 3851, height: 2539 },
-		{ file: "ruinedrobot.jpg", year: "2025", width: 2048, height: 2732 },
-		{ file: "solyn.jpg", year: "2025", width: 6095, height: 3833 },
-		{ file: "soma.jpg", year: "2025", width: 2048, height: 2732 },
-		{ file: "twins.jpg", year: "2025", width: 2048, height: 2732 },
-	];
+	const ARTWORKS = Array.isArray(window.HELLOTEACHER_ARTWORK_MANIFEST)
+		? window.HELLOTEACHER_ARTWORK_MANIFEST
+		: [];
 
 	const THUMB_ROOT = "/assets/images/art/thumbs/";
 	const FULL_ROOT = "/assets/images/art/artworks/";
@@ -39,30 +18,74 @@
 	const INERTIA_FRICTION = 0.86;
 	const INERTIA_RELEASE_DAMPING = 0.42;
 	const INERTIA_MAX_VELOCITY = 1.05;
-	const PARALLAX_LAYER_BOOST = 1.7;
-	const PARALLAX_SCROLL_SCALE = 0.52;
+	const PARALLAX_LAYER_BOOST = 0.82;
+	const PARALLAX_SCROLL_SCALE = 0.24;
 	const TILT_MAX_DEGREES = 18;
+	const LAYOUT_SEED = 0xA7172026;
 	const LAYOUT_EDGE_PAD_RATIO = 0.035;
 	const LAYOUT_EDGE_PAD_MIN = 30;
 	const LAYOUT_EDGE_PAD_MAX = 70;
-	const LAYOUT_COLUMN_GAP_RATIO = 0.025;
-	const LAYOUT_COLUMN_GAP_MIN = 12;
-	const LAYOUT_COLUMN_GAP_MAX = 38;
-	const LAYOUT_HORIZONTAL_OVERLAP_RATIO = 0.31;
-	const LAYOUT_HORIZONTAL_OVERLAP_MOBILE_RATIO = 0.17;
-	const LAYOUT_HORIZONTAL_OVERLAP_MAX = 142;
-	const LAYOUT_ROW_CLEARANCE_RATIO = 0.15;
-	const LAYOUT_ROW_CLEARANCE_MIN = 52;
-	const LAYOUT_ROW_CLEARANCE_MAX = 170;
-	const LAYOUT_TOP_PAD_RATIO = 0.2;
-	const LAYOUT_TOP_PAD_MIN = 82;
-	const LAYOUT_TOP_PAD_MAX = 220;
-	const LAYOUT_BOTTOM_PAD_RATIO = 0.48;
-	const LAYOUT_BOTTOM_PAD_MIN = 180;
-	const LAYOUT_BOTTOM_PAD_MAX = 560;
-	const LAYOUT_JITTER_X_MAX = 30;
-	const LAYOUT_JITTER_Y_MAX = 34;
+	const LAYOUT_COLUMN_GAP_RATIO = 0.031;
+	const LAYOUT_COLUMN_GAP_MIN = 16;
+	const LAYOUT_COLUMN_GAP_MAX = 52;
+	const LAYOUT_HORIZONTAL_OVERLAP_RATIO = 0.27;
+	const LAYOUT_HORIZONTAL_OVERLAP_MOBILE_RATIO = 0.14;
+	const LAYOUT_HORIZONTAL_OVERLAP_MAX = 120;
+	const LAYOUT_EDGE_OVERLAP_RATIO = 0.16;
+	const LAYOUT_EDGE_OVERLAP_MOBILE_RATIO = 0.08;
+	const LAYOUT_ROW_CLEARANCE_RATIO = 0.17;
+	const LAYOUT_ROW_CLEARANCE_MIN = 64;
+	const LAYOUT_ROW_CLEARANCE_MAX = 205;
+	const LAYOUT_TOP_PAD_RATIO = 0.26;
+	const LAYOUT_TOP_PAD_MIN = 150;
+	const LAYOUT_TOP_PAD_MAX = 280;
+	const LAYOUT_BOTTOM_PAD_RATIO = 0.18;
+	const LAYOUT_BOTTOM_PAD_MIN = 80;
+	const LAYOUT_BOTTOM_PAD_MAX = 220;
+	const LAYOUT_MIN_VIEWPORT_HEIGHTS = 2.45;
+	const LAYOUT_JITTER_X_MAX = 34;
+	const LAYOUT_JITTER_Y_MAX = 42;
+	const LAYOUT_ROW_STAGGER_X_MAX = 118;
+	const LAYOUT_ROW_STAGGER_Y_MAX = 54;
+	const LAYOUT_ITEM_SCATTER_X_MAX = 72;
+	const LAYOUT_ITEM_SCATTER_Y_MAX = 62;
+	const DRIFT_VIEWPORT_MARGIN_RATIO = 0.66;
+	const DRIFT_MIN_DURATION = 10;
+	const DRIFT_MAX_DURATION = 18;
+	const DRIFT_X_MAX = 14;
+	const DRIFT_Y_MAX = 18;
+	const DRIFT_ROTATE_MAX = 0.7;
 	const RELAYOUT_WIDTH_THRESHOLD = 12;
+	const VISIBLE_YEAR_LAYER_COUNT = 4;
+	const DEPTH_ATTRIBUTE_LAYER_COUNT = 6;
+	const DEPTH_IMAGE_LAYER_COUNT = 1;
+	const COLOR_SCROLL_SAMPLE_STEP = 18;
+	const DEPTH_PARALLAX_SCROLL_SCALE = 0.62;
+	const YEAR_TRANSITION_MS = 940;
+	const YEAR_ACTIVE_SCALE = 1;
+	const YEAR_BACK_SCALE = 0.12;
+	const YEAR_BACK_SCALE_POWER = 0.72;
+	const YEAR_FUTURE_SCALE = 2.18;
+	const YEAR_FUTURE_SCALE_STEP = 0.18;
+	const YEAR_DEPTH_Y_MAX = 54;
+	const YEAR_FUTURE_Y = -36;
+	const GRADIENT_STOPS = [
+		{ position: 0, hex: "#81F5FC" },
+		{ position: 0.5, hex: "#DB63C2" },
+		{ position: 1, hex: "#3935AB" },
+	];
+	const DEPTH_TINT_SATURATION = 0.68;
+	const DEPTH_FRONT_LIGHTNESS = 0.12;
+	const DEPTH_BACK_LIGHTNESS = 0.6;
+	const DEPTH_TOP_LIGHTNESS_OFFSET = 0.25;
+	const DEPTH_BOTTOM_LIGHTNESS_OFFSET = -0.08;
+	const DEPTH_BOTTOM_BACK_LIGHTNESS_OFFSET = -0.16;
+	const DEPTH_BOTTOM_BACK_DARKEN_START = 0.56;
+	const DEPTH_BOTTOM_BACK_DARKEN_POWER = 1.35;
+	const DEPTH_FRONT_PARALLAX = 0.26;
+	const DEPTH_BACK_PARALLAX = 0.045;
+	const DEPTH_IMAGE_FRONT_OPACITY = 0.4;
+	const DEPTH_IMAGE_BACK_OPACITY = 0.2;
 	const VIEWER_SIDE_LAYOUT_MIN_WIDTH = 760;
 	const VIEWER_DESCRIPTION_MIN_WIDTH = 260;
 	const VIEWER_DESCRIPTION_MAX_WIDTH = 380;
@@ -109,12 +132,93 @@
 		return shuffled;
 	};
 
+	const hexToRgb = (hex) => {
+		const normalized = hex.replace("#", "");
+		const value = Number.parseInt(normalized, 16);
+
+		return {
+			r: (value >> 16) & 255,
+			g: (value >> 8) & 255,
+			b: value & 255,
+		};
+	};
+
+	const rgbToHsl = ({ r, g, b }) => {
+		const red = r / 255;
+		const green = g / 255;
+		const blue = b / 255;
+		const max = Math.max(red, green, blue);
+		const min = Math.min(red, green, blue);
+		const lightness = (max + min) / 2;
+
+		if (max === min) {
+			return { h: 0, s: 0, l: lightness };
+		}
+
+		const delta = max - min;
+		const saturation = lightness > 0.5
+			? delta / (2 - max - min)
+			: delta / (max + min);
+		let hue;
+
+		if (max === red) {
+			hue = ((green - blue) / delta) + (green < blue ? 6 : 0);
+		} else if (max === green) {
+			hue = ((blue - red) / delta) + 2;
+		} else {
+			hue = ((red - green) / delta) + 4;
+		}
+
+		return {
+			h: hue * 60,
+			s: saturation,
+			l: lightness,
+		};
+	};
+
+	const gradientStops = GRADIENT_STOPS.map((stop) => ({
+		...stop,
+		rgb: hexToRgb(stop.hex),
+	}));
+
+	const sampleGradient = (progress) => {
+		const clamped = clamp(progress, 0, 1);
+		let first = gradientStops[0];
+		let second = gradientStops[gradientStops.length - 1];
+
+		for (let index = 0; index < gradientStops.length - 1; index += 1) {
+			if (clamped >= gradientStops[index].position && clamped <= gradientStops[index + 1].position) {
+				first = gradientStops[index];
+				second = gradientStops[index + 1];
+				break;
+			}
+		}
+
+		const span = Math.max(second.position - first.position, 0.0001);
+		const localProgress = (clamped - first.position) / span;
+
+		return rgbToHsl({
+			r: lerp(first.rgb.r, second.rgb.r, localProgress),
+			g: lerp(first.rgb.g, second.rgb.g, localProgress),
+			b: lerp(first.rgb.b, second.rgb.b, localProgress),
+		});
+	};
+
 	const titleFromFile = (file) => file
 		.replace(/\.[^.]+$/, "")
 		.replace(/[-_]+/g, " ")
 		.replace(/\b\w/g, (letter) => letter.toUpperCase());
 
 	const getViewport = () => ({
+		width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
+		height: Math.max(document.documentElement.clientHeight, window.innerHeight || 0),
+	});
+
+	const getFieldHeight = () => Math.max(currentLayoutHeight || 0, window.innerHeight || 0, 1);
+
+	const getMetrics = () => ({
+		fieldHeight: getFieldHeight(),
+		scrollY: window.scrollY,
 		width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
 		height: Math.max(document.documentElement.clientHeight, window.innerHeight || 0),
 	});
@@ -136,7 +240,7 @@
 	};
 
 	const getCardWidth = (artwork, viewportWidth) => {
-		const random = seededRandom(hashString(`${artwork.id}-size`));
+		const random = seededRandom(hashString(`${artwork.key}-size`));
 		const aspect = artwork.width / artwork.height;
 		const minWidth = viewportWidth < 520 ? 150 : viewportWidth < 850 ? 220 : 270;
 		const maxWidth = viewportWidth < 520 ? 230 : viewportWidth < 850 ? 340 : viewportWidth < 1240 ? 430 : 520;
@@ -171,9 +275,9 @@
 				isSmall ? 108 : LAYOUT_ROW_CLEARANCE_MAX
 			),
 			topPad: clamp(
-				viewport.height * (isSmall ? 0.18 : LAYOUT_TOP_PAD_RATIO),
-				isSmall ? 76 : LAYOUT_TOP_PAD_MIN,
-				isSmall ? 138 : LAYOUT_TOP_PAD_MAX
+				viewport.height * (isSmall ? 0.24 : LAYOUT_TOP_PAD_RATIO),
+				isSmall ? 132 : LAYOUT_TOP_PAD_MIN,
+				isSmall ? 190 : LAYOUT_TOP_PAD_MAX
 			),
 			bottomPad: clamp(
 				viewport.height * LAYOUT_BOTTOM_PAD_RATIO,
@@ -184,11 +288,16 @@
 	};
 
 	const constrainLayoutPosition = (state, x, y, metrics, galleryHeight) => {
-		const maxX = Math.max(metrics.edgePad, getViewport().width - state.cardWidth - metrics.edgePad);
+		const viewport = getViewport();
+		const overlapRatio = viewport.width < 520
+			? LAYOUT_EDGE_OVERLAP_MOBILE_RATIO
+			: LAYOUT_EDGE_OVERLAP_RATIO;
+		const minX = -state.cardWidth * overlapRatio;
+		const maxX = Math.max(minX, viewport.width - (state.cardWidth * (1 - overlapRatio)));
 		const maxY = Math.max(metrics.topPad, galleryHeight - state.cardHeight - metrics.bottomPad * 0.45);
 
 		return {
-			x: clamp(x, metrics.edgePad, maxX),
+			x: clamp(x, minX, maxX),
 			y: clamp(y, metrics.topPad * 0.5, maxY),
 		};
 	};
@@ -199,6 +308,12 @@
 		return `${FULL_ROOT}${yearSegment}${artwork.file}`;
 	};
 
+	const getPreviewArtworkSrc = (artwork) => (
+		artwork.hasThumb === false
+			? getFullArtworkSrc(artwork)
+			: `${THUMB_ROOT}${artwork.year}/${artwork.file}`
+	);
+
 	const normalizedArtworks = ARTWORKS
 		.map((artwork) => {
 			const id = artwork.file.replace(/\.[^.]+$/, "");
@@ -207,28 +322,83 @@
 			return {
 				...artwork,
 				id,
+				key: `${artwork.year}:${id}`,
 				title,
 				fullSrc: getFullArtworkSrc(artwork),
-				thumbSrc: `${THUMB_ROOT}${artwork.file}`,
+				thumbSrc: `${THUMB_ROOT}${artwork.year}/${artwork.file}`,
+				previewSrc: getPreviewArtworkSrc(artwork),
 			};
 		})
-		.sort((first, second) => first.id.localeCompare(second.id));
+		.sort((first, second) => {
+			if (first.year === second.year) {
+				return first.id.localeCompare(second.id);
+			}
 
+			return Number.parseInt(second.year, 10) - Number.parseInt(first.year, 10);
+		});
+
+	const createYearGroups = () => {
+		const groups = new Map();
+
+		normalizedArtworks.forEach((artwork) => {
+			if (!groups.has(artwork.year)) {
+				groups.set(artwork.year, []);
+			}
+
+			groups.get(artwork.year).push(artwork);
+		});
+
+		return [...groups.entries()]
+			.sort((first, second) => Number.parseInt(second[0], 10) - Number.parseInt(first[0], 10))
+			.map(([year, artworks]) => ({
+				year,
+				artworks,
+				layer: null,
+				title: null,
+				titleHint: null,
+				states: [],
+				topLayerRank: artworks.length - 1,
+				depthSlot: 0,
+				layoutHeight: 0,
+			}));
+	};
+
+	const yearGroups = createYearGroups();
+
+	if (yearGroups.length === 0) {
+		return;
+	}
+
+	const initialYearIndex = 0;
+	let activeYearIndex = initialYearIndex;
 	let states = [];
 	let activeDrag = null;
-	let topLayerRank = normalizedArtworks.length - 1;
-	let parallaxQueued = false;
 	let resizeQueued = false;
 	let lastLayoutWidth = 0;
 	let lastLayoutColumns = 0;
+	let currentLayoutHeight = 0;
+	let galleryPageTop = 0;
 	let activeTilt = null;
 	let tiltQueued = false;
+	let activeFoilTilt = null;
+	let foilTiltQueued = false;
 	let viewerState = null;
 	let artworkDescriptions = {};
 	let activeDescriptionGlint = null;
 	let descriptionGlintQueued = false;
-	let activeHomeTilt = null;
-	let homeTiltQueued = false;
+	let renderQueued = false;
+	let pendingFullRender = false;
+	let pendingDepthRender = false;
+	let lastColorScrollY = null;
+	let lastColorHeight = null;
+	let isYearTransitioning = false;
+	let yearTransitionTimer = null;
+	let yearTransitionFrame = null;
+	let transitionFromIndex = null;
+	let transitionToIndex = null;
+
+	window.HELLOTEACHER_ARTWORKS = normalizedArtworks;
+	window.HELLOTEACHER_ACTIVE_ART_YEAR = yearGroups[activeYearIndex].year;
 
 	const waitForImageReady = (image) => {
 		const timeout = new Promise((resolve) => {
@@ -312,11 +482,14 @@
 	};
 
 	const getArtworkDescription = (artwork) => {
-		const entry = artworkDescriptions[artwork.id] || artworkDescriptions[artwork.file] || {};
+		const entry = artworkDescriptions[artwork.key]
+			|| artworkDescriptions[artwork.id]
+			|| artworkDescriptions[artwork.file]
+			|| {};
 
 		return {
 			title: entry.title || artwork.title,
-			year: entry.year || "",
+			year: entry.year || artwork.year || "",
 			medium: entry.medium || "",
 			description: entry.description || `Placeholder note for ${artwork.title}. Add this artwork's final description in assets/data/art-descriptions.json.`,
 		};
@@ -340,24 +513,33 @@
 		viewerDescription.style.setProperty("--description-y", `${target.description.top}px`);
 	};
 
-	const renderArtwork = (state) => {
-		state.card.style.setProperty("--artwork-x", `${state.x.toFixed(2)}px`);
-		state.card.style.setProperty("--artwork-y", `${state.y.toFixed(2)}px`);
-		state.card.style.setProperty("--artwork-parallax-y", `${state.parallaxY.toFixed(2)}px`);
-		state.card.style.setProperty("--artwork-z", state.zIndex);
-		state.card.style.setProperty("--artwork-width", `${state.cardWidth}px`);
+	const ensureImageLoaded = (state) => {
+		if (state.image.dataset.loaded === "true") {
+			return;
+		}
+
+		state.image.dataset.loaded = "true";
+		state.image.src = state.artwork.previewSrc;
+		state.imageWrap.style.setProperty("--artwork-mask-image", `url("${state.artwork.previewSrc}")`);
+	};
+
+	const releaseImageMask = (state) => {
+		state.imageWrap.style.setProperty("--artwork-mask-image", "none");
+		state.image.removeAttribute("src");
+		state.image.dataset.loaded = "false";
 	};
 
 	const measureParallaxContext = () => {
-		const galleryRect = gallery.getBoundingClientRect();
 		const viewport = getViewport();
 		const scrollCenter = viewport.height * 0.5;
-		const galleryProgress = clamp((scrollCenter - galleryRect.top) / Math.max(galleryRect.height, 1), 0, 1);
-		const scrollTravel = galleryRect.height * PARALLAX_SCROLL_SCALE;
+		const galleryProgress = clamp((window.scrollY + scrollCenter - galleryPageTop) / Math.max(currentLayoutHeight, 1), 0, 1);
+		const scrollTravel = currentLayoutHeight * PARALLAX_SCROLL_SCALE;
+		const depthScrollTravel = viewport.height * DEPTH_PARALLAX_SCROLL_SCALE;
 
 		return {
 			galleryProgress,
 			scrollTravel,
+			depthScrollTravel,
 		};
 	};
 
@@ -365,12 +547,214 @@
 		-context.scrollTravel * context.galleryProgress * effectiveParallax
 	);
 
+	const calculateDepthParallaxY = (context, effectiveParallax) => (
+		-context.depthScrollTravel * context.galleryProgress * effectiveParallax
+	);
+
+	const getDepthProgress = (depthSlot) => (
+		clamp(depthSlot / Math.max(DEPTH_ATTRIBUTE_LAYER_COUNT - 1, 1), 0, 1)
+	);
+
+	const getLayerAttributes = (depthSlot) => {
+		if (depthSlot < 0) {
+			const futureDepth = Math.min(Math.abs(depthSlot), 4);
+
+			return {
+				depthProgress: 0,
+				scale: YEAR_FUTURE_SCALE + ((futureDepth - 1) * YEAR_FUTURE_SCALE_STEP),
+				opacity: 0,
+				y: YEAR_FUTURE_Y * futureDepth,
+				parallax: 0,
+				zIndex: 140 + futureDepth,
+			};
+		}
+
+		const depthProgress = getDepthProgress(depthSlot);
+
+		return {
+			depthProgress,
+			scale: lerp(YEAR_ACTIVE_SCALE, YEAR_BACK_SCALE, Math.pow(depthProgress, YEAR_BACK_SCALE_POWER)),
+			opacity: lerp(1, 0.88, depthProgress),
+			y: lerp(0, YEAR_DEPTH_Y_MAX, depthProgress),
+			parallax: lerp(DEPTH_FRONT_PARALLAX, DEPTH_BACK_PARALLAX, depthProgress),
+			zIndex: 120 - depthSlot,
+		};
+	};
+
+	const updateZoomOrigin = () => {
+		const viewport = getViewport();
+		const originY = clamp(
+			window.scrollY + (viewport.height * 0.52) - galleryPageTop,
+			0,
+			Math.max(currentLayoutHeight, viewport.height)
+		);
+
+		gallery.style.setProperty("--art-zoom-origin-y", `${originY.toFixed(2)}px`);
+	};
+
+	const updateLayerColors = (metrics, colorScrollY = metrics.scrollY) => {
+		const sampleProgress = clamp((colorScrollY + (metrics.height * 0.5)) / metrics.fieldHeight, 0, 1);
+		const gradient = sampleGradient(sampleProgress);
+		const saturation = clamp(gradient.s * DEPTH_TINT_SATURATION, 0, 1);
+		const pageLightnessOffset = lerp(DEPTH_TOP_LIGHTNESS_OFFSET, DEPTH_BOTTOM_LIGHTNESS_OFFSET, sampleProgress);
+		const bottomBackProgress = Math.pow(
+			clamp((sampleProgress - DEPTH_BOTTOM_BACK_DARKEN_START) / (1 - DEPTH_BOTTOM_BACK_DARKEN_START), 0, 1),
+			DEPTH_BOTTOM_BACK_DARKEN_POWER
+		);
+
+		yearGroups.forEach((group) => {
+			if (!group.isVisible) {
+				return;
+			}
+
+			const depthSlot = Math.max(group.depthSlot, 0);
+			const depthProgress = getDepthProgress(depthSlot);
+			const layerLightness = lerp(DEPTH_FRONT_LIGHTNESS, DEPTH_BACK_LIGHTNESS, depthProgress);
+			const backOnlyOffset = DEPTH_BOTTOM_BACK_LIGHTNESS_OFFSET * bottomBackProgress * depthProgress;
+			const lightness = clamp(layerLightness + pageLightnessOffset + backOnlyOffset, 0, 1);
+
+			group.layer.style.color = `hsl(${gradient.h.toFixed(1)} ${Math.round(saturation * 100)}% ${Math.round(lightness * 100)}%)`;
+			group.layer.style.setProperty("--year-depth-image-opacity", lerp(DEPTH_IMAGE_FRONT_OPACITY, DEPTH_IMAGE_BACK_OPACITY, depthProgress).toFixed(3));
+		});
+	};
+
+	const getActiveGroup = () => yearGroups[activeYearIndex];
+	const getActiveStates = () => getActiveGroup()?.states || [];
+
+	const renderArtwork = (state, parallaxContext, includeGeometry = false, useCardParallax = true) => {
+		state.parallaxY = useCardParallax
+			? calculateParallaxY(parallaxContext, state.effectiveParallax)
+			: 0;
+		state.card.style.setProperty("--artwork-parallax-y", `${state.parallaxY.toFixed(2)}px`);
+
+		if (!includeGeometry) {
+			return;
+		}
+
+		state.card.style.setProperty("--artwork-x", `${state.x.toFixed(2)}px`);
+		state.card.style.setProperty("--artwork-y", `${state.y.toFixed(2)}px`);
+		state.card.style.setProperty("--artwork-z", state.zIndex);
+		state.card.style.setProperty("--artwork-width", `${state.cardWidth}px`);
+		state.card.style.setProperty("--artwork-aspect", (state.cardWidth / state.cardHeight).toFixed(5));
+	};
+
+	const setDriftActive = (state, isActive) => {
+		if (state.isDriftActive === isActive) {
+			return;
+		}
+
+		state.isDriftActive = isActive;
+		state.card.classList.toggle("is-drift-active", isActive);
+	};
+
+	const updateDriftActivation = (metrics) => {
+		const activeStates = getActiveStates();
+
+		if (reduceMotion.matches || viewerState || isYearTransitioning) {
+			activeStates.forEach((state) => setDriftActive(state, false));
+			return;
+		}
+
+		const viewportTop = metrics.scrollY - galleryPageTop;
+		const margin = metrics.height * DRIFT_VIEWPORT_MARGIN_RATIO;
+		const activationTop = viewportTop - margin;
+		const activationBottom = viewportTop + metrics.height + margin;
+
+		activeStates.forEach((state) => {
+			const visualTop = state.y + state.parallaxY;
+			const visualBottom = visualTop + state.cardHeight;
+			const shouldDrift = visualBottom >= activationTop && visualTop <= activationBottom;
+
+			setDriftActive(state, shouldDrift);
+		});
+	};
+
+	const renderAll = ({ includeGeometry = false, includeDepthGeometry = false } = {}) => {
+		const metrics = getMetrics();
+		const colorScrollY = Math.round(metrics.scrollY / COLOR_SCROLL_SAMPLE_STEP) * COLOR_SCROLL_SAMPLE_STEP;
+		const shouldUpdateColor = colorScrollY !== lastColorScrollY
+			|| metrics.fieldHeight !== lastColorHeight;
+		const parallaxContext = measureParallaxContext();
+
+		if (includeGeometry) {
+			updateZoomOrigin();
+		}
+
+		if (shouldUpdateColor) {
+			updateLayerColors(metrics, colorScrollY);
+			lastColorScrollY = colorScrollY;
+			lastColorHeight = metrics.fieldHeight;
+		}
+
+		yearGroups.forEach((group) => {
+			if (!group.isVisible) {
+				return;
+			}
+
+			const isActiveGroup = group.depthSlot === 0;
+			const layerParallaxY = isActiveGroup
+				? 0
+				: calculateDepthParallaxY(parallaxContext, group.layerParallax || 0);
+			group.layer.style.setProperty("--year-scroll-y", `${layerParallaxY.toFixed(2)}px`);
+			const shouldRenderGeometry = includeGeometry && (isActiveGroup || includeDepthGeometry);
+
+			if (!shouldRenderGeometry && !isActiveGroup) {
+				return;
+			}
+
+			group.states.forEach((state) => {
+				renderArtwork(state, parallaxContext, shouldRenderGeometry, isActiveGroup);
+			});
+		});
+
+		updateDriftActivation(metrics);
+	};
+
+	const renderOne = (state) => {
+		const parallaxContext = measureParallaxContext();
+		renderArtwork(state, parallaxContext, true);
+	};
+
+	const requestRender = ({ includeGeometry = false, includeDepthGeometry = false } = {}) => {
+		pendingFullRender = pendingFullRender || includeGeometry;
+		pendingDepthRender = pendingDepthRender || includeDepthGeometry;
+
+		if (renderQueued) {
+			return;
+		}
+
+		renderQueued = true;
+		window.requestAnimationFrame(() => {
+			renderQueued = false;
+			const shouldIncludeGeometry = pendingFullRender;
+			const shouldIncludeDepthGeometry = pendingDepthRender;
+			pendingFullRender = false;
+			pendingDepthRender = false;
+			renderAll({
+				includeGeometry: shouldIncludeGeometry,
+				includeDepthGeometry: shouldIncludeDepthGeometry,
+			});
+		});
+	};
+
+	const handleScroll = () => {
+		if (isYearTransitioning) {
+			return;
+		}
+
+		requestRender();
+	};
+
 	const updateLayering = ({ preserveVisualPosition = false } = {}) => {
-		const visualYByState = preserveVisualPosition
-			? new Map(states.map((state) => [state, state.y + state.parallaxY]))
-			: null;
+		const activeStates = getActiveStates();
 		const parallaxContext = preserveVisualPosition ? measureParallaxContext() : null;
-		const layerSorted = [...states].sort((first, second) => {
+		const visualYByState = preserveVisualPosition
+			? new Map(activeStates.map((state) => [
+				state,
+				state.y + calculateParallaxY(parallaxContext, state.effectiveParallax),
+			]))
+			: null;
+		const layerSorted = [...activeStates].sort((first, second) => {
 			if (first.layerRank === second.layerRank) {
 				return first.artwork.id.localeCompare(second.artwork.id);
 			}
@@ -388,42 +772,130 @@
 				state.parallaxY = calculateParallaxY(parallaxContext, state.effectiveParallax);
 				state.y = visualYByState.get(state) - state.parallaxY;
 			}
-
-			renderArtwork(state);
 		});
 	};
 
 	const bringToFront = (state, options = {}) => {
-		topLayerRank += 1;
-		state.layerRank = topLayerRank;
+		state.yearGroup.topLayerRank += 1;
+		state.layerRank = state.yearGroup.topLayerRank;
 		updateLayering(options);
+		requestRender({ includeGeometry: true });
 	};
 
-	const updateParallax = () => {
-		parallaxQueued = false;
-		const parallaxContext = measureParallaxContext();
+	const isLayerVisibleAtIndex = (groupIndex) => {
+		const depthSlot = groupIndex - activeYearIndex;
+		const isTransitionParticipant = isYearTransitioning
+			&& (groupIndex === transitionFromIndex || groupIndex === transitionToIndex);
 
-		states.forEach((state) => {
-			state.parallaxY = calculateParallaxY(parallaxContext, state.effectiveParallax);
-			renderArtwork(state);
+		return (depthSlot >= 0 && depthSlot < VISIBLE_YEAR_LAYER_COUNT) || isTransitionParticipant;
+	};
+
+	const applyGalleryHeight = () => {
+		const viewport = getViewport();
+		let galleryHeight = viewport.height * LAYOUT_MIN_VIEWPORT_HEIGHTS;
+
+		yearGroups.forEach((group, groupIndex) => {
+			if (!isLayerVisibleAtIndex(groupIndex)) {
+				return;
+			}
+
+			galleryHeight = Math.max(galleryHeight, group.layoutHeight || 0);
+		});
+
+		currentLayoutHeight = galleryHeight;
+		gallery.style.setProperty("--art-gallery-height", `${Math.ceil(galleryHeight)}px`);
+		galleryPageTop = gallery.getBoundingClientRect().top + window.scrollY;
+	};
+
+	const updateYearLabel = () => {
+		const activeGroup = getActiveGroup();
+		const year = activeGroup.year;
+
+		window.HELLOTEACHER_ACTIVE_ART_YEAR = year;
+		document.body.dataset.artYear = year;
+		gallery.setAttribute("aria-label", `${year} draggable artwork gallery`);
+
+		yearGroups.forEach((group) => {
+			const isActiveTitle = group === activeGroup;
+
+			if (group.title) {
+				group.title.tabIndex = isActiveTitle ? 0 : -1;
+				group.title.setAttribute("aria-hidden", isActiveTitle ? "false" : "true");
+			}
+
+			if (group.titleHint) {
+				group.titleHint.hidden = !(isActiveTitle && activeYearIndex === initialYearIndex);
+			}
 		});
 	};
 
-	const requestParallax = () => {
-		if (parallaxQueued) {
-			return;
+	const updateYearLayers = ({ updateLabel = true } = {}) => {
+		applyGalleryHeight();
+
+		yearGroups.forEach((group, groupIndex) => {
+			const depthSlot = groupIndex - activeYearIndex;
+			const attributes = getLayerAttributes(depthSlot);
+			const isActive = depthSlot === 0;
+			const isTransitionParticipant = isYearTransitioning
+				&& (groupIndex === transitionFromIndex || groupIndex === transitionToIndex);
+			const isVisible = isLayerVisibleAtIndex(groupIndex);
+			const shouldLoadImages = isVisible
+				&& (
+					(depthSlot >= 0 && depthSlot <= DEPTH_IMAGE_LAYER_COUNT)
+					|| isActive
+					|| isTransitionParticipant
+				);
+
+			group.depthSlot = depthSlot;
+			group.isVisible = isVisible;
+			group.layerParallax = attributes.parallax;
+			group.layer.dataset.depthSlot = String(depthSlot);
+			group.layer.classList.toggle("is-current-year", isActive);
+			group.layer.classList.toggle("is-before-current", depthSlot < 0);
+			group.layer.classList.toggle("is-depth-year", depthSlot > 0);
+			group.layer.classList.toggle("is-year-transition-participant", isTransitionParticipant);
+			group.layer.classList.toggle("is-hidden-year", !isVisible);
+			group.layer.style.zIndex = String(attributes.zIndex);
+			group.layer.style.setProperty("--year-scale", attributes.scale.toFixed(4));
+			group.layer.style.setProperty("--year-depth-opacity", attributes.opacity.toFixed(3));
+			group.layer.style.setProperty("--year-depth-y", `${attributes.y.toFixed(2)}px`);
+			group.layer.style.setProperty("--year-scroll-y", "0px");
+
+			group.states.forEach((state) => {
+				state.depthSlot = depthSlot;
+				state.isActive = isActive;
+
+				if (!isActive) {
+					state.effectiveParallax = attributes.parallax;
+					setDriftActive(state, false);
+				}
+
+				state.card.disabled = !isActive;
+				state.card.tabIndex = isActive ? 0 : -1;
+				state.card.setAttribute("aria-hidden", isActive ? "false" : "true");
+				state.card.classList.toggle("is-current-year", isActive);
+				state.card.classList.toggle("is-depth-placeholder", !shouldLoadImages);
+
+				if (shouldLoadImages) {
+					ensureImageLoaded(state);
+				} else {
+					releaseImageMask(state);
+				}
+			});
+		});
+
+		if (updateLabel) {
+			updateYearLabel();
 		}
 
-		parallaxQueued = true;
-		window.requestAnimationFrame(updateParallax);
+		updateLayering();
+		lastColorScrollY = null;
+		renderAll({ includeGeometry: true, includeDepthGeometry: true });
 	};
 
-	const calculateLayout = () => {
-		const viewport = getViewport();
-		const layoutColumns = getColumns(viewport.width);
-		const metrics = getLayoutMetrics(viewport);
+	const calculateYearLayout = (group, viewport, metrics) => {
 		const availableWidth = Math.max(1, viewport.width - (metrics.edgePad * 2));
-		const shuffled = shuffleWithSeed(states, 0xA7172026);
+		const shuffled = shuffleWithSeed(group.states, hashString(`${LAYOUT_SEED}-${group.year}`));
 		const layoutItems = shuffled.map((state) => {
 			const aspect = state.artwork.width / state.artwork.height;
 			const width = Math.min(getCardWidth(state.artwork, viewport.width), availableWidth);
@@ -440,7 +912,8 @@
 				height,
 				advanceWidth,
 				offsetX: 0,
-				random: seededRandom(hashString(`${state.artwork.id}-layout`)),
+				random: seededRandom(hashString(`${LAYOUT_SEED}-${group.year}-${state.artwork.id}-layout`)),
+				placementRandom: seededRandom(hashString(`${LAYOUT_SEED}-${group.year}-${state.artwork.id}-placement`)),
 			};
 		});
 		const layoutRows = [];
@@ -454,6 +927,7 @@
 			}
 
 			layoutRows.push({
+				index: layoutRows.length,
 				items: currentRow,
 				width: currentRowVisualWidth,
 				height: Math.max(...currentRow.map((item) => item.height)),
@@ -489,26 +963,35 @@
 		});
 
 		const galleryHeight = Math.max(
-			viewport.height * 3.47,
-			cursorY + metrics.bottomPad
+			viewport.height * LAYOUT_MIN_VIEWPORT_HEIGHTS,
+			cursorY + metrics.bottomPad + LAYOUT_ROW_STAGGER_Y_MAX + LAYOUT_ITEM_SCATTER_Y_MAX
 		);
 
-		lastLayoutWidth = viewport.width;
-		lastLayoutColumns = layoutColumns;
-		gallery.style.setProperty("--art-gallery-height", `${Math.ceil(galleryHeight)}px`);
-
 		layoutRows.forEach((row) => {
-			const rowLeft = metrics.edgePad + Math.max(0, (availableWidth - row.width) / 2);
+			const rowRandom = seededRandom(hashString(`${LAYOUT_SEED}-${group.year}-row-${row.index}`));
 			const rowSlack = Math.max(0, availableWidth - row.width);
+			const rowAlignment = rowRandom();
+			const rowLeft = metrics.edgePad + (rowSlack * rowAlignment);
+			const rowStaggerXLimit = Math.min(
+				LAYOUT_ROW_STAGGER_X_MAX,
+				(rowSlack * 0.22) + (metrics.edgePad * 0.82)
+			);
+			const rowStaggerYLimit = Math.min(LAYOUT_ROW_STAGGER_Y_MAX, metrics.rowClearance * 0.62);
+			const rowStaggerX = (rowRandom() - 0.5) * 2 * rowStaggerXLimit;
+			const rowStaggerY = (rowRandom() - 0.5) * 2 * rowStaggerYLimit;
 
 			row.items.forEach((item) => {
-				const { state, width, height, random } = item;
-				const xJitterLimit = Math.min(LAYOUT_JITTER_X_MAX, rowSlack * 0.42, width * 0.08);
-				const yJitterLimit = Math.min(LAYOUT_JITTER_Y_MAX, metrics.rowClearance * 0.18);
+				const { state, width, height, random, placementRandom } = item;
+				const xJitterLimit = Math.min(LAYOUT_JITTER_X_MAX, rowSlack * 0.5, width * 0.1);
+				const yJitterLimit = Math.min(LAYOUT_JITTER_Y_MAX, metrics.rowClearance * 0.24);
+				const xScatterLimit = Math.min(LAYOUT_ITEM_SCATTER_X_MAX, (width * 0.24) + metrics.columnGap);
+				const yScatterLimit = Math.min(LAYOUT_ITEM_SCATTER_Y_MAX, (metrics.rowClearance * 0.58) + (height * 0.08));
 				const jitterX = (random() - 0.5) * 2 * xJitterLimit;
 				const jitterY = (random() - 0.5) * 2 * yJitterLimit;
-				const targetX = rowLeft + item.offsetX + jitterX;
-				const targetY = row.top + ((row.height - height) * 0.5) + jitterY;
+				const scatterX = (placementRandom() - 0.5) * 2 * xScatterLimit;
+				const scatterY = (placementRandom() - 0.5) * 2 * yScatterLimit;
+				const targetX = rowLeft + rowStaggerX + item.offsetX + jitterX + scatterX;
+				const targetY = row.top + rowStaggerY + ((row.height - height) * 0.5) + jitterY + scatterY;
 
 				state.cardWidth = width;
 				state.cardHeight = height;
@@ -518,13 +1001,24 @@
 					state.x = constrained.x;
 					state.y = constrained.y;
 				}
-
-				renderArtwork(state);
 			});
 		});
 
-		updateLayering();
-		requestParallax();
+		return galleryHeight;
+	};
+
+	const calculateLayout = () => {
+		const viewport = getViewport();
+		const layoutColumns = getColumns(viewport.width);
+		const metrics = getLayoutMetrics(viewport);
+
+		yearGroups.forEach((group) => {
+			group.layoutHeight = calculateYearLayout(group, viewport, metrics);
+		});
+
+		lastLayoutWidth = viewport.width;
+		lastLayoutColumns = layoutColumns;
+		updateYearLayers();
 	};
 
 	const requestLayout = () => {
@@ -537,7 +1031,7 @@
 			|| Math.abs(viewport.width - lastLayoutWidth) > RELAYOUT_WIDTH_THRESHOLD;
 
 		if (!shouldRelayout) {
-			requestParallax();
+			requestRender();
 			return;
 		}
 
@@ -557,7 +1051,7 @@
 			if (stillNeedsRelayout) {
 				calculateLayout();
 			} else {
-				requestParallax();
+				requestRender();
 			}
 		});
 	};
@@ -568,6 +1062,15 @@
 			state.inertiaFrame = null;
 			state.card.classList.remove("is-settling");
 		}
+	};
+
+	const cancelActiveMotion = () => {
+		states.forEach((state) => {
+			cancelInertia(state);
+			resetTilt(state);
+			state.card.classList.remove("is-pressed", "is-dragging");
+		});
+		activeDrag = null;
 	};
 
 	const resetTilt = (state) => {
@@ -597,68 +1100,72 @@
 		viewerDescription.style.setProperty("--description-glint-opacity", "0");
 	};
 
-	const resetHomeTilt = () => {
-		if (!homeLink) {
+	const resetFoilTilt = (target) => {
+		if (!target) {
 			return;
 		}
 
-		activeHomeTilt = null;
-		homeLink.style.setProperty("--home-tilt-x", "0deg");
-		homeLink.style.setProperty("--home-tilt-y", "0deg");
-		homeLink.style.setProperty("--home-glint-x", "50%");
-		homeLink.style.setProperty("--home-glint-y", "50%");
-		homeLink.style.setProperty("--home-glint-angle", "135deg");
-		homeLink.style.setProperty("--home-glint-opacity", "0");
+		target.element.style.setProperty(`--${target.prefix}-tilt-x`, "0deg");
+		target.element.style.setProperty(`--${target.prefix}-tilt-y`, "0deg");
+		target.element.style.setProperty(`--${target.prefix}-glint-x`, "50%");
+		target.element.style.setProperty(`--${target.prefix}-glint-y`, "50%");
+		target.element.style.setProperty(`--${target.prefix}-glint-angle`, "135deg");
+		target.element.style.setProperty(`--${target.prefix}-glint-opacity`, "0");
+
+		if (activeFoilTilt?.element === target.element) {
+			activeFoilTilt = null;
+		}
 	};
 
-	const updateHomeTilt = () => {
-		homeTiltQueued = false;
+	const updateFoilTilt = () => {
+		foilTiltQueued = false;
 
-		if (!homeLink || !activeHomeTilt || viewerState || reduceMotion.matches) {
-			resetHomeTilt();
+		if (!activeFoilTilt || viewerState || reduceMotion.matches) {
+			resetFoilTilt(activeFoilTilt);
 			return;
 		}
 
-		const rect = homeLink.getBoundingClientRect();
+		const rect = activeFoilTilt.element.getBoundingClientRect();
 
 		if (rect.width <= 0 || rect.height <= 0) {
 			return;
 		}
 
-		const x = clamp((activeHomeTilt.clientX - rect.left) / rect.width, 0, 1);
-		const y = clamp((activeHomeTilt.clientY - rect.top) / rect.height, 0, 1);
+		const x = clamp((activeFoilTilt.clientX - rect.left) / rect.width, 0, 1);
+		const y = clamp((activeFoilTilt.clientY - rect.top) / rect.height, 0, 1);
 		const offsetX = x - 0.5;
 		const offsetY = y - 0.5;
-		const tiltX = -offsetY * 14;
-		const tiltY = offsetX * 18;
+		const tiltX = -offsetY * activeFoilTilt.tiltXMax;
+		const tiltY = offsetX * activeFoilTilt.tiltYMax;
 		const edgeEnergy = clamp(Math.hypot(offsetX, offsetY) * 1.9, 0, 1);
 		const glintAngle = 122 + (offsetX * 64) - (offsetY * 38);
-		const glintOpacity = lerp(0.28, 0.88, edgeEnergy);
+		const glintOpacity = lerp(activeFoilTilt.glintMin, activeFoilTilt.glintMax, edgeEnergy);
 
-		homeLink.style.setProperty("--home-tilt-x", `${tiltX.toFixed(2)}deg`);
-		homeLink.style.setProperty("--home-tilt-y", `${tiltY.toFixed(2)}deg`);
-		homeLink.style.setProperty("--home-glint-x", `${(x * 100).toFixed(2)}%`);
-		homeLink.style.setProperty("--home-glint-y", `${(y * 100).toFixed(2)}%`);
-		homeLink.style.setProperty("--home-glint-angle", `${glintAngle.toFixed(2)}deg`);
-		homeLink.style.setProperty("--home-glint-opacity", glintOpacity.toFixed(3));
+		activeFoilTilt.element.style.setProperty(`--${activeFoilTilt.prefix}-tilt-x`, `${tiltX.toFixed(2)}deg`);
+		activeFoilTilt.element.style.setProperty(`--${activeFoilTilt.prefix}-tilt-y`, `${tiltY.toFixed(2)}deg`);
+		activeFoilTilt.element.style.setProperty(`--${activeFoilTilt.prefix}-glint-x`, `${(x * 100).toFixed(2)}%`);
+		activeFoilTilt.element.style.setProperty(`--${activeFoilTilt.prefix}-glint-y`, `${(y * 100).toFixed(2)}%`);
+		activeFoilTilt.element.style.setProperty(`--${activeFoilTilt.prefix}-glint-angle`, `${glintAngle.toFixed(2)}deg`);
+		activeFoilTilt.element.style.setProperty(`--${activeFoilTilt.prefix}-glint-opacity`, glintOpacity.toFixed(3));
 	};
 
-	const requestHomeTilt = (event) => {
-		if (!homeLink || event.pointerType === "touch" || viewerState || reduceMotion.matches) {
+	const requestFoilTilt = (target, event) => {
+		if (!target || event.pointerType === "touch" || viewerState || reduceMotion.matches) {
 			return;
 		}
 
-		activeHomeTilt = {
+		activeFoilTilt = {
+			...target,
 			clientX: event.clientX,
 			clientY: event.clientY,
 		};
 
-		if (homeTiltQueued) {
+		if (foilTiltQueued) {
 			return;
 		}
 
-		homeTiltQueued = true;
-		window.requestAnimationFrame(updateHomeTilt);
+		foilTiltQueued = true;
+		window.requestAnimationFrame(updateFoilTilt);
 	};
 
 	const updateDescriptionGlint = () => {
@@ -716,7 +1223,7 @@
 
 		const { state, clientX, clientY } = activeTilt;
 
-		if (viewerState || reduceMotion.matches || activeDrag?.state === state) {
+		if (!state.isActive || viewerState || reduceMotion.matches || activeDrag?.state === state || isYearTransitioning) {
 			resetTilt(state);
 			return;
 		}
@@ -749,7 +1256,7 @@
 	};
 
 	const requestTilt = (state, event) => {
-		if (event.pointerType === "touch" || viewerState || reduceMotion.matches) {
+		if (!state.isActive || event.pointerType === "touch" || viewerState || reduceMotion.matches || isYearTransitioning) {
 			return;
 		}
 
@@ -772,7 +1279,7 @@
 		let vy = clamp(velocityY * INERTIA_RELEASE_DAMPING, -INERTIA_MAX_VELOCITY, INERTIA_MAX_VELOCITY);
 
 		if (Math.hypot(vx, vy) <= INERTIA_MIN_SPEED) {
-			renderArtwork(state);
+			renderOne(state);
 			return;
 		}
 
@@ -783,23 +1290,19 @@
 			const delta = Math.min(now - lastTime, 32);
 			lastTime = now;
 
-			let nextX = state.x + (vx * delta);
-			let nextY = state.y + (vy * delta);
-
-			state.x = nextX;
-			state.y = nextY;
+			state.x += vx * delta;
+			state.y += vy * delta;
+			renderOne(state);
 
 			const friction = Math.pow(INERTIA_FRICTION, delta / 16.67);
 			vx *= friction;
 			vy *= friction;
-			renderArtwork(state);
 
 			if (Math.hypot(vx, vy) > INERTIA_MIN_SPEED) {
 				state.inertiaFrame = window.requestAnimationFrame(step);
 				return;
 			}
 
-			renderArtwork(state);
 			state.inertiaFrame = null;
 			state.card.classList.remove("is-settling");
 		};
@@ -939,18 +1442,20 @@
 	};
 
 	const openViewer = (state) => {
-		if (viewerState) {
+		if (viewerState || !state.isActive || isYearTransitioning) {
 			return;
 		}
 
 		resetTilt(state);
+		ensureImageLoaded(state);
+
 		const sourceRect = state.image.getBoundingClientRect();
 		const target = measureViewerTarget(state.artwork);
 		viewerState = { source: state, isClosing: false };
 		renderViewerDescription(state.artwork);
 		positionViewerDescription(target);
 		resetDescriptionGlint();
-		viewerImage.src = state.image.currentSrc || state.image.src || state.artwork.thumbSrc;
+		viewerImage.src = state.image.currentSrc || state.image.src || state.artwork.previewSrc;
 		viewerImage.alt = state.artwork.title;
 		viewerImage.style.width = `${sourceRect.width}px`;
 		viewerImage.style.height = `${sourceRect.height}px`;
@@ -968,7 +1473,7 @@
 	};
 
 	const handlePointerDown = (event, state) => {
-		if (viewerState || event.button !== 0) {
+		if (!state.isActive || viewerState || event.button !== 0 || isYearTransitioning) {
 			return;
 		}
 
@@ -1019,12 +1524,12 @@
 
 		state.x = activeDrag.startX + moveX;
 		state.y = activeDrag.startY + moveY;
+		renderOne(state);
 		activeDrag.velocityX = (event.clientX - activeDrag.lastClientX) / delta;
 		activeDrag.velocityY = (event.clientY - activeDrag.lastClientY) / delta;
 		activeDrag.lastClientX = event.clientX;
 		activeDrag.lastClientY = event.clientY;
 		activeDrag.lastTime = now;
-		renderArtwork(state);
 		event.preventDefault();
 	};
 
@@ -1066,22 +1571,108 @@
 		state.card.classList.remove("is-pressed", "is-dragging");
 	};
 
-	const createArtworkCard = (artwork, index) => {
-		const random = seededRandom(hashString(artwork.id));
+	const goToYearIndex = (nextIndex) => {
+		const clampedIndex = clamp(nextIndex, 0, yearGroups.length - 1);
+
+		if (clampedIndex === activeYearIndex || viewerState || activeDrag || isYearTransitioning) {
+			return;
+		}
+
+		cancelActiveMotion();
+
+		if (yearTransitionTimer) {
+			window.clearTimeout(yearTransitionTimer);
+			yearTransitionTimer = null;
+		}
+
+		if (yearTransitionFrame) {
+			window.cancelAnimationFrame(yearTransitionFrame);
+			yearTransitionFrame = null;
+		}
+
+		if (reduceMotion.matches) {
+			activeYearIndex = clampedIndex;
+			transitionFromIndex = null;
+			transitionToIndex = null;
+			updateYearLayers();
+			return;
+		}
+
+		transitionFromIndex = activeYearIndex;
+		transitionToIndex = clampedIndex;
+		isYearTransitioning = true;
+		document.body.classList.add("is-art-year-transitioning");
+		updateYearLayers({ updateLabel: false });
+		gallery.offsetHeight;
+
+		yearTransitionFrame = window.requestAnimationFrame(() => {
+			yearTransitionFrame = null;
+
+			if (!isYearTransitioning || transitionToIndex !== clampedIndex) {
+				return;
+			}
+
+			activeYearIndex = clampedIndex;
+			updateYearLayers();
+		});
+
+		yearTransitionTimer = window.setTimeout(() => {
+			isYearTransitioning = false;
+			document.body.classList.remove("is-art-year-transitioning");
+			transitionFromIndex = null;
+			transitionToIndex = null;
+			yearTransitionTimer = null;
+			updateYearLayers();
+		}, YEAR_TRANSITION_MS);
+	};
+
+	const handleYearKeydown = (event) => {
+		if (event.metaKey || event.ctrlKey || event.altKey || viewerState) {
+			return;
+		}
+
+		const key = event.key.toLowerCase();
+
+		if (key === "e") {
+			event.preventDefault();
+			goToYearIndex(activeYearIndex + 1);
+		} else if (key === "q") {
+			event.preventDefault();
+			goToYearIndex(activeYearIndex - 1);
+		}
+	};
+
+	const createArtworkCard = (group, artwork, index) => {
+		const random = seededRandom(hashString(artwork.key));
+		const driftRandom = seededRandom(hashString(`${artwork.key}-drift`));
 		const card = document.createElement("button");
-		card.className = "artwork-card";
+		card.className = "artwork-card is-depth-placeholder";
 		card.type = "button";
 		card.setAttribute("aria-label", `Expand ${artwork.title}`);
 		card.dataset.artworkId = artwork.id;
+		card.dataset.year = artwork.year;
+		const driftDuration = lerp(DRIFT_MIN_DURATION, DRIFT_MAX_DURATION, driftRandom());
+		const driftX = lerp(4, DRIFT_X_MAX, driftRandom());
+		const driftY = lerp(5, DRIFT_Y_MAX, driftRandom());
+		const driftRotate = lerp(0.18, DRIFT_ROTATE_MAX, driftRandom());
+		card.style.setProperty("--artwork-drift-x", `${driftX.toFixed(2)}px`);
+		card.style.setProperty("--artwork-drift-y", `${(-driftY * 0.65).toFixed(2)}px`);
+		card.style.setProperty("--artwork-drift-x-alt", `${(-driftX * 0.82).toFixed(2)}px`);
+		card.style.setProperty("--artwork-drift-y-alt", `${driftY.toFixed(2)}px`);
+		card.style.setProperty("--artwork-drift-rotate", `${driftRotate.toFixed(3)}deg`);
+		card.style.setProperty("--artwork-drift-rotate-alt", `${(-driftRotate).toFixed(3)}deg`);
+		card.style.setProperty("--artwork-drift-duration", `${driftDuration.toFixed(2)}s`);
+		card.style.setProperty("--artwork-drift-delay", `${(-driftRandom() * driftDuration).toFixed(2)}s`);
+
+		const driftWrap = document.createElement("span");
+		driftWrap.className = "artwork-card__drift";
+		driftWrap.setAttribute("aria-hidden", "true");
 
 		const imageWrap = document.createElement("span");
 		imageWrap.className = "artwork-card__image-wrap";
-		imageWrap.setAttribute("aria-hidden", "true");
-		imageWrap.style.setProperty("--artwork-mask-image", `url("${artwork.thumbSrc}")`);
 
 		const image = document.createElement("img");
 		image.className = "artwork-card__image";
-		image.src = artwork.thumbSrc;
 		image.alt = "";
 		image.width = artwork.width;
 		image.height = artwork.height;
@@ -1095,11 +1686,13 @@
 		}, { once: true });
 
 		imageWrap.append(image);
-		card.append(imageWrap);
-		gallery.append(card);
+		driftWrap.append(imageWrap);
+		card.append(driftWrap);
+		group.layer.append(card);
 
 		const state = {
 			artwork,
+			yearGroup: group,
 			card,
 			imageWrap,
 			image,
@@ -1109,8 +1702,11 @@
 			zIndex: 20 + index,
 			layerIndex: index,
 			layerRank: index,
-			baseParallax: lerp(0.52, 0.78, random()),
-			effectiveParallax: 0.52,
+			depthSlot: 0,
+			isActive: false,
+			isDriftActive: false,
+			baseParallax: lerp(0.34, 0.56, random()),
+			effectiveParallax: 0.34,
 			cardWidth: 220,
 			cardHeight: 260,
 			hasCustomPosition: false,
@@ -1133,13 +1729,98 @@
 		return state;
 	};
 
-	states = normalizedArtworks.map(createArtworkCard);
+	const createYearTitle = (group) => {
+		const slot = document.createElement("div");
+		slot.className = "art-year-title-slot";
+
+		const title = document.createElement("div");
+		title.className = "art-year-title";
+		title.dataset.year = group.year;
+		title.tabIndex = -1;
+		title.setAttribute("role", "status");
+		title.setAttribute("aria-live", "polite");
+		title.setAttribute("aria-hidden", "true");
+
+		const surface = document.createElement("span");
+		surface.className = "art-year-title__surface";
+
+		const text = document.createElement("span");
+		text.className = "art-year-title__text";
+		text.dataset.text = group.year;
+		text.textContent = group.year;
+
+		const hint = document.createElement("span");
+		hint.className = "art-year-title__hint";
+		hint.hidden = true;
+		hint.textContent = "Q/E to move forward/backward in time";
+
+		surface.append(text, hint);
+		title.append(surface);
+		slot.append(title);
+
+		group.title = title;
+		group.titleHint = hint;
+
+		return slot;
+	};
+
+	const createYearLayer = (group, index) => {
+		const layer = document.createElement("section");
+		layer.className = "art-year-layer";
+		layer.dataset.year = group.year;
+		layer.setAttribute("aria-label", `${group.year} artworks`);
+		layer.style.zIndex = String(120 - index);
+		group.layer = layer;
+		gallery.append(layer);
+		layer.append(createYearTitle(group));
+		group.states = group.artworks.map((artwork, artworkIndex) => createArtworkCard(group, artwork, artworkIndex));
+		states.push(...group.states);
+	};
+
+	yearGroups.forEach(createYearLayer);
+
+	const attachFoilTiltHandlers = (target) => {
+		target.element.addEventListener("pointermove", (event) => requestFoilTilt(target, event));
+		target.element.addEventListener("pointerleave", () => resetFoilTilt(target));
+		target.element.addEventListener("focusout", () => resetFoilTilt(target));
+	};
+
+	const homeFoilTarget = homeLink
+		? { element: homeLink, prefix: "home", tiltXMax: 14, tiltYMax: 18, glintMin: 0.28, glintMax: 0.88 }
+		: null;
+
+	if (homeFoilTarget) {
+		attachFoilTiltHandlers(homeFoilTarget);
+	}
+
+	yearGroups.forEach((group) => {
+		if (!group.title) {
+			return;
+		}
+
+		attachFoilTiltHandlers({
+			element: group.title,
+			prefix: "year",
+			tiltXMax: 12,
+			tiltYMax: 16,
+			glintMin: 0.22,
+			glintMax: 0.76,
+		});
+	});
+
+	window.HELLOTEACHER_ART_YEARS = {
+		goFuture: () => goToYearIndex(activeYearIndex - 1),
+		goPast: () => goToYearIndex(activeYearIndex + 1),
+		getCurrentYear: () => getActiveGroup().year,
+	};
 
 	window.addEventListener("pointermove", handlePointerMove, { passive: false });
 	window.addEventListener("pointerup", endPointerInteraction);
 	window.addEventListener("pointercancel", cancelPointerInteraction);
-	window.addEventListener("scroll", requestParallax, { passive: true });
+	window.addEventListener("keydown", handleYearKeydown);
+	window.addEventListener("scroll", handleScroll, { passive: true });
 	window.addEventListener("resize", requestLayout);
+
 	viewer.addEventListener("click", (event) => {
 		if (event.target === viewer) {
 			closeViewer();
@@ -1148,33 +1829,25 @@
 	viewerImage.addEventListener("click", (event) => {
 		event.stopPropagation();
 	});
-	viewerDescription.addEventListener("pointerenter", requestDescriptionGlint);
 	viewerDescription.addEventListener("pointermove", requestDescriptionGlint);
 	viewerDescription.addEventListener("pointerleave", resetDescriptionGlint);
-	if (homeLink) {
-		homeLink.addEventListener("pointerenter", requestHomeTilt);
-		homeLink.addEventListener("pointermove", requestHomeTilt);
-		homeLink.addEventListener("pointerleave", resetHomeTilt);
-	}
-	window.addEventListener("keydown", (event) => {
+	document.addEventListener("keydown", (event) => {
 		if (event.key === "Escape") {
 			closeViewer();
 		}
 	});
+
 	if (typeof reduceMotion.addEventListener === "function") {
 		reduceMotion.addEventListener("change", () => {
-			states.forEach(resetTilt);
-			resetHomeTilt();
-			requestParallax();
+			renderAll({ includeGeometry: true, includeDepthGeometry: true });
 		});
 	} else {
 		reduceMotion.addListener(() => {
-			states.forEach(resetTilt);
-			resetHomeTilt();
-			requestParallax();
+			renderAll({ includeGeometry: true, includeDepthGeometry: true });
 		});
 	}
 
 	loadArtworkDescriptions();
 	calculateLayout();
+	renderAll({ includeGeometry: true, includeDepthGeometry: true });
 })();
