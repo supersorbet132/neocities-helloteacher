@@ -883,6 +883,14 @@
 	const hiddenAtRest = new Set(layerOrderTopToBottom.filter((name) => (
 		name.includes("_colordodge") || name.includes("_hardmix")
 	)));
+	const smoothFadeLayers = new Set([
+		"projects_o_colordodge",
+		"projects_t_colordodge",
+	]);
+	const blueprintCycleLayers = new Set([
+		"projects_blueprint_glow_colordodge",
+		"projects_blueprint_jimbo_colordodge",
+	]);
 	const blendMaskTargets = new Map([...lockedMotionTargets]
 		.filter(([layerName]) => hiddenAtRest.has(layerName))
 		.map(([layerName, targetName]) => [layerName, [targetName]]));
@@ -898,6 +906,7 @@
 	const manifestUrl = "/assets/images/site/sprite-crop-manifest.json";
 	const assetBase = "/assets/images/site/projects/";
 	const leaveTimers = new WeakMap();
+	const letterReturnTimers = new WeakMap();
 
 	const getNumberVar = (element, name, fallback) => {
 		const value = getComputedStyle(element).getPropertyValue(name).trim();
@@ -1029,14 +1038,16 @@
 		const hasNonTitleMotion = Boolean(nonTitleMotionGroup);
 		const staggerMs = getNumberVar(card, "--projects-stagger-ms", 18);
 		const nonTitleLeadMs = getNumberVar(card, "--projects-nontitle-lead-ms", 80);
+		const letterReturnMs = getNumberVar(card, "--projects-letter-return-duration", 420);
 		const baseDuration = getNumberVar(card, "--projects-move-base-duration", 1120);
 		const durationSpread = getNumberVar(card, "--projects-move-duration-spread", 360);
 		const moveDuration = baseDuration + ((targetTopIndex * 31) % durationSpread);
 		const inDelay = (layerOrderTopToBottom.length - 1 - targetTopIndex) * staggerMs;
 		const outDelay = targetTopIndex * staggerMs;
 		const moveInDelay = hasNonTitleMotion ? Math.max(0, inDelay - nonTitleLeadMs) : inDelay;
-		const moveOutDelay = hasNonTitleMotion ? outDelay + nonTitleLeadMs : outDelay;
 		const hasMotion = isTitleMotion || hasNonTitleMotion;
+		const rawMoveOutDelay = hasNonTitleMotion ? outDelay + nonTitleLeadMs : outDelay;
+		const moveOutDelay = hasMotion ? rawMoveOutDelay + letterReturnMs : rawMoveOutDelay;
 
 		sprite.style.setProperty("--sprite-move-duration", `${moveDuration}ms`);
 
@@ -1060,7 +1071,16 @@
 		}
 
 		if (hiddenAtRest.has(layerName)) {
-			sprite.classList.add("is-hover-only", "is-flicker-in");
+			sprite.classList.add("is-hover-only");
+
+			if (!smoothFadeLayers.has(layerName)) {
+				sprite.classList.add("is-flicker-in");
+			}
+
+			if (blueprintCycleLayers.has(layerName)) {
+				sprite.classList.add("is-blueprint-cycle");
+			}
+
 			sprite.style.setProperty("--sprite-rest-opacity", "0");
 			sprite.style.setProperty("--sprite-hover-opacity", "1");
 			sprite.style.setProperty("--sprite-fade-in-delay", hasMotion
@@ -1076,6 +1096,58 @@
 		sprite.style.setProperty("--sprite-fade-duration", "var(--projects-effect-fade-duration)");
 	};
 
+	const getProjectReturningParallaxLayers = (card) => [...card.querySelectorAll(".projects-sprite-card__parallax.is-letter-rhythm, .projects-sprite-card__parallax.is-projects-idle-drift")];
+
+	const clearProjectsLetterReturn = (card) => {
+		const timer = letterReturnTimers.get(card);
+
+		if (timer) {
+			window.clearTimeout(timer);
+			letterReturnTimers.delete(card);
+		}
+
+		getProjectReturningParallaxLayers(card).forEach((layer) => {
+			layer.style.removeProperty("animation");
+			layer.style.removeProperty("transition");
+			layer.style.removeProperty("transform");
+		});
+	};
+
+	const returnProjectsLettersToNeutral = (card) => {
+		const returningLayers = getProjectReturningParallaxLayers(card);
+
+		if (!returningLayers.length) {
+			return;
+		}
+
+		const returnMs = getNumberVar(card, "--projects-letter-return-duration", 420);
+
+		returningLayers.forEach((layer) => {
+			const currentTransform = getComputedStyle(layer).transform;
+
+			layer.style.animation = "none";
+			layer.style.transition = "none";
+			layer.style.transform = currentTransform === "none"
+				? "translate3d(0, var(--sprite-parallax-y, 0px), 0)"
+				: currentTransform;
+		});
+
+		card.offsetHeight;
+
+		returningLayers.forEach((layer) => {
+			layer.style.transition = `transform ${returnMs}ms var(--projects-letter-return-ease)`;
+			layer.style.transform = "translate3d(0, var(--sprite-parallax-y, 0px), 0)";
+		});
+
+		const timer = window.setTimeout(() => {
+			if (!card.classList.contains("is-hovered")) {
+				clearProjectsLetterReturn(card);
+			}
+		}, returnMs + 80);
+
+		letterReturnTimers.set(card, timer);
+	};
+
 	const bindProjectsCardState = (card) => {
 		if (card.dataset.projectsStateBound === "true") {
 			return;
@@ -1089,6 +1161,7 @@
 				window.clearTimeout(timer);
 			}
 
+			clearProjectsLetterReturn(card);
 			card.classList.remove("is-leaving");
 			card.classList.add("is-hovered");
 		};
@@ -1108,6 +1181,7 @@
 				window.clearTimeout(existingTimer);
 			}
 
+			returnProjectsLettersToNeutral(card);
 			card.classList.remove("is-hovered");
 			card.classList.add("is-leaving");
 			leaveTimers.set(card, window.setTimeout(() => {
@@ -1163,6 +1237,16 @@
 			parallax.className = "projects-sprite-card__parallax";
 			parallax.dataset.cardParallaxLayer = layerName;
 			parallax.dataset.spriteParallaxStrength = getProjectsParallaxStrength(card, layerName).toFixed(3);
+			const motionTarget = lockedMotionTargets.get(layerName) || layerName;
+			const motionLetter = letterLayers.has(motionTarget) ? getLetterPart(motionTarget)?.letter : null;
+			const motionGroup = nonTitleMotionGroups.get(motionTarget);
+
+			if (motionLetter) {
+				parallax.classList.add("is-letter-rhythm", `is-letter-rhythm--${motionLetter}`);
+			} else if (motionGroup) {
+				parallax.classList.add("is-projects-idle-drift", `is-projects-idle-drift--${motionGroup}`);
+			}
+
 			image.className = "projects-sprite-card__sprite-image";
 			image.src = `${assetBase}${spriteData.file}`;
 			image.alt = "";

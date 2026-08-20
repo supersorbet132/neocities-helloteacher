@@ -688,10 +688,49 @@
 		--projects-parallax-blueprint-strength: 0.58;
 		--projects-parallax-tool-strength: 1.08;
 		--projects-parallax-fallback-strength: 0.42;
-		--projects-hitbox-top: 120px;
+		--projects-rest-brightness: 0.68;
+		--projects-rest-saturation: 0.9;
+		--projects-hover-brightness: 1;
+		--projects-hover-saturation: 1;
+		--projects-letter-dance-distance: 15px;
+		--projects-letter-dance-duration: 4s;
+		--projects-letter-return-duration: 420ms;
+		--projects-letter-bounce-ease: cubic-bezier(0.34, 1.56, 0.64, 1);
+		--projects-letter-return-ease: cubic-bezier(0.22, 1, 0.36, 1);
+		--projects-blueprint-flicker-cycle: 3s;
+		--projects-blueprint-flicker-start-delay: 900ms;
+		--projects-board-drift-x: 24px;
+		--projects-board-drift-y: 16px;
+		--projects-board-drift-duration: 12.6s;
+		--projects-board-drift-delay: 120ms;
+		--projects-blueprint-drift-x: 30px;
+		--projects-blueprint-drift-y: 18px;
+		--projects-blueprint-drift-duration: 14.2s;
+		--projects-blueprint-drift-delay: 0ms;
+		--projects-metal-drift-x: 22px;
+		--projects-metal-drift-y: 26px;
+		--projects-metal-drift-duration: 13.4s;
+		--projects-metal-drift-delay: 260ms;
+		--projects-ruler-drift-x: 28px;
+		--projects-ruler-drift-y: 20px;
+		--projects-ruler-drift-duration: 11.8s;
+		--projects-ruler-drift-delay: 440ms;
+		--projects-pencil-drift-x: 24px;
+		--projects-pencil-drift-y: 28px;
+		--projects-pencil-drift-duration: 10.9s;
+		--projects-pencil-drift-delay: 680ms;
+		--projects-triangle-drift-x: 30px;
+		--projects-triangle-drift-y: 24px;
+		--projects-triangle-drift-duration: 15.1s;
+		--projects-triangle-drift-delay: 320ms;
+		--projects-eraser-drift-x: 20px;
+		--projects-eraser-drift-y: 24px;
+		--projects-eraser-drift-duration: 12.9s;
+		--projects-eraser-drift-delay: 760ms;
+		--projects-hitbox-top: 260px;
 		--projects-hitbox-right: 0px;
-		--projects-hitbox-bottom: 120px;
-		--projects-hitbox-left: 0px;
+		--projects-hitbox-bottom: 420px;
+		--projects-hitbox-left: 200px;
 		--projects-title-x: 0;
 		--projects-title-y: 0;
 		--projects-p-x: 150;
@@ -740,6 +779,14 @@
 		--projects-j-hardmix-y: 120;
 		--projects-s-hardmix-x: -35;
 		--projects-s-hardmix-y: 5;
+		--projects-ruler-x: 0;
+		--projects-ruler-y: 0;
+		--projects-pencil-x: 800;
+		--projects-pencil-y: 0;
+		--projects-triangle-x: 0;
+		--projects-triangle-y: 150;
+		--projects-eraser-x: 200;
+		--projects-eraser-y: 1200;
 		--projects-board-hover-shift-x: 20px;
 		--projects-board-hover-shift-y: 8px;
 		--projects-blueprint-hover-shift-x: 14px;
@@ -820,11 +867,23 @@
 		transform: translate3d(0, var(--sprite-parallax-y, 0px), 0);
 		will-change: transform;
 	}
+	.projects-sprite-card:not(.is-hovered):not(:focus-visible) .projects-sprite-card__parallax.is-letter-rhythm {
+		transition: transform var(--projects-letter-return-duration) var(--projects-letter-return-ease);
+	}
+	.projects-sprite-card:not(.is-hovered):not(:focus-visible) .projects-sprite-card__parallax.is-projects-idle-drift {
+		transition: transform var(--projects-letter-return-duration) var(--projects-letter-return-ease);
+	}
 	.projects-sprite-card__sprite-image {
 		display: block;
 		width: 100%;
 		height: 100%;
 		max-width: none;
+		filter: brightness(var(--projects-rest-brightness)) saturate(var(--projects-rest-saturation));
+		transition-property: filter;
+		transition-duration: var(--sprite-move-duration, var(--projects-move-base-duration));
+		transition-timing-function: var(--projects-motion-return-ease);
+		transition-delay: var(--sprite-move-out-delay, 0ms);
+		will-change: filter;
 	}
 	.projects-sprite-card__hitbox {
 		position: absolute;
@@ -845,11 +904,123 @@
 		transition-timing-function: var(--projects-motion-ease), ease;
 		transition-delay: var(--sprite-move-in-delay, 0ms), var(--sprite-fade-in-delay, 0ms);
 	}
+	.projects-sprite-card:focus-visible .projects-sprite-card__sprite-image,
+	.projects-sprite-card.is-hovered .projects-sprite-card__sprite-image {
+		filter: brightness(var(--projects-hover-brightness)) saturate(var(--projects-hover-saturation));
+		transition-timing-function: var(--projects-motion-ease);
+		transition-delay: var(--sprite-move-in-delay, 0ms);
+	}
 	.projects-sprite-card:focus-visible .projects-sprite-card__sprite.is-flicker-in,
 	.projects-sprite-card.is-hovered .projects-sprite-card__sprite.is-flicker-in {
 		animation: projects-flicker-in var(--sprite-fade-duration, var(--projects-effect-fade-duration)) steps(1, end) var(--sprite-fade-in-delay, 0ms) both;
 	}
-	.projects-sprite-card.is-leaving .projects-sprite-card__sprite.is-hover-only {
+	.projects-sprite-card:focus-visible .projects-sprite-card__sprite.is-blueprint-cycle,
+	.projects-sprite-card.is-hovered .projects-sprite-card__sprite.is-blueprint-cycle {
+		animation: projects-blueprint-cycle var(--projects-blueprint-flicker-cycle) steps(1, end) calc(var(--sprite-fade-in-delay, 0ms) + var(--projects-blueprint-flicker-start-delay)) infinite;
+	}
+	.projects-sprite-card:focus-visible .projects-sprite-card__parallax.is-letter-rhythm--p,
+	.projects-sprite-card.is-hovered .projects-sprite-card__parallax.is-letter-rhythm--p {
+		animation-name: projects-letter-p;
+	}
+	.projects-sprite-card:focus-visible .projects-sprite-card__parallax.is-letter-rhythm--r,
+	.projects-sprite-card.is-hovered .projects-sprite-card__parallax.is-letter-rhythm--r {
+		animation-name: projects-letter-r;
+	}
+	.projects-sprite-card:focus-visible .projects-sprite-card__parallax.is-letter-rhythm--o,
+	.projects-sprite-card.is-hovered .projects-sprite-card__parallax.is-letter-rhythm--o {
+		animation-name: projects-letter-o;
+	}
+	.projects-sprite-card:focus-visible .projects-sprite-card__parallax.is-letter-rhythm--j,
+	.projects-sprite-card.is-hovered .projects-sprite-card__parallax.is-letter-rhythm--j {
+		animation-name: projects-letter-j;
+	}
+	.projects-sprite-card:focus-visible .projects-sprite-card__parallax.is-letter-rhythm--e,
+	.projects-sprite-card.is-hovered .projects-sprite-card__parallax.is-letter-rhythm--e {
+		animation-name: projects-letter-e;
+	}
+	.projects-sprite-card:focus-visible .projects-sprite-card__parallax.is-letter-rhythm--c,
+	.projects-sprite-card.is-hovered .projects-sprite-card__parallax.is-letter-rhythm--c {
+		animation-name: projects-letter-c;
+	}
+	.projects-sprite-card:focus-visible .projects-sprite-card__parallax.is-letter-rhythm--t,
+	.projects-sprite-card.is-hovered .projects-sprite-card__parallax.is-letter-rhythm--t {
+		animation-name: projects-letter-t;
+	}
+	.projects-sprite-card:focus-visible .projects-sprite-card__parallax.is-letter-rhythm--s,
+	.projects-sprite-card.is-hovered .projects-sprite-card__parallax.is-letter-rhythm--s {
+		animation-name: projects-letter-s;
+	}
+	.projects-sprite-card:focus-visible .projects-sprite-card__parallax.is-letter-rhythm,
+	.projects-sprite-card.is-hovered .projects-sprite-card__parallax.is-letter-rhythm {
+		animation-duration: var(--projects-letter-dance-duration);
+		animation-timing-function: var(--projects-letter-bounce-ease);
+		animation-delay: calc(var(--sprite-move-in-delay, 0ms) + var(--sprite-move-duration, var(--projects-move-base-duration)));
+		animation-iteration-count: infinite;
+	}
+	.projects-sprite-card:focus-visible .projects-sprite-card__parallax.is-projects-idle-drift,
+	.projects-sprite-card.is-hovered .projects-sprite-card__parallax.is-projects-idle-drift {
+		animation-duration: var(--projects-idle-drift-duration);
+		animation-timing-function: ease-in-out;
+		animation-delay: calc(var(--sprite-move-in-delay, 0ms) + var(--sprite-move-duration, var(--projects-move-base-duration)) + var(--projects-idle-drift-delay, 0ms));
+		animation-iteration-count: infinite;
+	}
+	.projects-sprite-card__parallax.is-projects-idle-drift--board {
+		--projects-idle-drift-duration: var(--projects-board-drift-duration);
+		--projects-idle-drift-delay: var(--projects-board-drift-delay);
+	}
+	.projects-sprite-card:focus-visible .projects-sprite-card__parallax.is-projects-idle-drift--board,
+	.projects-sprite-card.is-hovered .projects-sprite-card__parallax.is-projects-idle-drift--board {
+		animation-name: projects-board-drift;
+	}
+	.projects-sprite-card__parallax.is-projects-idle-drift--blueprint {
+		--projects-idle-drift-duration: var(--projects-blueprint-drift-duration);
+		--projects-idle-drift-delay: var(--projects-blueprint-drift-delay);
+	}
+	.projects-sprite-card:focus-visible .projects-sprite-card__parallax.is-projects-idle-drift--blueprint,
+	.projects-sprite-card.is-hovered .projects-sprite-card__parallax.is-projects-idle-drift--blueprint {
+		animation-name: projects-blueprint-drift;
+	}
+	.projects-sprite-card__parallax.is-projects-idle-drift--metal {
+		--projects-idle-drift-duration: var(--projects-metal-drift-duration);
+		--projects-idle-drift-delay: var(--projects-metal-drift-delay);
+	}
+	.projects-sprite-card:focus-visible .projects-sprite-card__parallax.is-projects-idle-drift--metal,
+	.projects-sprite-card.is-hovered .projects-sprite-card__parallax.is-projects-idle-drift--metal {
+		animation-name: projects-metal-drift;
+	}
+	.projects-sprite-card__parallax.is-projects-idle-drift--ruler {
+		--projects-idle-drift-duration: var(--projects-ruler-drift-duration);
+		--projects-idle-drift-delay: var(--projects-ruler-drift-delay);
+	}
+	.projects-sprite-card:focus-visible .projects-sprite-card__parallax.is-projects-idle-drift--ruler,
+	.projects-sprite-card.is-hovered .projects-sprite-card__parallax.is-projects-idle-drift--ruler {
+		animation-name: projects-ruler-drift;
+	}
+	.projects-sprite-card__parallax.is-projects-idle-drift--pencil {
+		--projects-idle-drift-duration: var(--projects-pencil-drift-duration);
+		--projects-idle-drift-delay: var(--projects-pencil-drift-delay);
+	}
+	.projects-sprite-card:focus-visible .projects-sprite-card__parallax.is-projects-idle-drift--pencil,
+	.projects-sprite-card.is-hovered .projects-sprite-card__parallax.is-projects-idle-drift--pencil {
+		animation-name: projects-pencil-drift;
+	}
+	.projects-sprite-card__parallax.is-projects-idle-drift--triangle {
+		--projects-idle-drift-duration: var(--projects-triangle-drift-duration);
+		--projects-idle-drift-delay: var(--projects-triangle-drift-delay);
+	}
+	.projects-sprite-card:focus-visible .projects-sprite-card__parallax.is-projects-idle-drift--triangle,
+	.projects-sprite-card.is-hovered .projects-sprite-card__parallax.is-projects-idle-drift--triangle {
+		animation-name: projects-triangle-drift;
+	}
+	.projects-sprite-card__parallax.is-projects-idle-drift--eraser {
+		--projects-idle-drift-duration: var(--projects-eraser-drift-duration);
+		--projects-idle-drift-delay: var(--projects-eraser-drift-delay);
+	}
+	.projects-sprite-card:focus-visible .projects-sprite-card__parallax.is-projects-idle-drift--eraser,
+	.projects-sprite-card.is-hovered .projects-sprite-card__parallax.is-projects-idle-drift--eraser {
+		animation-name: projects-eraser-drift;
+	}
+	.projects-sprite-card.is-leaving .projects-sprite-card__sprite.is-hover-only.is-flicker-in {
 		animation: projects-flicker-out var(--projects-effect-flicker-out-duration) steps(1, end) 0ms both;
 	}
 	.projects-sprite-card__fallback {
@@ -879,6 +1050,107 @@
 		48% { opacity: 0.12; }
 		67% { opacity: 0.42; }
 		100% { opacity: 0; }
+	}
+	@keyframes projects-blueprint-cycle {
+		0%, 70%, 100% { opacity: 1; }
+		73% { opacity: 0.18; }
+		75% { opacity: 0.92; }
+		78% { opacity: 0.05; }
+		80% { opacity: 1; }
+		84% { opacity: 0.32; }
+		87% { opacity: 0.86; }
+		90% { opacity: 0.14; }
+		93% { opacity: 1; }
+	}
+	@keyframes projects-board-drift {
+		0%, 100% { transform: translate3d(0, var(--sprite-parallax-y, 0px), 0); }
+		24% { transform: translate3d(var(--projects-board-drift-x), calc(var(--sprite-parallax-y, 0px) - var(--projects-board-drift-y)), 0); }
+		52% { transform: translate3d(var(--projects-board-drift-x), calc(var(--sprite-parallax-y, 0px) + var(--projects-board-drift-y)), 0); }
+		78% { transform: translate3d(0, calc(var(--sprite-parallax-y, 0px) + var(--projects-board-drift-y)), 0); }
+	}
+	@keyframes projects-blueprint-drift {
+		0%, 100% { transform: translate3d(0, var(--sprite-parallax-y, 0px), 0); }
+		20% { transform: translate3d(var(--projects-blueprint-drift-x), calc(var(--sprite-parallax-y, 0px) - var(--projects-blueprint-drift-y)), 0); }
+		48% { transform: translate3d(calc(-1 * var(--projects-blueprint-drift-x)), calc(var(--sprite-parallax-y, 0px) - var(--projects-blueprint-drift-y)), 0); }
+		72% { transform: translate3d(calc(-1 * var(--projects-blueprint-drift-x)), calc(var(--sprite-parallax-y, 0px) + var(--projects-blueprint-drift-y)), 0); }
+	}
+	@keyframes projects-metal-drift {
+		0%, 100% { transform: translate3d(0, var(--sprite-parallax-y, 0px), 0); }
+		18% { transform: translate3d(calc(-1 * var(--projects-metal-drift-x)), calc(var(--sprite-parallax-y, 0px) + var(--projects-metal-drift-y)), 0); }
+		46% { transform: translate3d(var(--projects-metal-drift-x), calc(var(--sprite-parallax-y, 0px) + var(--projects-metal-drift-y)), 0); }
+		74% { transform: translate3d(var(--projects-metal-drift-x), calc(var(--sprite-parallax-y, 0px) - var(--projects-metal-drift-y)), 0); }
+	}
+	@keyframes projects-ruler-drift {
+		0%, 100% { transform: translate3d(0, var(--sprite-parallax-y, 0px), 0); }
+		22% { transform: translate3d(calc(-1 * var(--projects-ruler-drift-x)), calc(var(--sprite-parallax-y, 0px) - var(--projects-ruler-drift-y)), 0); }
+		54% { transform: translate3d(var(--projects-ruler-drift-x), calc(var(--sprite-parallax-y, 0px) - var(--projects-ruler-drift-y)), 0); }
+		80% { transform: translate3d(var(--projects-ruler-drift-x), calc(var(--sprite-parallax-y, 0px) + var(--projects-ruler-drift-y)), 0); }
+	}
+	@keyframes projects-pencil-drift {
+		0%, 100% { transform: translate3d(0, var(--sprite-parallax-y, 0px), 0); }
+		26% { transform: translate3d(var(--projects-pencil-drift-x), calc(var(--sprite-parallax-y, 0px) + var(--projects-pencil-drift-y)), 0); }
+		58% { transform: translate3d(calc(-1 * var(--projects-pencil-drift-x)), calc(var(--sprite-parallax-y, 0px) + var(--projects-pencil-drift-y)), 0); }
+		82% { transform: translate3d(calc(-1 * var(--projects-pencil-drift-x)), calc(var(--sprite-parallax-y, 0px) - var(--projects-pencil-drift-y)), 0); }
+	}
+	@keyframes projects-triangle-drift {
+		0%, 100% { transform: translate3d(0, var(--sprite-parallax-y, 0px), 0); }
+		16% { transform: translate3d(var(--projects-triangle-drift-x), calc(var(--sprite-parallax-y, 0px) - var(--projects-triangle-drift-y)), 0); }
+		44% { transform: translate3d(calc(-1 * var(--projects-triangle-drift-x)), calc(var(--sprite-parallax-y, 0px) - var(--projects-triangle-drift-y)), 0); }
+		76% { transform: translate3d(calc(-1 * var(--projects-triangle-drift-x)), calc(var(--sprite-parallax-y, 0px) + var(--projects-triangle-drift-y)), 0); }
+	}
+	@keyframes projects-eraser-drift {
+		0%, 100% { transform: translate3d(0, var(--sprite-parallax-y, 0px), 0); }
+		28% { transform: translate3d(calc(-1 * var(--projects-eraser-drift-x)), calc(var(--sprite-parallax-y, 0px) + var(--projects-eraser-drift-y)), 0); }
+		50% { transform: translate3d(var(--projects-eraser-drift-x), calc(var(--sprite-parallax-y, 0px) + var(--projects-eraser-drift-y)), 0); }
+		82% { transform: translate3d(var(--projects-eraser-drift-x), calc(var(--sprite-parallax-y, 0px) - var(--projects-eraser-drift-y)), 0); }
+	}
+	@keyframes projects-letter-p {
+		0%, 100% { transform: translate3d(0, var(--sprite-parallax-y, 0px), 0); }
+		25% { transform: translate3d(0, calc(var(--sprite-parallax-y, 0px) - var(--projects-letter-dance-distance)), 0); }
+		50% { transform: translate3d(calc(-1 * var(--projects-letter-dance-distance)), calc(var(--sprite-parallax-y, 0px) - var(--projects-letter-dance-distance)), 0); }
+		75% { transform: translate3d(calc(-1 * var(--projects-letter-dance-distance)), var(--sprite-parallax-y, 0px), 0); }
+	}
+	@keyframes projects-letter-r {
+		0%, 100% { transform: translate3d(0, var(--sprite-parallax-y, 0px), 0); }
+		25% { transform: translate3d(0, calc(var(--sprite-parallax-y, 0px) + var(--projects-letter-dance-distance)), 0); }
+		50% { transform: translate3d(0, var(--sprite-parallax-y, 0px), 0); }
+		75% { transform: translate3d(0, calc(var(--sprite-parallax-y, 0px) + var(--projects-letter-dance-distance)), 0); }
+	}
+	@keyframes projects-letter-o {
+		0%, 100% { transform: translate3d(0, var(--sprite-parallax-y, 0px), 0); }
+		25% { transform: translate3d(var(--projects-letter-dance-distance), var(--sprite-parallax-y, 0px), 0); }
+		50% { transform: translate3d(var(--projects-letter-dance-distance), calc(var(--sprite-parallax-y, 0px) + var(--projects-letter-dance-distance)), 0); }
+		75% { transform: translate3d(0, calc(var(--sprite-parallax-y, 0px) + var(--projects-letter-dance-distance)), 0); }
+	}
+	@keyframes projects-letter-j {
+		0%, 100% { transform: translate3d(0, var(--sprite-parallax-y, 0px), 0); }
+		25% { transform: translate3d(0, calc(var(--sprite-parallax-y, 0px) - var(--projects-letter-dance-distance)), 0); }
+		50% { transform: translate3d(0, var(--sprite-parallax-y, 0px), 0); }
+		75% { transform: translate3d(0, calc(var(--sprite-parallax-y, 0px) - var(--projects-letter-dance-distance)), 0); }
+	}
+	@keyframes projects-letter-e {
+		0%, 100% { transform: translate3d(0, var(--sprite-parallax-y, 0px), 0); }
+		25% { transform: translate3d(0, calc(var(--sprite-parallax-y, 0px) + var(--projects-letter-dance-distance)), 0); }
+		50% { transform: translate3d(calc(-1 * var(--projects-letter-dance-distance)), calc(var(--sprite-parallax-y, 0px) + var(--projects-letter-dance-distance)), 0); }
+		75% { transform: translate3d(calc(-1 * var(--projects-letter-dance-distance)), var(--sprite-parallax-y, 0px), 0); }
+	}
+	@keyframes projects-letter-c {
+		0%, 100% { transform: translate3d(0, var(--sprite-parallax-y, 0px), 0); }
+		25% { transform: translate3d(0, calc(var(--sprite-parallax-y, 0px) + var(--projects-letter-dance-distance)), 0); }
+		50% { transform: translate3d(var(--projects-letter-dance-distance), calc(var(--sprite-parallax-y, 0px) + var(--projects-letter-dance-distance)), 0); }
+		75% { transform: translate3d(var(--projects-letter-dance-distance), var(--sprite-parallax-y, 0px), 0); }
+	}
+	@keyframes projects-letter-t {
+		0%, 100% { transform: translate3d(0, var(--sprite-parallax-y, 0px), 0); }
+		25% { transform: translate3d(0, calc(var(--sprite-parallax-y, 0px) - var(--projects-letter-dance-distance)), 0); }
+		50% { transform: translate3d(0, var(--sprite-parallax-y, 0px), 0); }
+		75% { transform: translate3d(0, calc(var(--sprite-parallax-y, 0px) - var(--projects-letter-dance-distance)), 0); }
+	}
+	@keyframes projects-letter-s {
+		0%, 100% { transform: translate3d(0, var(--sprite-parallax-y, 0px), 0); }
+		25% { transform: translate3d(0, calc(var(--sprite-parallax-y, 0px) - var(--projects-letter-dance-distance)), 0); }
+		50% { transform: translate3d(var(--projects-letter-dance-distance), calc(var(--sprite-parallax-y, 0px) - var(--projects-letter-dance-distance)), 0); }
+		75% { transform: translate3d(var(--projects-letter-dance-distance), var(--sprite-parallax-y, 0px), 0); }
 	}
 	@keyframes cad-flicker-in {
 		0% { opacity: 0; }
@@ -1095,6 +1367,7 @@
 		.cad-sprite-card__sprite-image,
 		.projects-sprite-card,
 		.projects-sprite-card__sprite,
+		.projects-sprite-card__parallax,
 		.projects-sprite-card__sprite-image,
 		.journal-sprite-card,
 		.journal-sprite-card__sprite {
