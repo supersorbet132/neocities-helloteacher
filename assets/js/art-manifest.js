@@ -1,1038 +1,996 @@
 window.HELLOTEACHER_ARTWORK_MANIFEST = [
 	{
-		"file": "blackhole.jpg",
+		"file": "blackhole.webp",
 		"year": "2026",
 		"width": 1326,
 		"height": 1768
 	},
 	{
-		"file": "Bro_How_To_Do_Ts_\ud83d\ude2d\ud83d\ude2d\ud83d\ude2d.jpg",
-		"year": "2026",
-		"width": 2048,
-		"height": 2048
-	},
-	{
-		"file": "dog.jpg",
+		"file": "dog.webp",
 		"year": "2026",
 		"width": 4096,
 		"height": 1714
 	},
 	{
-		"file": "Funny_Light_Thing.jpg",
+		"file": "kimiacity.webp",
 		"year": "2026",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "kimiacity.jpg",
+		"file": "kimiaclouds.webp",
 		"year": "2026",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "kimiaclouds.jpg",
+		"file": "kimiacomets.webp",
 		"year": "2026",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "kimiacomets.jpg",
+		"file": "kimiadescent.webp",
 		"year": "2026",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "kimiadescent.jpg",
+		"file": "kimialog.webp",
 		"year": "2026",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "kimialog.jpg",
+		"file": "kimiaruins.webp",
 		"year": "2026",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "kimiaruins.jpg",
+		"file": "kimiasunrise.webp",
 		"year": "2026",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "kimiasunrise.jpg",
+		"file": "kimiasword.webp",
 		"year": "2026",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "kimiasword.jpg",
-		"year": "2026",
-		"width": 1536,
-		"height": 2048
-	},
-	{
-		"file": "Scal.jpg",
-		"year": "2026",
-		"width": 2048,
-		"height": 2732
-	},
-	{
-		"file": "Sundered_Grove 2.jpg",
+		"file": "Sundered_Grove.webp",
 		"year": "2026",
 		"width": 3229,
 		"height": 2048
 	},
 	{
-		"file": "Untitled_Artwork 29.jpg",
-		"year": "2026",
-		"width": 2048,
-		"height": 2048
-	},
-	{
-		"file": "Untitled_Artwork 30.jpg",
-		"year": "2026",
-		"width": 2048,
-		"height": 2732
-	},
-	{
-		"file": "Untitled_Artwork 31.jpg",
-		"year": "2026",
-		"width": 1536,
-		"height": 2048
-	},
-	{
-		"file": "Wager_That_Is_Wiser.jpg",
-		"year": "2026",
-		"width": 1536,
-		"height": 2048
-	},
-	{
-		"file": "ark.jpg",
+		"file": "ark.webp",
 		"year": "2025",
 		"width": 2732,
 		"height": 2048
 	},
 	{
-		"file": "bananasplit.png",
+		"file": "bananasplit.webp",
 		"year": "2025",
 		"width": 2793,
 		"height": 2732
 	},
 	{
-		"file": "black.jpg",
+		"file": "black.webp",
 		"year": "2025",
 		"width": 2426,
 		"height": 2048
 	},
 	{
-		"file": "cosmicdress.jpg",
+		"file": "cosmicdress.webp",
 		"year": "2025",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "green.jpg",
+		"file": "green.webp",
 		"year": "2025",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "hornet.jpg",
+		"file": "hornet.webp",
 		"year": "2025",
 		"width": 1579,
 		"height": 2049
 	},
 	{
-		"file": "hornwitch.png",
+		"file": "hornwitch.webp",
 		"year": "2025",
 		"width": 1820,
 		"height": 2674
 	},
 	{
-		"file": "pillars.jpg",
+		"file": "pillars.webp",
 		"year": "2025",
 		"width": 4877,
 		"height": 2048
 	},
 	{
-		"file": "providence.jpg",
+		"file": "providence.webp",
 		"year": "2025",
 		"width": 3851,
 		"height": 2539
 	},
 	{
-		"file": "ruinedrobot.jpg",
+		"file": "ruinedrobot.webp",
 		"year": "2025",
 		"width": 2048,
 		"height": 2732
 	},
 	{
-		"file": "solyn.jpg",
+		"file": "solyn.webp",
 		"year": "2025",
 		"width": 6095,
 		"height": 3833
 	},
 	{
-		"file": "soma.jpg",
+		"file": "soma.webp",
 		"year": "2025",
 		"width": 2048,
 		"height": 2732
 	},
 	{
-		"file": "twins.jpg",
+		"file": "twins.webp",
 		"year": "2025",
 		"width": 2048,
 		"height": 2732
 	},
 	{
-		"file": "axe.jpg",
+		"file": "axe.webp",
 		"year": "2024",
 		"width": 4096,
 		"height": 1714
 	},
 	{
-		"file": "biggerdwayne.jpg",
+		"file": "biggerdwayne.webp",
 		"year": "2024",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "bridge.jpg",
+		"file": "bridge.webp",
 		"year": "2024",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "dwayne.jpg",
+		"file": "dwayne.webp",
 		"year": "2024",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "fist.jpg",
+		"file": "fist.webp",
 		"year": "2024",
 		"width": 3681,
 		"height": 1536
 	},
 	{
-		"file": "forestpath.jpg",
+		"file": "forestpath.webp",
 		"year": "2024",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "fvparakeet.jpg",
+		"file": "fvparakeet.webp",
 		"year": "2024",
 		"width": 2337,
 		"height": 1536
 	},
 	{
-		"file": "gooblard.jpg",
+		"file": "gooblard.webp",
 		"year": "2024",
 		"width": 1536,
 		"height": 4094
 	},
 	{
-		"file": "hill.jpg",
+		"file": "hill.webp",
 		"year": "2024",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "hmsefe.jpg",
+		"file": "hmsefe.webp",
 		"year": "2024",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "hollowswords.jpg",
+		"file": "hollowswords.webp",
 		"year": "2024",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "junglerings.jpg",
+		"file": "junglerings.webp",
 		"year": "2024",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "labyrinth.jpg",
+		"file": "labyrinth.webp",
 		"year": "2024",
 		"width": 2959,
 		"height": 1536
 	},
 	{
-		"file": "lightrocks.jpg",
+		"file": "lightrocks.webp",
 		"year": "2024",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "logoriginal.jpg",
+		"file": "logoriginal.webp",
 		"year": "2024",
 		"width": 2048,
 		"height": 2048
 	},
 	{
-		"file": "monolith1.jpg",
+		"file": "monolith1.webp",
 		"year": "2024",
 		"width": 2333,
 		"height": 1536
 	},
 	{
-		"file": "monolith2.jpg",
+		"file": "monolith2.webp",
 		"year": "2024",
 		"width": 2333,
 		"height": 1536
 	},
 	{
-		"file": "peak.jpg",
+		"file": "peak.webp",
 		"year": "2024",
 		"width": 1536,
 		"height": 2493
 	},
 	{
-		"file": "pipes.jpg",
+		"file": "pipes.webp",
 		"year": "2024",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "rings.jpg",
+		"file": "rings.webp",
 		"year": "2024",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "road.jpg",
+		"file": "road.webp",
 		"year": "2024",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "sky.jpg",
+		"file": "sky.webp",
 		"year": "2024",
 		"width": 2732,
 		"height": 2048
 	},
 	{
-		"file": "snowboard.jpg",
+		"file": "snowboard.webp",
 		"year": "2024",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "spacering.jpg",
+		"file": "spacering.webp",
 		"year": "2024",
 		"width": 2730,
 		"height": 2730
 	},
 	{
-		"file": "squidward.jpg",
+		"file": "squidward.webp",
 		"year": "2024",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "starshooter.jpg",
+		"file": "starshooter.webp",
 		"year": "2024",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "sunriseoriginal.jpg",
+		"file": "sunriseoriginal.webp",
 		"year": "2024",
 		"width": 2107,
 		"height": 2232
 	},
 	{
-		"file": "sunsettree.jpg",
+		"file": "sunsettree.webp",
 		"year": "2024",
 		"width": 2048,
 		"height": 3372
 	},
 	{
-		"file": "wonkycity.jpg",
+		"file": "wonkycity.webp",
 		"year": "2024",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Actual_Cover 2.jpg",
+		"file": "Actual_Cover 2.webp",
 		"year": "2023",
 		"width": 2400,
 		"height": 3600
 	},
 	{
-		"file": "Ender_Dragon.jpg",
+		"file": "Ender_Dragon.webp",
 		"year": "2023",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Extended_Full_Had_Max_Pro_4k_60_FPS_RTX_ON_showcase_Top_1_Impossible_Level.jpg",
+		"file": "Extended_Full_Had_Max_Pro_4k_60_FPS_RTX_ON_showcase_Top_1_Impossible_Level.webp",
 		"year": "2023",
 		"width": 1640,
 		"height": 2360
 	},
 	{
-		"file": "Giogio_.jpg",
+		"file": "Giogio_.webp",
 		"year": "2023",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Human_Again.jpg",
+		"file": "Human_Again.webp",
 		"year": "2023",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Joe_Cannikin.jpg",
+		"file": "Joe_Cannikin.webp",
 		"year": "2023",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Mike_Wazowski.jpg",
+		"file": "Mike_Wazowski.webp",
 		"year": "2023",
 		"width": 2048,
 		"height": 2048
 	},
 	{
-		"file": "More_Mech_Design.jpg",
+		"file": "More_Mech_Design.webp",
 		"year": "2023",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Page_1.jpg",
+		"file": "Page_1.webp",
 		"year": "2023",
 		"width": 2400,
 		"height": 3600
 	},
 	{
-		"file": "Page_2_Alt.jpg",
+		"file": "Page_2_Alt.webp",
 		"year": "2023",
 		"width": 2400,
 		"height": 3600
 	},
 	{
-		"file": "Page_3.jpg",
+		"file": "Page_3.webp",
 		"year": "2023",
 		"width": 2400,
 		"height": 3600
 	},
 	{
-		"file": "Page_4.jpg",
+		"file": "Page_4.webp",
 		"year": "2023",
 		"width": 2400,
 		"height": 3600
 	},
 	{
-		"file": "Page_5.jpg",
+		"file": "Page_5.webp",
 		"year": "2023",
 		"width": 2400,
 		"height": 3600
 	},
 	{
-		"file": "Scp_001_Seek.jpg",
+		"file": "Scp_001_Seek.webp",
 		"year": "2023",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Slipper_Man.jpg",
+		"file": "Slipper_Man.webp",
 		"year": "2023",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Space_Shep_But_It_Crashed_\ud83d\ude22\ud83d\ude22\ud83d\ude22.jpg",
+		"file": "Space_Shep_But_It_Crashed_\ud83d\ude22\ud83d\ude22\ud83d\ude22.webp",
 		"year": "2023",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Transofmrejr,,!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 2.jpg",
+		"file": "Transofmrejr,,!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 2.webp",
 		"year": "2023",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Two_Froggers_.jpg",
+		"file": "Two_Froggers_.webp",
 		"year": "2023",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Walker_Thing.jpg",
+		"file": "Walker_Thing.webp",
 		"year": "2023",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Wodden_.jpg",
+		"file": "Wodden_.webp",
 		"year": "2023",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Airoplano.jpg",
+		"file": "Airoplano.webp",
 		"year": "2022",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Big_Cloud_.jpg",
+		"file": "Big_Cloud_.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 2048
 	},
 	{
-		"file": "Bridge.jpg",
+		"file": "Bridge.webp",
 		"year": "2022",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Cityscape.jpg",
+		"file": "Cityscape.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Civilization.jpg",
+		"file": "Civilization.webp",
 		"year": "2022",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Clouds.jpg",
+		"file": "Clouds.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Clouds_Thinggy.jpg",
+		"file": "Clouds_Thinggy.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 2048
 	},
 	{
-		"file": "Color_Theory.jpg",
+		"file": "Color_Theory.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Crusty_Krab_\ud83d\ude31\ud83d\ude31\ud83d\ude31\ud83d\ude31\ud83d\ude31.jpg",
+		"file": "Crusty_Krab_\ud83d\ude31\ud83d\ude31\ud83d\ude31\ud83d\ude31\ud83d\ude31.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Duolith.jpg",
+		"file": "Duolith.webp",
 		"year": "2022",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Floating_Lanterns.jpg",
+		"file": "Floating_Lanterns.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Green_Hills.jpg",
+		"file": "Green_Hills.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Idea.jpg",
+		"file": "Idea.webp",
 		"year": "2022",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Korok_Forest.jpg",
+		"file": "Korok_Forest.webp",
 		"year": "2022",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Landscape_Study.jpg",
+		"file": "Landscape_Study.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Matterhorn_Study.jpg",
+		"file": "Matterhorn_Study.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Maw.jpg",
+		"file": "Maw.webp",
 		"year": "2022",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Monolith.jpg",
+		"file": "Monolith.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Moon.jpg",
+		"file": "Moon.webp",
 		"year": "2022",
 		"width": 4096,
 		"height": 1714
 	},
 	{
-		"file": "More_Clouds.jpg",
+		"file": "More_Clouds.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 2048
 	},
 	{
-		"file": "More_Spacecraft 2.jpg",
+		"file": "More_Spacecraft 2.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Mountains.jpg",
+		"file": "Mountains.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Muntan_.jpg",
+		"file": "Muntan_.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Nautilus_Creature.jpg",
+		"file": "Nautilus_Creature.webp",
 		"year": "2022",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Pickle_Temple.jpg",
+		"file": "Pickle_Temple.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Rust.jpg",
+		"file": "Rust.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Scene.jpg",
+		"file": "Scene.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Sketches_Practice.jpg",
+		"file": "Sketches_Practice.webp",
 		"year": "2022",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Something_Bright_And_Colorful.jpg",
+		"file": "Something_Bright_And_Colorful.webp",
 		"year": "2022",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Spacecraft 3.jpg",
+		"file": "Spacecraft 3.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "The_Pimple.jpg",
+		"file": "The_Pimple.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Thing.jpg",
+		"file": "Thing.webp",
 		"year": "2022",
 		"width": 3213,
 		"height": 1856
 	},
 	{
-		"file": "This_Artwork_Changed_5_Times.jpg",
+		"file": "This_Artwork_Changed_5_Times.webp",
 		"year": "2022",
 		"width": 3039,
 		"height": 2760
 	},
 	{
-		"file": "Valley.jpg",
+		"file": "Valley.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 2048
 	},
 	{
-		"file": "Valley_Ting.jpg",
+		"file": "Valley_Ting.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Very_Detailed_Trees.jpg",
+		"file": "Very_Detailed_Trees.webp",
 		"year": "2022",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Car_Passing_Animation.jpg",
+		"file": "Car_Passing_Animation.webp",
 		"year": "2021",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Cold_Mountains.jpg",
+		"file": "Cold_Mountains.webp",
 		"year": "2021",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Cool.jpg",
+		"file": "Cool.webp",
 		"year": "2021",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Cool_Thing.jpg",
+		"file": "Cool_Thing.webp",
 		"year": "2021",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Guy_Looking_At_Moon.jpg",
+		"file": "Guy_Looking_At_Moon.webp",
 		"year": "2021",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Planetoid_Ting.jpg",
+		"file": "Planetoid_Ting.webp",
 		"year": "2021",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Ruined_Pillar_Alternate_Lighting 2.jpg",
+		"file": "Ruined_Pillar_Alternate_Lighting 2.webp",
 		"year": "2021",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Steve's_Quest_To_Seek_The_Sword.jpg",
+		"file": "Steve's_Quest_To_Seek_The_Sword.webp",
 		"year": "2021",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Steve's_Retirement.jpg",
+		"file": "Steve's_Retirement.webp",
 		"year": "2021",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Steve_The_Great.jpg",
+		"file": "Steve_The_Great.webp",
 		"year": "2021",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Tree 2.jpg",
+		"file": "Tree 2.webp",
 		"year": "2021",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Untitled_Artwork 29 copy 2.jpg",
+		"file": "Untitled_Artwork 29 copy 2.webp",
 		"year": "2021",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Untitled_Artwork 29 copy.jpg",
+		"file": "Untitled_Artwork 29 copy.webp",
 		"year": "2021",
 		"width": 1455,
 		"height": 1091
 	},
 	{
-		"file": "Untitled_Artwork 29.jpg",
+		"file": "Untitled_Artwork 29.webp",
 		"year": "2021",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Untitled_Artwork 30 copy.jpg",
+		"file": "Untitled_Artwork 30 copy.webp",
 		"year": "2021",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Untitled_Artwork 30.jpg",
+		"file": "Untitled_Artwork 30.webp",
 		"year": "2021",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Untitled_Artwork 31 copy.jpg",
+		"file": "Untitled_Artwork 31 copy.webp",
 		"year": "2021",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Untitled_Artwork 31.jpg",
+		"file": "Untitled_Artwork 31.webp",
 		"year": "2021",
 		"width": 4096,
 		"height": 1714
 	},
 	{
-		"file": "Untitled_Artwork 32.jpg",
+		"file": "Untitled_Artwork 32.webp",
 		"year": "2021",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Very_Nice_Idea.jpg",
+		"file": "Very_Nice_Idea.webp",
 		"year": "2021",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Buildings.jpg",
+		"file": "Buildings.webp",
 		"year": "2020",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Christmas_Vietnam.jpg",
+		"file": "Christmas_Vietnam.webp",
 		"year": "2020",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Cityscape.jpg",
+		"file": "Cityscape.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Experiment.jpg",
+		"file": "Experiment.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Flight.jpg",
+		"file": "Flight.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Floating_Island.jpg",
+		"file": "Floating_Island.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Garden_View.jpg",
+		"file": "Garden_View.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "High_Dunes.jpg",
+		"file": "High_Dunes.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Lake_And_Cool_Clouds.jpg",
+		"file": "Lake_And_Cool_Clouds.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Moonlight_Bay.jpg",
+		"file": "Moonlight_Bay.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Mountain_Sketch.jpg",
+		"file": "Mountain_Sketch.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Mountains.jpg",
+		"file": "Mountains.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Mountains_Sketch.jpg",
+		"file": "Mountains_Sketch.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Planets.jpg",
+		"file": "Planets.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Rose.jpg",
+		"file": "Rose.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Sea.jpg",
+		"file": "Sea.webp",
 		"year": "2020",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "Shrek's_Night_View.jpg",
+		"file": "Shrek's_Night_View.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Snowy_Mountain.jpg",
+		"file": "Snowy_Mountain.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Solar_Eclipse.jpg",
+		"file": "Solar_Eclipse.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Space.jpg",
+		"file": "Space.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Starry_Starry_Sky.jpg",
+		"file": "Starry_Starry_Sky.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Sunset.jpg",
+		"file": "Sunset.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Sunset_Forest.jpg",
+		"file": "Sunset_Forest.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Sunset_Lake.jpg",
+		"file": "Sunset_Lake.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "The_Little_Prince 1.jpg",
+		"file": "The_Little_Prince 1.webp",
 		"year": "2020",
 		"width": 1536,
 		"height": 2048
 	},
 	{
-		"file": "The_Little_Prince.jpg",
+		"file": "The_Little_Prince.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "The_Little_Prince_2.jpg",
+		"file": "The_Little_Prince_2.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Untitled_Artwork 29 copy.jpg",
+		"file": "Untitled_Artwork 29 copy.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Untitled_Artwork 29.jpg",
+		"file": "Untitled_Artwork 29.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Untitled_Artwork 30 copy.jpg",
+		"file": "Untitled_Artwork 30 copy.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 2048
 	},
 	{
-		"file": "Untitled_Artwork 30.jpg",
+		"file": "Untitled_Artwork 30.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Untitled_Artwork 31.jpg",
+		"file": "Untitled_Artwork 31.webp",
 		"year": "2020",
 		"width": 1920,
 		"height": 1080
 	},
 	{
-		"file": "Untitled_Artwork 32.jpg",
+		"file": "Untitled_Artwork 32.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Untitled_Artwork 33.jpg",
+		"file": "Untitled_Artwork 33.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Untitled_Artwork 34.jpg",
+		"file": "Untitled_Artwork 34.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Untitled_Artwork 35.jpg",
+		"file": "Untitled_Artwork 35.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536
 	},
 	{
-		"file": "Untitled_Artwork 36.jpg",
+		"file": "Untitled_Artwork 36.webp",
 		"year": "2020",
 		"width": 2048,
 		"height": 1536

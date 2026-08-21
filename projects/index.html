@@ -1,53 +1,353 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="projects-page-root" lang="en">
 <head>
   <title>Projects — HELLOTEACHER</title>
-  <meta name="description" content="Personal art, CAD, design, and journal site.">
+  <meta name="description" content="Comics, games, and large-scale projects from HELLOTEACHER.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
 
-  <link href="/kombucha.css" rel="stylesheet" type="text/css" media="all">
-  <script src="/assets/js/main.js" defer></script>
+  <link href="/kombucha.css?v=20260821-projects1" rel="stylesheet" type="text/css" media="all">
+  <script src="/assets/js/main.js?v=20260820-webp1" defer></script>
+  <script src="/assets/js/projects.js?v=20260820-3" defer></script>
 </head>
 
-<body>
-  <div class="container">
+<body class="projects-page">
+  <div class="container projects-shell">
 
-    <ul>
-      <li><a href="/">home</a></li>
-      <li><a href="#nav">navigation</a></li>
-    </ul>
+    <main id="content" class="projects-main">
+      <section class="projects-hero" aria-labelledby="projects-title">
+        <h1 id="projects-title" class="projects-visually-hidden">Projects</h1>
+        <div class="projects-hero-card" aria-hidden="true">
+          <div class="projects-sprite-card projects-title-card is-hovered" data-sprite-card="projects">
+            <span class="projects-sprite-card__scene" aria-hidden="true" data-projects-card-scene></span>
+            <span class="projects-sprite-card__fallback">Projects</span>
+          </div>
+        </div>
+      </section>
 
-    <main>
-      <h1>Projects</h1>
+      <section id="project-tabs" class="project-bars" aria-label="Featured projects" data-project-rail>
+        <button class="project-bar project-bar--comic is-active" type="button" data-project-tab="comic" aria-label="Open My Comic project workspace" aria-current="true" aria-expanded="false" aria-controls="project-reader-comic">
+          <span class="project-bar__clip">
+            <img class="project-bar__image" src="/assets/images/projects/comic/ch1/0.jpg" alt="" width="1636" height="2148" fetchpriority="high" decoding="async">
+            <span class="project-bar__wash" aria-hidden="true"></span>
+          </span>
+          <span class="project-bar__popout project-bar__popout--comic" aria-hidden="true">
+            <img src="/assets/images/projects/comic/ch1/0.jpg" alt="" width="1636" height="2148" decoding="async">
+          </span>
+        </button>
 
-      <p>
-        Write the main content of this page here.
-      </p>
+        <button class="project-bar project-bar--beet" type="button" data-project-tab="beet" aria-label="Open BEET project workspace" aria-expanded="false" aria-controls="project-reader-beet">
+          <span class="project-bar__clip">
+            <img class="project-bar__image" src="/assets/images/projects/BEET/forest_reference.png" alt="" width="2719" height="941" loading="lazy" decoding="async">
+            <span class="project-bar__wash" aria-hidden="true"></span>
+          </span>
+          <span class="project-bar__popout project-bar__popout--beet" aria-hidden="true">
+            <img src="/assets/images/projects/BEET/hub_full.png" alt="" width="3247" height="2595" loading="lazy" decoding="async">
+          </span>
+        </button>
 
-      <h2>Section heading</h2>
+        <button class="project-bar project-bar--poker" type="button" data-project-tab="poker" aria-label="Open Poker project workspace" aria-expanded="false" aria-controls="project-reader-poker">
+          <span class="project-bar__clip project-bar__clip--poker">
+            <span class="project-bar__fallback-art" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+            <span class="project-bar__wash" aria-hidden="true"></span>
+          </span>
+          <span class="project-bar__popout project-bar__popout--poker" aria-hidden="true">
+            <span class="project-bar__card-stack">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </span>
+        </button>
+      </section>
 
-      <p>
-        Add more page-specific content here.
-      </p>
+      <section class="project-reader" data-project-reader role="dialog" aria-modal="true" aria-labelledby="project-reader-title" hidden>
+        <button class="project-reader__backdrop" type="button" data-project-close aria-label="Close project workspace"></button>
+        <div class="project-reader__shell">
+          <header class="project-reader__topline">
+            <div class="project-reader__heading">
+              <p class="project-reader__kicker">Pulled project</p>
+              <h2 id="project-reader-title" data-project-reader-title>My Comic</h2>
+            </div>
+            <div class="project-reader__controls">
+              <div class="project-reader__switcher" aria-label="Switch project workspace">
+                <button class="is-active" type="button" data-project-reader-switch="comic">Comic</button>
+                <button type="button" data-project-reader-switch="beet">BEET</button>
+                <button type="button" data-project-reader-switch="poker">Poker</button>
+              </div>
+              <button class="project-reader__close" type="button" data-project-close>Close</button>
+            </div>
+          </header>
+
+          <div class="project-reader__panels">
+            <article id="project-reader-comic" class="project-reader__panel project-reader__panel--comic is-active" data-project-reader-panel="comic" data-project-reader-heading="My Comic">
+              <div class="project-reader__copy">
+                <p class="project-reader__label">Comic reader workspace</p>
+                <h3>My Comic</h3>
+                <p>
+                  Placeholder space for the final in-site comic reader: chapter controls, page navigation, progress memory, and commentary can live here without forcing the lower writing section to carry the whole project.
+                </p>
+                <div class="project-reader__placeholder-grid" aria-label="Comic reader placeholders">
+                  <button type="button">Chapter index</button>
+                  <button type="button">Reader controls</button>
+                  <button type="button">Process notes</button>
+                </div>
+              </div>
+
+              <div class="project-reader__media">
+                <figure class="project-reader__image-frame">
+                  <img src="/assets/images/projects/comic/ch1/0.jpg" alt="Comic cover preview." width="1636" height="2148" decoding="async" data-project-preview-image>
+                </figure>
+                <div class="project-reader__thumbs" aria-label="Comic page previews">
+                  <button class="is-active" type="button" data-project-preview data-project-preview-src="/assets/images/projects/comic/ch1/0.jpg" data-project-preview-alt="Comic cover preview.">
+                    <img src="/assets/images/projects/comic/ch1/0.jpg" alt="" width="1636" height="2148" decoding="async">
+                    <span>Ch. 1</span>
+                  </button>
+                  <button type="button" data-project-preview data-project-preview-src="/assets/images/projects/comic/ch2/1.jpg" data-project-preview-alt="Comic chapter 2 preview page.">
+                    <img src="/assets/images/projects/comic/ch2/1.jpg" alt="" width="2048" height="2732" loading="lazy" decoding="async">
+                    <span>Ch. 2</span>
+                  </button>
+                  <button type="button" data-project-preview data-project-preview-src="/assets/images/projects/comic/ch3/1.jpg" data-project-preview-alt="Comic chapter 3 preview page.">
+                    <img src="/assets/images/projects/comic/ch3/1.jpg" alt="" width="2048" height="2732" loading="lazy" decoding="async">
+                    <span>Ch. 3</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article id="project-reader-beet" class="project-reader__panel project-reader__panel--beet" data-project-reader-panel="beet" data-project-reader-heading="BEET">
+              <div class="project-reader__copy">
+                <p class="project-reader__label">Game workspace</p>
+                <h3>BEET</h3>
+                <p>
+                  Placeholder space for a Unity embed, launch controls, asset sheets, and making-of notes. The panel is ready to become the interactive project area once the build path is settled.
+                </p>
+                <div class="project-reader__placeholder-grid" aria-label="BEET placeholders">
+                  <button type="button">Unity slot</button>
+                  <button type="button">Asset board</button>
+                  <button type="button">Dev notes</button>
+                </div>
+              </div>
+
+              <div class="project-reader__media">
+                <figure class="project-reader__image-frame project-reader__image-frame--wide">
+                  <img src="/assets/images/projects/BEET/forest_reference.png" alt="BEET forest reference preview." width="2719" height="941" loading="lazy" decoding="async" data-project-preview-image>
+                </figure>
+                <div class="project-reader__thumbs" aria-label="BEET image previews">
+                  <button class="is-active" type="button" data-project-preview data-project-preview-src="/assets/images/projects/BEET/forest_reference.png" data-project-preview-alt="BEET forest reference preview.">
+                    <img src="/assets/images/projects/BEET/forest_reference.png" alt="" width="2719" height="941" loading="lazy" decoding="async">
+                    <span>Forest</span>
+                  </button>
+                  <button type="button" data-project-preview data-project-preview-src="/assets/images/projects/BEET/hub_full.png" data-project-preview-alt="BEET hub environment preview.">
+                    <img src="/assets/images/projects/BEET/hub_full.png" alt="" width="3247" height="2595" loading="lazy" decoding="async">
+                    <span>Hub</span>
+                  </button>
+                  <button type="button" data-project-preview data-project-preview-src="/assets/images/projects/BEET/iso_portal.png" data-project-preview-alt="BEET isometric portal asset preview.">
+                    <img src="/assets/images/projects/BEET/iso_portal.png" alt="" width="326" height="371" loading="lazy" decoding="async">
+                    <span>Portal</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article id="project-reader-poker" class="project-reader__panel project-reader__panel--poker" data-project-reader-panel="poker" data-project-reader-heading="Poker">
+              <div class="project-reader__copy">
+                <p class="project-reader__label">Playable build workspace</p>
+                <h3>Poker</h3>
+                <p>
+                  Placeholder space for the future browser package, itch fallback, interface notes, and visual treatment. The Python/Pygame files stay untouched for this pass.
+                </p>
+                <div class="project-reader__placeholder-grid" aria-label="Poker placeholders">
+                  <button type="button">Build slot</button>
+                  <button type="button">Rules notes</button>
+                  <button type="button">UI mockups</button>
+                </div>
+              </div>
+
+              <div class="project-reader__media">
+                <div class="project-reader__poker-preview" aria-hidden="true">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-showcase" aria-label="Project notes and plans">
+        <article id="comic" class="project-feature project-feature--comic" data-project-panel="comic" tabindex="-1">
+          <div class="project-feature__lead">
+            <p class="project-feature__label">Project 01</p>
+            <h2>My Comic</h2>
+            <p>
+              The comic is the largest archive problem on the page: 3 completed chapters, 55 pages, and a reading experience that should feel smooth without loading the whole thing at once.
+            </p>
+            <dl class="project-stats">
+              <div>
+                <dt>Format</dt>
+                <dd>Long-form comic</dd>
+              </div>
+              <div>
+                <dt>Current scale</dt>
+                <dd>56 image files</dd>
+              </div>
+              <div>
+                <dt>Site target</dt>
+                <dd>Chapter reader</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="project-feature__media project-feature__media--reader" aria-label="Comic reader preview">
+            <div class="comic-reader-preview">
+              <figure class="comic-reader-preview__page is-current">
+                <img src="/assets/images/projects/comic/ch1/0.jpg" alt="Comic cover preview." width="1636" height="2148" decoding="async">
+              </figure>
+              <figure class="comic-reader-preview__page">
+                <img src="/assets/images/projects/comic/ch2/1.jpg" alt="Comic chapter 2 preview page." width="2048" height="2732" loading="lazy" decoding="async">
+              </figure>
+              <figure class="comic-reader-preview__page">
+                <img src="/assets/images/projects/comic/ch3/1.jpg" alt="Comic chapter 3 preview page." width="2048" height="2732" loading="lazy" decoding="async">
+              </figure>
+            </div>
+          </div>
+
+          <div class="project-note-grid">
+            <section class="project-note">
+              <h3>Reader Direction</h3>
+              <p>
+                The page is prepared for a lazy-loading reader with chapter chunks, thumbnails, and a single active page view so the browser only carries the pages it needs.
+              </p>
+            </section>
+            <section class="project-note">
+              <h3>Work Display</h3>
+              <p>
+                Finished pages, chapter notes, process scraps, and longer commentary can sit together without fighting the reader for space.
+              </p>
+            </section>
+          </div>
+        </article>
+
+        <article id="beet" class="project-feature project-feature--beet" data-project-panel="beet" tabindex="-1">
+          <div class="project-feature__lead">
+            <p class="project-feature__label">Project 02</p>
+            <h2>BEET</h2>
+            <p>
+              A hackathon game made with friends, with the visual assets drawn by me. This section is built to hold a playable Unity embed when the exported build is ready.
+            </p>
+            <dl class="project-stats">
+              <div>
+                <dt>Format</dt>
+                <dd>Unity game</dd>
+              </div>
+              <div>
+                <dt>Role</dt>
+                <dd>Asset artist</dd>
+              </div>
+              <div>
+                <dt>Site target</dt>
+                <dd>Playable embed</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="project-feature__media project-feature__media--game" aria-label="BEET game preview slot">
+            <div class="project-play-slot">
+              <span class="project-play-slot__title">Unity build slot</span>
+              <span class="project-play-slot__caption">Unity Play embed or launch thumbnail</span>
+            </div>
+          </div>
+
+          <div class="project-note-grid">
+            <section class="project-note">
+              <h3>Playable Plan</h3>
+              <p>
+                The preferred path is an embedded Unity WebGL build. If that becomes too heavy or awkward, this slot can become a polished thumbnail that opens the Unity Play page.
+              </p>
+            </section>
+            <section class="project-note">
+              <h3>Process Space</h3>
+              <p>
+                Asset sheets, visual decisions, early sketches, and collaboration notes can be added here as a focused making-of section.
+              </p>
+            </section>
+          </div>
+        </article>
+
+        <article id="poker" class="project-feature project-feature--poker" data-project-panel="poker" tabindex="-1">
+          <div class="project-feature__lead">
+            <p class="project-feature__label">Project 03</p>
+            <h2>Poker Game</h2>
+            <p>
+              A solo Texas hold'em project written in Python with Pygame, wrapped in a cuter game style. This section is ready for a browser package attempt or an external playable fallback.
+            </p>
+            <dl class="project-stats">
+              <div>
+                <dt>Format</dt>
+                <dd>Pygame</dd>
+              </div>
+              <div>
+                <dt>Role</dt>
+                <dd>Solo developer</dd>
+              </div>
+              <div>
+                <dt>Site target</dt>
+                <dd>Web package</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="project-feature__media project-feature__media--game" aria-label="Poker game preview slot">
+            <div class="project-play-slot project-play-slot--poker">
+              <span class="project-play-slot__title">Pygbag build slot</span>
+              <span class="project-play-slot__caption">Browser package or itch.io launch card</span>
+            </div>
+          </div>
+
+          <div class="project-note-grid">
+            <section class="project-note">
+              <h3>Playable Plan</h3>
+              <p>
+                The first attempt can be a pygbag export. If the build resists cleanly running in-page, the same module can pivot into an itch.io link without redesigning the whole section.
+              </p>
+            </section>
+            <section class="project-note">
+              <h3>Design Notes</h3>
+              <p>
+                Rules work, interface decisions, character styling, card art, and implementation notes can live here once the current build is ready to document.
+              </p>
+            </section>
+          </div>
+        </article>
+
+        <section class="projects-writing-zone" aria-labelledby="projects-writing-title">
+          <p class="project-feature__label">Open notebook</p>
+          <h2 id="projects-writing-title">Process Notes</h2>
+          <p>
+            This lower section is intentionally open for longer thoughts, development logs, screenshots, sketches, postmortems, and whatever future projects need room to breathe.
+          </p>
+        </section>
+      </section>
     </main>
 
-    <nav id="nav">
-      <p>Navigation</p>
+    <footer class="site-footer">
+      <nav id="nav" class="footer-nav" aria-label="Footer navigation">
+        <a href="/">Home</a>
+        <a href="/art/">Art</a>
+        <a href="/cad/">CAD</a>
+        <a href="/journal/">Journal</a>
+        <a href="/projects/">Projects</a>
+        <a href="/about/">About</a>
+      </nav>
 
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/art/">Art</a></li>
-        <li><a href="/cad/">CAD</a></li>
-        <li><a href="/journal/">Journal</a></li>
-        <li><a href="/projects/">Projects</a></li>
-        <li><a href="/about/">About</a></li>
-      </ul>
-    </nav>
-
-    <footer>
-      <p>HELLOTEACHER</p>
-      <p>Hosted on Neocities.</p>
+      <p>Layout adapted from <a href="https://ribo.zone/free/layouts/">kombucha.css by ribo.zone</a>.</p>
+      <p>Hosted with <a href="https://neocities.org/">Neocities</a>.</p>
     </footer>
 
   </div>

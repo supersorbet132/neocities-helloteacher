@@ -1,3 +1,6 @@
+const HELLOTEACHER_IMAGE_EXTENSION_RE = /\.(?:png|webp|jpe?g)$/i;
+const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EXTENSION_RE, "");
+
 (() => {
 	const scene = document.querySelector("[data-parallax-scene]");
 
@@ -256,7 +259,7 @@
 		["cad_engine_mask_add", ["cad_engine_front_left", "cad_engine_front_right"]],
 		["cad_beam_add", ["cad_beam_color"]],
 	]);
-	const manifestUrl = "/assets/images/site/sprite-crop-manifest.json";
+	const manifestUrl = "/assets/images/site/sprite-crop-manifest.json?v=20260820-webp";
 	const assetBase = "/assets/images/site/cad/";
 	const leaveTimers = new WeakMap();
 
@@ -268,7 +271,7 @@
 	};
 
 	const cssLengthList = (items) => items.join(", ");
-	const cssUrlList = (items) => items.map((item) => `url("${assetBase}${item}.png")`).join(", ");
+	const cssUrlList = (items) => items.map((item) => `url("${assetBase}${item}")`).join(", ");
 
 	const getRestSide = (layerName) => {
 		if (layerName.includes("right") || rightRestLayers.has(layerName)) {
@@ -338,7 +341,7 @@
 		}
 
 		sprite.classList.add("is-masked");
-		sprite.style.setProperty("--sprite-mask-image", cssUrlList(validTargets.map((target) => target.file.replace(/\.png$/i, ""))));
+		sprite.style.setProperty("--sprite-mask-image", cssUrlList(validTargets.map((target) => target.file)));
 		sprite.style.setProperty("--sprite-mask-position", cssLengthList(validTargets.map((target) => {
 			const box = target.cropBox;
 			return `calc(${box.left - effectBox.left} * var(--cad-unit)) calc(${box.top - effectBox.top} * var(--cad-unit))`;
@@ -450,7 +453,7 @@
 
 		const sourceX = getNumberVar(card, "--cad-source-x", 0);
 		const sourceY = getNumberVar(card, "--cad-source-y", 3702);
-		const spritesByName = new Map(sprites.map((sprite) => [sprite.file.replace(/\.png$/i, ""), sprite]));
+		const spritesByName = new Map(sprites.map((sprite) => [stripImageExtension(sprite.file), sprite]));
 		const missingLayers = layerOrderTopToBottom.filter((name) => !spritesByName.has(name));
 		const extraLayers = [...spritesByName.keys()].filter((name) => !topIndexByLayer.has(name));
 
@@ -592,7 +595,7 @@
 		{ timingLayer: "journal_splotches", targets: ["journal_splotches"] },
 		{ timingLayer: "journal_title", targets: ["journal_title"] },
 	];
-	const manifestUrl = "/assets/images/site/sprite-crop-manifest.json";
+	const manifestUrl = "/assets/images/site/sprite-crop-manifest.json?v=20260820-webp";
 	const assetBase = "/assets/images/site/journal/";
 
 	const getNumberVar = (element, name, fallback) => {
@@ -603,7 +606,7 @@
 	};
 
 	const cssLengthList = (items) => items.join(", ");
-	const cssUrlList = (items) => items.map((item) => `url("${assetBase}${item}.png")`).join(", ");
+	const cssUrlList = (items) => items.map((item) => `url("${assetBase}${item}")`).join(", ");
 
 	const setMask = (sprite, targets, effectBox, spritesByName) => {
 		const validTargets = targets
@@ -615,7 +618,7 @@
 		}
 
 		sprite.classList.add("is-masked");
-		sprite.style.setProperty("--sprite-mask-image", cssUrlList(validTargets.map((target) => target.file.replace(/\.png$/i, ""))));
+		sprite.style.setProperty("--sprite-mask-image", cssUrlList(validTargets.map((target) => target.file)));
 		sprite.style.setProperty("--sprite-mask-position", cssLengthList(validTargets.map((target) => {
 			const box = target.cropBox;
 			return `calc(${box.left - effectBox.left} * var(--journal-unit)) calc(${box.top - effectBox.top} * var(--journal-unit))`;
@@ -709,7 +712,7 @@
 
 		const sourceX = getNumberVar(card, "--journal-source-x", 0);
 		const sourceY = getNumberVar(card, "--journal-source-y", 5151);
-		const spritesByName = new Map(sprites.map((sprite) => [sprite.file.replace(/\.png$/i, ""), sprite]));
+		const spritesByName = new Map(sprites.map((sprite) => [stripImageExtension(sprite.file), sprite]));
 		const missingLayers = layerOrderTopToBottom.filter((name) => !spritesByName.has(name));
 		const extraLayers = [...spritesByName.keys()].filter((name) => !topIndexByLayer.has(name));
 
@@ -903,7 +906,7 @@
 			.filter((name) => name.includes("_hardmix"))
 			.map((name) => [name, "hard-light"]),
 	]);
-	const manifestUrl = "/assets/images/site/sprite-crop-manifest.json";
+	const manifestUrl = "/assets/images/site/sprite-crop-manifest.json?v=20260820-webp";
 	const assetBase = "/assets/images/site/projects/";
 	const leaveTimers = new WeakMap();
 	const letterReturnTimers = new WeakMap();
@@ -936,7 +939,7 @@
 
 	const projectsCalc = (...terms) => `calc((${terms.filter(Boolean).join(" + ")}) * var(--projects-unit))`;
 	const cssLengthList = (items) => items.join(", ");
-	const cssUrlList = (items) => items.map((item) => `url("${assetBase}${item}.png")`).join(", ");
+	const cssUrlList = (items) => items.map((item) => `url("${assetBase}${item}")`).join(", ");
 
 	const getPositionTerm = (spriteData, layerName, axis, sourceOffset) => {
 		const box = spriteData.cropBox;
@@ -989,7 +992,7 @@
 		const effectTop = getPositionTerm(spriteData, layerName, "y", sourceY);
 
 		maskElement.classList.add("is-masked");
-		maskElement.style.setProperty("--sprite-mask-image", cssUrlList(validTargets.map((target) => target.data.file.replace(/\.png$/i, ""))));
+		maskElement.style.setProperty("--sprite-mask-image", cssUrlList(validTargets.map((target) => target.data.file)));
 		maskElement.style.setProperty("--sprite-mask-position", cssLengthList(validTargets.map((target) => {
 			const targetLeft = getPositionTerm(target.data, target.name, "x", sourceX);
 			const targetTop = getPositionTerm(target.data, target.name, "y", sourceY);
@@ -1210,7 +1213,7 @@
 
 		const sourceX = getNumberVar(card, "--projects-source-x", 0);
 		const sourceY = getNumberVar(card, "--projects-source-y", 1800);
-		const spritesByName = new Map(sprites.map((sprite) => [sprite.file.replace(/\.png$/i, ""), sprite]));
+		const spritesByName = new Map(sprites.map((sprite) => [stripImageExtension(sprite.file), sprite]));
 		const missingLayers = layerOrderTopToBottom.filter((name) => !spritesByName.has(name));
 		const extraLayers = [...spritesByName.keys()].filter((name) => !topIndexByLayer.has(name));
 
@@ -1410,7 +1413,7 @@
 		["art_moon_overlay", { kind: "bob", yPeriod: 3700, yPhase: 540, yScale: 0.86 }],
 		["art_moon", { kind: "bob", yPeriod: 3700, yPhase: 540, yScale: 0.86 }],
 	]);
-	const manifestUrl = "/assets/images/site/sprite-crop-manifest.json";
+	const manifestUrl = "/assets/images/site/sprite-crop-manifest.json?v=20260820-webp";
 	const assetBase = "/assets/images/site/art/";
 	const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 	const activeFloatCards = new Map();
@@ -1622,7 +1625,7 @@
 		const sourceHeight = getNumberVar(card, "--art-source-height", 1800);
 		const sourceX = getNumberVar(card, "--art-source-x", 0);
 		const sourceY = getNumberVar(card, "--art-source-y", 2200);
-		const spritesByName = new Map(sprites.map((sprite) => [sprite.file.replace(/\.png$/i, ""), sprite]));
+		const spritesByName = new Map(sprites.map((sprite) => [stripImageExtension(sprite.file), sprite]));
 		const missingLayers = layerOrderTopToBottom.filter((name) => !spritesByName.has(name));
 		const extraLayers = [...spritesByName.keys()].filter((name) => !topIndexByLayer.has(name));
 

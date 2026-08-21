@@ -304,8 +304,13 @@
 
 	const getFullArtworkSrc = (artwork) => {
 		const yearSegment = artwork.year ? `${artwork.year}/` : "";
+		const file = artwork.fullFile || artwork.file;
 
-		return `${FULL_ROOT}${yearSegment}${artwork.file}`;
+		if (artwork.hasFull === false) {
+			return `${THUMB_ROOT}${artwork.year}/${artwork.file}`;
+		}
+
+		return `${FULL_ROOT}${yearSegment}${file}`;
 	};
 
 	const getPreviewArtworkSrc = (artwork) => (

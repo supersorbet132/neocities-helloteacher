@@ -11,45 +11,45 @@
     "art": {
       "path": "assets/images/site/art",
       "nativeDirectoryOrderBeforeCrop": [
-        "art_sun_overlay.png",
-        "art_character.png",
-        "art_triangle1.png",
-        "art_a.png",
-        "art_triangle2.png",
-        "art_t.png",
-        "art_colordodge.png",
-        "art_triangle3.png",
-        "art_triangle7.png",
-        "art_triangle6.png",
-        "art_triangle4.png",
-        "art_r.png",
-        "art_triangle5.png",
-        "art_pinkwave.png",
-        "art_splotches.png",
-        "art_bluewave.png",
-        "art_waves.png",
-        "art_ipad.png",
-        "art_triangle10.png",
-        "art_hull.png",
-        "art_pic4.png",
-        "art_star4.png",
-        "art_triangle8.png",
-        "art_triangle9.png",
-        "art_star5.png",
-        "art_star2.png",
-        "art_pic.png",
-        "art_pic2.png",
-        "art_sun.png",
-        "art_pic3.png",
-        "art_star3.png",
-        "art_moon_overlay.png",
-        "art_pencil.png",
-        "art_star1.png",
-        "art_moon.png"
+        "art_sun_overlay.webp",
+        "art_character.webp",
+        "art_triangle1.webp",
+        "art_a.webp",
+        "art_triangle2.webp",
+        "art_t.webp",
+        "art_colordodge.webp",
+        "art_triangle3.webp",
+        "art_triangle7.webp",
+        "art_triangle6.webp",
+        "art_triangle4.webp",
+        "art_r.webp",
+        "art_triangle5.webp",
+        "art_pinkwave.webp",
+        "art_splotches.webp",
+        "art_bluewave.webp",
+        "art_waves.webp",
+        "art_ipad.webp",
+        "art_triangle10.webp",
+        "art_hull.webp",
+        "art_pic4.webp",
+        "art_star4.webp",
+        "art_triangle8.webp",
+        "art_triangle9.webp",
+        "art_star5.webp",
+        "art_star2.webp",
+        "art_pic.webp",
+        "art_pic2.webp",
+        "art_sun.webp",
+        "art_pic3.webp",
+        "art_star3.webp",
+        "art_moon_overlay.webp",
+        "art_pencil.webp",
+        "art_star1.webp",
+        "art_moon.webp"
       ],
       "sprites": [
         {
-          "file": "art_sun_overlay.png",
+          "file": "art_sun_overlay.webp",
           "nativeDirectoryIndex": 0,
           "original": {
             "width": 2560,
@@ -81,7 +81,7 @@
           }
         },
         {
-          "file": "art_character.png",
+          "file": "art_character.webp",
           "nativeDirectoryIndex": 1,
           "original": {
             "width": 2560,
@@ -113,7 +113,7 @@
           }
         },
         {
-          "file": "art_triangle1.png",
+          "file": "art_triangle1.webp",
           "nativeDirectoryIndex": 2,
           "original": {
             "width": 2560,
@@ -145,7 +145,7 @@
           }
         },
         {
-          "file": "art_a.png",
+          "file": "art_a.webp",
           "nativeDirectoryIndex": 3,
           "original": {
             "width": 2560,
@@ -177,7 +177,7 @@
           }
         },
         {
-          "file": "art_triangle2.png",
+          "file": "art_triangle2.webp",
           "nativeDirectoryIndex": 4,
           "original": {
             "width": 2560,
@@ -209,7 +209,7 @@
           }
         },
         {
-          "file": "art_t.png",
+          "file": "art_t.webp",
           "nativeDirectoryIndex": 5,
           "original": {
             "width": 2560,
@@ -241,7 +241,7 @@
           }
         },
         {
-          "file": "art_colordodge.png",
+          "file": "art_colordodge.webp",
           "nativeDirectoryIndex": 6,
           "original": {
             "width": 2560,
@@ -273,7 +273,7 @@
           }
         },
         {
-          "file": "art_triangle3.png",
+          "file": "art_triangle3.webp",
           "nativeDirectoryIndex": 7,
           "original": {
             "width": 2560,
@@ -305,7 +305,7 @@
           }
         },
         {
-          "file": "art_triangle7.png",
+          "file": "art_triangle7.webp",
           "nativeDirectoryIndex": 8,
           "original": {
             "width": 2560,
@@ -337,7 +337,7 @@
           }
         },
         {
-          "file": "art_triangle6.png",
+          "file": "art_triangle6.webp",
           "nativeDirectoryIndex": 9,
           "original": {
             "width": 2560,
@@ -369,7 +369,7 @@
           }
         },
         {
-          "file": "art_triangle4.png",
+          "file": "art_triangle4.webp",
           "nativeDirectoryIndex": 10,
           "original": {
             "width": 2560,
@@ -401,7 +401,7 @@
           }
         },
         {
-          "file": "art_r.png",
+          "file": "art_r.webp",
           "nativeDirectoryIndex": 11,
           "original": {
             "width": 2560,
@@ -433,7 +433,7 @@
           }
         },
         {
-          "file": "art_triangle5.png",
+          "file": "art_triangle5.webp",
           "nativeDirectoryIndex": 12,
           "original": {
             "width": 2560,
@@ -465,7 +465,7 @@
           }
         },
         {
-          "file": "art_pinkwave.png",
+          "file": "art_pinkwave.webp",
           "nativeDirectoryIndex": 13,
           "original": {
             "width": 2560,
@@ -497,7 +497,7 @@
           }
         },
         {
-          "file": "art_splotches.png",
+          "file": "art_splotches.webp",
           "nativeDirectoryIndex": 14,
           "original": {
             "width": 2560,
@@ -529,7 +529,7 @@
           }
         },
         {
-          "file": "art_bluewave.png",
+          "file": "art_bluewave.webp",
           "nativeDirectoryIndex": 15,
           "original": {
             "width": 2560,
@@ -561,7 +561,7 @@
           }
         },
         {
-          "file": "art_waves.png",
+          "file": "art_waves.webp",
           "nativeDirectoryIndex": 16,
           "original": {
             "width": 2560,
@@ -593,7 +593,7 @@
           }
         },
         {
-          "file": "art_ipad.png",
+          "file": "art_ipad.webp",
           "nativeDirectoryIndex": 17,
           "original": {
             "width": 2560,
@@ -625,7 +625,7 @@
           }
         },
         {
-          "file": "art_triangle10.png",
+          "file": "art_triangle10.webp",
           "nativeDirectoryIndex": 18,
           "original": {
             "width": 2560,
@@ -657,7 +657,7 @@
           }
         },
         {
-          "file": "art_hull.png",
+          "file": "art_hull.webp",
           "nativeDirectoryIndex": 19,
           "original": {
             "width": 2560,
@@ -689,7 +689,7 @@
           }
         },
         {
-          "file": "art_pic4.png",
+          "file": "art_pic4.webp",
           "nativeDirectoryIndex": 20,
           "original": {
             "width": 2560,
@@ -721,7 +721,7 @@
           }
         },
         {
-          "file": "art_star4.png",
+          "file": "art_star4.webp",
           "nativeDirectoryIndex": 21,
           "original": {
             "width": 2560,
@@ -753,7 +753,7 @@
           }
         },
         {
-          "file": "art_triangle8.png",
+          "file": "art_triangle8.webp",
           "nativeDirectoryIndex": 22,
           "original": {
             "width": 2560,
@@ -785,7 +785,7 @@
           }
         },
         {
-          "file": "art_triangle9.png",
+          "file": "art_triangle9.webp",
           "nativeDirectoryIndex": 23,
           "original": {
             "width": 2560,
@@ -817,7 +817,7 @@
           }
         },
         {
-          "file": "art_star5.png",
+          "file": "art_star5.webp",
           "nativeDirectoryIndex": 24,
           "original": {
             "width": 2560,
@@ -849,7 +849,7 @@
           }
         },
         {
-          "file": "art_star2.png",
+          "file": "art_star2.webp",
           "nativeDirectoryIndex": 25,
           "original": {
             "width": 2560,
@@ -881,7 +881,7 @@
           }
         },
         {
-          "file": "art_pic.png",
+          "file": "art_pic.webp",
           "nativeDirectoryIndex": 26,
           "original": {
             "width": 2560,
@@ -913,7 +913,7 @@
           }
         },
         {
-          "file": "art_pic2.png",
+          "file": "art_pic2.webp",
           "nativeDirectoryIndex": 27,
           "original": {
             "width": 2560,
@@ -945,7 +945,7 @@
           }
         },
         {
-          "file": "art_sun.png",
+          "file": "art_sun.webp",
           "nativeDirectoryIndex": 28,
           "original": {
             "width": 2560,
@@ -977,7 +977,7 @@
           }
         },
         {
-          "file": "art_pic3.png",
+          "file": "art_pic3.webp",
           "nativeDirectoryIndex": 29,
           "original": {
             "width": 2560,
@@ -1009,7 +1009,7 @@
           }
         },
         {
-          "file": "art_star3.png",
+          "file": "art_star3.webp",
           "nativeDirectoryIndex": 30,
           "original": {
             "width": 2560,
@@ -1041,7 +1041,7 @@
           }
         },
         {
-          "file": "art_moon_overlay.png",
+          "file": "art_moon_overlay.webp",
           "nativeDirectoryIndex": 31,
           "original": {
             "width": 2560,
@@ -1073,7 +1073,7 @@
           }
         },
         {
-          "file": "art_pencil.png",
+          "file": "art_pencil.webp",
           "nativeDirectoryIndex": 32,
           "original": {
             "width": 2560,
@@ -1105,7 +1105,7 @@
           }
         },
         {
-          "file": "art_star1.png",
+          "file": "art_star1.webp",
           "nativeDirectoryIndex": 33,
           "original": {
             "width": 2560,
@@ -1137,7 +1137,7 @@
           }
         },
         {
-          "file": "art_moon.png",
+          "file": "art_moon.webp",
           "nativeDirectoryIndex": 34,
           "original": {
             "width": 2560,
@@ -1173,33 +1173,33 @@
     "cad": {
       "path": "assets/images/site/cad",
       "nativeDirectoryOrderBeforeCrop": [
-        "cad_engine_center_right.png",
-        "cad_engine_mask_add.png",
-        "cad_beam_colordodge.png",
-        "cad_title.png",
-        "cad_engine_front_left.png",
-        "cad_beam_add2.png",
-        "cad_beam_color.png",
-        "cad_engine_front_right.png",
-        "cad_back3.png",
-        "cad_top_structure.png",
-        "cad_beam_add.png",
-        "cad_back2.png",
-        "cad_front_colordodge.png",
-        "cad_title_shell.png",
-        "cad_back1.png",
-        "cad_engine_center_left.png",
-        "cad_title_colordodge.png",
-        "cad_desk.png",
-        "cad_engine_back_right.png",
-        "cad_engine_back_left.png",
-        "cad_title_add.png",
-        "cad_left_structure2.png",
-        "cad_left_structure1.png"
+        "cad_engine_center_right.webp",
+        "cad_engine_mask_add.webp",
+        "cad_beam_colordodge.webp",
+        "cad_title.webp",
+        "cad_engine_front_left.webp",
+        "cad_beam_add2.webp",
+        "cad_beam_color.webp",
+        "cad_engine_front_right.webp",
+        "cad_back3.webp",
+        "cad_top_structure.webp",
+        "cad_beam_add.webp",
+        "cad_back2.webp",
+        "cad_front_colordodge.webp",
+        "cad_title_shell.webp",
+        "cad_back1.webp",
+        "cad_engine_center_left.webp",
+        "cad_title_colordodge.webp",
+        "cad_desk.webp",
+        "cad_engine_back_right.webp",
+        "cad_engine_back_left.webp",
+        "cad_title_add.webp",
+        "cad_left_structure2.webp",
+        "cad_left_structure1.webp"
       ],
       "sprites": [
         {
-          "file": "cad_engine_center_right.png",
+          "file": "cad_engine_center_right.webp",
           "nativeDirectoryIndex": 0,
           "original": {
             "width": 2560,
@@ -1231,7 +1231,7 @@
           }
         },
         {
-          "file": "cad_engine_mask_add.png",
+          "file": "cad_engine_mask_add.webp",
           "nativeDirectoryIndex": 1,
           "original": {
             "width": 2560,
@@ -1263,7 +1263,7 @@
           }
         },
         {
-          "file": "cad_beam_colordodge.png",
+          "file": "cad_beam_colordodge.webp",
           "nativeDirectoryIndex": 2,
           "original": {
             "width": 2560,
@@ -1295,7 +1295,7 @@
           }
         },
         {
-          "file": "cad_title.png",
+          "file": "cad_title.webp",
           "nativeDirectoryIndex": 3,
           "original": {
             "width": 2560,
@@ -1327,7 +1327,7 @@
           }
         },
         {
-          "file": "cad_engine_front_left.png",
+          "file": "cad_engine_front_left.webp",
           "nativeDirectoryIndex": 4,
           "original": {
             "width": 2560,
@@ -1359,7 +1359,7 @@
           }
         },
         {
-          "file": "cad_beam_add2.png",
+          "file": "cad_beam_add2.webp",
           "nativeDirectoryIndex": 5,
           "original": {
             "width": 2560,
@@ -1391,7 +1391,7 @@
           }
         },
         {
-          "file": "cad_beam_color.png",
+          "file": "cad_beam_color.webp",
           "nativeDirectoryIndex": 6,
           "original": {
             "width": 2560,
@@ -1423,7 +1423,7 @@
           }
         },
         {
-          "file": "cad_engine_front_right.png",
+          "file": "cad_engine_front_right.webp",
           "nativeDirectoryIndex": 8,
           "original": {
             "width": 2560,
@@ -1455,7 +1455,7 @@
           }
         },
         {
-          "file": "cad_back3.png",
+          "file": "cad_back3.webp",
           "nativeDirectoryIndex": 9,
           "original": {
             "width": 2560,
@@ -1487,7 +1487,7 @@
           }
         },
         {
-          "file": "cad_top_structure.png",
+          "file": "cad_top_structure.webp",
           "nativeDirectoryIndex": 10,
           "original": {
             "width": 2560,
@@ -1519,7 +1519,7 @@
           }
         },
         {
-          "file": "cad_beam_add.png",
+          "file": "cad_beam_add.webp",
           "nativeDirectoryIndex": 11,
           "original": {
             "width": 2560,
@@ -1551,7 +1551,7 @@
           }
         },
         {
-          "file": "cad_back2.png",
+          "file": "cad_back2.webp",
           "nativeDirectoryIndex": 12,
           "original": {
             "width": 2560,
@@ -1583,7 +1583,7 @@
           }
         },
         {
-          "file": "cad_front_colordodge.png",
+          "file": "cad_front_colordodge.webp",
           "nativeDirectoryIndex": 13,
           "original": {
             "width": 2560,
@@ -1615,7 +1615,7 @@
           }
         },
         {
-          "file": "cad_title_shell.png",
+          "file": "cad_title_shell.webp",
           "nativeDirectoryIndex": 14,
           "original": {
             "width": 2560,
@@ -1647,7 +1647,7 @@
           }
         },
         {
-          "file": "cad_back1.png",
+          "file": "cad_back1.webp",
           "nativeDirectoryIndex": 15,
           "original": {
             "width": 2560,
@@ -1679,7 +1679,7 @@
           }
         },
         {
-          "file": "cad_engine_center_left.png",
+          "file": "cad_engine_center_left.webp",
           "nativeDirectoryIndex": 17,
           "original": {
             "width": 2560,
@@ -1711,7 +1711,7 @@
           }
         },
         {
-          "file": "cad_title_colordodge.png",
+          "file": "cad_title_colordodge.webp",
           "nativeDirectoryIndex": 18,
           "original": {
             "width": 2560,
@@ -1743,7 +1743,7 @@
           }
         },
         {
-          "file": "cad_desk.png",
+          "file": "cad_desk.webp",
           "nativeDirectoryIndex": 19,
           "original": {
             "width": 2560,
@@ -1775,7 +1775,7 @@
           }
         },
         {
-          "file": "cad_engine_back_right.png",
+          "file": "cad_engine_back_right.webp",
           "nativeDirectoryIndex": 20,
           "original": {
             "width": 2560,
@@ -1807,7 +1807,7 @@
           }
         },
         {
-          "file": "cad_engine_back_left.png",
+          "file": "cad_engine_back_left.webp",
           "nativeDirectoryIndex": 21,
           "original": {
             "width": 2560,
@@ -1839,7 +1839,7 @@
           }
         },
         {
-          "file": "cad_title_add.png",
+          "file": "cad_title_add.webp",
           "nativeDirectoryIndex": 22,
           "original": {
             "width": 2560,
@@ -1871,7 +1871,7 @@
           }
         },
         {
-          "file": "cad_left_structure2.png",
+          "file": "cad_left_structure2.webp",
           "nativeDirectoryIndex": 23,
           "original": {
             "width": 2560,
@@ -1903,7 +1903,7 @@
           }
         },
         {
-          "file": "cad_left_structure1.png",
+          "file": "cad_left_structure1.webp",
           "nativeDirectoryIndex": 24,
           "original": {
             "width": 2560,
@@ -1939,25 +1939,25 @@
     "journal": {
       "path": "assets/images/site/journal",
       "nativeDirectoryOrderBeforeCrop": [
-        "journal_grass.png",
-        "journal_tree.png",
-        "journal_splotches.png",
-        "journal_leaffront.png",
-        "journal_leafback1.png",
-        "journal_overlay.png",
-        "journal_leafback2.png",
-        "journal_add.png",
-        "journal_character.png",
-        "journal_waterfall.png",
-        "journal_grass_detail.png",
-        "journal_book.png",
-        "journal_flowers.png",
-        "journal_title.png",
-        "journal_rocks.png"
+        "journal_grass.webp",
+        "journal_tree.webp",
+        "journal_splotches.webp",
+        "journal_leaffront.webp",
+        "journal_leafback1.webp",
+        "journal_overlay.webp",
+        "journal_leafback2.webp",
+        "journal_add.webp",
+        "journal_character.webp",
+        "journal_waterfall.webp",
+        "journal_grass_detail.webp",
+        "journal_book.webp",
+        "journal_flowers.webp",
+        "journal_title.webp",
+        "journal_rocks.webp"
       ],
       "sprites": [
         {
-          "file": "journal_grass.png",
+          "file": "journal_grass.webp",
           "original": {
             "width": 2560,
             "height": 9792,
@@ -1989,7 +1989,7 @@
           "nativeDirectoryIndex": 0
         },
         {
-          "file": "journal_tree.png",
+          "file": "journal_tree.webp",
           "original": {
             "width": 2560,
             "height": 9792,
@@ -2021,7 +2021,7 @@
           "nativeDirectoryIndex": 1
         },
         {
-          "file": "journal_splotches.png",
+          "file": "journal_splotches.webp",
           "original": {
             "width": 2560,
             "height": 9792,
@@ -2053,7 +2053,7 @@
           "nativeDirectoryIndex": 2
         },
         {
-          "file": "journal_leaffront.png",
+          "file": "journal_leaffront.webp",
           "original": {
             "width": 2560,
             "height": 9792,
@@ -2085,7 +2085,7 @@
           "nativeDirectoryIndex": 3
         },
         {
-          "file": "journal_leafback1.png",
+          "file": "journal_leafback1.webp",
           "original": {
             "width": 2560,
             "height": 9792,
@@ -2117,7 +2117,7 @@
           "nativeDirectoryIndex": 4
         },
         {
-          "file": "journal_overlay.png",
+          "file": "journal_overlay.webp",
           "original": {
             "width": 2560,
             "height": 9792,
@@ -2149,7 +2149,7 @@
           "nativeDirectoryIndex": 5
         },
         {
-          "file": "journal_leafback2.png",
+          "file": "journal_leafback2.webp",
           "original": {
             "width": 2560,
             "height": 9792,
@@ -2181,7 +2181,7 @@
           "nativeDirectoryIndex": 6
         },
         {
-          "file": "journal_add.png",
+          "file": "journal_add.webp",
           "original": {
             "width": 2560,
             "height": 9792,
@@ -2213,7 +2213,7 @@
           "nativeDirectoryIndex": 7
         },
         {
-          "file": "journal_character.png",
+          "file": "journal_character.webp",
           "original": {
             "width": 2560,
             "height": 9792,
@@ -2245,7 +2245,7 @@
           "nativeDirectoryIndex": 8
         },
         {
-          "file": "journal_waterfall.png",
+          "file": "journal_waterfall.webp",
           "original": {
             "width": 2560,
             "height": 9792,
@@ -2277,7 +2277,7 @@
           "nativeDirectoryIndex": 9
         },
         {
-          "file": "journal_grass_detail.png",
+          "file": "journal_grass_detail.webp",
           "original": {
             "width": 2560,
             "height": 9792,
@@ -2309,7 +2309,7 @@
           "nativeDirectoryIndex": 10
         },
         {
-          "file": "journal_book.png",
+          "file": "journal_book.webp",
           "original": {
             "width": 2560,
             "height": 9792,
@@ -2341,7 +2341,7 @@
           "nativeDirectoryIndex": 11
         },
         {
-          "file": "journal_flowers.png",
+          "file": "journal_flowers.webp",
           "original": {
             "width": 2560,
             "height": 9792,
@@ -2373,7 +2373,7 @@
           "nativeDirectoryIndex": 12
         },
         {
-          "file": "journal_title.png",
+          "file": "journal_title.webp",
           "original": {
             "width": 2560,
             "height": 9792,
@@ -2405,7 +2405,7 @@
           "nativeDirectoryIndex": 13
         },
         {
-          "file": "journal_rocks.png",
+          "file": "journal_rocks.webp",
           "original": {
             "width": 2560,
             "height": 9792,
@@ -2441,42 +2441,42 @@
     "projects": {
       "path": "assets/images/site/projects",
       "nativeDirectoryOrderBeforeCrop": [
-        "projects_blueprint.png",
-        "projects_p_outline.png",
-        "projects_p_hardmix.png",
-        "projects_o_outline.png",
-        "projects_o_colordodge.png",
-        "projects_pencil.png",
-        "projects_c_outline.png",
-        "projects_j_outline.png",
-        "projects_j_hardmix.png",
-        "projects_r.png",
-        "projects_e.png",
-        "projects_s.png",
-        "projects_p.png",
-        "projects_ruler.png",
-        "projects_e_outline.png",
-        "projects_c.png",
-        "projects_t.png",
-        "projects_blueprint_jimbo_colordodge.png",
-        "projects_metal.png",
-        "projects_j_colordodge.png",
-        "projects_s_hardmix.png",
-        "projects_s_outline.png",
-        "projects_t_outline.png",
-        "projects_triangle.png",
-        "projects_o.png",
-        "projects_eraser.png",
-        "projects_p_colordodge.png",
-        "projects_j.png",
-        "projects_r_outline.png",
-        "projects_blueprint_glow_colordodge.png",
-        "projects_board.png",
-        "projects_t_colordodge.png"
+        "projects_blueprint.webp",
+        "projects_p_outline.webp",
+        "projects_p_hardmix.webp",
+        "projects_o_outline.webp",
+        "projects_o_colordodge.webp",
+        "projects_pencil.webp",
+        "projects_c_outline.webp",
+        "projects_j_outline.webp",
+        "projects_j_hardmix.webp",
+        "projects_r.webp",
+        "projects_e.webp",
+        "projects_s.webp",
+        "projects_p.webp",
+        "projects_ruler.webp",
+        "projects_e_outline.webp",
+        "projects_c.webp",
+        "projects_t.webp",
+        "projects_blueprint_jimbo_colordodge.webp",
+        "projects_metal.webp",
+        "projects_j_colordodge.webp",
+        "projects_s_hardmix.webp",
+        "projects_s_outline.webp",
+        "projects_t_outline.webp",
+        "projects_triangle.webp",
+        "projects_o.webp",
+        "projects_eraser.webp",
+        "projects_p_colordodge.webp",
+        "projects_j.webp",
+        "projects_r_outline.webp",
+        "projects_blueprint_glow_colordodge.webp",
+        "projects_board.webp",
+        "projects_t_colordodge.webp"
       ],
       "sprites": [
         {
-          "file": "projects_blueprint.png",
+          "file": "projects_blueprint.webp",
           "original": {
             "width": 2560,
             "height": 7130,
@@ -2508,7 +2508,7 @@
           "nativeDirectoryIndex": 0
         },
         {
-          "file": "projects_p_outline.png",
+          "file": "projects_p_outline.webp",
           "original": {
             "width": 497,
             "height": 959,
@@ -2540,7 +2540,7 @@
           "nativeDirectoryIndex": 1
         },
         {
-          "file": "projects_p_hardmix.png",
+          "file": "projects_p_hardmix.webp",
           "original": {
             "width": 620,
             "height": 998,
@@ -2572,7 +2572,7 @@
           "nativeDirectoryIndex": 2
         },
         {
-          "file": "projects_o_outline.png",
+          "file": "projects_o_outline.webp",
           "original": {
             "width": 368,
             "height": 902,
@@ -2604,7 +2604,7 @@
           "nativeDirectoryIndex": 3
         },
         {
-          "file": "projects_o_colordodge.png",
+          "file": "projects_o_colordodge.webp",
           "original": {
             "width": 2560,
             "height": 7130,
@@ -2636,7 +2636,7 @@
           "nativeDirectoryIndex": 4
         },
         {
-          "file": "projects_pencil.png",
+          "file": "projects_pencil.webp",
           "original": {
             "width": 581,
             "height": 1852,
@@ -2668,7 +2668,7 @@
           "nativeDirectoryIndex": 5
         },
         {
-          "file": "projects_c_outline.png",
+          "file": "projects_c_outline.webp",
           "original": {
             "width": 260,
             "height": 803,
@@ -2700,7 +2700,7 @@
           "nativeDirectoryIndex": 6
         },
         {
-          "file": "projects_j_outline.png",
+          "file": "projects_j_outline.webp",
           "original": {
             "width": 376,
             "height": 921,
@@ -2732,7 +2732,7 @@
           "nativeDirectoryIndex": 7
         },
         {
-          "file": "projects_j_hardmix.png",
+          "file": "projects_j_hardmix.webp",
           "original": {
             "width": 476,
             "height": 786,
@@ -2764,7 +2764,7 @@
           "nativeDirectoryIndex": 8
         },
         {
-          "file": "projects_r.png",
+          "file": "projects_r.webp",
           "original": {
             "width": 287,
             "height": 488,
@@ -2796,7 +2796,7 @@
           "nativeDirectoryIndex": 9
         },
         {
-          "file": "projects_e.png",
+          "file": "projects_e.webp",
           "original": {
             "width": 307,
             "height": 729,
@@ -2828,7 +2828,7 @@
           "nativeDirectoryIndex": 10
         },
         {
-          "file": "projects_s.png",
+          "file": "projects_s.webp",
           "original": {
             "width": 346,
             "height": 820,
@@ -2860,7 +2860,7 @@
           "nativeDirectoryIndex": 11
         },
         {
-          "file": "projects_p.png",
+          "file": "projects_p.webp",
           "original": {
             "width": 527,
             "height": 1079,
@@ -2892,7 +2892,7 @@
           "nativeDirectoryIndex": 12
         },
         {
-          "file": "projects_ruler.png",
+          "file": "projects_ruler.webp",
           "original": {
             "width": 2560,
             "height": 7130,
@@ -2924,7 +2924,7 @@
           "nativeDirectoryIndex": 13
         },
         {
-          "file": "projects_e_outline.png",
+          "file": "projects_e_outline.webp",
           "original": {
             "width": 307,
             "height": 784,
@@ -2956,7 +2956,7 @@
           "nativeDirectoryIndex": 14
         },
         {
-          "file": "projects_c.png",
+          "file": "projects_c.webp",
           "original": {
             "width": 247,
             "height": 654,
@@ -2988,7 +2988,7 @@
           "nativeDirectoryIndex": 15
         },
         {
-          "file": "projects_t.png",
+          "file": "projects_t.webp",
           "original": {
             "width": 710,
             "height": 1335,
@@ -3020,7 +3020,7 @@
           "nativeDirectoryIndex": 16
         },
         {
-          "file": "projects_blueprint_jimbo_colordodge.png",
+          "file": "projects_blueprint_jimbo_colordodge.webp",
           "original": {
             "width": 2560,
             "height": 7130,
@@ -3052,7 +3052,7 @@
           "nativeDirectoryIndex": 17
         },
         {
-          "file": "projects_metal.png",
+          "file": "projects_metal.webp",
           "original": {
             "width": 2560,
             "height": 7130,
@@ -3084,7 +3084,7 @@
           "nativeDirectoryIndex": 18
         },
         {
-          "file": "projects_j_colordodge.png",
+          "file": "projects_j_colordodge.webp",
           "original": {
             "width": 2560,
             "height": 7130,
@@ -3116,7 +3116,7 @@
           "nativeDirectoryIndex": 19
         },
         {
-          "file": "projects_s_hardmix.png",
+          "file": "projects_s_hardmix.webp",
           "original": {
             "width": 333,
             "height": 764,
@@ -3148,7 +3148,7 @@
           "nativeDirectoryIndex": 20
         },
         {
-          "file": "projects_s_outline.png",
+          "file": "projects_s_outline.webp",
           "original": {
             "width": 344,
             "height": 725,
@@ -3180,7 +3180,7 @@
           "nativeDirectoryIndex": 21
         },
         {
-          "file": "projects_t_outline.png",
+          "file": "projects_t_outline.webp",
           "original": {
             "width": 455,
             "height": 983,
@@ -3212,7 +3212,7 @@
           "nativeDirectoryIndex": 22
         },
         {
-          "file": "projects_triangle.png",
+          "file": "projects_triangle.webp",
           "original": {
             "width": 974,
             "height": 923,
@@ -3244,7 +3244,7 @@
           "nativeDirectoryIndex": 23
         },
         {
-          "file": "projects_o.png",
+          "file": "projects_o.webp",
           "original": {
             "width": 372,
             "height": 916,
@@ -3276,7 +3276,7 @@
           "nativeDirectoryIndex": 24
         },
         {
-          "file": "projects_eraser.png",
+          "file": "projects_eraser.webp",
           "original": {
             "width": 803,
             "height": 455,
@@ -3308,7 +3308,7 @@
           "nativeDirectoryIndex": 25
         },
         {
-          "file": "projects_p_colordodge.png",
+          "file": "projects_p_colordodge.webp",
           "original": {
             "width": 2560,
             "height": 7130,
@@ -3340,7 +3340,7 @@
           "nativeDirectoryIndex": 26
         },
         {
-          "file": "projects_j.png",
+          "file": "projects_j.webp",
           "original": {
             "width": 348,
             "height": 909,
@@ -3372,7 +3372,7 @@
           "nativeDirectoryIndex": 27
         },
         {
-          "file": "projects_r_outline.png",
+          "file": "projects_r_outline.webp",
           "original": {
             "width": 302,
             "height": 480,
@@ -3404,7 +3404,7 @@
           "nativeDirectoryIndex": 28
         },
         {
-          "file": "projects_blueprint_glow_colordodge.png",
+          "file": "projects_blueprint_glow_colordodge.webp",
           "original": {
             "width": 2560,
             "height": 7130,
@@ -3436,7 +3436,7 @@
           "nativeDirectoryIndex": 29
         },
         {
-          "file": "projects_board.png",
+          "file": "projects_board.webp",
           "original": {
             "width": 2560,
             "height": 7130,
@@ -3468,7 +3468,7 @@
           "nativeDirectoryIndex": 30
         },
         {
-          "file": "projects_t_colordodge.png",
+          "file": "projects_t_colordodge.webp",
           "original": {
             "width": 2560,
             "height": 7130,
