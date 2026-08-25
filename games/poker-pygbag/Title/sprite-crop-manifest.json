@@ -1,0 +1,587 @@
+{
+  "generatedAt": "2026-08-24T22:05:09.611866Z",
+  "alphaRule": "Tight crop includes every pixel whose alpha channel is greater than 0; no low-alpha threshold was applied.",
+  "coordinateSystem": "Pixel coordinates use the original uncropped image with origin at the top-left. right and bottom are exclusive.",
+  "positioningNote": "To preserve the original placement after cropping, position each cropped sprite at original anchor + offset.x and original anchor + offset.y.",
+  "root": "games/poker-pygbag/Title",
+  "recursiveOrderBeforeCrop": [
+    "BackButton.png",
+    "HowToPlay.png",
+    "HowToPlay_Background.png",
+    "Title_BG.png",
+    "Title_Button_HowToPlay.png",
+    "Title_Button_Multiplayer.png",
+    "Title_Button_SinglePlayer.png",
+    "Title_Cards.png",
+    "Title_E.png",
+    "Title_Folder.png",
+    "Title_Holdem.png",
+    "Title_K.png",
+    "Title_O.png",
+    "Title_P.png",
+    "Title_R.png",
+    "Title_Texas.png"
+  ],
+  "sprites": [
+    {
+      "file": "BackButton.png",
+      "relativePath": "BackButton.png",
+      "recursiveIndex": 0,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 31081,
+        "birthTime": "2026-08-21T13:41:42.392865Z",
+        "modifiedTime": "2026-08-21T13:41:42.393166Z"
+      },
+      "cropBox": {
+        "left": 79,
+        "top": 129,
+        "right": 361,
+        "bottom": 240,
+        "width": 282,
+        "height": 111
+      },
+      "offset": {
+        "x": 79,
+        "y": 129
+      },
+      "originalInsets": {
+        "right": 1085,
+        "bottom": 776
+      },
+      "cropped": {
+        "width": 282,
+        "height": 111,
+        "bytes": 3252,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "HowToPlay.png",
+      "relativePath": "HowToPlay.png",
+      "recursiveIndex": 1,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 140193,
+        "birthTime": "2026-08-21T13:41:42.411601Z",
+        "modifiedTime": "2026-08-21T13:41:42.412147Z"
+      },
+      "cropBox": {
+        "left": 0,
+        "top": 42,
+        "right": 1446,
+        "bottom": 987,
+        "width": 1446,
+        "height": 945
+      },
+      "offset": {
+        "x": 0,
+        "y": 42
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 29
+      },
+      "cropped": {
+        "width": 1446,
+        "height": 945,
+        "bytes": 65513,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "HowToPlay_Background.png",
+      "relativePath": "HowToPlay_Background.png",
+      "recursiveIndex": 2,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 118470,
+        "birthTime": "2026-08-21T13:41:42.404590Z",
+        "modifiedTime": "2026-08-21T13:41:42.406088Z"
+      },
+      "cropBox": {
+        "left": 0,
+        "top": 0,
+        "right": 1446,
+        "bottom": 1016,
+        "width": 1446,
+        "height": 1016
+      },
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 0
+      },
+      "cropped": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 118470,
+        "format": "png"
+      },
+      "rewritten": false
+    },
+    {
+      "file": "Title_BG.png",
+      "relativePath": "Title_BG.png",
+      "recursiveIndex": 3,
+      "original": {
+        "width": 1200,
+        "height": 800,
+        "bytes": 294149,
+        "birthTime": "2026-08-21T13:41:42.409344Z",
+        "modifiedTime": "2026-08-21T13:41:42.410098Z"
+      },
+      "cropBox": {
+        "left": 0,
+        "top": 0,
+        "right": 1200,
+        "bottom": 800,
+        "width": 1200,
+        "height": 800
+      },
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 0
+      },
+      "cropped": {
+        "width": 1200,
+        "height": 800,
+        "bytes": 294149,
+        "format": "png"
+      },
+      "rewritten": false
+    },
+    {
+      "file": "Title_Button_HowToPlay.png",
+      "relativePath": "Title_Button_HowToPlay.png",
+      "recursiveIndex": 4,
+      "original": {
+        "width": 383,
+        "height": 274,
+        "bytes": 9776,
+        "birthTime": "2026-08-21T13:41:42.396649Z",
+        "modifiedTime": "2026-08-21T13:41:42.397067Z"
+      },
+      "cropBox": {
+        "left": 25,
+        "top": 23,
+        "right": 359,
+        "bottom": 236,
+        "width": 334,
+        "height": 213
+      },
+      "offset": {
+        "x": 25,
+        "y": 23
+      },
+      "originalInsets": {
+        "right": 24,
+        "bottom": 38
+      },
+      "cropped": {
+        "width": 334,
+        "height": 213,
+        "bytes": 4809,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Title_Button_Multiplayer.png",
+      "relativePath": "Title_Button_Multiplayer.png",
+      "recursiveIndex": 5,
+      "original": {
+        "width": 384,
+        "height": 196,
+        "bytes": 13568,
+        "birthTime": "2026-08-21T13:41:42.406409Z",
+        "modifiedTime": "2026-08-21T13:41:42.406917Z"
+      },
+      "cropBox": {
+        "left": 21,
+        "top": 17,
+        "right": 363,
+        "bottom": 169,
+        "width": 342,
+        "height": 152
+      },
+      "offset": {
+        "x": 21,
+        "y": 17
+      },
+      "originalInsets": {
+        "right": 21,
+        "bottom": 27
+      },
+      "cropped": {
+        "width": 342,
+        "height": 152,
+        "bytes": 7164,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Title_Button_SinglePlayer.png",
+      "relativePath": "Title_Button_SinglePlayer.png",
+      "recursiveIndex": 6,
+      "original": {
+        "width": 423,
+        "height": 208,
+        "bytes": 10589,
+        "birthTime": "2026-08-21T13:41:42.408009Z",
+        "modifiedTime": "2026-08-21T13:41:42.408461Z"
+      },
+      "cropBox": {
+        "left": 38,
+        "top": 31,
+        "right": 390,
+        "bottom": 189,
+        "width": 352,
+        "height": 158
+      },
+      "offset": {
+        "x": 38,
+        "y": 31
+      },
+      "originalInsets": {
+        "right": 33,
+        "bottom": 19
+      },
+      "cropped": {
+        "width": 352,
+        "height": 158,
+        "bytes": 5430,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Title_Cards.png",
+      "relativePath": "Title_Cards.png",
+      "recursiveIndex": 7,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 67903,
+        "birthTime": "2026-08-21T13:41:42.399854Z",
+        "modifiedTime": "2026-08-21T13:41:42.400190Z"
+      },
+      "cropBox": {
+        "left": 0,
+        "top": 0,
+        "right": 981,
+        "bottom": 1016,
+        "width": 981,
+        "height": 1016
+      },
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "originalInsets": {
+        "right": 465,
+        "bottom": 0
+      },
+      "cropped": {
+        "width": 981,
+        "height": 1016,
+        "bytes": 22265,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Title_E.png",
+      "relativePath": "Title_E.png",
+      "recursiveIndex": 8,
+      "original": {
+        "width": 134,
+        "height": 230,
+        "bytes": 6997,
+        "birthTime": "2026-08-21T13:41:42.398971Z",
+        "modifiedTime": "2026-08-21T13:41:42.399294Z"
+      },
+      "cropBox": {
+        "left": 16,
+        "top": 10,
+        "right": 121,
+        "bottom": 217,
+        "width": 105,
+        "height": 207
+      },
+      "offset": {
+        "x": 16,
+        "y": 10
+      },
+      "originalInsets": {
+        "right": 13,
+        "bottom": 13
+      },
+      "cropped": {
+        "width": 105,
+        "height": 207,
+        "bytes": 3819,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Title_Folder.png",
+      "relativePath": "Title_Folder.png",
+      "recursiveIndex": 9,
+      "original": {
+        "width": 1200,
+        "height": 800,
+        "bytes": 68079,
+        "birthTime": "2026-08-21T13:41:42.393523Z",
+        "modifiedTime": "2026-08-21T13:41:42.394052Z"
+      },
+      "cropBox": {
+        "left": 546,
+        "top": 0,
+        "right": 1200,
+        "bottom": 800,
+        "width": 654,
+        "height": 800
+      },
+      "offset": {
+        "x": 546,
+        "y": 0
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 0
+      },
+      "cropped": {
+        "width": 654,
+        "height": 800,
+        "bytes": 25554,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Title_Holdem.png",
+      "relativePath": "Title_Holdem.png",
+      "recursiveIndex": 10,
+      "original": {
+        "width": 231,
+        "height": 103,
+        "bytes": 4461,
+        "birthTime": "2026-08-21T13:41:42.395394Z",
+        "modifiedTime": "2026-08-21T13:41:42.396231Z"
+      },
+      "cropBox": {
+        "left": 8,
+        "top": 8,
+        "right": 221,
+        "bottom": 87,
+        "width": 213,
+        "height": 79
+      },
+      "offset": {
+        "x": 8,
+        "y": 8
+      },
+      "originalInsets": {
+        "right": 10,
+        "bottom": 16
+      },
+      "cropped": {
+        "width": 213,
+        "height": 79,
+        "bytes": 2816,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Title_K.png",
+      "relativePath": "Title_K.png",
+      "recursiveIndex": 11,
+      "original": {
+        "width": 179,
+        "height": 293,
+        "bytes": 12525,
+        "birthTime": "2026-08-21T13:41:42.401530Z",
+        "modifiedTime": "2026-08-21T13:41:42.402633Z"
+      },
+      "cropBox": {
+        "left": 18,
+        "top": 8,
+        "right": 160,
+        "bottom": 274,
+        "width": 142,
+        "height": 266
+      },
+      "offset": {
+        "x": 18,
+        "y": 8
+      },
+      "originalInsets": {
+        "right": 19,
+        "bottom": 19
+      },
+      "cropped": {
+        "width": 142,
+        "height": 266,
+        "bytes": 6484,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Title_O.png",
+      "relativePath": "Title_O.png",
+      "recursiveIndex": 12,
+      "original": {
+        "width": 176,
+        "height": 168,
+        "bytes": 7282,
+        "birthTime": "2026-08-21T13:41:42.410587Z",
+        "modifiedTime": "2026-08-21T13:41:42.411396Z"
+      },
+      "cropBox": {
+        "left": 22,
+        "top": 10,
+        "right": 152,
+        "bottom": 151,
+        "width": 130,
+        "height": 141
+      },
+      "offset": {
+        "x": 22,
+        "y": 10
+      },
+      "originalInsets": {
+        "right": 24,
+        "bottom": 17
+      },
+      "cropped": {
+        "width": 130,
+        "height": 141,
+        "bytes": 3986,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Title_P.png",
+      "relativePath": "Title_P.png",
+      "recursiveIndex": 13,
+      "original": {
+        "width": 193,
+        "height": 334,
+        "bytes": 10827,
+        "birthTime": "2026-08-21T13:41:42.400537Z",
+        "modifiedTime": "2026-08-21T13:41:42.401196Z"
+      },
+      "cropBox": {
+        "left": 26,
+        "top": 23,
+        "right": 171,
+        "bottom": 299,
+        "width": 145,
+        "height": 276
+      },
+      "offset": {
+        "x": 26,
+        "y": 23
+      },
+      "originalInsets": {
+        "right": 22,
+        "bottom": 35
+      },
+      "cropped": {
+        "width": 145,
+        "height": 276,
+        "bytes": 5376,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Title_R.png",
+      "relativePath": "Title_R.png",
+      "recursiveIndex": 14,
+      "original": {
+        "width": 178,
+        "height": 304,
+        "bytes": 10259,
+        "birthTime": "2026-08-21T13:41:42.398315Z",
+        "modifiedTime": "2026-08-21T13:41:42.398637Z"
+      },
+      "cropBox": {
+        "left": 16,
+        "top": 23,
+        "right": 169,
+        "bottom": 280,
+        "width": 153,
+        "height": 257
+      },
+      "offset": {
+        "x": 16,
+        "y": 23
+      },
+      "originalInsets": {
+        "right": 9,
+        "bottom": 24
+      },
+      "cropped": {
+        "width": 153,
+        "height": 257,
+        "bytes": 5262,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Title_Texas.png",
+      "relativePath": "Title_Texas.png",
+      "recursiveIndex": 15,
+      "original": {
+        "width": 263,
+        "height": 99,
+        "bytes": 5506,
+        "birthTime": "2026-08-21T13:41:42.390489Z",
+        "modifiedTime": "2026-08-21T13:41:42.391187Z"
+      },
+      "cropBox": {
+        "left": 10,
+        "top": 9,
+        "right": 248,
+        "bottom": 91,
+        "width": 238,
+        "height": 82
+      },
+      "offset": {
+        "x": 10,
+        "y": 9
+      },
+      "originalInsets": {
+        "right": 15,
+        "bottom": 8
+      },
+      "cropped": {
+        "width": 238,
+        "height": 82,
+        "bytes": 3154,
+        "format": "png"
+      },
+      "rewritten": true
+    }
+  ]
+}

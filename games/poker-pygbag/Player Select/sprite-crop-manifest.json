@@ -1,0 +1,407 @@
+{
+  "generatedAt": "2026-08-24T22:05:03.594619Z",
+  "alphaRule": "Tight crop includes every pixel whose alpha channel is greater than 0; no low-alpha threshold was applied.",
+  "coordinateSystem": "Pixel coordinates use the original uncropped image with origin at the top-left. right and bottom are exclusive.",
+  "positioningNote": "To preserve the original placement after cropping, position each cropped sprite at original anchor + offset.x and original anchor + offset.y.",
+  "root": "games/poker-pygbag/Player Select",
+  "recursiveOrderBeforeCrop": [
+    "PlayerSelect_BG.png",
+    "PlayerSelect_Button_2P.png",
+    "PlayerSelect_Button_3P.png",
+    "PlayerSelect_Button_4P.png",
+    "PlayerSelect_Button_5P.png",
+    "PlayerSelect_Button_6P.png",
+    "PlayerSelect_Button_Confirm.png",
+    "PlayerSelect_Button_Funny.png",
+    "PlayerSelect_EnterName.png",
+    "PlayerSelect_Quit.png",
+    "PlayerSelect_Title.png"
+  ],
+  "sprites": [
+    {
+      "file": "PlayerSelect_BG.png",
+      "relativePath": "PlayerSelect_BG.png",
+      "recursiveIndex": 0,
+      "original": {
+        "width": 1200,
+        "height": 800,
+        "bytes": 76963,
+        "birthTime": "2026-08-21T13:41:42.397576Z",
+        "modifiedTime": "2026-08-21T13:41:42.397892Z"
+      },
+      "cropBox": {
+        "left": 0,
+        "top": 0,
+        "right": 1200,
+        "bottom": 800,
+        "width": 1200,
+        "height": 800
+      },
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 0
+      },
+      "cropped": {
+        "width": 1200,
+        "height": 800,
+        "bytes": 76963,
+        "format": "png"
+      },
+      "rewritten": false
+    },
+    {
+      "file": "PlayerSelect_Button_2P.png",
+      "relativePath": "PlayerSelect_Button_2P.png",
+      "recursiveIndex": 1,
+      "original": {
+        "width": 250,
+        "height": 173,
+        "bytes": 4732,
+        "birthTime": "2026-08-21T13:41:42.396701Z",
+        "modifiedTime": "2026-08-21T13:41:42.397157Z"
+      },
+      "cropBox": {
+        "left": 18,
+        "top": 13,
+        "right": 233,
+        "bottom": 153,
+        "width": 215,
+        "height": 140
+      },
+      "offset": {
+        "x": 18,
+        "y": 13
+      },
+      "originalInsets": {
+        "right": 17,
+        "bottom": 20
+      },
+      "cropped": {
+        "width": 215,
+        "height": 140,
+        "bytes": 2851,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "PlayerSelect_Button_3P.png",
+      "relativePath": "PlayerSelect_Button_3P.png",
+      "recursiveIndex": 2,
+      "original": {
+        "width": 295,
+        "height": 188,
+        "bytes": 5501,
+        "birthTime": "2026-08-21T13:41:42.400288Z",
+        "modifiedTime": "2026-08-21T13:41:42.400741Z"
+      },
+      "cropBox": {
+        "left": 16,
+        "top": 16,
+        "right": 277,
+        "bottom": 176,
+        "width": 261,
+        "height": 160
+      },
+      "offset": {
+        "x": 16,
+        "y": 16
+      },
+      "originalInsets": {
+        "right": 18,
+        "bottom": 12
+      },
+      "cropped": {
+        "width": 261,
+        "height": 160,
+        "bytes": 3215,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "PlayerSelect_Button_4P.png",
+      "relativePath": "PlayerSelect_Button_4P.png",
+      "recursiveIndex": 3,
+      "original": {
+        "width": 252,
+        "height": 169,
+        "bytes": 5094,
+        "birthTime": "2026-08-21T13:41:42.402291Z",
+        "modifiedTime": "2026-08-21T13:41:42.402718Z"
+      },
+      "cropBox": {
+        "left": 10,
+        "top": 10,
+        "right": 240,
+        "bottom": 156,
+        "width": 230,
+        "height": 146
+      },
+      "offset": {
+        "x": 10,
+        "y": 10
+      },
+      "originalInsets": {
+        "right": 12,
+        "bottom": 13
+      },
+      "cropped": {
+        "width": 230,
+        "height": 146,
+        "bytes": 3116,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "PlayerSelect_Button_5P.png",
+      "relativePath": "PlayerSelect_Button_5P.png",
+      "recursiveIndex": 4,
+      "original": {
+        "width": 277,
+        "height": 188,
+        "bytes": 5712,
+        "birthTime": "2026-08-21T13:41:42.403443Z",
+        "modifiedTime": "2026-08-21T13:41:42.405034Z"
+      },
+      "cropBox": {
+        "left": 7,
+        "top": 9,
+        "right": 260,
+        "bottom": 182,
+        "width": 253,
+        "height": 173
+      },
+      "offset": {
+        "x": 7,
+        "y": 9
+      },
+      "originalInsets": {
+        "right": 17,
+        "bottom": 6
+      },
+      "cropped": {
+        "width": 253,
+        "height": 173,
+        "bytes": 3236,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "PlayerSelect_Button_6P.png",
+      "relativePath": "PlayerSelect_Button_6P.png",
+      "recursiveIndex": 5,
+      "original": {
+        "width": 271,
+        "height": 188,
+        "bytes": 5299,
+        "birthTime": "2026-08-21T13:41:42.405703Z",
+        "modifiedTime": "2026-08-21T13:41:42.406133Z"
+      },
+      "cropBox": {
+        "left": 13,
+        "top": 11,
+        "right": 248,
+        "bottom": 174,
+        "width": 235,
+        "height": 163
+      },
+      "offset": {
+        "x": 13,
+        "y": 11
+      },
+      "originalInsets": {
+        "right": 23,
+        "bottom": 14
+      },
+      "cropped": {
+        "width": 235,
+        "height": 163,
+        "bytes": 3105,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "PlayerSelect_Button_Confirm.png",
+      "relativePath": "PlayerSelect_Button_Confirm.png",
+      "recursiveIndex": 6,
+      "original": {
+        "width": 302,
+        "height": 196,
+        "bytes": 6904,
+        "birthTime": "2026-08-21T13:41:42.399470Z",
+        "modifiedTime": "2026-08-21T13:41:42.399775Z"
+      },
+      "cropBox": {
+        "left": 15,
+        "top": 16,
+        "right": 284,
+        "bottom": 177,
+        "width": 269,
+        "height": 161
+      },
+      "offset": {
+        "x": 15,
+        "y": 16
+      },
+      "originalInsets": {
+        "right": 18,
+        "bottom": 19
+      },
+      "cropped": {
+        "width": 269,
+        "height": 161,
+        "bytes": 3701,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "PlayerSelect_Button_Funny.png",
+      "relativePath": "PlayerSelect_Button_Funny.png",
+      "recursiveIndex": 7,
+      "original": {
+        "width": 230,
+        "height": 194,
+        "bytes": 5726,
+        "birthTime": "2026-08-21T13:41:42.398792Z",
+        "modifiedTime": "2026-08-21T13:41:42.399124Z"
+      },
+      "cropBox": {
+        "left": 13,
+        "top": 8,
+        "right": 219,
+        "bottom": 184,
+        "width": 206,
+        "height": 176
+      },
+      "offset": {
+        "x": 13,
+        "y": 8
+      },
+      "originalInsets": {
+        "right": 11,
+        "bottom": 10
+      },
+      "cropped": {
+        "width": 206,
+        "height": 176,
+        "bytes": 3445,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "PlayerSelect_EnterName.png",
+      "relativePath": "PlayerSelect_EnterName.png",
+      "recursiveIndex": 8,
+      "original": {
+        "width": 585,
+        "height": 232,
+        "bytes": 11789,
+        "birthTime": "2026-08-21T13:41:42.407054Z",
+        "modifiedTime": "2026-08-21T13:41:42.407350Z"
+      },
+      "cropBox": {
+        "left": 29,
+        "top": 23,
+        "right": 560,
+        "bottom": 201,
+        "width": 531,
+        "height": 178
+      },
+      "offset": {
+        "x": 29,
+        "y": 23
+      },
+      "originalInsets": {
+        "right": 25,
+        "bottom": 31
+      },
+      "cropped": {
+        "width": 531,
+        "height": 178,
+        "bytes": 5914,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "PlayerSelect_Quit.png",
+      "relativePath": "PlayerSelect_Quit.png",
+      "recursiveIndex": 9,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 31081,
+        "birthTime": "2026-08-21T13:41:42.406372Z",
+        "modifiedTime": "2026-08-21T13:41:42.406681Z"
+      },
+      "cropBox": {
+        "left": 79,
+        "top": 129,
+        "right": 361,
+        "bottom": 240,
+        "width": 282,
+        "height": 111
+      },
+      "offset": {
+        "x": 79,
+        "y": 129
+      },
+      "originalInsets": {
+        "right": 1085,
+        "bottom": 776
+      },
+      "cropped": {
+        "width": 282,
+        "height": 111,
+        "bytes": 3252,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "PlayerSelect_Title.png",
+      "relativePath": "PlayerSelect_Title.png",
+      "recursiveIndex": 10,
+      "original": {
+        "width": 548,
+        "height": 218,
+        "bytes": 9638,
+        "birthTime": "2026-08-21T13:41:42.401128Z",
+        "modifiedTime": "2026-08-21T13:41:42.401435Z"
+      },
+      "cropBox": {
+        "left": 14,
+        "top": 0,
+        "right": 521,
+        "bottom": 209,
+        "width": 507,
+        "height": 209
+      },
+      "offset": {
+        "x": 14,
+        "y": 0
+      },
+      "originalInsets": {
+        "right": 27,
+        "bottom": 9
+      },
+      "cropped": {
+        "width": 507,
+        "height": 209,
+        "bytes": 4959,
+        "format": "png"
+      },
+      "rewritten": true
+    }
+  ]
+}

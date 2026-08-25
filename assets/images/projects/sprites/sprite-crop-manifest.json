@@ -1,0 +1,1206 @@
+{
+  "generatedAt": "2026-08-24T21:41:47.061432Z",
+  "alphaRule": "Tight crop includes every pixel whose alpha channel is greater than 0; no low-alpha threshold was applied.",
+  "coordinateSystem": "Pixel coordinates use the original uncropped canvas with origin at the top-left. right and bottom are exclusive.",
+  "positioningNote": "To preserve the original placement after cropping, position each cropped sprite at original anchor + offset.x and original anchor + offset.y.",
+  "encoder": {
+    "format": "webp",
+    "tool": "Pillow 12.3.0",
+    "settings": {
+      "quality": 100,
+      "alpha_quality": 100,
+      "method": 6,
+      "exact": true
+    },
+    "note": "The local macOS tools could read WebP but could not write it, so Pillow was installed temporarily under /private/tmp and used to preserve WebP output."
+  },
+  "folders": {
+    "comictab": {
+      "path": "assets/images/projects/sprites/comictab",
+      "nativeDirectoryOrderBeforeCrop": [
+        "Projects_Tab_Export-4.webp",
+        "Projects_Tab_Export-8.webp",
+        "Projects_Tab_Export-11.webp",
+        "Projects_Tab_Export-10.webp",
+        "Projects_Tab_Export-9.webp",
+        "Projects_Tab_Export-5.webp",
+        "Projects_Tab_Export-17.webp",
+        "Projects_Tab_Export-16.webp",
+        "Projects_Tab_Export-15.webp",
+        "Projects_Tab_Export-18.webp",
+        "Projects_Tab_Export-14.webp",
+        "Projects_Tab_Export-6.webp",
+        "Projects_Tab_Export-13.webp",
+        "Projects_Tab_Export-12.webp",
+        "Projects_Tab_Export-7.webp"
+      ],
+      "sprites": [
+        {
+          "file": "Projects_Tab_Export-4.webp",
+          "original": {
+            "width": 2560,
+            "height": 5171,
+            "bytes": 53862,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T20:23:10Z",
+            "modifiedTime": "2026-08-24T01:23:00Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 1496,
+            "right": 2560,
+            "bottom": 2810,
+            "width": 2560,
+            "height": 1314
+          },
+          "offset": {
+            "x": 0,
+            "y": 1496
+          },
+          "originalInsets": {
+            "right": 0,
+            "bottom": 2361
+          },
+          "cropped": {
+            "width": 2560,
+            "height": 1314,
+            "bytes": 96452,
+            "format": "webp"
+          },
+          "nativeDirectoryIndex": 0
+        },
+        {
+          "file": "Projects_Tab_Export-8.webp",
+          "original": {
+            "width": 2560,
+            "height": 5171,
+            "bytes": 160948,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T20:23:10Z",
+            "modifiedTime": "2026-08-24T01:23:00Z"
+          },
+          "cropBox": {
+            "left": 5,
+            "top": 1819,
+            "right": 703,
+            "bottom": 2273,
+            "width": 698,
+            "height": 454
+          },
+          "offset": {
+            "x": 5,
+            "y": 1819
+          },
+          "originalInsets": {
+            "right": 1857,
+            "bottom": 2898
+          },
+          "cropped": {
+            "width": 698,
+            "height": 454,
+            "bytes": 155970,
+            "format": "webp"
+          },
+          "nativeDirectoryIndex": 1
+        },
+        {
+          "file": "Projects_Tab_Export-11.webp",
+          "original": {
+            "width": 2560,
+            "height": 5171,
+            "bytes": 41332,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T20:23:10Z",
+            "modifiedTime": "2026-08-24T01:23:00Z"
+          },
+          "cropBox": {
+            "left": 369,
+            "top": 1957,
+            "right": 726,
+            "bottom": 2507,
+            "width": 357,
+            "height": 550
+          },
+          "offset": {
+            "x": 369,
+            "y": 1957
+          },
+          "originalInsets": {
+            "right": 1834,
+            "bottom": 2664
+          },
+          "cropped": {
+            "width": 357,
+            "height": 550,
+            "bytes": 38452,
+            "format": "webp"
+          },
+          "nativeDirectoryIndex": 2
+        },
+        {
+          "file": "Projects_Tab_Export-10.webp",
+          "original": {
+            "width": 2560,
+            "height": 5171,
+            "bytes": 147166,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T20:23:10Z",
+            "modifiedTime": "2026-08-24T01:23:00Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 1496,
+            "right": 2560,
+            "bottom": 2798,
+            "width": 2560,
+            "height": 1302
+          },
+          "offset": {
+            "x": 0,
+            "y": 1496
+          },
+          "originalInsets": {
+            "right": 0,
+            "bottom": 2373
+          },
+          "cropped": {
+            "width": 2560,
+            "height": 1302,
+            "bytes": 338448,
+            "format": "webp"
+          },
+          "nativeDirectoryIndex": 3
+        },
+        {
+          "file": "Projects_Tab_Export-9.webp",
+          "original": {
+            "width": 2560,
+            "height": 5171,
+            "bytes": 243070,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T20:23:10Z",
+            "modifiedTime": "2026-08-24T01:23:00Z"
+          },
+          "cropBox": {
+            "left": 31,
+            "top": 2107,
+            "right": 897,
+            "bottom": 2777,
+            "width": 866,
+            "height": 670
+          },
+          "offset": {
+            "x": 31,
+            "y": 2107
+          },
+          "originalInsets": {
+            "right": 1663,
+            "bottom": 2394
+          },
+          "cropped": {
+            "width": 866,
+            "height": 670,
+            "bytes": 235296,
+            "format": "webp"
+          },
+          "nativeDirectoryIndex": 4
+        },
+        {
+          "file": "Projects_Tab_Export-5.webp",
+          "original": {
+            "width": 2560,
+            "height": 5171,
+            "bytes": 174058,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T20:23:10Z",
+            "modifiedTime": "2026-08-24T01:23:00Z"
+          },
+          "cropBox": {
+            "left": 15,
+            "top": 1368,
+            "right": 2560,
+            "bottom": 2798,
+            "width": 2545,
+            "height": 1430
+          },
+          "offset": {
+            "x": 15,
+            "y": 1368
+          },
+          "originalInsets": {
+            "right": 0,
+            "bottom": 2373
+          },
+          "cropped": {
+            "width": 2545,
+            "height": 1430,
+            "bytes": 387540,
+            "format": "webp"
+          },
+          "nativeDirectoryIndex": 5
+        },
+        {
+          "file": "Projects_Tab_Export-17.webp",
+          "original": {
+            "width": 2560,
+            "height": 5171,
+            "bytes": 58468,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T20:23:10Z",
+            "modifiedTime": "2026-08-24T01:23:00Z"
+          },
+          "cropBox": {
+            "left": 266,
+            "top": 1509,
+            "right": 1018,
+            "bottom": 1896,
+            "width": 752,
+            "height": 387
+          },
+          "offset": {
+            "x": 266,
+            "y": 1509
+          },
+          "originalInsets": {
+            "right": 1542,
+            "bottom": 3275
+          },
+          "cropped": {
+            "width": 752,
+            "height": 387,
+            "bytes": 80836,
+            "format": "webp"
+          },
+          "nativeDirectoryIndex": 6
+        },
+        {
+          "file": "Projects_Tab_Export-16.webp",
+          "original": {
+            "width": 2560,
+            "height": 5171,
+            "bytes": 82692,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T20:23:10Z",
+            "modifiedTime": "2026-08-24T01:23:00Z"
+          },
+          "cropBox": {
+            "left": 1549,
+            "top": 1617,
+            "right": 2368,
+            "bottom": 2291,
+            "width": 819,
+            "height": 674
+          },
+          "offset": {
+            "x": 1549,
+            "y": 1617
+          },
+          "originalInsets": {
+            "right": 192,
+            "bottom": 2880
+          },
+          "cropped": {
+            "width": 819,
+            "height": 674,
+            "bytes": 128336,
+            "format": "webp"
+          },
+          "nativeDirectoryIndex": 7
+        },
+        {
+          "file": "Projects_Tab_Export-15.webp",
+          "original": {
+            "width": 2560,
+            "height": 5171,
+            "bytes": 89280,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T20:23:10Z",
+            "modifiedTime": "2026-08-24T01:23:00Z"
+          },
+          "cropBox": {
+            "left": 87,
+            "top": 1968,
+            "right": 2560,
+            "bottom": 3300,
+            "width": 2473,
+            "height": 1332
+          },
+          "offset": {
+            "x": 87,
+            "y": 1968
+          },
+          "originalInsets": {
+            "right": 0,
+            "bottom": 1871
+          },
+          "cropped": {
+            "width": 2473,
+            "height": 1332,
+            "bytes": 168228,
+            "format": "webp"
+          },
+          "nativeDirectoryIndex": 8
+        },
+        {
+          "file": "Projects_Tab_Export-18.webp",
+          "original": {
+            "width": 2560,
+            "height": 5171,
+            "bytes": 133630,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T20:23:10Z",
+            "modifiedTime": "2026-08-24T01:23:00Z"
+          },
+          "cropBox": {
+            "left": 741,
+            "top": 1929,
+            "right": 1483,
+            "bottom": 2423,
+            "width": 742,
+            "height": 494
+          },
+          "offset": {
+            "x": 741,
+            "y": 1929
+          },
+          "originalInsets": {
+            "right": 1077,
+            "bottom": 2748
+          },
+          "cropped": {
+            "width": 742,
+            "height": 494,
+            "bytes": 206348,
+            "format": "webp"
+          },
+          "nativeDirectoryIndex": 9
+        },
+        {
+          "file": "Projects_Tab_Export-14.webp",
+          "original": {
+            "width": 2560,
+            "height": 5171,
+            "bytes": 35368,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T20:23:10Z",
+            "modifiedTime": "2026-08-24T01:23:00Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 2552,
+            "right": 1034,
+            "bottom": 2903,
+            "width": 1034,
+            "height": 351
+          },
+          "offset": {
+            "x": 0,
+            "y": 2552
+          },
+          "originalInsets": {
+            "right": 1526,
+            "bottom": 2268
+          },
+          "cropped": {
+            "width": 1034,
+            "height": 351,
+            "bytes": 29030,
+            "format": "webp"
+          },
+          "nativeDirectoryIndex": 10
+        },
+        {
+          "file": "Projects_Tab_Export-6.webp",
+          "original": {
+            "width": 2560,
+            "height": 5171,
+            "bytes": 44674,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T20:23:10Z",
+            "modifiedTime": "2026-08-24T01:23:00Z"
+          },
+          "cropBox": {
+            "left": 221,
+            "top": 1676,
+            "right": 646,
+            "bottom": 1776,
+            "width": 425,
+            "height": 100
+          },
+          "offset": {
+            "x": 221,
+            "y": 1676
+          },
+          "originalInsets": {
+            "right": 1914,
+            "bottom": 3395
+          },
+          "cropped": {
+            "width": 425,
+            "height": 100,
+            "bytes": 21542,
+            "format": "webp"
+          },
+          "nativeDirectoryIndex": 11
+        },
+        {
+          "file": "Projects_Tab_Export-13.webp",
+          "original": {
+            "width": 2560,
+            "height": 5171,
+            "bytes": 268796,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T20:23:10Z",
+            "modifiedTime": "2026-08-24T01:23:00Z"
+          },
+          "cropBox": {
+            "left": 648,
+            "top": 1487,
+            "right": 2560,
+            "bottom": 2798,
+            "width": 1912,
+            "height": 1311
+          },
+          "offset": {
+            "x": 648,
+            "y": 1487
+          },
+          "originalInsets": {
+            "right": 0,
+            "bottom": 2373
+          },
+          "cropped": {
+            "width": 1912,
+            "height": 1311,
+            "bytes": 422506,
+            "format": "webp"
+          },
+          "nativeDirectoryIndex": 12
+        },
+        {
+          "file": "Projects_Tab_Export-12.webp",
+          "original": {
+            "width": 2560,
+            "height": 5171,
+            "bytes": 126256,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T20:23:10Z",
+            "modifiedTime": "2026-08-24T01:23:00Z"
+          },
+          "cropBox": {
+            "left": 1024,
+            "top": 1496,
+            "right": 2560,
+            "bottom": 2798,
+            "width": 1536,
+            "height": 1302
+          },
+          "offset": {
+            "x": 1024,
+            "y": 1496
+          },
+          "originalInsets": {
+            "right": 0,
+            "bottom": 2373
+          },
+          "cropped": {
+            "width": 1536,
+            "height": 1302,
+            "bytes": 249922,
+            "format": "webp"
+          },
+          "nativeDirectoryIndex": 13
+        },
+        {
+          "file": "Projects_Tab_Export-7.webp",
+          "original": {
+            "width": 2560,
+            "height": 5171,
+            "bytes": 46624,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T20:23:10Z",
+            "modifiedTime": "2026-08-24T01:23:00Z"
+          },
+          "cropBox": {
+            "left": 396,
+            "top": 1759,
+            "right": 701,
+            "bottom": 1881,
+            "width": 305,
+            "height": 122
+          },
+          "offset": {
+            "x": 396,
+            "y": 1759
+          },
+          "originalInsets": {
+            "right": 1859,
+            "bottom": 3290
+          },
+          "cropped": {
+            "width": 305,
+            "height": 122,
+            "bytes": 21812,
+            "format": "webp"
+          },
+          "nativeDirectoryIndex": 14
+        }
+      ]
+    },
+    "pokertab": {
+      "path": "assets/images/projects/sprites/pokertab",
+      "nativeDirectoryOrderBeforeCrop": [
+        "BG_Card1.webp",
+        "Title_Holdem.webp",
+        "BG_Box2.webp",
+        "Title_E.webp",
+        "Title_P.webp",
+        "Title_Texas.webp",
+        "Title_Cards.webp",
+        "Title_O.webp",
+        "BG_Box4.webp",
+        "BG_Box.webp",
+        "BG_Eye.webp",
+        "BG_Sticky.webp",
+        "BG_Card3.webp",
+        "BG_Pic.webp",
+        "Title_BG.webp",
+        "Title_R.webp",
+        "BG_Card2.webp",
+        "Title_K.webp"
+      ],
+      "sprites": [
+        {
+          "file": "BG_Card1.webp",
+          "original": {
+            "width": 1446,
+            "height": 1016,
+            "bytes": 12446,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T22:52:20Z",
+            "modifiedTime": "2026-08-24T03:52:12Z"
+          },
+          "cropBox": {
+            "left": 60,
+            "top": 589,
+            "right": 289,
+            "bottom": 921,
+            "width": 229,
+            "height": 332
+          },
+          "offset": {
+            "x": 60,
+            "y": 589
+          },
+          "originalInsets": {
+            "right": 1157,
+            "bottom": 95
+          },
+          "cropped": {
+            "width": 229,
+            "height": 332,
+            "bytes": 21108,
+            "format": "webp"
+          },
+          "rewritten": true,
+          "nativeDirectoryIndex": 0
+        },
+        {
+          "file": "Title_Holdem.webp",
+          "original": {
+            "width": 231,
+            "height": 103,
+            "bytes": 3366,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T22:52:20Z",
+            "modifiedTime": "2026-08-24T03:52:12Z"
+          },
+          "cropBox": {
+            "left": 8,
+            "top": 8,
+            "right": 221,
+            "bottom": 87,
+            "width": 213,
+            "height": 79
+          },
+          "offset": {
+            "x": 8,
+            "y": 8
+          },
+          "originalInsets": {
+            "right": 10,
+            "bottom": 16
+          },
+          "cropped": {
+            "width": 213,
+            "height": 79,
+            "bytes": 5128,
+            "format": "webp"
+          },
+          "rewritten": true,
+          "nativeDirectoryIndex": 1
+        },
+        {
+          "file": "BG_Box2.webp",
+          "original": {
+            "width": 1446,
+            "height": 1016,
+            "bytes": 18272,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T22:52:20Z",
+            "modifiedTime": "2026-08-24T03:52:12Z"
+          },
+          "cropBox": {
+            "left": 860,
+            "top": 127,
+            "right": 1264,
+            "bottom": 505,
+            "width": 404,
+            "height": 378
+          },
+          "offset": {
+            "x": 860,
+            "y": 127
+          },
+          "originalInsets": {
+            "right": 182,
+            "bottom": 511
+          },
+          "cropped": {
+            "width": 404,
+            "height": 378,
+            "bytes": 39704,
+            "format": "webp"
+          },
+          "rewritten": true,
+          "nativeDirectoryIndex": 2
+        },
+        {
+          "file": "Title_E.webp",
+          "original": {
+            "width": 134,
+            "height": 230,
+            "bytes": 5188,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T22:52:20Z",
+            "modifiedTime": "2026-08-24T03:52:12Z"
+          },
+          "cropBox": {
+            "left": 16,
+            "top": 10,
+            "right": 121,
+            "bottom": 217,
+            "width": 105,
+            "height": 207
+          },
+          "offset": {
+            "x": 16,
+            "y": 10
+          },
+          "originalInsets": {
+            "right": 13,
+            "bottom": 13
+          },
+          "cropped": {
+            "width": 105,
+            "height": 207,
+            "bytes": 11216,
+            "format": "webp"
+          },
+          "rewritten": true,
+          "nativeDirectoryIndex": 3
+        },
+        {
+          "file": "Title_P.webp",
+          "original": {
+            "width": 193,
+            "height": 334,
+            "bytes": 7144,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T22:52:20Z",
+            "modifiedTime": "2026-08-24T03:52:12Z"
+          },
+          "cropBox": {
+            "left": 26,
+            "top": 23,
+            "right": 171,
+            "bottom": 299,
+            "width": 145,
+            "height": 276
+          },
+          "offset": {
+            "x": 26,
+            "y": 23
+          },
+          "originalInsets": {
+            "right": 22,
+            "bottom": 35
+          },
+          "cropped": {
+            "width": 145,
+            "height": 276,
+            "bytes": 16196,
+            "format": "webp"
+          },
+          "rewritten": true,
+          "nativeDirectoryIndex": 4
+        },
+        {
+          "file": "Title_Texas.webp",
+          "original": {
+            "width": 263,
+            "height": 99,
+            "bytes": 3754,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T22:52:20Z",
+            "modifiedTime": "2026-08-24T03:52:12Z"
+          },
+          "cropBox": {
+            "left": 10,
+            "top": 9,
+            "right": 248,
+            "bottom": 91,
+            "width": 238,
+            "height": 82
+          },
+          "offset": {
+            "x": 10,
+            "y": 9
+          },
+          "originalInsets": {
+            "right": 15,
+            "bottom": 8
+          },
+          "cropped": {
+            "width": 238,
+            "height": 82,
+            "bytes": 8164,
+            "format": "webp"
+          },
+          "rewritten": true,
+          "nativeDirectoryIndex": 5
+        },
+        {
+          "file": "Title_Cards.webp",
+          "original": {
+            "width": 1446,
+            "height": 1016,
+            "bytes": 41604,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T22:52:20Z",
+            "modifiedTime": "2026-08-24T03:52:12Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 0,
+            "right": 981,
+            "bottom": 1016,
+            "width": 981,
+            "height": 1016
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "originalInsets": {
+            "right": 465,
+            "bottom": 0
+          },
+          "cropped": {
+            "width": 981,
+            "height": 1016,
+            "bytes": 66124,
+            "format": "webp"
+          },
+          "rewritten": true,
+          "nativeDirectoryIndex": 6
+        },
+        {
+          "file": "Title_O.webp",
+          "original": {
+            "width": 176,
+            "height": 168,
+            "bytes": 5318,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T22:52:20Z",
+            "modifiedTime": "2026-08-24T03:52:12Z"
+          },
+          "cropBox": {
+            "left": 22,
+            "top": 10,
+            "right": 152,
+            "bottom": 151,
+            "width": 130,
+            "height": 141
+          },
+          "offset": {
+            "x": 22,
+            "y": 10
+          },
+          "originalInsets": {
+            "right": 24,
+            "bottom": 17
+          },
+          "cropped": {
+            "width": 130,
+            "height": 141,
+            "bytes": 11164,
+            "format": "webp"
+          },
+          "rewritten": true,
+          "nativeDirectoryIndex": 7
+        },
+        {
+          "file": "BG_Box4.webp",
+          "original": {
+            "width": 1446,
+            "height": 1016,
+            "bytes": 14516,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T22:52:20Z",
+            "modifiedTime": "2026-08-24T03:52:12Z"
+          },
+          "cropBox": {
+            "left": 444,
+            "top": 257,
+            "right": 691,
+            "bottom": 482,
+            "width": 247,
+            "height": 225
+          },
+          "offset": {
+            "x": 444,
+            "y": 257
+          },
+          "originalInsets": {
+            "right": 755,
+            "bottom": 534
+          },
+          "cropped": {
+            "width": 247,
+            "height": 225,
+            "bytes": 24986,
+            "format": "webp"
+          },
+          "rewritten": true,
+          "nativeDirectoryIndex": 8
+        },
+        {
+          "file": "BG_Box.webp",
+          "original": {
+            "width": 1446,
+            "height": 1016,
+            "bytes": 26330,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T22:52:20Z",
+            "modifiedTime": "2026-08-24T03:52:12Z"
+          },
+          "cropBox": {
+            "left": 74,
+            "top": 47,
+            "right": 584,
+            "bottom": 581,
+            "width": 510,
+            "height": 534
+          },
+          "offset": {
+            "x": 74,
+            "y": 47
+          },
+          "originalInsets": {
+            "right": 862,
+            "bottom": 435
+          },
+          "cropped": {
+            "width": 510,
+            "height": 534,
+            "bytes": 59808,
+            "format": "webp"
+          },
+          "rewritten": true,
+          "nativeDirectoryIndex": 9
+        },
+        {
+          "file": "BG_Eye.webp",
+          "original": {
+            "width": 1446,
+            "height": 1016,
+            "bytes": 21324,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T22:52:20Z",
+            "modifiedTime": "2026-08-24T03:52:12Z"
+          },
+          "cropBox": {
+            "left": 368,
+            "top": 575,
+            "right": 726,
+            "bottom": 946,
+            "width": 358,
+            "height": 371
+          },
+          "offset": {
+            "x": 368,
+            "y": 575
+          },
+          "originalInsets": {
+            "right": 720,
+            "bottom": 70
+          },
+          "cropped": {
+            "width": 358,
+            "height": 371,
+            "bytes": 44690,
+            "format": "webp"
+          },
+          "rewritten": true,
+          "nativeDirectoryIndex": 10
+        },
+        {
+          "file": "BG_Sticky.webp",
+          "original": {
+            "width": 1446,
+            "height": 1016,
+            "bytes": 10568,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T22:52:20Z",
+            "modifiedTime": "2026-08-24T03:52:12Z"
+          },
+          "cropBox": {
+            "left": 844,
+            "top": 321,
+            "right": 1048,
+            "bottom": 518,
+            "width": 204,
+            "height": 197
+          },
+          "offset": {
+            "x": 844,
+            "y": 321
+          },
+          "originalInsets": {
+            "right": 398,
+            "bottom": 498
+          },
+          "cropped": {
+            "width": 204,
+            "height": 197,
+            "bytes": 17708,
+            "format": "webp"
+          },
+          "rewritten": true,
+          "nativeDirectoryIndex": 11
+        },
+        {
+          "file": "BG_Card3.webp",
+          "original": {
+            "width": 1446,
+            "height": 1016,
+            "bytes": 11726,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T22:52:20Z",
+            "modifiedTime": "2026-08-24T03:52:12Z"
+          },
+          "cropBox": {
+            "left": 887,
+            "top": 651,
+            "right": 1149,
+            "bottom": 952,
+            "width": 262,
+            "height": 301
+          },
+          "offset": {
+            "x": 887,
+            "y": 651
+          },
+          "originalInsets": {
+            "right": 297,
+            "bottom": 64
+          },
+          "cropped": {
+            "width": 262,
+            "height": 301,
+            "bytes": 20628,
+            "format": "webp"
+          },
+          "rewritten": true,
+          "nativeDirectoryIndex": 12
+        },
+        {
+          "file": "BG_Pic.webp",
+          "original": {
+            "width": 1446,
+            "height": 1016,
+            "bytes": 12844,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T22:52:20Z",
+            "modifiedTime": "2026-08-24T03:52:12Z"
+          },
+          "cropBox": {
+            "left": 1003,
+            "top": 549,
+            "right": 1327,
+            "bottom": 852,
+            "width": 324,
+            "height": 303
+          },
+          "offset": {
+            "x": 1003,
+            "y": 549
+          },
+          "originalInsets": {
+            "right": 119,
+            "bottom": 164
+          },
+          "cropped": {
+            "width": 324,
+            "height": 303,
+            "bytes": 29162,
+            "format": "webp"
+          },
+          "rewritten": true,
+          "nativeDirectoryIndex": 13
+        },
+        {
+          "file": "Title_BG.webp",
+          "original": {
+            "width": 1200,
+            "height": 800,
+            "bytes": 94994,
+            "mode": "RGB",
+            "birthTime": "2026-08-23T22:52:20Z",
+            "modifiedTime": "2026-08-24T03:52:12Z"
+          },
+          "cropBox": {
+            "left": 0,
+            "top": 0,
+            "right": 1200,
+            "bottom": 800,
+            "width": 1200,
+            "height": 800
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "originalInsets": {
+            "right": 0,
+            "bottom": 0
+          },
+          "cropped": {
+            "width": 1200,
+            "height": 800,
+            "bytes": 94994,
+            "format": "webp"
+          },
+          "rewritten": false,
+          "nativeDirectoryIndex": 14
+        },
+        {
+          "file": "Title_R.webp",
+          "original": {
+            "width": 178,
+            "height": 304,
+            "bytes": 7462,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T22:52:20Z",
+            "modifiedTime": "2026-08-24T03:52:12Z"
+          },
+          "cropBox": {
+            "left": 16,
+            "top": 23,
+            "right": 169,
+            "bottom": 280,
+            "width": 153,
+            "height": 257
+          },
+          "offset": {
+            "x": 16,
+            "y": 23
+          },
+          "originalInsets": {
+            "right": 9,
+            "bottom": 24
+          },
+          "cropped": {
+            "width": 153,
+            "height": 257,
+            "bytes": 16454,
+            "format": "webp"
+          },
+          "rewritten": true,
+          "nativeDirectoryIndex": 15
+        },
+        {
+          "file": "BG_Card2.webp",
+          "original": {
+            "width": 1446,
+            "height": 1016,
+            "bytes": 8976,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T22:52:20Z",
+            "modifiedTime": "2026-08-24T03:52:12Z"
+          },
+          "cropBox": {
+            "left": 577,
+            "top": 139,
+            "right": 745,
+            "bottom": 412,
+            "width": 168,
+            "height": 273
+          },
+          "offset": {
+            "x": 577,
+            "y": 139
+          },
+          "originalInsets": {
+            "right": 701,
+            "bottom": 604
+          },
+          "cropped": {
+            "width": 168,
+            "height": 273,
+            "bytes": 13888,
+            "format": "webp"
+          },
+          "rewritten": true,
+          "nativeDirectoryIndex": 16
+        },
+        {
+          "file": "Title_K.webp",
+          "original": {
+            "width": 179,
+            "height": 293,
+            "bytes": 8618,
+            "mode": "RGBA",
+            "birthTime": "2026-08-23T22:52:20Z",
+            "modifiedTime": "2026-08-24T03:52:12Z"
+          },
+          "cropBox": {
+            "left": 18,
+            "top": 8,
+            "right": 160,
+            "bottom": 274,
+            "width": 142,
+            "height": 266
+          },
+          "offset": {
+            "x": 18,
+            "y": 8
+          },
+          "originalInsets": {
+            "right": 19,
+            "bottom": 19
+          },
+          "cropped": {
+            "width": 142,
+            "height": 266,
+            "bytes": 17526,
+            "format": "webp"
+          },
+          "rewritten": true,
+          "nativeDirectoryIndex": 17
+        }
+      ]
+    }
+  }
+}

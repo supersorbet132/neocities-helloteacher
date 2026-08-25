@@ -91,6 +91,10 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 			return;
 		}
 
+		if (card.dataset.spriteParallaxPaused === "true") {
+			return;
+		}
+
 		const rect = card.getBoundingClientRect();
 		const viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 

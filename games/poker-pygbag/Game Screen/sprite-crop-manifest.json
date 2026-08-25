@@ -1,0 +1,4007 @@
+{
+  "generatedAt": "2026-08-24T22:23:18.584491Z",
+  "alphaRule": "Tight crop includes every pixel whose alpha channel is greater than 0; no low-alpha threshold was applied.",
+  "coordinateSystem": "Pixel coordinates use the original uncropped image with origin at the top-left. right and bottom are exclusive.",
+  "positioningNote": "To preserve the original placement after cropping, position each cropped sprite at original anchor + offset.x and original anchor + offset.y.",
+  "root": "games/poker-pygbag/Game Screen",
+  "recursiveOrderBeforeCrop": [
+    "Background/BG_Blend_Blue.png",
+    "Background/BG_Blend_Pink.png",
+    "Background/BG_Box.png",
+    "Background/BG_Box2.png",
+    "Background/BG_Box3.png",
+    "Background/BG_Box4.png",
+    "Background/BG_Button.png",
+    "Background/BG_Button2.png",
+    "Background/BG_Cap.png",
+    "Background/BG_Card1.png",
+    "Background/BG_Card2.png",
+    "Background/BG_Card3.png",
+    "Background/BG_Dots.png",
+    "Background/BG_Eye.png",
+    "Background/BG_Pic.png",
+    "Background/BG_Solid.png",
+    "Background/BG_Sticky.png",
+    "Cards/6-10/10_C.png",
+    "Cards/6-10/10_D.png",
+    "Cards/6-10/10_H.png",
+    "Cards/6-10/10_S.png",
+    "Cards/6-10/6_C.png",
+    "Cards/6-10/6_D.png",
+    "Cards/6-10/6_H.png",
+    "Cards/6-10/6_S.png",
+    "Cards/6-10/7_C.png",
+    "Cards/6-10/7_D.png",
+    "Cards/6-10/7_H.png",
+    "Cards/6-10/7_S.png",
+    "Cards/6-10/8_C.png",
+    "Cards/6-10/8_D.png",
+    "Cards/6-10/8_H.png",
+    "Cards/6-10/8_S.png",
+    "Cards/6-10/9_C.png",
+    "Cards/6-10/9_D.png",
+    "Cards/6-10/9_H.png",
+    "Cards/6-10/9_S.png",
+    "Cards/A-5/2_C.png",
+    "Cards/A-5/2_D.png",
+    "Cards/A-5/2_H.png",
+    "Cards/A-5/2_S.png",
+    "Cards/A-5/3_C.png",
+    "Cards/A-5/3_D.png",
+    "Cards/A-5/3_H.png",
+    "Cards/A-5/3_S.png",
+    "Cards/A-5/4_C.png",
+    "Cards/A-5/4_D.png",
+    "Cards/A-5/4_H.png",
+    "Cards/A-5/4_S.png",
+    "Cards/A-5/5_C.png",
+    "Cards/A-5/5_D.png",
+    "Cards/A-5/5_H.png",
+    "Cards/A-5/5_S.png",
+    "Cards/A-5/A_C.png",
+    "Cards/A-5/A_D.png",
+    "Cards/A-5/A_H.png",
+    "Cards/A-5/A_S.png",
+    "Cards/Back/Back1.png",
+    "Cards/Back/Back2.png",
+    "Cards/Back/Back3.png",
+    "Cards/Back/bad/Back1.png",
+    "Cards/Back/bad/Back2.png",
+    "Cards/Back/bad/Back3.png",
+    "Cards/Back/bad/Back4.png",
+    "Cards/Back/bad/Back5.png",
+    "Cards/Back/bad/Back6.png",
+    "Cards/Back/bad/Back7.png",
+    "Cards/Back/bad/Back8.png",
+    "Cards/Face/J_C.png",
+    "Cards/Face/J_D.png",
+    "Cards/Face/J_H.png",
+    "Cards/Face/J_S.png",
+    "Cards/Face/K_C.png",
+    "Cards/Face/K_D.png",
+    "Cards/Face/K_H.png",
+    "Cards/Face/K_S.png",
+    "Cards/Face/Q_C.png",
+    "Cards/Face/Q_D.png",
+    "Cards/Face/Q_H.png",
+    "Cards/Face/Q_S.png",
+    "Profiles/Profile_Abby.png",
+    "Profiles/Profile_Edmund.png",
+    "Profiles/Profile_Interbob.png",
+    "Profiles/Profile_Lawrence.png",
+    "Profiles/Profile_Liz.png",
+    "Profiles/Profile_Melon.png",
+    "Profiles/Profile_Rebecca.png",
+    "Profiles/Profile_Susan.png",
+    "UI/UI_+10.png",
+    "UI/UI_-10.png",
+    "UI/UI_BigBlind.png",
+    "UI/UI_Check.png",
+    "UI/UI_Deal.png",
+    "UI/UI_Flop.png",
+    "UI/UI_Fold.png",
+    "UI/UI_HandOver.png",
+    "UI/UI_Hands.png",
+    "UI/UI_Nametag.png",
+    "UI/UI_Preflop.png",
+    "UI/UI_ProfileCard.png",
+    "UI/UI_Quit.png",
+    "UI/UI_Raise.png",
+    "UI/UI_River.png",
+    "UI/UI_Scoreboard.png",
+    "UI/UI_Scoreboard_Mask.png",
+    "UI/UI_SmallBlind.png",
+    "UI/UI_Table.png",
+    "UI/UI_Thinking.png",
+    "UI/UI_Transition.png",
+    "UI/UI_Turn.png"
+  ],
+  "sprites": [
+    {
+      "file": "BG_Blend_Blue.png",
+      "relativePath": "Background/BG_Blend_Blue.png",
+      "recursiveIndex": 0,
+      "nativeDirectoryIndex": 16,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 533341,
+        "birthTime": "2026-08-21T13:41:42.404527Z",
+        "modifiedTime": "2026-08-21T13:41:42.406129Z"
+      },
+      "cropBox": {
+        "left": 0,
+        "top": 0,
+        "right": 1169,
+        "bottom": 1016,
+        "width": 1169,
+        "height": 1016
+      },
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "originalInsets": {
+        "right": 277,
+        "bottom": 0
+      },
+      "cropped": {
+        "width": 1169,
+        "height": 1016,
+        "bytes": 274474,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "BG_Blend_Pink.png",
+      "relativePath": "Background/BG_Blend_Pink.png",
+      "recursiveIndex": 1,
+      "nativeDirectoryIndex": 15,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 727903,
+        "birthTime": "2026-08-21T13:41:42.401362Z",
+        "modifiedTime": "2026-08-21T13:41:42.404325Z"
+      },
+      "cropBox": {
+        "left": 350,
+        "top": 0,
+        "right": 1446,
+        "bottom": 1016,
+        "width": 1096,
+        "height": 1016
+      },
+      "offset": {
+        "x": 350,
+        "y": 0
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 0
+      },
+      "cropped": {
+        "width": 1096,
+        "height": 1016,
+        "bytes": 345838,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "BG_Box.png",
+      "relativePath": "Background/BG_Box.png",
+      "recursiveIndex": 2,
+      "nativeDirectoryIndex": 8,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 68639,
+        "birthTime": "2026-08-21T13:41:42.396737Z",
+        "modifiedTime": "2026-08-21T13:41:42.397038Z"
+      },
+      "cropBox": {
+        "left": 74,
+        "top": 47,
+        "right": 584,
+        "bottom": 581,
+        "width": 510,
+        "height": 534
+      },
+      "offset": {
+        "x": 74,
+        "y": 47
+      },
+      "originalInsets": {
+        "right": 862,
+        "bottom": 435
+      },
+      "cropped": {
+        "width": 510,
+        "height": 534,
+        "bytes": 15603,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "BG_Box2.png",
+      "relativePath": "Background/BG_Box2.png",
+      "recursiveIndex": 3,
+      "nativeDirectoryIndex": 11,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 65594,
+        "birthTime": "2026-08-21T13:41:42.398440Z",
+        "modifiedTime": "2026-08-21T13:41:42.398821Z"
+      },
+      "cropBox": {
+        "left": 860,
+        "top": 127,
+        "right": 1264,
+        "bottom": 505,
+        "width": 404,
+        "height": 378
+      },
+      "offset": {
+        "x": 860,
+        "y": 127
+      },
+      "originalInsets": {
+        "right": 182,
+        "bottom": 511
+      },
+      "cropped": {
+        "width": 404,
+        "height": 378,
+        "bytes": 16111,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "BG_Box3.png",
+      "relativePath": "Background/BG_Box3.png",
+      "recursiveIndex": 4,
+      "nativeDirectoryIndex": 9,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 41814,
+        "birthTime": "2026-08-21T13:41:42.397345Z",
+        "modifiedTime": "2026-08-21T13:41:42.397675Z"
+      },
+      "cropBox": {
+        "left": 616,
+        "top": 522,
+        "right": 955,
+        "bottom": 857,
+        "width": 339,
+        "height": 335
+      },
+      "offset": {
+        "x": 616,
+        "y": 522
+      },
+      "originalInsets": {
+        "right": 491,
+        "bottom": 159
+      },
+      "cropped": {
+        "width": 339,
+        "height": 335,
+        "bytes": 7687,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "BG_Box4.png",
+      "relativePath": "Background/BG_Box4.png",
+      "recursiveIndex": 5,
+      "nativeDirectoryIndex": 12,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 53019,
+        "birthTime": "2026-08-21T13:41:42.399019Z",
+        "modifiedTime": "2026-08-21T13:41:42.399394Z"
+      },
+      "cropBox": {
+        "left": 444,
+        "top": 257,
+        "right": 691,
+        "bottom": 482,
+        "width": 247,
+        "height": 225
+      },
+      "offset": {
+        "x": 444,
+        "y": 257
+      },
+      "originalInsets": {
+        "right": 755,
+        "bottom": 534
+      },
+      "cropped": {
+        "width": 247,
+        "height": 225,
+        "bytes": 11423,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "BG_Button.png",
+      "relativePath": "Background/BG_Button.png",
+      "recursiveIndex": 6,
+      "nativeDirectoryIndex": 7,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 31342,
+        "birthTime": "2026-08-21T13:41:42.395817Z",
+        "modifiedTime": "2026-08-21T13:41:42.396420Z"
+      },
+      "cropBox": {
+        "left": 736,
+        "top": 170,
+        "right": 827,
+        "bottom": 260,
+        "width": 91,
+        "height": 90
+      },
+      "offset": {
+        "x": 736,
+        "y": 170
+      },
+      "originalInsets": {
+        "right": 619,
+        "bottom": 756
+      },
+      "cropped": {
+        "width": 91,
+        "height": 90,
+        "bytes": 2915,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "BG_Button2.png",
+      "relativePath": "Background/BG_Button2.png",
+      "recursiveIndex": 7,
+      "nativeDirectoryIndex": 10,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 34465,
+        "birthTime": "2026-08-21T13:41:42.397873Z",
+        "modifiedTime": "2026-08-21T13:41:42.398234Z"
+      },
+      "cropBox": {
+        "left": 235,
+        "top": 657,
+        "right": 354,
+        "bottom": 777,
+        "width": 119,
+        "height": 120
+      },
+      "offset": {
+        "x": 235,
+        "y": 657
+      },
+      "originalInsets": {
+        "right": 1092,
+        "bottom": 239
+      },
+      "cropped": {
+        "width": 119,
+        "height": 120,
+        "bytes": 4089,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "BG_Cap.png",
+      "relativePath": "Background/BG_Cap.png",
+      "recursiveIndex": 8,
+      "nativeDirectoryIndex": 5,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 32151,
+        "birthTime": "2026-08-21T13:41:42.394765Z",
+        "modifiedTime": "2026-08-21T13:41:42.395037Z"
+      },
+      "cropBox": {
+        "left": 854,
+        "top": 642,
+        "right": 949,
+        "bottom": 743,
+        "width": 95,
+        "height": 101
+      },
+      "offset": {
+        "x": 854,
+        "y": 642
+      },
+      "originalInsets": {
+        "right": 497,
+        "bottom": 273
+      },
+      "cropped": {
+        "width": 95,
+        "height": 101,
+        "bytes": 3348,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "BG_Card1.png",
+      "relativePath": "Background/BG_Card1.png",
+      "recursiveIndex": 9,
+      "nativeDirectoryIndex": 3,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 35774,
+        "birthTime": "2026-08-21T13:41:42.393568Z",
+        "modifiedTime": "2026-08-21T13:41:42.393874Z"
+      },
+      "cropBox": {
+        "left": 60,
+        "top": 589,
+        "right": 289,
+        "bottom": 921,
+        "width": 229,
+        "height": 332
+      },
+      "offset": {
+        "x": 60,
+        "y": 589
+      },
+      "originalInsets": {
+        "right": 1157,
+        "bottom": 95
+      },
+      "cropped": {
+        "width": 229,
+        "height": 332,
+        "bytes": 4975,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "BG_Card2.png",
+      "relativePath": "Background/BG_Card2.png",
+      "recursiveIndex": 10,
+      "nativeDirectoryIndex": 0,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 33842,
+        "birthTime": "2026-08-21T13:41:42.390503Z",
+        "modifiedTime": "2026-08-21T13:41:42.390930Z"
+      },
+      "cropBox": {
+        "left": 577,
+        "top": 139,
+        "right": 745,
+        "bottom": 412,
+        "width": 168,
+        "height": 273
+      },
+      "offset": {
+        "x": 577,
+        "y": 139
+      },
+      "originalInsets": {
+        "right": 701,
+        "bottom": 604
+      },
+      "cropped": {
+        "width": 168,
+        "height": 273,
+        "bytes": 4005,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "BG_Card3.png",
+      "relativePath": "Background/BG_Card3.png",
+      "recursiveIndex": 11,
+      "nativeDirectoryIndex": 2,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 35869,
+        "birthTime": "2026-08-21T13:41:42.392962Z",
+        "modifiedTime": "2026-08-21T13:41:42.393286Z"
+      },
+      "cropBox": {
+        "left": 887,
+        "top": 651,
+        "right": 1149,
+        "bottom": 952,
+        "width": 262,
+        "height": 301
+      },
+      "offset": {
+        "x": 887,
+        "y": 651
+      },
+      "originalInsets": {
+        "right": 297,
+        "bottom": 64
+      },
+      "cropped": {
+        "width": 262,
+        "height": 301,
+        "bytes": 4792,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "BG_Dots.png",
+      "relativePath": "Background/BG_Dots.png",
+      "recursiveIndex": 12,
+      "nativeDirectoryIndex": 14,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 652760,
+        "birthTime": "2026-08-21T13:41:42.400162Z",
+        "modifiedTime": "2026-08-21T13:41:42.401160Z"
+      },
+      "cropBox": {
+        "left": 0,
+        "top": 0,
+        "right": 1446,
+        "bottom": 1016,
+        "width": 1446,
+        "height": 1016
+      },
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 0
+      },
+      "cropped": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 652760,
+        "format": "png"
+      },
+      "rewritten": false
+    },
+    {
+      "file": "BG_Eye.png",
+      "relativePath": "Background/BG_Eye.png",
+      "recursiveIndex": 13,
+      "nativeDirectoryIndex": 1,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 74214,
+        "birthTime": "2026-08-21T13:41:42.391277Z",
+        "modifiedTime": "2026-08-21T13:41:42.391762Z"
+      },
+      "cropBox": {
+        "left": 368,
+        "top": 575,
+        "right": 726,
+        "bottom": 946,
+        "width": 358,
+        "height": 371
+      },
+      "offset": {
+        "x": 368,
+        "y": 575
+      },
+      "originalInsets": {
+        "right": 720,
+        "bottom": 70
+      },
+      "cropped": {
+        "width": 358,
+        "height": 371,
+        "bytes": 20609,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "BG_Pic.png",
+      "relativePath": "Background/BG_Pic.png",
+      "recursiveIndex": 14,
+      "nativeDirectoryIndex": 6,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 53654,
+        "birthTime": "2026-08-21T13:41:42.395285Z",
+        "modifiedTime": "2026-08-21T13:41:42.395609Z"
+      },
+      "cropBox": {
+        "left": 1003,
+        "top": 549,
+        "right": 1327,
+        "bottom": 852,
+        "width": 324,
+        "height": 303
+      },
+      "offset": {
+        "x": 1003,
+        "y": 549
+      },
+      "originalInsets": {
+        "right": 119,
+        "bottom": 164
+      },
+      "cropped": {
+        "width": 324,
+        "height": 303,
+        "bytes": 11903,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "BG_Solid.png",
+      "relativePath": "Background/BG_Solid.png",
+      "recursiveIndex": 15,
+      "nativeDirectoryIndex": 13,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 29145,
+        "birthTime": "2026-08-21T13:41:42.399595Z",
+        "modifiedTime": "2026-08-21T13:41:42.399957Z"
+      },
+      "cropBox": {
+        "left": 0,
+        "top": 0,
+        "right": 1446,
+        "bottom": 1016,
+        "width": 1446,
+        "height": 1016
+      },
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 0
+      },
+      "cropped": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 29145,
+        "format": "png"
+      },
+      "rewritten": false
+    },
+    {
+      "file": "BG_Sticky.png",
+      "relativePath": "Background/BG_Sticky.png",
+      "recursiveIndex": 16,
+      "nativeDirectoryIndex": 4,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 39093,
+        "birthTime": "2026-08-21T13:41:42.394105Z",
+        "modifiedTime": "2026-08-21T13:41:42.394437Z"
+      },
+      "cropBox": {
+        "left": 844,
+        "top": 321,
+        "right": 1048,
+        "bottom": 518,
+        "width": 204,
+        "height": 197
+      },
+      "offset": {
+        "x": 844,
+        "y": 321
+      },
+      "originalInsets": {
+        "right": 398,
+        "bottom": 498
+      },
+      "cropped": {
+        "width": 204,
+        "height": 197,
+        "bytes": 6201,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "10_C.png",
+      "relativePath": "Cards/6-10/10_C.png",
+      "recursiveIndex": 17,
+      "original": {
+        "width": 305,
+        "height": 513,
+        "bytes": 16512,
+        "birthTime": "2026-08-21T13:41:42.452245Z",
+        "modifiedTime": "2026-08-21T13:41:42.452525Z"
+      },
+      "cropBox": {
+        "left": 2,
+        "top": 5,
+        "right": 304,
+        "bottom": 508,
+        "width": 302,
+        "height": 503
+      },
+      "offset": {
+        "x": 2,
+        "y": 5
+      },
+      "originalInsets": {
+        "right": 1,
+        "bottom": 5
+      },
+      "cropped": {
+        "width": 302,
+        "height": 503,
+        "bytes": 7465,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "10_D.png",
+      "relativePath": "Cards/6-10/10_D.png",
+      "recursiveIndex": 18,
+      "original": {
+        "width": 306,
+        "height": 518,
+        "bytes": 13404,
+        "birthTime": "2026-08-21T13:41:42.458807Z",
+        "modifiedTime": "2026-08-21T13:41:42.459128Z"
+      },
+      "cropBox": {
+        "left": 4,
+        "top": 6,
+        "right": 301,
+        "bottom": 513,
+        "width": 297,
+        "height": 507
+      },
+      "offset": {
+        "x": 4,
+        "y": 6
+      },
+      "originalInsets": {
+        "right": 5,
+        "bottom": 5
+      },
+      "cropped": {
+        "width": 297,
+        "height": 507,
+        "bytes": 6500,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "10_H.png",
+      "relativePath": "Cards/6-10/10_H.png",
+      "recursiveIndex": 19,
+      "original": {
+        "width": 310,
+        "height": 513,
+        "bytes": 15410,
+        "birthTime": "2026-08-21T13:41:42.467490Z",
+        "modifiedTime": "2026-08-21T13:41:42.468166Z"
+      },
+      "cropBox": {
+        "left": 4,
+        "top": 4,
+        "right": 307,
+        "bottom": 510,
+        "width": 303,
+        "height": 506
+      },
+      "offset": {
+        "x": 4,
+        "y": 4
+      },
+      "originalInsets": {
+        "right": 3,
+        "bottom": 3
+      },
+      "cropped": {
+        "width": 303,
+        "height": 506,
+        "bytes": 6796,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "10_S.png",
+      "relativePath": "Cards/6-10/10_S.png",
+      "recursiveIndex": 20,
+      "original": {
+        "width": 306,
+        "height": 512,
+        "bytes": 15754,
+        "birthTime": "2026-08-21T13:41:42.459412Z",
+        "modifiedTime": "2026-08-21T13:41:42.459673Z"
+      },
+      "cropBox": {
+        "left": 1,
+        "top": 3,
+        "right": 301,
+        "bottom": 507,
+        "width": 300,
+        "height": 504
+      },
+      "offset": {
+        "x": 1,
+        "y": 3
+      },
+      "originalInsets": {
+        "right": 5,
+        "bottom": 5
+      },
+      "cropped": {
+        "width": 300,
+        "height": 504,
+        "bytes": 7200,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "6_C.png",
+      "relativePath": "Cards/6-10/6_C.png",
+      "recursiveIndex": 21,
+      "original": {
+        "width": 305,
+        "height": 512,
+        "bytes": 168015,
+        "birthTime": "2026-08-21T13:41:42.468521Z",
+        "modifiedTime": "2026-08-21T13:41:42.469067Z"
+      },
+      "cropBox": {
+        "left": 0,
+        "top": 2,
+        "right": 303,
+        "bottom": 508,
+        "width": 303,
+        "height": 506
+      },
+      "offset": {
+        "x": 0,
+        "y": 2
+      },
+      "originalInsets": {
+        "right": 2,
+        "bottom": 4
+      },
+      "cropped": {
+        "width": 303,
+        "height": 506,
+        "bytes": 94531,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "6_D.png",
+      "relativePath": "Cards/6-10/6_D.png",
+      "recursiveIndex": 22,
+      "original": {
+        "width": 305,
+        "height": 514,
+        "bytes": 75423,
+        "birthTime": "2026-08-21T13:41:42.470052Z",
+        "modifiedTime": "2026-08-21T13:41:42.470353Z"
+      },
+      "cropBox": {
+        "left": 3,
+        "top": 6,
+        "right": 303,
+        "bottom": 510,
+        "width": 300,
+        "height": 504
+      },
+      "offset": {
+        "x": 3,
+        "y": 6
+      },
+      "originalInsets": {
+        "right": 2,
+        "bottom": 4
+      },
+      "cropped": {
+        "width": 300,
+        "height": 504,
+        "bytes": 35820,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "6_H.png",
+      "relativePath": "Cards/6-10/6_H.png",
+      "recursiveIndex": 23,
+      "original": {
+        "width": 305,
+        "height": 512,
+        "bytes": 101409,
+        "birthTime": "2026-08-21T13:41:42.451572Z",
+        "modifiedTime": "2026-08-21T13:41:42.451919Z"
+      },
+      "cropBox": {
+        "left": 0,
+        "top": 4,
+        "right": 301,
+        "bottom": 507,
+        "width": 301,
+        "height": 503
+      },
+      "offset": {
+        "x": 0,
+        "y": 4
+      },
+      "originalInsets": {
+        "right": 4,
+        "bottom": 5
+      },
+      "cropped": {
+        "width": 301,
+        "height": 503,
+        "bytes": 48507,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "6_S.png",
+      "relativePath": "Cards/6-10/6_S.png",
+      "recursiveIndex": 24,
+      "original": {
+        "width": 303,
+        "height": 517,
+        "bytes": 182535,
+        "birthTime": "2026-08-21T13:41:42.470669Z",
+        "modifiedTime": "2026-08-21T13:41:42.471949Z"
+      },
+      "cropBox": {
+        "left": 3,
+        "top": 5,
+        "right": 300,
+        "bottom": 512,
+        "width": 297,
+        "height": 507
+      },
+      "offset": {
+        "x": 3,
+        "y": 5
+      },
+      "originalInsets": {
+        "right": 3,
+        "bottom": 5
+      },
+      "cropped": {
+        "width": 297,
+        "height": 507,
+        "bytes": 129594,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "7_C.png",
+      "relativePath": "Cards/6-10/7_C.png",
+      "recursiveIndex": 25,
+      "original": {
+        "width": 306,
+        "height": 514,
+        "bytes": 36503,
+        "birthTime": "2026-08-21T13:41:42.463188Z",
+        "modifiedTime": "2026-08-21T13:41:42.463447Z"
+      },
+      "cropBox": {
+        "left": 0,
+        "top": 5,
+        "right": 303,
+        "bottom": 511,
+        "width": 303,
+        "height": 506
+      },
+      "offset": {
+        "x": 0,
+        "y": 5
+      },
+      "originalInsets": {
+        "right": 3,
+        "bottom": 3
+      },
+      "cropped": {
+        "width": 303,
+        "height": 506,
+        "bytes": 18640,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "7_D.png",
+      "relativePath": "Cards/6-10/7_D.png",
+      "recursiveIndex": 26,
+      "original": {
+        "width": 301,
+        "height": 512,
+        "bytes": 35762,
+        "birthTime": "2026-08-21T13:41:42.463768Z",
+        "modifiedTime": "2026-08-21T13:41:42.464027Z"
+      },
+      "cropBox": {
+        "left": 3,
+        "top": 4,
+        "right": 301,
+        "bottom": 508,
+        "width": 298,
+        "height": 504
+      },
+      "offset": {
+        "x": 3,
+        "y": 4
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 4
+      },
+      "cropped": {
+        "width": 298,
+        "height": 504,
+        "bytes": 19800,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "7_H.png",
+      "relativePath": "Cards/6-10/7_H.png",
+      "recursiveIndex": 27,
+      "original": {
+        "width": 309,
+        "height": 512,
+        "bytes": 36319,
+        "birthTime": "2026-08-21T13:41:42.461821Z",
+        "modifiedTime": "2026-08-21T13:41:42.462085Z"
+      },
+      "cropBox": {
+        "left": 3,
+        "top": 3,
+        "right": 305,
+        "bottom": 506,
+        "width": 302,
+        "height": 503
+      },
+      "offset": {
+        "x": 3,
+        "y": 3
+      },
+      "originalInsets": {
+        "right": 4,
+        "bottom": 6
+      },
+      "cropped": {
+        "width": 302,
+        "height": 503,
+        "bytes": 19457,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "7_S.png",
+      "relativePath": "Cards/6-10/7_S.png",
+      "recursiveIndex": 28,
+      "original": {
+        "width": 304,
+        "height": 516,
+        "bytes": 36186,
+        "birthTime": "2026-08-21T13:41:42.464420Z",
+        "modifiedTime": "2026-08-21T13:41:42.465846Z"
+      },
+      "cropBox": {
+        "left": 3,
+        "top": 5,
+        "right": 300,
+        "bottom": 512,
+        "width": 297,
+        "height": 507
+      },
+      "offset": {
+        "x": 3,
+        "y": 5
+      },
+      "originalInsets": {
+        "right": 4,
+        "bottom": 4
+      },
+      "cropped": {
+        "width": 297,
+        "height": 507,
+        "bytes": 19063,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "8_C.png",
+      "relativePath": "Cards/6-10/8_C.png",
+      "recursiveIndex": 29,
+      "original": {
+        "width": 306,
+        "height": 514,
+        "bytes": 80625,
+        "birthTime": "2026-08-21T13:41:42.457472Z",
+        "modifiedTime": "2026-08-21T13:41:42.458308Z"
+      },
+      "cropBox": {
+        "left": 1,
+        "top": 3,
+        "right": 304,
+        "bottom": 509,
+        "width": 303,
+        "height": 506
+      },
+      "offset": {
+        "x": 1,
+        "y": 3
+      },
+      "originalInsets": {
+        "right": 2,
+        "bottom": 5
+      },
+      "cropped": {
+        "width": 303,
+        "height": 506,
+        "bytes": 56656,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "8_D.png",
+      "relativePath": "Cards/6-10/8_D.png",
+      "recursiveIndex": 30,
+      "original": {
+        "width": 305,
+        "height": 509,
+        "bytes": 91919,
+        "birthTime": "2026-08-21T13:41:42.452821Z",
+        "modifiedTime": "2026-08-21T13:41:42.453151Z"
+      },
+      "cropBox": {
+        "left": 4,
+        "top": 3,
+        "right": 304,
+        "bottom": 507,
+        "width": 300,
+        "height": 504
+      },
+      "offset": {
+        "x": 4,
+        "y": 3
+      },
+      "originalInsets": {
+        "right": 1,
+        "bottom": 2
+      },
+      "cropped": {
+        "width": 300,
+        "height": 504,
+        "bytes": 63441,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "8_H.png",
+      "relativePath": "Cards/6-10/8_H.png",
+      "recursiveIndex": 31,
+      "original": {
+        "width": 306,
+        "height": 510,
+        "bytes": 77101,
+        "birthTime": "2026-08-21T13:41:42.469444Z",
+        "modifiedTime": "2026-08-21T13:41:42.469781Z"
+      },
+      "cropBox": {
+        "left": 0,
+        "top": 2,
+        "right": 302,
+        "bottom": 505,
+        "width": 302,
+        "height": 503
+      },
+      "offset": {
+        "x": 0,
+        "y": 2
+      },
+      "originalInsets": {
+        "right": 4,
+        "bottom": 5
+      },
+      "cropped": {
+        "width": 302,
+        "height": 503,
+        "bytes": 52573,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "8_S.png",
+      "relativePath": "Cards/6-10/8_S.png",
+      "recursiveIndex": 32,
+      "original": {
+        "width": 305,
+        "height": 519,
+        "bytes": 65165,
+        "birthTime": "2026-08-21T13:41:42.453658Z",
+        "modifiedTime": "2026-08-21T13:41:42.454452Z"
+      },
+      "cropBox": {
+        "left": 4,
+        "top": 6,
+        "right": 301,
+        "bottom": 513,
+        "width": 297,
+        "height": 507
+      },
+      "offset": {
+        "x": 4,
+        "y": 6
+      },
+      "originalInsets": {
+        "right": 4,
+        "bottom": 6
+      },
+      "cropped": {
+        "width": 297,
+        "height": 507,
+        "bytes": 44027,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "9_C.png",
+      "relativePath": "Cards/6-10/9_C.png",
+      "recursiveIndex": 33,
+      "original": {
+        "width": 308,
+        "height": 515,
+        "bytes": 75566,
+        "birthTime": "2026-08-21T13:41:42.462408Z",
+        "modifiedTime": "2026-08-21T13:41:42.462875Z"
+      },
+      "cropBox": {
+        "left": 3,
+        "top": 7,
+        "right": 305,
+        "bottom": 510,
+        "width": 302,
+        "height": 503
+      },
+      "offset": {
+        "x": 3,
+        "y": 7
+      },
+      "originalInsets": {
+        "right": 3,
+        "bottom": 5
+      },
+      "cropped": {
+        "width": 302,
+        "height": 503,
+        "bytes": 62612,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "9_D.png",
+      "relativePath": "Cards/6-10/9_D.png",
+      "recursiveIndex": 34,
+      "original": {
+        "width": 302,
+        "height": 516,
+        "bytes": 74377,
+        "birthTime": "2026-08-21T13:41:42.459960Z",
+        "modifiedTime": "2026-08-21T13:41:42.460546Z"
+      },
+      "cropBox": {
+        "left": 3,
+        "top": 5,
+        "right": 300,
+        "bottom": 512,
+        "width": 297,
+        "height": 507
+      },
+      "offset": {
+        "x": 3,
+        "y": 5
+      },
+      "originalInsets": {
+        "right": 2,
+        "bottom": 4
+      },
+      "cropped": {
+        "width": 297,
+        "height": 507,
+        "bytes": 60510,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "9_H.png",
+      "relativePath": "Cards/6-10/9_H.png",
+      "recursiveIndex": 35,
+      "original": {
+        "width": 308,
+        "height": 514,
+        "bytes": 101453,
+        "birthTime": "2026-08-21T13:41:42.466277Z",
+        "modifiedTime": "2026-08-21T13:41:42.466764Z"
+      },
+      "cropBox": {
+        "left": 1,
+        "top": 5,
+        "right": 304,
+        "bottom": 511,
+        "width": 303,
+        "height": 506
+      },
+      "offset": {
+        "x": 1,
+        "y": 5
+      },
+      "originalInsets": {
+        "right": 4,
+        "bottom": 3
+      },
+      "cropped": {
+        "width": 303,
+        "height": 506,
+        "bytes": 82388,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "9_S.png",
+      "relativePath": "Cards/6-10/9_S.png",
+      "recursiveIndex": 36,
+      "original": {
+        "width": 305,
+        "height": 514,
+        "bytes": 66426,
+        "birthTime": "2026-08-21T13:41:42.460917Z",
+        "modifiedTime": "2026-08-21T13:41:42.461248Z"
+      },
+      "cropBox": {
+        "left": 1,
+        "top": 5,
+        "right": 301,
+        "bottom": 509,
+        "width": 300,
+        "height": 504
+      },
+      "offset": {
+        "x": 1,
+        "y": 5
+      },
+      "originalInsets": {
+        "right": 4,
+        "bottom": 5
+      },
+      "cropped": {
+        "width": 300,
+        "height": 504,
+        "bytes": 56555,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "2_C.png",
+      "relativePath": "Cards/A-5/2_C.png",
+      "recursiveIndex": 37,
+      "original": {
+        "width": 312,
+        "height": 511,
+        "bytes": 10714,
+        "birthTime": "2026-08-21T13:41:42.487512Z",
+        "modifiedTime": "2026-08-21T13:41:42.487768Z"
+      },
+      "cropBox": {
+        "left": 5,
+        "top": 4,
+        "right": 307,
+        "bottom": 507,
+        "width": 302,
+        "height": 503
+      },
+      "offset": {
+        "x": 5,
+        "y": 4
+      },
+      "originalInsets": {
+        "right": 5,
+        "bottom": 4
+      },
+      "cropped": {
+        "width": 302,
+        "height": 503,
+        "bytes": 5174,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "2_D.png",
+      "relativePath": "Cards/A-5/2_D.png",
+      "recursiveIndex": 38,
+      "original": {
+        "width": 305,
+        "height": 516,
+        "bytes": 9713,
+        "birthTime": "2026-08-21T13:41:42.484327Z",
+        "modifiedTime": "2026-08-21T13:41:42.484584Z"
+      },
+      "cropBox": {
+        "left": 2,
+        "top": 3,
+        "right": 299,
+        "bottom": 510,
+        "width": 297,
+        "height": 507
+      },
+      "offset": {
+        "x": 2,
+        "y": 3
+      },
+      "originalInsets": {
+        "right": 6,
+        "bottom": 6
+      },
+      "cropped": {
+        "width": 297,
+        "height": 507,
+        "bytes": 4838,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "2_H.png",
+      "relativePath": "Cards/A-5/2_H.png",
+      "recursiveIndex": 39,
+      "original": {
+        "width": 311,
+        "height": 517,
+        "bytes": 10047,
+        "birthTime": "2026-08-21T13:41:42.476043Z",
+        "modifiedTime": "2026-08-21T13:41:42.476873Z"
+      },
+      "cropBox": {
+        "left": 3,
+        "top": 5,
+        "right": 306,
+        "bottom": 511,
+        "width": 303,
+        "height": 506
+      },
+      "offset": {
+        "x": 3,
+        "y": 5
+      },
+      "originalInsets": {
+        "right": 5,
+        "bottom": 6
+      },
+      "cropped": {
+        "width": 303,
+        "height": 506,
+        "bytes": 4879,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "2_S.png",
+      "relativePath": "Cards/A-5/2_S.png",
+      "recursiveIndex": 40,
+      "original": {
+        "width": 311,
+        "height": 515,
+        "bytes": 10843,
+        "birthTime": "2026-08-21T13:41:42.484854Z",
+        "modifiedTime": "2026-08-21T13:41:42.485102Z"
+      },
+      "cropBox": {
+        "left": 5,
+        "top": 4,
+        "right": 305,
+        "bottom": 508,
+        "width": 300,
+        "height": 504
+      },
+      "offset": {
+        "x": 5,
+        "y": 4
+      },
+      "originalInsets": {
+        "right": 6,
+        "bottom": 7
+      },
+      "cropped": {
+        "width": 300,
+        "height": 504,
+        "bytes": 5256,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "3_C.png",
+      "relativePath": "Cards/A-5/3_C.png",
+      "recursiveIndex": 41,
+      "original": {
+        "width": 313,
+        "height": 514,
+        "bytes": 12936,
+        "birthTime": "2026-08-21T13:41:42.483758Z",
+        "modifiedTime": "2026-08-21T13:41:42.484037Z"
+      },
+      "cropBox": {
+        "left": 6,
+        "top": 5,
+        "right": 308,
+        "bottom": 508,
+        "width": 302,
+        "height": 503
+      },
+      "offset": {
+        "x": 6,
+        "y": 5
+      },
+      "originalInsets": {
+        "right": 5,
+        "bottom": 6
+      },
+      "cropped": {
+        "width": 302,
+        "height": 503,
+        "bytes": 6140,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "3_D.png",
+      "relativePath": "Cards/A-5/3_D.png",
+      "recursiveIndex": 42,
+      "original": {
+        "width": 304,
+        "height": 517,
+        "bytes": 10477,
+        "birthTime": "2026-08-21T13:41:42.480268Z",
+        "modifiedTime": "2026-08-21T13:41:42.480587Z"
+      },
+      "cropBox": {
+        "left": 2,
+        "top": 5,
+        "right": 299,
+        "bottom": 512,
+        "width": 297,
+        "height": 507
+      },
+      "offset": {
+        "x": 2,
+        "y": 5
+      },
+      "originalInsets": {
+        "right": 5,
+        "bottom": 5
+      },
+      "cropped": {
+        "width": 297,
+        "height": 507,
+        "bytes": 5134,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "3_H.png",
+      "relativePath": "Cards/A-5/3_H.png",
+      "recursiveIndex": 43,
+      "original": {
+        "width": 309,
+        "height": 515,
+        "bytes": 11634,
+        "birthTime": "2026-08-21T13:41:42.479679Z",
+        "modifiedTime": "2026-08-21T13:41:42.479984Z"
+      },
+      "cropBox": {
+        "left": 2,
+        "top": 5,
+        "right": 305,
+        "bottom": 511,
+        "width": 303,
+        "height": 506
+      },
+      "offset": {
+        "x": 2,
+        "y": 5
+      },
+      "originalInsets": {
+        "right": 4,
+        "bottom": 4
+      },
+      "cropped": {
+        "width": 303,
+        "height": 506,
+        "bytes": 5498,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "3_S.png",
+      "relativePath": "Cards/A-5/3_S.png",
+      "recursiveIndex": 44,
+      "original": {
+        "width": 305,
+        "height": 512,
+        "bytes": 12957,
+        "birthTime": "2026-08-21T13:41:42.480880Z",
+        "modifiedTime": "2026-08-21T13:41:42.481151Z"
+      },
+      "cropBox": {
+        "left": 1,
+        "top": 2,
+        "right": 301,
+        "bottom": 506,
+        "width": 300,
+        "height": 504
+      },
+      "offset": {
+        "x": 1,
+        "y": 2
+      },
+      "originalInsets": {
+        "right": 4,
+        "bottom": 6
+      },
+      "cropped": {
+        "width": 300,
+        "height": 504,
+        "bytes": 6147,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "4_C.png",
+      "relativePath": "Cards/A-5/4_C.png",
+      "recursiveIndex": 45,
+      "original": {
+        "width": 307,
+        "height": 510,
+        "bytes": 12623,
+        "birthTime": "2026-08-21T13:41:42.485821Z",
+        "modifiedTime": "2026-08-21T13:41:42.486050Z"
+      },
+      "cropBox": {
+        "left": 4,
+        "top": 5,
+        "right": 306,
+        "bottom": 508,
+        "width": 302,
+        "height": 503
+      },
+      "offset": {
+        "x": 4,
+        "y": 5
+      },
+      "originalInsets": {
+        "right": 1,
+        "bottom": 2
+      },
+      "cropped": {
+        "width": 302,
+        "height": 503,
+        "bytes": 6229,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "4_D.png",
+      "relativePath": "Cards/A-5/4_D.png",
+      "recursiveIndex": 46,
+      "original": {
+        "width": 308,
+        "height": 515,
+        "bytes": 12184,
+        "birthTime": "2026-08-21T13:41:42.486990Z",
+        "modifiedTime": "2026-08-21T13:41:42.487248Z"
+      },
+      "cropBox": {
+        "left": 5,
+        "top": 5,
+        "right": 302,
+        "bottom": 512,
+        "width": 297,
+        "height": 507
+      },
+      "offset": {
+        "x": 5,
+        "y": 5
+      },
+      "originalInsets": {
+        "right": 6,
+        "bottom": 3
+      },
+      "cropped": {
+        "width": 297,
+        "height": 507,
+        "bytes": 5837,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "4_H.png",
+      "relativePath": "Cards/A-5/4_H.png",
+      "recursiveIndex": 47,
+      "original": {
+        "width": 308,
+        "height": 514,
+        "bytes": 14915,
+        "birthTime": "2026-08-21T13:41:42.472815Z",
+        "modifiedTime": "2026-08-21T13:41:42.473316Z"
+      },
+      "cropBox": {
+        "left": 2,
+        "top": 4,
+        "right": 305,
+        "bottom": 510,
+        "width": 303,
+        "height": 506
+      },
+      "offset": {
+        "x": 2,
+        "y": 4
+      },
+      "originalInsets": {
+        "right": 3,
+        "bottom": 4
+      },
+      "cropped": {
+        "width": 303,
+        "height": 506,
+        "bytes": 6676,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "4_S.png",
+      "relativePath": "Cards/A-5/4_S.png",
+      "recursiveIndex": 48,
+      "original": {
+        "width": 304,
+        "height": 515,
+        "bytes": 11456,
+        "birthTime": "2026-08-21T13:41:42.486339Z",
+        "modifiedTime": "2026-08-21T13:41:42.486720Z"
+      },
+      "cropBox": {
+        "left": 1,
+        "top": 4,
+        "right": 301,
+        "bottom": 508,
+        "width": 300,
+        "height": 504
+      },
+      "offset": {
+        "x": 1,
+        "y": 4
+      },
+      "originalInsets": {
+        "right": 3,
+        "bottom": 7
+      },
+      "cropped": {
+        "width": 300,
+        "height": 504,
+        "bytes": 5660,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "5_C.png",
+      "relativePath": "Cards/A-5/5_C.png",
+      "recursiveIndex": 49,
+      "original": {
+        "width": 307,
+        "height": 513,
+        "bytes": 19220,
+        "birthTime": "2026-08-21T13:41:42.481437Z",
+        "modifiedTime": "2026-08-21T13:41:42.481657Z"
+      },
+      "cropBox": {
+        "left": 3,
+        "top": 6,
+        "right": 305,
+        "bottom": 509,
+        "width": 302,
+        "height": 503
+      },
+      "offset": {
+        "x": 3,
+        "y": 6
+      },
+      "originalInsets": {
+        "right": 2,
+        "bottom": 4
+      },
+      "cropped": {
+        "width": 302,
+        "height": 503,
+        "bytes": 9084,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "5_D.png",
+      "relativePath": "Cards/A-5/5_D.png",
+      "recursiveIndex": 50,
+      "original": {
+        "width": 301,
+        "height": 519,
+        "bytes": 15749,
+        "birthTime": "2026-08-21T13:41:42.482994Z",
+        "modifiedTime": "2026-08-21T13:41:42.483434Z"
+      },
+      "cropBox": {
+        "left": 2,
+        "top": 5,
+        "right": 299,
+        "bottom": 512,
+        "width": 297,
+        "height": 507
+      },
+      "offset": {
+        "x": 2,
+        "y": 5
+      },
+      "originalInsets": {
+        "right": 2,
+        "bottom": 7
+      },
+      "cropped": {
+        "width": 297,
+        "height": 507,
+        "bytes": 7608,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "5_H.png",
+      "relativePath": "Cards/A-5/5_H.png",
+      "recursiveIndex": 51,
+      "original": {
+        "width": 311,
+        "height": 514,
+        "bytes": 20100,
+        "birthTime": "2026-08-21T13:41:42.478765Z",
+        "modifiedTime": "2026-08-21T13:41:42.479170Z"
+      },
+      "cropBox": {
+        "left": 3,
+        "top": 5,
+        "right": 306,
+        "bottom": 511,
+        "width": 303,
+        "height": 506
+      },
+      "offset": {
+        "x": 3,
+        "y": 5
+      },
+      "originalInsets": {
+        "right": 5,
+        "bottom": 3
+      },
+      "cropped": {
+        "width": 303,
+        "height": 506,
+        "bytes": 8985,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "5_S.png",
+      "relativePath": "Cards/A-5/5_S.png",
+      "recursiveIndex": 52,
+      "original": {
+        "width": 306,
+        "height": 511,
+        "bytes": 19297,
+        "birthTime": "2026-08-21T13:41:42.481947Z",
+        "modifiedTime": "2026-08-21T13:41:42.482453Z"
+      },
+      "cropBox": {
+        "left": 0,
+        "top": 4,
+        "right": 300,
+        "bottom": 508,
+        "width": 300,
+        "height": 504
+      },
+      "offset": {
+        "x": 0,
+        "y": 4
+      },
+      "originalInsets": {
+        "right": 6,
+        "bottom": 3
+      },
+      "cropped": {
+        "width": 300,
+        "height": 504,
+        "bytes": 8564,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "A_C.png",
+      "relativePath": "Cards/A-5/A_C.png",
+      "recursiveIndex": 53,
+      "original": {
+        "width": 310,
+        "height": 515,
+        "bytes": 14020,
+        "birthTime": "2026-08-21T13:41:42.473760Z",
+        "modifiedTime": "2026-08-21T13:41:42.474593Z"
+      },
+      "cropBox": {
+        "left": 5,
+        "top": 7,
+        "right": 307,
+        "bottom": 510,
+        "width": 302,
+        "height": 503
+      },
+      "offset": {
+        "x": 5,
+        "y": 7
+      },
+      "originalInsets": {
+        "right": 3,
+        "bottom": 5
+      },
+      "cropped": {
+        "width": 302,
+        "height": 503,
+        "bytes": 6973,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "A_D.png",
+      "relativePath": "Cards/A-5/A_D.png",
+      "recursiveIndex": 54,
+      "original": {
+        "width": 309,
+        "height": 522,
+        "bytes": 11313,
+        "birthTime": "2026-08-21T13:41:42.478110Z",
+        "modifiedTime": "2026-08-21T13:41:42.478440Z"
+      },
+      "cropBox": {
+        "left": 6,
+        "top": 8,
+        "right": 303,
+        "bottom": 515,
+        "width": 297,
+        "height": 507
+      },
+      "offset": {
+        "x": 6,
+        "y": 8
+      },
+      "originalInsets": {
+        "right": 6,
+        "bottom": 7
+      },
+      "cropped": {
+        "width": 297,
+        "height": 507,
+        "bytes": 5874,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "A_H.png",
+      "relativePath": "Cards/A-5/A_H.png",
+      "recursiveIndex": 55,
+      "original": {
+        "width": 307,
+        "height": 516,
+        "bytes": 15077,
+        "birthTime": "2026-08-21T13:41:42.485292Z",
+        "modifiedTime": "2026-08-21T13:41:42.485545Z"
+      },
+      "cropBox": {
+        "left": 1,
+        "top": 5,
+        "right": 304,
+        "bottom": 511,
+        "width": 303,
+        "height": 506
+      },
+      "offset": {
+        "x": 1,
+        "y": 5
+      },
+      "originalInsets": {
+        "right": 3,
+        "bottom": 5
+      },
+      "cropped": {
+        "width": 303,
+        "height": 506,
+        "bytes": 6921,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "A_S.png",
+      "relativePath": "Cards/A-5/A_S.png",
+      "recursiveIndex": 56,
+      "original": {
+        "width": 306,
+        "height": 512,
+        "bytes": 12672,
+        "birthTime": "2026-08-21T13:41:42.477508Z",
+        "modifiedTime": "2026-08-21T13:41:42.477820Z"
+      },
+      "cropBox": {
+        "left": 2,
+        "top": 3,
+        "right": 302,
+        "bottom": 507,
+        "width": 300,
+        "height": 504
+      },
+      "offset": {
+        "x": 2,
+        "y": 3
+      },
+      "originalInsets": {
+        "right": 4,
+        "bottom": 5
+      },
+      "cropped": {
+        "width": 300,
+        "height": 504,
+        "bytes": 6412,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Back1.png",
+      "relativePath": "Cards/Back/Back1.png",
+      "recursiveIndex": 57,
+      "original": {
+        "width": 312,
+        "height": 499,
+        "bytes": 9963,
+        "birthTime": "2026-08-21T13:41:42.439805Z",
+        "modifiedTime": "2026-08-21T13:41:42.440130Z"
+      },
+      "cropBox": {
+        "left": 3,
+        "top": 3,
+        "right": 309,
+        "bottom": 497,
+        "width": 306,
+        "height": 494
+      },
+      "offset": {
+        "x": 3,
+        "y": 3
+      },
+      "originalInsets": {
+        "right": 3,
+        "bottom": 2
+      },
+      "cropped": {
+        "width": 306,
+        "height": 494,
+        "bytes": 5561,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Back2.png",
+      "relativePath": "Cards/Back/Back2.png",
+      "recursiveIndex": 58,
+      "original": {
+        "width": 299,
+        "height": 507,
+        "bytes": 9977,
+        "birthTime": "2026-08-21T13:41:42.438344Z",
+        "modifiedTime": "2026-08-21T13:41:42.438787Z"
+      },
+      "cropBox": {
+        "left": 1,
+        "top": 2,
+        "right": 298,
+        "bottom": 504,
+        "width": 297,
+        "height": 502
+      },
+      "offset": {
+        "x": 1,
+        "y": 2
+      },
+      "originalInsets": {
+        "right": 1,
+        "bottom": 3
+      },
+      "cropped": {
+        "width": 297,
+        "height": 502,
+        "bytes": 5588,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Back3.png",
+      "relativePath": "Cards/Back/Back3.png",
+      "recursiveIndex": 59,
+      "original": {
+        "width": 300,
+        "height": 510,
+        "bytes": 9268,
+        "birthTime": "2026-08-21T13:41:42.439096Z",
+        "modifiedTime": "2026-08-21T13:41:42.439510Z"
+      },
+      "cropBox": {
+        "left": 3,
+        "top": 4,
+        "right": 300,
+        "bottom": 508,
+        "width": 297,
+        "height": 504
+      },
+      "offset": {
+        "x": 3,
+        "y": 4
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 2
+      },
+      "cropped": {
+        "width": 297,
+        "height": 504,
+        "bytes": 5127,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Back1.png",
+      "relativePath": "Cards/Back/bad/Back1.png",
+      "recursiveIndex": 60,
+      "original": {
+        "width": 309,
+        "height": 502,
+        "bytes": 53636,
+        "birthTime": "2026-08-21T13:41:42.427967Z",
+        "modifiedTime": "2026-08-21T13:41:42.429253Z"
+      },
+      "cropBox": {
+        "left": 6,
+        "top": 7,
+        "right": 304,
+        "bottom": 495,
+        "width": 298,
+        "height": 488
+      },
+      "offset": {
+        "x": 6,
+        "y": 7
+      },
+      "originalInsets": {
+        "right": 5,
+        "bottom": 7
+      },
+      "cropped": {
+        "width": 298,
+        "height": 488,
+        "bytes": 24718,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Back2.png",
+      "relativePath": "Cards/Back/bad/Back2.png",
+      "recursiveIndex": 61,
+      "original": {
+        "width": 302,
+        "height": 513,
+        "bytes": 56620,
+        "birthTime": "2026-08-21T13:41:42.426554Z",
+        "modifiedTime": "2026-08-21T13:41:42.426839Z"
+      },
+      "cropBox": {
+        "left": 7,
+        "top": 8,
+        "right": 296,
+        "bottom": 506,
+        "width": 289,
+        "height": 498
+      },
+      "offset": {
+        "x": 7,
+        "y": 8
+      },
+      "originalInsets": {
+        "right": 6,
+        "bottom": 7
+      },
+      "cropped": {
+        "width": 289,
+        "height": 498,
+        "bytes": 28455,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Back3.png",
+      "relativePath": "Cards/Back/bad/Back3.png",
+      "recursiveIndex": 62,
+      "original": {
+        "width": 297,
+        "height": 506,
+        "bytes": 49306,
+        "birthTime": "2026-08-21T13:41:42.427183Z",
+        "modifiedTime": "2026-08-21T13:41:42.427521Z"
+      },
+      "cropBox": {
+        "left": 4,
+        "top": 5,
+        "right": 293,
+        "bottom": 503,
+        "width": 289,
+        "height": 498
+      },
+      "offset": {
+        "x": 4,
+        "y": 5
+      },
+      "originalInsets": {
+        "right": 4,
+        "bottom": 3
+      },
+      "cropped": {
+        "width": 289,
+        "height": 498,
+        "bytes": 24820,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Back4.png",
+      "relativePath": "Cards/Back/bad/Back4.png",
+      "recursiveIndex": 63,
+      "original": {
+        "width": 297,
+        "height": 508,
+        "bytes": 52568,
+        "birthTime": "2026-08-21T13:41:42.430369Z",
+        "modifiedTime": "2026-08-21T13:41:42.431065Z"
+      },
+      "cropBox": {
+        "left": 3,
+        "top": 5,
+        "right": 292,
+        "bottom": 503,
+        "width": 289,
+        "height": 498
+      },
+      "offset": {
+        "x": 3,
+        "y": 5
+      },
+      "originalInsets": {
+        "right": 5,
+        "bottom": 5
+      },
+      "cropped": {
+        "width": 289,
+        "height": 498,
+        "bytes": 27193,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Back5.png",
+      "relativePath": "Cards/Back/bad/Back5.png",
+      "recursiveIndex": 64,
+      "original": {
+        "width": 295,
+        "height": 507,
+        "bytes": 45097,
+        "birthTime": "2026-08-21T13:41:42.434078Z",
+        "modifiedTime": "2026-08-21T13:41:42.434927Z"
+      },
+      "cropBox": {
+        "left": 2,
+        "top": 6,
+        "right": 291,
+        "bottom": 504,
+        "width": 289,
+        "height": 498
+      },
+      "offset": {
+        "x": 2,
+        "y": 6
+      },
+      "originalInsets": {
+        "right": 4,
+        "bottom": 3
+      },
+      "cropped": {
+        "width": 289,
+        "height": 498,
+        "bytes": 23011,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Back6.png",
+      "relativePath": "Cards/Back/bad/Back6.png",
+      "recursiveIndex": 65,
+      "original": {
+        "width": 307,
+        "height": 500,
+        "bytes": 54298,
+        "birthTime": "2026-08-21T13:41:42.437647Z",
+        "modifiedTime": "2026-08-21T13:41:42.438000Z"
+      },
+      "cropBox": {
+        "left": 4,
+        "top": 7,
+        "right": 302,
+        "bottom": 495,
+        "width": 298,
+        "height": 488
+      },
+      "offset": {
+        "x": 4,
+        "y": 7
+      },
+      "originalInsets": {
+        "right": 5,
+        "bottom": 5
+      },
+      "cropped": {
+        "width": 298,
+        "height": 488,
+        "bytes": 25240,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Back7.png",
+      "relativePath": "Cards/Back/bad/Back7.png",
+      "recursiveIndex": 66,
+      "original": {
+        "width": 308,
+        "height": 500,
+        "bytes": 59455,
+        "birthTime": "2026-08-21T13:41:42.435847Z",
+        "modifiedTime": "2026-08-21T13:41:42.436808Z"
+      },
+      "cropBox": {
+        "left": 4,
+        "top": 6,
+        "right": 302,
+        "bottom": 494,
+        "width": 298,
+        "height": 488
+      },
+      "offset": {
+        "x": 4,
+        "y": 6
+      },
+      "originalInsets": {
+        "right": 6,
+        "bottom": 6
+      },
+      "cropped": {
+        "width": 298,
+        "height": 488,
+        "bytes": 28324,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Back8.png",
+      "relativePath": "Cards/Back/bad/Back8.png",
+      "recursiveIndex": 67,
+      "original": {
+        "width": 309,
+        "height": 505,
+        "bytes": 54853,
+        "birthTime": "2026-08-21T13:41:42.425455Z",
+        "modifiedTime": "2026-08-21T13:41:42.426072Z"
+      },
+      "cropBox": {
+        "left": 6,
+        "top": 8,
+        "right": 304,
+        "bottom": 496,
+        "width": 298,
+        "height": 488
+      },
+      "offset": {
+        "x": 6,
+        "y": 8
+      },
+      "originalInsets": {
+        "right": 5,
+        "bottom": 9
+      },
+      "cropped": {
+        "width": 298,
+        "height": 488,
+        "bytes": 25393,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "J_C.png",
+      "relativePath": "Cards/Face/J_C.png",
+      "recursiveIndex": 68,
+      "original": {
+        "width": 306,
+        "height": 504,
+        "bytes": 30142,
+        "birthTime": "2026-08-21T13:41:42.446391Z",
+        "modifiedTime": "2026-08-21T13:41:42.446768Z"
+      },
+      "cropBox": {
+        "left": 1,
+        "top": 0,
+        "right": 304,
+        "bottom": 504,
+        "width": 303,
+        "height": 504
+      },
+      "offset": {
+        "x": 1,
+        "y": 0
+      },
+      "originalInsets": {
+        "right": 2,
+        "bottom": 0
+      },
+      "cropped": {
+        "width": 303,
+        "height": 504,
+        "bytes": 15626,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "J_D.png",
+      "relativePath": "Cards/Face/J_D.png",
+      "recursiveIndex": 69,
+      "original": {
+        "width": 302,
+        "height": 506,
+        "bytes": 30144,
+        "birthTime": "2026-08-21T13:41:42.447669Z",
+        "modifiedTime": "2026-08-21T13:41:42.447918Z"
+      },
+      "cropBox": {
+        "left": 2,
+        "top": 1,
+        "right": 302,
+        "bottom": 505,
+        "width": 300,
+        "height": 504
+      },
+      "offset": {
+        "x": 2,
+        "y": 1
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 1
+      },
+      "cropped": {
+        "width": 300,
+        "height": 504,
+        "bytes": 15830,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "J_H.png",
+      "relativePath": "Cards/Face/J_H.png",
+      "recursiveIndex": 70,
+      "original": {
+        "width": 304,
+        "height": 506,
+        "bytes": 30216,
+        "birthTime": "2026-08-21T13:41:42.443716Z",
+        "modifiedTime": "2026-08-21T13:41:42.443995Z"
+      },
+      "cropBox": {
+        "left": 1,
+        "top": 3,
+        "right": 303,
+        "bottom": 506,
+        "width": 302,
+        "height": 503
+      },
+      "offset": {
+        "x": 1,
+        "y": 3
+      },
+      "originalInsets": {
+        "right": 1,
+        "bottom": 0
+      },
+      "cropped": {
+        "width": 302,
+        "height": 503,
+        "bytes": 15855,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "J_S.png",
+      "relativePath": "Cards/Face/J_S.png",
+      "recursiveIndex": 71,
+      "original": {
+        "width": 302,
+        "height": 508,
+        "bytes": 30386,
+        "birthTime": "2026-08-21T13:41:42.447068Z",
+        "modifiedTime": "2026-08-21T13:41:42.447331Z"
+      },
+      "cropBox": {
+        "left": 2,
+        "top": 2,
+        "right": 299,
+        "bottom": 508,
+        "width": 297,
+        "height": 506
+      },
+      "offset": {
+        "x": 2,
+        "y": 2
+      },
+      "originalInsets": {
+        "right": 3,
+        "bottom": 0
+      },
+      "cropped": {
+        "width": 297,
+        "height": 506,
+        "bytes": 15603,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "K_C.png",
+      "relativePath": "Cards/Face/K_C.png",
+      "recursiveIndex": 72,
+      "original": {
+        "width": 306,
+        "height": 514,
+        "bytes": 38955,
+        "birthTime": "2026-08-21T13:41:42.449340Z",
+        "modifiedTime": "2026-08-21T13:41:42.449730Z"
+      },
+      "cropBox": {
+        "left": 1,
+        "top": 6,
+        "right": 304,
+        "bottom": 512,
+        "width": 303,
+        "height": 506
+      },
+      "offset": {
+        "x": 1,
+        "y": 6
+      },
+      "originalInsets": {
+        "right": 2,
+        "bottom": 2
+      },
+      "cropped": {
+        "width": 303,
+        "height": 506,
+        "bytes": 19409,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "K_D.png",
+      "relativePath": "Cards/Face/K_D.png",
+      "recursiveIndex": 73,
+      "original": {
+        "width": 304,
+        "height": 509,
+        "bytes": 36220,
+        "birthTime": "2026-08-21T13:41:42.450639Z",
+        "modifiedTime": "2026-08-21T13:41:42.451007Z"
+      },
+      "cropBox": {
+        "left": 2,
+        "top": 2,
+        "right": 302,
+        "bottom": 506,
+        "width": 300,
+        "height": 504
+      },
+      "offset": {
+        "x": 2,
+        "y": 2
+      },
+      "originalInsets": {
+        "right": 2,
+        "bottom": 3
+      },
+      "cropped": {
+        "width": 300,
+        "height": 504,
+        "bytes": 18562,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "K_H.png",
+      "relativePath": "Cards/Face/K_H.png",
+      "recursiveIndex": 74,
+      "original": {
+        "width": 298,
+        "height": 507,
+        "bytes": 35504,
+        "birthTime": "2026-08-21T13:41:42.440805Z",
+        "modifiedTime": "2026-08-21T13:41:42.441500Z"
+      },
+      "cropBox": {
+        "left": 0,
+        "top": 1,
+        "right": 298,
+        "bottom": 504,
+        "width": 298,
+        "height": 503
+      },
+      "offset": {
+        "x": 0,
+        "y": 1
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 3
+      },
+      "cropped": {
+        "width": 298,
+        "height": 503,
+        "bytes": 18531,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "K_S.png",
+      "relativePath": "Cards/Face/K_S.png",
+      "recursiveIndex": 75,
+      "original": {
+        "width": 305,
+        "height": 511,
+        "bytes": 38905,
+        "birthTime": "2026-08-21T13:41:42.450039Z",
+        "modifiedTime": "2026-08-21T13:41:42.450314Z"
+      },
+      "cropBox": {
+        "left": 3,
+        "top": 1,
+        "right": 300,
+        "bottom": 508,
+        "width": 297,
+        "height": 507
+      },
+      "offset": {
+        "x": 3,
+        "y": 1
+      },
+      "originalInsets": {
+        "right": 5,
+        "bottom": 3
+      },
+      "cropped": {
+        "width": 297,
+        "height": 507,
+        "bytes": 19296,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Q_C.png",
+      "relativePath": "Cards/Face/Q_C.png",
+      "recursiveIndex": 76,
+      "original": {
+        "width": 306,
+        "height": 511,
+        "bytes": 39449,
+        "birthTime": "2026-08-21T13:41:42.445374Z",
+        "modifiedTime": "2026-08-21T13:41:42.445981Z"
+      },
+      "cropBox": {
+        "left": 1,
+        "top": 3,
+        "right": 304,
+        "bottom": 509,
+        "width": 303,
+        "height": 506
+      },
+      "offset": {
+        "x": 1,
+        "y": 3
+      },
+      "originalInsets": {
+        "right": 2,
+        "bottom": 2
+      },
+      "cropped": {
+        "width": 303,
+        "height": 506,
+        "bytes": 20680,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Q_D.png",
+      "relativePath": "Cards/Face/Q_D.png",
+      "recursiveIndex": 77,
+      "original": {
+        "width": 306,
+        "height": 508,
+        "bytes": 34740,
+        "birthTime": "2026-08-21T13:41:42.448239Z",
+        "modifiedTime": "2026-08-21T13:41:42.448512Z"
+      },
+      "cropBox": {
+        "left": 2,
+        "top": 2,
+        "right": 302,
+        "bottom": 506,
+        "width": 300,
+        "height": 504
+      },
+      "offset": {
+        "x": 2,
+        "y": 2
+      },
+      "originalInsets": {
+        "right": 4,
+        "bottom": 2
+      },
+      "cropped": {
+        "width": 300,
+        "height": 504,
+        "bytes": 18053,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Q_H.png",
+      "relativePath": "Cards/Face/Q_H.png",
+      "recursiveIndex": 78,
+      "original": {
+        "width": 300,
+        "height": 505,
+        "bytes": 34232,
+        "birthTime": "2026-08-21T13:41:42.444518Z",
+        "modifiedTime": "2026-08-21T13:41:42.444831Z"
+      },
+      "cropBox": {
+        "left": 0,
+        "top": 2,
+        "right": 300,
+        "bottom": 505,
+        "width": 300,
+        "height": 503
+      },
+      "offset": {
+        "x": 0,
+        "y": 2
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 0
+      },
+      "cropped": {
+        "width": 300,
+        "height": 503,
+        "bytes": 17970,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Q_S.png",
+      "relativePath": "Cards/Face/Q_S.png",
+      "recursiveIndex": 79,
+      "original": {
+        "width": 302,
+        "height": 514,
+        "bytes": 39557,
+        "birthTime": "2026-08-21T13:41:42.448732Z",
+        "modifiedTime": "2026-08-21T13:41:42.449016Z"
+      },
+      "cropBox": {
+        "left": 3,
+        "top": 4,
+        "right": 300,
+        "bottom": 511,
+        "width": 297,
+        "height": 507
+      },
+      "offset": {
+        "x": 3,
+        "y": 4
+      },
+      "originalInsets": {
+        "right": 2,
+        "bottom": 3
+      },
+      "cropped": {
+        "width": 297,
+        "height": 507,
+        "bytes": 20695,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Profile_Abby.png",
+      "relativePath": "Profiles/Profile_Abby.png",
+      "recursiveIndex": 80,
+      "original": {
+        "width": 635,
+        "height": 635,
+        "bytes": 77561,
+        "birthTime": "2026-08-21T13:41:42.489432Z",
+        "modifiedTime": "2026-08-21T13:41:42.489898Z"
+      },
+      "cropBox": {
+        "left": 13,
+        "top": 12,
+        "right": 622,
+        "bottom": 624,
+        "width": 609,
+        "height": 612
+      },
+      "offset": {
+        "x": 13,
+        "y": 12
+      },
+      "originalInsets": {
+        "right": 13,
+        "bottom": 11
+      },
+      "cropped": {
+        "width": 609,
+        "height": 612,
+        "bytes": 39666,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Profile_Edmund.png",
+      "relativePath": "Profiles/Profile_Edmund.png",
+      "recursiveIndex": 81,
+      "original": {
+        "width": 620,
+        "height": 620,
+        "bytes": 75785,
+        "birthTime": "2026-08-21T13:41:42.495050Z",
+        "modifiedTime": "2026-08-21T13:41:42.495462Z"
+      },
+      "cropBox": {
+        "left": 5,
+        "top": 3,
+        "right": 615,
+        "bottom": 615,
+        "width": 610,
+        "height": 612
+      },
+      "offset": {
+        "x": 5,
+        "y": 3
+      },
+      "originalInsets": {
+        "right": 5,
+        "bottom": 5
+      },
+      "cropped": {
+        "width": 610,
+        "height": 612,
+        "bytes": 36676,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Profile_Interbob.png",
+      "relativePath": "Profiles/Profile_Interbob.png",
+      "recursiveIndex": 82,
+      "original": {
+        "width": 650,
+        "height": 650,
+        "bytes": 52411,
+        "birthTime": "2026-08-21T13:41:42.491558Z",
+        "modifiedTime": "2026-08-21T13:41:42.491833Z"
+      },
+      "cropBox": {
+        "left": 3,
+        "top": 9,
+        "right": 645,
+        "bottom": 643,
+        "width": 642,
+        "height": 634
+      },
+      "offset": {
+        "x": 3,
+        "y": 9
+      },
+      "originalInsets": {
+        "right": 5,
+        "bottom": 7
+      },
+      "cropped": {
+        "width": 642,
+        "height": 634,
+        "bytes": 23788,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Profile_Lawrence.png",
+      "relativePath": "Profiles/Profile_Lawrence.png",
+      "recursiveIndex": 83,
+      "original": {
+        "width": 650,
+        "height": 650,
+        "bytes": 85799,
+        "birthTime": "2026-08-21T13:41:42.490243Z",
+        "modifiedTime": "2026-08-21T13:41:42.490570Z"
+      },
+      "cropBox": {
+        "left": 3,
+        "top": 7,
+        "right": 645,
+        "bottom": 641,
+        "width": 642,
+        "height": 634
+      },
+      "offset": {
+        "x": 3,
+        "y": 7
+      },
+      "originalInsets": {
+        "right": 5,
+        "bottom": 9
+      },
+      "cropped": {
+        "width": 642,
+        "height": 634,
+        "bytes": 42355,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Profile_Liz.png",
+      "relativePath": "Profiles/Profile_Liz.png",
+      "recursiveIndex": 84,
+      "original": {
+        "width": 650,
+        "height": 650,
+        "bytes": 98111,
+        "birthTime": "2026-08-21T13:41:42.488531Z",
+        "modifiedTime": "2026-08-21T13:41:42.489038Z"
+      },
+      "cropBox": {
+        "left": 5,
+        "top": 7,
+        "right": 647,
+        "bottom": 641,
+        "width": 642,
+        "height": 634
+      },
+      "offset": {
+        "x": 5,
+        "y": 7
+      },
+      "originalInsets": {
+        "right": 3,
+        "bottom": 9
+      },
+      "cropped": {
+        "width": 642,
+        "height": 634,
+        "bytes": 47949,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Profile_Melon.png",
+      "relativePath": "Profiles/Profile_Melon.png",
+      "recursiveIndex": 85,
+      "original": {
+        "width": 620,
+        "height": 620,
+        "bytes": 82470,
+        "birthTime": "2026-08-21T13:41:42.492127Z",
+        "modifiedTime": "2026-08-21T13:41:42.492439Z"
+      },
+      "cropBox": {
+        "left": 7,
+        "top": 2,
+        "right": 616,
+        "bottom": 614,
+        "width": 609,
+        "height": 612
+      },
+      "offset": {
+        "x": 7,
+        "y": 2
+      },
+      "originalInsets": {
+        "right": 4,
+        "bottom": 6
+      },
+      "cropped": {
+        "width": 609,
+        "height": 612,
+        "bytes": 39530,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Profile_Rebecca.png",
+      "relativePath": "Profiles/Profile_Rebecca.png",
+      "recursiveIndex": 86,
+      "original": {
+        "width": 625,
+        "height": 625,
+        "bytes": 84552,
+        "birthTime": "2026-08-21T13:41:42.490890Z",
+        "modifiedTime": "2026-08-21T13:41:42.491197Z"
+      },
+      "cropBox": {
+        "left": 8,
+        "top": 5,
+        "right": 617,
+        "bottom": 617,
+        "width": 609,
+        "height": 612
+      },
+      "offset": {
+        "x": 8,
+        "y": 5
+      },
+      "originalInsets": {
+        "right": 8,
+        "bottom": 8
+      },
+      "cropped": {
+        "width": 609,
+        "height": 612,
+        "bytes": 40844,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "Profile_Susan.png",
+      "relativePath": "Profiles/Profile_Susan.png",
+      "recursiveIndex": 87,
+      "original": {
+        "width": 650,
+        "height": 650,
+        "bytes": 91666,
+        "birthTime": "2026-08-21T13:41:42.492816Z",
+        "modifiedTime": "2026-08-21T13:41:42.494420Z"
+      },
+      "cropBox": {
+        "left": 5,
+        "top": 7,
+        "right": 647,
+        "bottom": 641,
+        "width": 642,
+        "height": 634
+      },
+      "offset": {
+        "x": 5,
+        "y": 7
+      },
+      "originalInsets": {
+        "right": 3,
+        "bottom": 9
+      },
+      "cropped": {
+        "width": 642,
+        "height": 634,
+        "bytes": 43879,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "UI_+10.png",
+      "relativePath": "UI/UI_+10.png",
+      "recursiveIndex": 88,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 29926,
+        "birthTime": "2026-08-21T13:41:42.415398Z",
+        "modifiedTime": "2026-08-21T13:41:42.415712Z"
+      },
+      "cropBox": {
+        "left": 1207,
+        "top": 652,
+        "right": 1320,
+        "bottom": 875,
+        "width": 113,
+        "height": 223
+      },
+      "offset": {
+        "x": 1207,
+        "y": 652
+      },
+      "originalInsets": {
+        "right": 126,
+        "bottom": 141
+      },
+      "cropped": {
+        "width": 113,
+        "height": 223,
+        "bytes": 2392,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "UI_-10.png",
+      "relativePath": "UI/UI_-10.png",
+      "recursiveIndex": 89,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 32087,
+        "birthTime": "2026-08-21T13:41:42.413007Z",
+        "modifiedTime": "2026-08-21T13:41:42.413336Z"
+      },
+      "cropBox": {
+        "left": 932,
+        "top": 653,
+        "right": 1045,
+        "bottom": 883,
+        "width": 113,
+        "height": 230
+      },
+      "offset": {
+        "x": 932,
+        "y": 653
+      },
+      "originalInsets": {
+        "right": 401,
+        "bottom": 133
+      },
+      "cropped": {
+        "width": 113,
+        "height": 230,
+        "bytes": 3221,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "UI_BigBlind.png",
+      "relativePath": "UI/UI_BigBlind.png",
+      "recursiveIndex": 90,
+      "original": {
+        "width": 100,
+        "height": 99,
+        "bytes": 4252,
+        "birthTime": "2026-08-21T13:41:42.414861Z",
+        "modifiedTime": "2026-08-21T13:41:42.415187Z"
+      },
+      "cropBox": {
+        "left": 7,
+        "top": 8,
+        "right": 93,
+        "bottom": 93,
+        "width": 86,
+        "height": 85
+      },
+      "offset": {
+        "x": 7,
+        "y": 8
+      },
+      "originalInsets": {
+        "right": 7,
+        "bottom": 6
+      },
+      "cropped": {
+        "width": 86,
+        "height": 85,
+        "bytes": 2991,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "UI_Check.png",
+      "relativePath": "UI/UI_Check.png",
+      "recursiveIndex": 91,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 37694,
+        "birthTime": "2026-08-21T13:41:42.421052Z",
+        "modifiedTime": "2026-08-21T13:41:42.421615Z"
+      },
+      "cropBox": {
+        "left": 1126,
+        "top": 490,
+        "right": 1361,
+        "bottom": 949,
+        "width": 235,
+        "height": 459
+      },
+      "offset": {
+        "x": 1126,
+        "y": 490
+      },
+      "originalInsets": {
+        "right": 85,
+        "bottom": 67
+      },
+      "cropped": {
+        "width": 235,
+        "height": 459,
+        "bytes": 6055,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "UI_Deal.png",
+      "relativePath": "UI/UI_Deal.png",
+      "recursiveIndex": 92,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 34174,
+        "birthTime": "2026-08-21T13:41:42.414363Z",
+        "modifiedTime": "2026-08-21T13:41:42.414610Z"
+      },
+      "cropBox": {
+        "left": 1202,
+        "top": 39,
+        "right": 1308,
+        "bottom": 316,
+        "width": 106,
+        "height": 277
+      },
+      "offset": {
+        "x": 1202,
+        "y": 39
+      },
+      "originalInsets": {
+        "right": 138,
+        "bottom": 700
+      },
+      "cropped": {
+        "width": 106,
+        "height": 277,
+        "bytes": 3747,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "UI_Flop.png",
+      "relativePath": "UI/UI_Flop.png",
+      "recursiveIndex": 93,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 35720,
+        "birthTime": "2026-08-21T13:41:42.409597Z",
+        "modifiedTime": "2026-08-21T13:41:42.410231Z"
+      },
+      "cropBox": {
+        "left": 482,
+        "top": 55,
+        "right": 919,
+        "bottom": 380,
+        "width": 437,
+        "height": 325
+      },
+      "offset": {
+        "x": 482,
+        "y": 55
+      },
+      "originalInsets": {
+        "right": 527,
+        "bottom": 636
+      },
+      "cropped": {
+        "width": 437,
+        "height": 325,
+        "bytes": 5932,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "UI_Fold.png",
+      "relativePath": "UI/UI_Fold.png",
+      "recursiveIndex": 94,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 39800,
+        "birthTime": "2026-08-21T13:41:42.413512Z",
+        "modifiedTime": "2026-08-21T13:41:42.413772Z"
+      },
+      "cropBox": {
+        "left": 1048,
+        "top": 736,
+        "right": 1398,
+        "bottom": 990,
+        "width": 350,
+        "height": 254
+      },
+      "offset": {
+        "x": 1048,
+        "y": 736
+      },
+      "originalInsets": {
+        "right": 48,
+        "bottom": 26
+      },
+      "cropped": {
+        "width": 350,
+        "height": 254,
+        "bytes": 6378,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "UI_HandOver.png",
+      "relativePath": "UI/UI_HandOver.png",
+      "recursiveIndex": 95,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 41019,
+        "birthTime": "2026-08-21T13:41:42.417973Z",
+        "modifiedTime": "2026-08-21T13:41:42.418555Z"
+      },
+      "cropBox": {
+        "left": 628,
+        "top": 65,
+        "right": 968,
+        "bottom": 373,
+        "width": 340,
+        "height": 308
+      },
+      "offset": {
+        "x": 628,
+        "y": 65
+      },
+      "originalInsets": {
+        "right": 478,
+        "bottom": 643
+      },
+      "cropped": {
+        "width": 340,
+        "height": 308,
+        "bytes": 8351,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "UI_Hands.png",
+      "relativePath": "UI/UI_Hands.png",
+      "recursiveIndex": 96,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 33324,
+        "birthTime": "2026-08-21T13:41:42.410640Z",
+        "modifiedTime": "2026-08-21T13:41:42.411041Z"
+      },
+      "cropBox": {
+        "left": 87,
+        "top": 248,
+        "right": 352,
+        "bottom": 347,
+        "width": 265,
+        "height": 99
+      },
+      "offset": {
+        "x": 87,
+        "y": 248
+      },
+      "originalInsets": {
+        "right": 1094,
+        "bottom": 669
+      },
+      "cropped": {
+        "width": 265,
+        "height": 99,
+        "bytes": 4437,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "UI_Nametag.png",
+      "relativePath": "UI/UI_Nametag.png",
+      "recursiveIndex": 97,
+      "original": {
+        "width": 140,
+        "height": 66,
+        "bytes": 3134,
+        "birthTime": "2026-08-21T13:41:42.412229Z",
+        "modifiedTime": "2026-08-21T13:41:42.412667Z"
+      },
+      "cropBox": {
+        "left": 9,
+        "top": 7,
+        "right": 133,
+        "bottom": 59,
+        "width": 124,
+        "height": 52
+      },
+      "offset": {
+        "x": 9,
+        "y": 7
+      },
+      "originalInsets": {
+        "right": 7,
+        "bottom": 7
+      },
+      "cropped": {
+        "width": 124,
+        "height": 52,
+        "bytes": 2241,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "UI_Preflop.png",
+      "relativePath": "UI/UI_Preflop.png",
+      "recursiveIndex": 98,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 36266,
+        "birthTime": "2026-08-21T13:41:42.407413Z",
+        "modifiedTime": "2026-08-21T13:41:42.407727Z"
+      },
+      "cropBox": {
+        "left": 482,
+        "top": 55,
+        "right": 919,
+        "bottom": 380,
+        "width": 437,
+        "height": 325
+      },
+      "offset": {
+        "x": 482,
+        "y": 55
+      },
+      "originalInsets": {
+        "right": 527,
+        "bottom": 636
+      },
+      "cropped": {
+        "width": 437,
+        "height": 325,
+        "bytes": 6201,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "UI_ProfileCard.png",
+      "relativePath": "UI/UI_ProfileCard.png",
+      "recursiveIndex": 99,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 44482,
+        "birthTime": "2026-08-21T13:41:42.413946Z",
+        "modifiedTime": "2026-08-21T13:41:42.414197Z"
+      },
+      "cropBox": {
+        "left": 94,
+        "top": 493,
+        "right": 473,
+        "bottom": 946,
+        "width": 379,
+        "height": 453
+      },
+      "offset": {
+        "x": 94,
+        "y": 493
+      },
+      "originalInsets": {
+        "right": 973,
+        "bottom": 70
+      },
+      "cropped": {
+        "width": 379,
+        "height": 453,
+        "bytes": 8922,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "UI_Quit.png",
+      "relativePath": "UI/UI_Quit.png",
+      "recursiveIndex": 100,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 32104,
+        "birthTime": "2026-08-21T13:41:42.420568Z",
+        "modifiedTime": "2026-08-21T13:41:42.420843Z"
+      },
+      "cropBox": {
+        "left": 79,
+        "top": 129,
+        "right": 361,
+        "bottom": 240,
+        "width": 282,
+        "height": 111
+      },
+      "offset": {
+        "x": 79,
+        "y": 129
+      },
+      "originalInsets": {
+        "right": 1085,
+        "bottom": 776
+      },
+      "cropped": {
+        "width": 282,
+        "height": 111,
+        "bytes": 3984,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "UI_Raise.png",
+      "relativePath": "UI/UI_Raise.png",
+      "recursiveIndex": 101,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 41200,
+        "birthTime": "2026-08-21T13:41:42.411475Z",
+        "modifiedTime": "2026-08-21T13:41:42.411971Z"
+      },
+      "cropBox": {
+        "left": 977,
+        "top": 599,
+        "right": 1247,
+        "bottom": 973,
+        "width": 270,
+        "height": 374
+      },
+      "offset": {
+        "x": 977,
+        "y": 599
+      },
+      "originalInsets": {
+        "right": 199,
+        "bottom": 43
+      },
+      "cropped": {
+        "width": 270,
+        "height": 374,
+        "bytes": 7843,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "UI_River.png",
+      "relativePath": "UI/UI_River.png",
+      "recursiveIndex": 102,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 52974,
+        "birthTime": "2026-08-21T13:41:42.419753Z",
+        "modifiedTime": "2026-08-21T13:41:42.420206Z"
+      },
+      "cropBox": {
+        "left": 482,
+        "top": 55,
+        "right": 919,
+        "bottom": 380,
+        "width": 437,
+        "height": 325
+      },
+      "offset": {
+        "x": 482,
+        "y": 55
+      },
+      "originalInsets": {
+        "right": 527,
+        "bottom": 636
+      },
+      "cropped": {
+        "width": 437,
+        "height": 325,
+        "bytes": 12381,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "UI_Scoreboard.png",
+      "relativePath": "UI/UI_Scoreboard.png",
+      "recursiveIndex": 103,
+      "original": {
+        "width": 2732,
+        "height": 2048,
+        "bytes": 162792,
+        "birthTime": "2026-08-21T13:41:42.415914Z",
+        "modifiedTime": "2026-08-21T13:41:42.416525Z"
+      },
+      "cropBox": {
+        "left": 1729,
+        "top": 138,
+        "right": 2732,
+        "bottom": 1029,
+        "width": 1003,
+        "height": 891
+      },
+      "offset": {
+        "x": 1729,
+        "y": 138
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 1019
+      },
+      "cropped": {
+        "width": 1003,
+        "height": 891,
+        "bytes": 32787,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "UI_Scoreboard_Mask.png",
+      "relativePath": "UI/UI_Scoreboard_Mask.png",
+      "recursiveIndex": 104,
+      "original": {
+        "width": 2732,
+        "height": 2048,
+        "bytes": 106963,
+        "birthTime": "2026-08-21T13:41:42.416848Z",
+        "modifiedTime": "2026-08-21T13:41:42.417601Z"
+      },
+      "cropBox": {
+        "left": 2116,
+        "top": 239,
+        "right": 2732,
+        "bottom": 863,
+        "width": 616,
+        "height": 624
+      },
+      "offset": {
+        "x": 2116,
+        "y": 239
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 1185
+      },
+      "cropped": {
+        "width": 616,
+        "height": 624,
+        "bytes": 6388,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "UI_SmallBlind.png",
+      "relativePath": "UI/UI_SmallBlind.png",
+      "recursiveIndex": 105,
+      "original": {
+        "width": 92,
+        "height": 92,
+        "bytes": 4230,
+        "birthTime": "2026-08-21T13:41:42.421919Z",
+        "modifiedTime": "2026-08-21T13:41:42.422228Z"
+      },
+      "cropBox": {
+        "left": 3,
+        "top": 3,
+        "right": 89,
+        "bottom": 88,
+        "width": 86,
+        "height": 85
+      },
+      "offset": {
+        "x": 3,
+        "y": 3
+      },
+      "originalInsets": {
+        "right": 3,
+        "bottom": 4
+      },
+      "cropped": {
+        "width": 86,
+        "height": 85,
+        "bytes": 2981,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "UI_Table.png",
+      "relativePath": "UI/UI_Table.png",
+      "recursiveIndex": 106,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 60664,
+        "birthTime": "2026-08-21T13:41:42.406844Z",
+        "modifiedTime": "2026-08-21T13:41:42.407116Z"
+      },
+      "cropBox": {
+        "left": 497,
+        "top": 215,
+        "right": 1181,
+        "bottom": 679,
+        "width": 684,
+        "height": 464
+      },
+      "offset": {
+        "x": 497,
+        "y": 215
+      },
+      "originalInsets": {
+        "right": 265,
+        "bottom": 337
+      },
+      "cropped": {
+        "width": 684,
+        "height": 464,
+        "bytes": 16278,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "UI_Thinking.png",
+      "relativePath": "UI/UI_Thinking.png",
+      "recursiveIndex": 107,
+      "original": {
+        "width": 275,
+        "height": 188,
+        "bytes": 10794,
+        "birthTime": "2026-08-21T13:41:42.408650Z",
+        "modifiedTime": "2026-08-21T13:41:42.408938Z"
+      },
+      "cropBox": {
+        "left": 12,
+        "top": 6,
+        "right": 258,
+        "bottom": 178,
+        "width": 246,
+        "height": 172
+      },
+      "offset": {
+        "x": 12,
+        "y": 6
+      },
+      "originalInsets": {
+        "right": 17,
+        "bottom": 10
+      },
+      "cropped": {
+        "width": 246,
+        "height": 172,
+        "bytes": 5815,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "UI_Transition.png",
+      "relativePath": "UI/UI_Transition.png",
+      "recursiveIndex": 108,
+      "original": {
+        "width": 433,
+        "height": 800,
+        "bytes": 33626,
+        "birthTime": "2026-08-21T13:41:42.419016Z",
+        "modifiedTime": "2026-08-21T13:41:42.419468Z"
+      },
+      "cropBox": {
+        "left": 0,
+        "top": 0,
+        "right": 416,
+        "bottom": 800,
+        "width": 416,
+        "height": 800
+      },
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "originalInsets": {
+        "right": 17,
+        "bottom": 0
+      },
+      "cropped": {
+        "width": 416,
+        "height": 800,
+        "bytes": 14640,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "UI_Turn.png",
+      "relativePath": "UI/UI_Turn.png",
+      "recursiveIndex": 109,
+      "original": {
+        "width": 1446,
+        "height": 1016,
+        "bytes": 42398,
+        "birthTime": "2026-08-21T13:41:42.409146Z",
+        "modifiedTime": "2026-08-21T13:41:42.409438Z"
+      },
+      "cropBox": {
+        "left": 482,
+        "top": 55,
+        "right": 919,
+        "bottom": 380,
+        "width": 437,
+        "height": 325
+      },
+      "offset": {
+        "x": 482,
+        "y": 55
+      },
+      "originalInsets": {
+        "right": 527,
+        "bottom": 636
+      },
+      "cropped": {
+        "width": 437,
+        "height": 325,
+        "bytes": 8924,
+        "format": "png"
+      },
+      "rewritten": true
+    }
+  ],
+  "backgroundNativeDirectoryOrderBeforeCrop": [
+    "BG_Card2.png",
+    "BG_Eye.png",
+    "BG_Card3.png",
+    "BG_Card1.png",
+    "BG_Sticky.png",
+    "BG_Cap.png",
+    "BG_Pic.png",
+    "BG_Button.png",
+    "BG_Box.png",
+    "BG_Box3.png",
+    "BG_Button2.png",
+    "BG_Box2.png",
+    "BG_Box4.png",
+    "BG_Solid.png",
+    "BG_Dots.png",
+    "BG_Blend_Pink.png",
+    "BG_Blend_Blue.png"
+  ]
+}
