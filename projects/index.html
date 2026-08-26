@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
 
-  <link href="/kombucha.css?v=20260824-readerheader5" rel="stylesheet" type="text/css" media="all">
+  <link href="/kombucha.css?v=20260826-comictimeline6" rel="stylesheet" type="text/css" media="all">
   <script src="/assets/js/main.js?v=20260821-projectpause1" defer></script>
-  <script src="/assets/js/projects.js?v=20260824-readerheader5" defer></script>
+  <script src="/assets/js/projects.js?v=20260825-beetassets4" defer></script>
 </head>
 
 <body class="projects-page">
@@ -92,269 +92,490 @@
         <button class="project-reader__backdrop" type="button" data-project-close aria-label="Close project workspace"></button>
         <div class="project-reader__thumbnail-header" data-project-reader-header aria-hidden="true"></div>
         <div class="project-reader__shell">
-          <header class="project-reader__topline">
-            <div class="project-reader__heading">
-              <p class="project-reader__kicker">Pulled project</p>
-              <h2 id="project-reader-title" data-project-reader-title>My Comic</h2>
-            </div>
-            <div class="project-reader__controls">
-              <div class="project-reader__switcher" aria-label="Switch project workspace">
-                <button class="is-active" type="button" data-project-reader-switch="comic">Comic</button>
-                <button type="button" data-project-reader-switch="beet">BEET</button>
-                <button type="button" data-project-reader-switch="poker">Poker</button>
-              </div>
-              <button class="project-reader__close" type="button" data-project-close>Close</button>
-            </div>
-          </header>
+          <h2 id="project-reader-title" class="projects-visually-hidden" data-project-reader-title>My Comic</h2>
 
           <div class="project-reader__panels">
             <article id="project-reader-comic" class="project-reader__panel project-reader__panel--comic is-active" data-project-reader-panel="comic" data-project-reader-heading="My Comic">
-              <div class="project-reader__copy">
-                <p class="project-reader__label">Comic reader workspace</p>
-                <h3>My Comic</h3>
-                <p>
-                  Placeholder space for the final in-site comic reader: chapter controls, page navigation, progress memory, and commentary can live here without forcing the lower writing section to carry the whole project.
-                </p>
-                <div class="project-reader__placeholder-grid" aria-label="Comic reader placeholders">
-                  <button type="button">Chapter index</button>
-                  <button type="button">Reader controls</button>
-                  <button type="button">Process notes</button>
+              <button class="project-reader__text-back project-reader__text-back--comic" type="button" data-project-close>Back</button>
+              <div class="project-comic-workspace">
+                <aside class="project-comic-sidebar" aria-label="Comic chapters">
+                  <button class="is-active" type="button" data-comic-chapter="0">
+                    <span>Chapter 1</span>
+                    <small>16 pages</small>
+                  </button>
+                  <button type="button" data-comic-chapter="1">
+                    <span>Chapter 2</span>
+                    <small>20 pages</small>
+                  </button>
+                  <button type="button" data-comic-chapter="2">
+                    <span>Chapter 3</span>
+                    <small>20 pages</small>
+                  </button>
+                </aside>
+
+                <section class="project-comic-viewer" data-comic-viewer tabindex="0" aria-label="Comic page viewer">
+                  <figure class="project-comic-page-frame">
+                    <img src="/assets/images/projects/comic/ch1/0.jpg" alt="Comic chapter 1 page 1." width="1636" height="2148" decoding="async" data-comic-page-image>
+                    <button class="project-comic-arrow project-comic-arrow--prev" type="button" data-comic-prev aria-label="Previous comic page">‹</button>
+                    <button class="project-comic-arrow project-comic-arrow--next" type="button" data-comic-next aria-label="Next comic page">›</button>
+                  </figure>
+                  <div class="project-comic-page-strip" data-comic-page-strip aria-label="Comic pages"></div>
+                </section>
+
+                <div class="project-reader__copy project-reader__copy--comic">
+                  <p class="project-reader__label">Personal Comic Project</p>
+                  <h3>Kimia's Hands-On Guide to Magic</h3>
+                  <p>
+                    This comic is a passion project I've been doing on-and-off work on since mid-2025.
+                    The comic is a coming-of-age fantasy adventure story that follows a young rogue witch as she tries to find family, purpose, and a place she belongs. The story is meant to be pretty casual and personal, and is named after the protagonist's handsy powers. Haha, get it?
+                  </p>
+                  <p>
+                    Below, you'll find my process notes, some drafts and ideations, and whatever else I've decided to throw in here. As I finish more chapters and pages, I'll throw them on this site, but it's kind of a pain to update so don't expect super regular upkeep. Peace.
+                  </p>
+                  <figure class="project-comic-inline-image-slot">
+                    <img src="/assets/images/projects/sprites/comictab/process/Derusting.webp" alt="Derusting process artwork for Kimia's Hands-On Guide to Magic." width="774" height="818" loading="lazy" decoding="async">
+                  </figure>
                 </div>
               </div>
 
-              <div class="project-reader__media">
-                <figure class="project-reader__image-frame">
-                  <img src="/assets/images/projects/comic/ch1/0.jpg" alt="Comic cover preview." width="1636" height="2148" decoding="async" data-project-preview-image>
-                </figure>
-                <div class="project-reader__thumbs" aria-label="Comic page previews">
-                  <button class="is-active" type="button" data-project-preview data-project-preview-src="/assets/images/projects/comic/ch1/0.jpg" data-project-preview-alt="Comic cover preview.">
-                    <img src="/assets/images/projects/comic/ch1/0.jpg" alt="" width="1636" height="2148" decoding="async">
-                    <span>Ch. 1</span>
-                  </button>
-                  <button type="button" data-project-preview data-project-preview-src="/assets/images/projects/comic/ch2/1.jpg" data-project-preview-alt="Comic chapter 2 preview page.">
-                    <img src="/assets/images/projects/comic/ch2/1.jpg" alt="" width="2048" height="2732" loading="lazy" decoding="async">
-                    <span>Ch. 2</span>
-                  </button>
-                  <button type="button" data-project-preview data-project-preview-src="/assets/images/projects/comic/ch3/1.jpg" data-project-preview-alt="Comic chapter 3 preview page.">
-                    <img src="/assets/images/projects/comic/ch3/1.jpg" alt="" width="2048" height="2732" loading="lazy" decoding="async">
-                    <span>Ch. 3</span>
-                  </button>
+              <section class="project-comic-process" aria-labelledby="comic-process-title">
+                <div class="project-comic-process__intro">
+                  <p class="project-reader__label">Development shelf</p>
+                  <h3 id="comic-process-title">Kimia Timeline</h3>
+                  <p>
+                    A placeholder timeline for Kimia-related sketches, brainstorms, setting ideas, and comic direction notes. Oldest work sits at the top, newer ideation sits toward the bottom.
+                  </p>
                 </div>
-              </div>
+
+                <div class="project-comic-timeline">
+                  <article class="project-comic-timeline__entry">
+                    <figure class="project-comic-timeline__image">
+                      <img src="/assets/images/projects/sprites/comictab/process/Kimia.webp" alt="Early Kimia brainstorming drawing." width="4096" height="1714" loading="lazy" decoding="async">
+                    </figure>
+                    <div class="project-comic-timeline__notes">
+                      <p class="project-reader__label">Timeline 01</p>
+                      <h4>Kimia</h4>
+                      <p>Placeholder notes for the earliest Kimia brainstorming work.</p>
+                    </div>
+                  </article>
+
+                  <article class="project-comic-timeline__entry">
+                    <figure class="project-comic-timeline__image">
+                      <img src="/assets/images/projects/sprites/comictab/process/Actual_Sheet.webp" alt="Early Kimia character sheet." width="4973" height="1972" loading="lazy" decoding="async">
+                    </figure>
+                    <div class="project-comic-timeline__notes">
+                      <p class="project-reader__label">Timeline 02</p>
+                      <h4>Actual Sheet</h4>
+                      <p>Placeholder notes for the first more organized character-sheet pass.</p>
+                    </div>
+                  </article>
+
+                  <article class="project-comic-timeline__entry">
+                    <figure class="project-comic-timeline__image">
+                      <img src="/assets/images/projects/sprites/comictab/process/Aspen.webp" alt="Aspen character concept artwork." width="3304" height="1656" loading="lazy" decoding="async">
+                    </figure>
+                    <div class="project-comic-timeline__notes">
+                      <p class="project-reader__label">Timeline 03</p>
+                      <h4>Aspen</h4>
+                      <p>Placeholder notes for Aspen's design, role, or whatever thinking belongs beside this piece.</p>
+                    </div>
+                  </article>
+
+                  <article class="project-comic-timeline__entry">
+                    <figure class="project-comic-timeline__image">
+                      <img src="/assets/images/projects/sprites/comictab/process/Untitled_Artwork.webp" alt="Untitled Kimia-related concept artwork." width="3271" height="1536" loading="lazy" decoding="async">
+                    </figure>
+                    <div class="project-comic-timeline__notes">
+                      <p class="project-reader__label">Timeline 04</p>
+                      <h4>Untitled Artwork</h4>
+                      <p>Placeholder notes for this transitional concept piece.</p>
+                    </div>
+                  </article>
+
+                  <article class="project-comic-timeline__entry">
+                    <figure class="project-comic-timeline__image">
+                      <img src="/assets/images/projects/sprites/comictab/process/Volgoth.webp" alt="Volgoth character concept artwork." width="2048" height="1536" loading="lazy" decoding="async">
+                    </figure>
+                    <div class="project-comic-timeline__notes">
+                      <p class="project-reader__label">Timeline 05</p>
+                      <h4>Volgoth</h4>
+                      <p>Placeholder notes for Volgoth's design direction and story function.</p>
+                    </div>
+                  </article>
+
+                  <article class="project-comic-timeline__entry project-comic-timeline__entry--paired">
+                    <div class="project-comic-timeline__pair">
+                      <figure class="project-comic-timeline__image">
+                        <img src="/assets/images/projects/sprites/comictab/process/Tree.webp" alt="Tree environment concept artwork." width="2048" height="2048" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="project-comic-timeline__image">
+                        <img src="/assets/images/projects/sprites/comictab/process/View.webp" alt="View environment concept artwork." width="2107" height="2232" loading="lazy" decoding="async">
+                      </figure>
+                    </div>
+                    <div class="project-comic-timeline__notes project-comic-timeline__notes--stacked">
+                      <section>
+                        <p class="project-reader__label">Timeline 06</p>
+                        <h4>Tree</h4>
+                        <p>Placeholder notes for the tree/environment exploration.</p>
+                      </section>
+                      <section>
+                        <p class="project-reader__label">Timeline 07</p>
+                        <h4>View</h4>
+                        <p>Placeholder notes for the scenic view exploration.</p>
+                      </section>
+                    </div>
+                  </article>
+
+                  <article class="project-comic-timeline__entry">
+                    <figure class="project-comic-timeline__image">
+                      <img src="/assets/images/projects/sprites/comictab/process/Sky.webp" alt="Sky environment concept artwork." width="2732" height="2048" loading="lazy" decoding="async">
+                    </figure>
+                    <div class="project-comic-timeline__notes">
+                      <p class="project-reader__label">Timeline 08</p>
+                      <h4>Sky</h4>
+                      <p>Placeholder notes for the sky, atmosphere, and setting mood.</p>
+                    </div>
+                  </article>
+
+                  <article class="project-comic-timeline__entry">
+                    <figure class="project-comic-timeline__image">
+                      <img src="/assets/images/projects/sprites/comictab/process/Fist.webp" alt="Hand and fist concept artwork for Kimia magic." width="3681" height="1536" loading="lazy" decoding="async">
+                    </figure>
+                    <div class="project-comic-timeline__notes">
+                      <p class="project-reader__label">Timeline 09</p>
+                      <h4>Fist</h4>
+                      <p>Placeholder notes for Kimia's hand magic, gesture language, or visual motif development.</p>
+                    </div>
+                  </article>
+
+                  <article class="project-comic-timeline__entry">
+                    <figure class="project-comic-timeline__image">
+                      <img src="/assets/images/projects/sprites/comictab/process/Brainstorm.webp" alt="Brainstorm sheet for Kimia's Hands-On Guide to Magic." width="2732" height="2048" loading="lazy" decoding="async">
+                    </figure>
+                    <div class="project-comic-timeline__notes">
+                      <p class="project-reader__label">Timeline 10</p>
+                      <h4>Brainstorm</h4>
+                      <p>Placeholder notes for story, tone, character, or worldbuilding brainstorms.</p>
+                    </div>
+                  </article>
+
+                  <article class="project-comic-timeline__entry">
+                    <figure class="project-comic-timeline__image">
+                      <img src="/assets/images/projects/sprites/comictab/process/Concepts.webp" alt="Concept sheet for Kimia's Hands-On Guide to Magic." width="3074" height="2048" loading="lazy" decoding="async">
+                    </figure>
+                    <div class="project-comic-timeline__notes">
+                      <p class="project-reader__label">Timeline 11</p>
+                      <h4>Concepts</h4>
+                      <p>Placeholder notes for the concept batch and what started settling into the comic's identity.</p>
+                    </div>
+                  </article>
+
+                  <article class="project-comic-timeline__entry project-comic-timeline__entry--paired">
+                    <div class="project-comic-timeline__pair project-comic-timeline__pair--trio">
+                      <figure class="project-comic-timeline__image">
+                        <img src="/assets/images/projects/sprites/comictab/process/Cale.webp" alt="Cale character concept artwork." width="2732" height="2048" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="project-comic-timeline__image">
+                        <img src="/assets/images/projects/sprites/comictab/process/Panel_Idea.webp" alt="Panel idea sketch for Kimia's Hands-On Guide to Magic." width="2732" height="2048" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="project-comic-timeline__image">
+                        <img src="/assets/images/projects/sprites/comictab/process/Action_Spread_Hahaha.webp" alt="Action spread concept artwork for Kimia's Hands-On Guide to Magic." width="3072" height="2048" loading="lazy" decoding="async">
+                      </figure>
+                    </div>
+                    <div class="project-comic-timeline__notes project-comic-timeline__notes--stacked">
+                      <section>
+                        <p class="project-reader__label">Timeline 12</p>
+                        <h4>Cale</h4>
+                        <p>Placeholder notes for Cale's design, expression, or place in the cast.</p>
+                      </section>
+                      <section>
+                        <p class="project-reader__label">Timeline 13</p>
+                        <h4>Panel Idea</h4>
+                        <p>Placeholder notes for panel composition, pacing, or comic-page experiments.</p>
+                      </section>
+                      <section>
+                        <p class="project-reader__label">Timeline 14</p>
+                        <h4>Action Spread Hahaha</h4>
+                        <p>Placeholder notes for the latest action spread and how the comic's motion language is developing.</p>
+                      </section>
+                    </div>
+                  </article>
+                </div>
+              </section>
             </article>
 
             <article id="project-reader-beet" class="project-reader__panel project-reader__panel--beet" data-project-reader-panel="beet" data-project-reader-heading="BEET">
-              <div class="project-reader__copy">
-                <p class="project-reader__label">Game workspace</p>
-                <h3>BEET</h3>
-                <p>
-                  Placeholder space for a Unity embed, launch controls, asset sheets, and making-of notes. The panel is ready to become the interactive project area once the build path is settled.
-                </p>
-                <div class="project-reader__placeholder-grid" aria-label="BEET placeholders">
-                  <button type="button">Unity slot</button>
-                  <button type="button">Asset board</button>
-                  <button type="button">Dev notes</button>
+              <div class="project-beet-topbar">
+                <div class="project-beet-topbar__title">BEET</div>
+                <button class="project-beet-topbar__back" type="button" data-project-close>Back</button>
+              </div>
+
+              <section class="project-beet-demo" aria-label="Playable BEET demo">
+                <div>
+                  <p class="project-reader__label">BEET demo</p>
+                  <h3>Unity Play Build</h3>
+                  <p>I am NOT about to embed the entirety of the BEET demo on this site, so here's a convenient link to somewhere you can play it without the price of my suffering.</p>
+                </div>
+                <a href="https://play.unity.com/en/games/49690982-1e0e-4475-b6ba-cc5794174246/beetprod" target="_blank" rel="noopener">Open demo</a>
+              </section>
+
+              <div class="project-beet-detail-grid">
+                <div class="project-reader__copy project-reader__copy--beet">
+                  <p class="project-reader__label">Info and such</p>
+                  <h3>About BEET</h3>
+                  <p>
+                    BEET is a hackathon project I worked on alongside some other friends. Among our team is a music guy and two code guys. I assumed the role of the asset and concept artist, so most of the assets you see in game were created by me. Due to time restraints, I didn't do any UI work, but we'll get around to that.
+                  </p>
+                  <p>
+                    The game itself is the manifestation of a dream game idea my friend conjured up one day. We decided there was no better time than a hackathon to finally assemble a team and begin work on it. In this game, you play as a young traveller exploring a broken, sad world. The wildlife has been corrupted and music is gone.
+                  </p>
+	                  <p>
+	                    There are two primary gameplay loops; a combat and platformer oriented one that takes place in a 2D sidescrolling environment, and an isometric town builder kind of like My Singing Monsters but with plants. For legal reasons, these are entirely distinct concepts.
+                  </p>
+                </div>
+
+                <div class="project-reader__media project-reader__media--beet" data-project-preview-scope>
+                  <div class="project-zoom-viewer" data-zoom-viewer data-zoom-default-scale="1" data-zoom-min-scale="0.45" data-zoom-max-scale="4">
+                    <figure class="project-reader__image-frame project-reader__image-frame--wide project-zoom-viewer__stage">
+                      <img src="/assets/images/projects/BEET/forest_reference.png" alt="BEET forest reference preview." width="2719" height="941" loading="lazy" decoding="async" draggable="false" data-project-preview-image data-zoom-content>
+                    </figure>
+                    <div class="project-zoom-viewer__controls" aria-label="Image zoom controls">
+                      <button type="button" data-zoom-out aria-label="Zoom out">−</button>
+                      <button type="button" data-zoom-reset>Reset</button>
+                      <button type="button" data-zoom-in aria-label="Zoom in">+</button>
+                    </div>
+                  </div>
+                  <div class="project-reader__thumbs" aria-label="BEET image previews">
+                    <button class="is-active" type="button" data-project-preview data-project-preview-src="/assets/images/projects/BEET/forest_reference.png" data-project-preview-alt="BEET forest reference preview." data-project-preview-scale="1" data-project-preview-width="2719" data-project-preview-height="941">
+                      <img src="/assets/images/projects/BEET/forest_reference.png" alt="" width="2719" height="941" loading="lazy" decoding="async">
+                      <span>Forest</span>
+                    </button>
+                    <button type="button" data-project-preview data-project-preview-src="/assets/images/projects/BEET/hub_full.png" data-project-preview-alt="BEET hub environment preview." data-project-preview-scale="0.68" data-project-preview-width="3247" data-project-preview-height="2595">
+                      <img src="/assets/images/projects/BEET/hub_full.png" alt="" width="3247" height="2595" loading="lazy" decoding="async">
+                      <span>Hub</span>
+                    </button>
+                  </div>
                 </div>
               </div>
 
-              <div class="project-reader__media">
-                <figure class="project-reader__image-frame project-reader__image-frame--wide">
-                  <img src="/assets/images/projects/BEET/forest_reference.png" alt="BEET forest reference preview." width="2719" height="941" loading="lazy" decoding="async" data-project-preview-image>
-                </figure>
-                <div class="project-reader__thumbs" aria-label="BEET image previews">
-                  <button class="is-active" type="button" data-project-preview data-project-preview-src="/assets/images/projects/BEET/forest_reference.png" data-project-preview-alt="BEET forest reference preview.">
-                    <img src="/assets/images/projects/BEET/forest_reference.png" alt="" width="2719" height="941" loading="lazy" decoding="async">
-                    <span>Forest</span>
-                  </button>
-                  <button type="button" data-project-preview data-project-preview-src="/assets/images/projects/BEET/hub_full.png" data-project-preview-alt="BEET hub environment preview.">
-                    <img src="/assets/images/projects/BEET/hub_full.png" alt="" width="3247" height="2595" loading="lazy" decoding="async">
-                    <span>Hub</span>
-                  </button>
-                  <button type="button" data-project-preview data-project-preview-src="/assets/images/projects/BEET/iso_portal.png" data-project-preview-alt="BEET isometric portal asset preview.">
-                    <img src="/assets/images/projects/BEET/iso_portal.png" alt="" width="326" height="371" loading="lazy" decoding="async">
-                    <span>Portal</span>
-                  </button>
+              <section class="project-beet-asset-section project-beet-asset-section--characters" aria-label="BEET character sprite sheet">
+                <div class="project-reader__media project-reader__media--beet project-reader__media--beet-sheet">
+                  <div class="project-zoom-viewer project-zoom-viewer--sheet" data-zoom-viewer data-zoom-default-scale="0.7" data-zoom-min-scale="0.35" data-zoom-max-scale="3.5">
+                    <figure class="project-reader__image-frame project-zoom-viewer__stage">
+                      <div class="project-beet-sprite-sheet" data-zoom-content>
+                        <img src="/assets/images/projects/BEET/charsprites/dash_left.png" alt="Dash left character sprite." width="131" height="168" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/dash_right.png" alt="Dash right character sprite." width="130" height="173" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/dodge_left.png" alt="Dodge left character sprite." width="118" height="159" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/dodge_right.png" alt="Dodge right character sprite." width="132" height="158" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/falling.png" alt="Falling character sprite." width="167" height="207" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/half_kneel.png" alt="Half kneel character sprite." width="123" height="165" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/hurt.png" alt="Hurt character sprite." width="105" height="163" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/iso_stand_down.png" alt="Isometric stand down character sprite." width="43" height="97" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/iso_stand_up.png" alt="Isometric stand up character sprite." width="43" height="98" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/iso_walk_down.png" alt="Isometric walk down character sprite." width="45" height="97" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/iso_walk_up.png" alt="Isometric walk up character sprite." width="43" height="98" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/jump_squat.png" alt="Jump squat character sprite." width="122" height="153" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/jumping.png" alt="Jumping character sprite." width="105" height="179" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/kneel.png" alt="Kneel character sprite." width="123" height="137" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/lyre_attack.png" alt="Lyre attack character sprite." width="113" height="160" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/lyre_attack_heavy.png" alt="Heavy lyre attack character sprite." width="129" height="161" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/melee_full.png" alt="Full melee character sprite." width="213" height="160" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/melee_full_revised.png" alt="Revised full melee character sprite." width="213" height="160" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/melee_long.png" alt="Long melee character sprite." width="213" height="159" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/melee_long_revised.png" alt="Revised long melee character sprite." width="213" height="159" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/melee_short.png" alt="Short melee character sprite." width="194" height="160" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/melee_short_revised.png" alt="Revised short melee character sprite." width="194" height="160" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/nomad_full.png" alt="Nomad full character sprite." width="246" height="515" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/old_man_full.png" alt="Old man full character sprite." width="282" height="434" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/old_man_iso.png" alt="Old man isometric character sprite." width="83" height="105" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/stand.png" alt="Stand character sprite." width="80" height="172" loading="lazy" decoding="async" draggable="false">
+                        <img src="/assets/images/projects/BEET/charsprites/walk.png" alt="Walk character sprite." width="97" height="171" loading="lazy" decoding="async" draggable="false">
+                      </div>
+                    </figure>
+                    <div class="project-zoom-viewer__controls" aria-label="Character sprite sheet zoom controls">
+                      <button type="button" data-zoom-out aria-label="Zoom out">−</button>
+                      <button type="button" data-zoom-reset>Reset</button>
+                      <button type="button" data-zoom-in aria-label="Zoom in">+</button>
+                    </div>
+                  </div>
                 </div>
-              </div>
+
+                <div class="project-reader__copy project-reader__copy--beet">
+                  <p class="project-reader__label">Character assets</p>
+                  <h3>Sprite Sheet</h3>
+                  <p>
+                    On the left, you can see a fully assembled sheet of all the currently existing character sprites. Funnily enough, this was the hardest part of the whole project for me. I'm not someone who usually does work with movement heavy art, as my focus lies in backgrounds and environments, so this was a big step out of my comfort zone.
+                  </p>
+                  <p>
+                    Regardless, I feel like I did a decent job and will continue work on character sprites. Below, you can find the other miscellaneous sprites that appear in-game.
+                  </p>
+                </div>
+              </section>
+
+              <section class="project-beet-asset-section project-beet-asset-section--gallery" aria-label="BEET remaining sprite viewer">
+                <div class="project-beet-sprite-viewer" data-sprite-viewer>
+                  <figure class="project-beet-sprite-viewer__stage">
+                    <button class="project-beet-sprite-viewer__nav project-beet-sprite-viewer__nav--prev" type="button" data-sprite-prev aria-label="Previous BEET sprite">‹</button>
+                    <img src="/assets/images/projects/BEET/iso_portal.png" alt="BEET isometric portal sprite." width="326" height="371" loading="lazy" decoding="async" draggable="false" data-sprite-viewer-image>
+                    <button class="project-beet-sprite-viewer__nav project-beet-sprite-viewer__nav--next" type="button" data-sprite-next aria-label="Next BEET sprite">›</button>
+                  </figure>
+                  <div class="project-reader__thumbs project-beet-sprite-viewer__thumbs" aria-label="BEET sprite previews">
+                    <button class="is-active" type="button" aria-label="Show isometric portal sprite" data-sprite-thumb data-sprite-src="/assets/images/projects/BEET/iso_portal.png" data-sprite-alt="BEET isometric portal sprite.">
+                      <img src="/assets/images/projects/BEET/iso_portal.png" alt="" width="326" height="371" loading="lazy" decoding="async">
+                    </button>
+                    <button type="button" aria-label="Show 2D portal sprite" data-sprite-thumb data-sprite-src="/assets/images/projects/BEET/2D_portal.png" data-sprite-alt="BEET 2D portal sprite.">
+                      <img src="/assets/images/projects/BEET/2D_portal.png" alt="" width="225" height="472" loading="lazy" decoding="async">
+                    </button>
+                    <button type="button" aria-label="Show platform 8 sprite" data-sprite-thumb data-sprite-src="/assets/images/projects/BEET/plat8.png" data-sprite-alt="BEET platform sprite 8.">
+                      <img src="/assets/images/projects/BEET/plat8.png" alt="" width="263" height="251" loading="lazy" decoding="async">
+                    </button>
+                    <button type="button" aria-label="Show platform 9 sprite" data-sprite-thumb data-sprite-src="/assets/images/projects/BEET/plat9.png" data-sprite-alt="BEET platform sprite 9.">
+                      <img src="/assets/images/projects/BEET/plat9.png" alt="" width="292" height="296" loading="lazy" decoding="async">
+                    </button>
+                    <button type="button" aria-label="Show enemy animation sprite" data-sprite-thumb data-sprite-src="/assets/images/projects/BEET/Charenemies.gif" data-sprite-alt="BEET enemy animation sprite.">
+                      <img src="/assets/images/projects/BEET/Charenemies.gif" alt="" width="106" height="84" loading="lazy" decoding="async">
+                    </button>
+                    <button type="button" aria-label="Show beet sprite" data-sprite-thumb data-sprite-src="/assets/images/projects/BEET/beet.png" data-sprite-alt="BEET beet sprite.">
+                      <img src="/assets/images/projects/BEET/beet.png" alt="" width="179" height="124" loading="lazy" decoding="async">
+                    </button>
+                    <button type="button" aria-label="Show boomwhacker sprite" data-sprite-thumb data-sprite-src="/assets/images/projects/BEET/boomwhacker.png" data-sprite-alt="BEET boomwhacker sprite.">
+                      <img src="/assets/images/projects/BEET/boomwhacker.png" alt="" width="55" height="52" loading="lazy" decoding="async">
+                    </button>
+                    <button type="button" aria-label="Show lyre sprite" data-sprite-thumb data-sprite-src="/assets/images/projects/BEET/lyre.png" data-sprite-alt="BEET lyre sprite.">
+                      <img src="/assets/images/projects/BEET/lyre.png" alt="" width="42" height="42" loading="lazy" decoding="async">
+                    </button>
+                    <button type="button" aria-label="Show evil mushroom sprite" data-sprite-thumb data-sprite-src="/assets/images/projects/BEET/mushroom_evil.png" data-sprite-alt="BEET evil mushroom sprite.">
+                      <img src="/assets/images/projects/BEET/mushroom_evil.png" alt="" width="103" height="127" loading="lazy" decoding="async">
+                    </button>
+                    <button type="button" aria-label="Show small mushroom sprite" data-sprite-thumb data-sprite-src="/assets/images/projects/BEET/mushroom_small.png" data-sprite-alt="BEET small mushroom sprite.">
+                      <img src="/assets/images/projects/BEET/mushroom_small.png" alt="" width="103" height="107" loading="lazy" decoding="async">
+                    </button>
+                  </div>
+                </div>
+              </section>
             </article>
 
             <article id="project-reader-poker" class="project-reader__panel project-reader__panel--poker" data-project-reader-panel="poker" data-project-reader-heading="Poker">
-              <div class="project-reader__copy">
-                <p class="project-reader__label">Playable build workspace</p>
-                <h3>Poker</h3>
-                <p>
-                  A browser-packaged Pygame build sits here for playtesting while the project notes, dev-log images, and fallback links keep taking shape.
-                </p>
-                <div class="project-reader__placeholder-grid" aria-label="Poker placeholders">
-                  <button type="button">Pygbag build</button>
-                  <button type="button">Rules notes</button>
-                  <button type="button">Dev notes</button>
+              <button class="project-poker-back" type="button" data-project-close aria-label="Back to projects">
+                <img src="/games/poker-pygbag/Game%20Screen/UI/UI_Quit.png" alt="" width="282" height="111" loading="lazy" decoding="async">
+              </button>
+
+              <div class="project-poker-layout">
+                <div class="project-reader__copy project-reader__copy--poker">
+                  <p class="project-reader__label">For fun mini game</p>
+                  <h3>Poker Game</h3>
+                  <p>
+                    Poker Game is a tiny python game I created as an offshoot of a class assignment. Our final task was to create a card game using python, and our group chose Texas Hold'em Poker. I wasn't satisfied with what we presented, so in my own time, I created this.
+                  </p>
+                  <p>
+	                    You can think of Poker Game as a visual experiment. I wanted to see what I could accomplish using simple transforms and static sprites. The end result is something I'm actually pretty happy with.
+                    In terms of code, this project is really rough around the edges (I'm not the most competent coder, so most of this was vibe coded), but at the very least it serves as a neat visual reference for a future where I rebuild Poker Game with more robust architecture.
+                  </p>
+                </div>
+
+                <div class="project-reader__media project-reader__media--game">
+                  <div class="project-reader__game-frame" data-project-game-frame data-project-game-src="/games/poker/" data-project-game-title="Playable Poker browser build" data-project-game-placeholder="Poker build sleeps while this project is closed.">
+                    <button class="project-reader__game-launch" type="button" data-project-game-start aria-label="Play Poker">
+                      <span class="project-reader__game-launch-art" aria-hidden="true">
+                        <img src="/assets/images/projects/sprites/pokertab/poker_launch_thumbnail.png" alt="" width="1844" height="1250" decoding="async">
+                      </span>
+                      <span class="project-reader__game-launch-copy" aria-hidden="true">
+                        <span class="project-reader__game-play-icon"></span>
+                      </span>
+                    </button>
+                  </div>
                 </div>
               </div>
 
-              <div class="project-reader__media project-reader__media--game">
-                <div class="project-reader__game-frame" data-project-game-frame data-project-game-src="/games/poker/" data-project-game-title="Playable Poker browser build" data-project-game-placeholder="Poker build sleeps while this project is closed.">
-                  <div class="project-reader__game-placeholder">Poker build sleeps while this project is closed.</div>
+              <section class="project-reader__process project-reader__process--poker">
+                <p class="project-reader__label">The Poker Process</p>
+                <h3>Development Notes</h3>
+                <div class="project-poker-process-grid">
+                  <section class="project-poker-process-copy project-poker-process-copy--wide">
+                    <h4>Visual Approach</h4>
+                    <p>
+                      As the sole developer of Poker Game (not counting codex), I had pretty much total control over how I wanted it to look and feel like. Personally, I really like when games don't try to hide the rough, sketchy parts of their art. This led me to approach the game almost like I'd approach making a painting.
+                    </p>
+                    <p>
+                      <br>
+                      Whenever a new screen or UI element needed to be made, I'd lay it out in a Procreate canvas with a screen size reference, and paint the scene, separating sprites into layers so I can export them later.
+                    </p>
+                  </section>
+
+                  <figure class="project-poker-process-image project-poker-process-image--large">
+                    <span>Large process image placeholder</span>
+                  </figure>
+
+                  <section class="project-poker-process-copy project-poker-process-copy--side">
+                    <p>
+                      While I obviously can't use a fully painterly approach, this recontextualized the project from something wholly outside my depth to something I felt a lot more familiar with. This way, I was easily able to apply my knowledge of color, composition and emphasis to create an appealing UI and background.
+                    </p>
+                    <p>
+                      <br>
+                      Here, you can see some of my process and ideation work.
+                    </p>
+                  </section>
+
+                  <section class="project-poker-process-copy project-poker-process-copy--offset">
+                    <h4>Code Notes</h4>
+	                    <p>
+
+	                    </p>
+
+	                  </section>
+
+                  <figure class="project-poker-process-image">
+                    <span>Secondary image placeholder</span>
+                  </figure>
                 </div>
-              </div>
+              </section>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="project-showcase" aria-label="Project notes and plans">
-        <article id="comic" class="project-feature project-feature--comic" data-project-panel="comic" tabindex="-1">
-          <div class="project-feature__lead">
-            <p class="project-feature__label">Project 01</p>
-            <h2>My Comic</h2>
+      <section class="project-showcase projects-welcome" aria-labelledby="projects-welcome-title">
+        <div class="projects-welcome__inner">
+          <div class="projects-welcome__copy">
+            <p class="project-feature__label">Welcome!</p>
+            <h2 id="projects-welcome-title">Project Archive</h2>
             <p>
-              The comic is the largest archive problem on the page: 3 completed chapters, 55 pages, and a reading experience that should feel smooth without loading the whole thing at once.
+              This is where I'm going to record my thoughts, processes, WIPs, and whatever doesn't fit in the folders above. I'll probably also have process notes and WIP work for this website. Hopefully the mess isn't too much!
             </p>
-            <dl class="project-stats">
-              <div>
-                <dt>Format</dt>
-                <dd>Long-form comic</dd>
-              </div>
-              <div>
-                <dt>Current scale</dt>
-                <dd>56 image files</dd>
-              </div>
-              <div>
-                <dt>Site target</dt>
-                <dd>Chapter reader</dd>
-              </div>
-            </dl>
-          </div>
-
-          <div class="project-feature__media project-feature__media--reader" aria-label="Comic reader preview">
-            <div class="comic-reader-preview">
-              <figure class="comic-reader-preview__page is-current">
-                <img src="/assets/images/projects/comic/ch1/0.jpg" alt="Comic cover preview." width="1636" height="2148" decoding="async">
-              </figure>
-              <figure class="comic-reader-preview__page">
-                <img src="/assets/images/projects/comic/ch2/1.jpg" alt="Comic chapter 2 preview page." width="2048" height="2732" loading="lazy" decoding="async">
-              </figure>
-              <figure class="comic-reader-preview__page">
-                <img src="/assets/images/projects/comic/ch3/1.jpg" alt="Comic chapter 3 preview page." width="2048" height="2732" loading="lazy" decoding="async">
-              </figure>
-            </div>
-          </div>
-
-          <div class="project-note-grid">
-            <section class="project-note">
-              <h3>Reader Direction</h3>
-              <p>
-                The page is prepared for a lazy-loading reader with chapter chunks, thumbnails, and a single active page view so the browser only carries the pages it needs.
-              </p>
-            </section>
-            <section class="project-note">
-              <h3>Work Display</h3>
-              <p>
-                Finished pages, chapter notes, process scraps, and longer commentary can sit together without fighting the reader for space.
-              </p>
-            </section>
-          </div>
-        </article>
-
-        <article id="beet" class="project-feature project-feature--beet" data-project-panel="beet" tabindex="-1">
-          <div class="project-feature__lead">
-            <p class="project-feature__label">Project 02</p>
-            <h2>BEET</h2>
             <p>
-              A hackathon game made with friends, with the visual assets drawn by me. This section is built to hold a playable Unity embed when the exported build is ready.
+              There are a number of things I want to display that won't fit in a full project folder. Among those are smaller, class specific projects, old works that I still think are neat to look at, and ideas I have for the future.
             </p>
-            <dl class="project-stats">
-              <div>
-                <dt>Format</dt>
-                <dd>Unity game</dd>
-              </div>
-              <div>
-                <dt>Role</dt>
-                <dd>Asset artist</dd>
-              </div>
-              <div>
-                <dt>Site target</dt>
-                <dd>Playable embed</dd>
-              </div>
-            </dl>
           </div>
 
-          <div class="project-feature__media project-feature__media--game" aria-label="BEET game preview slot">
-            <div class="project-play-slot">
-              <span class="project-play-slot__title">Unity build slot</span>
-              <span class="project-play-slot__caption">Unity Play embed or launch thumbnail</span>
-            </div>
+          <div class="projects-welcome__image-board" aria-label="Project image placeholders">
+            <figure class="projects-welcome__image-slot projects-welcome__image-slot--large">
+              <span>Main image placeholder</span>
+            </figure>
+            <figure class="projects-welcome__image-slot">
+              <span>Sketch placeholder</span>
+            </figure>
+            <figure class="projects-welcome__image-slot projects-welcome__image-slot--accent">
+              <span>Asset placeholder</span>
+            </figure>
           </div>
 
-          <div class="project-note-grid">
-            <section class="project-note">
-              <h3>Playable Plan</h3>
+          <div class="projects-welcome__format-grid">
+            <section class="projects-welcome__note projects-welcome__note--callout">
+              <p class="project-feature__label">Special formatting</p>
+              <h3>Callout Placeholder</h3>
               <p>
-                The preferred path is an embedded Unity WebGL build. If that becomes too heavy or awkward, this slot can become a polished thumbnail that opens the Unity Play page.
+                This block can become a highlighted thought, a short quote, a project philosophy note, or anything that should feel visually separate from normal body copy.
               </p>
             </section>
-            <section class="project-note">
-              <h3>Process Space</h3>
+            <section class="projects-welcome__note">
+              <p class="project-feature__label">Regular text</p>
+              <h3>Notebook Placeholder</h3>
               <p>
-                Asset sheets, visual decisions, early sketches, and collaboration notes can be added here as a focused making-of section.
+                This is a plain text area for longer writing. Swap this with final copy whenever the overall Projects introduction has a clearer shape.
               </p>
             </section>
           </div>
-        </article>
-
-        <article id="poker" class="project-feature project-feature--poker" data-project-panel="poker" tabindex="-1">
-          <div class="project-feature__lead">
-            <p class="project-feature__label">Project 03</p>
-            <h2>Poker Game</h2>
-            <p>
-              A solo Texas hold'em project written in Python with Pygame, wrapped in a cuter game style. This section is ready for a browser package attempt or an external playable fallback.
-            </p>
-            <dl class="project-stats">
-              <div>
-                <dt>Format</dt>
-                <dd>Pygame</dd>
-              </div>
-              <div>
-                <dt>Role</dt>
-                <dd>Solo developer</dd>
-              </div>
-              <div>
-                <dt>Site target</dt>
-                <dd>Web package</dd>
-              </div>
-            </dl>
-          </div>
-
-          <div class="project-feature__media project-feature__media--game" aria-label="Poker game preview slot">
-            <div class="project-play-slot project-play-slot--poker">
-              <span class="project-play-slot__title">Pygbag build slot</span>
-              <span class="project-play-slot__caption">Browser package or itch.io launch card</span>
-            </div>
-          </div>
-
-          <div class="project-note-grid">
-            <section class="project-note">
-              <h3>Playable Plan</h3>
-              <p>
-                The first attempt can be a pygbag export. If the build resists cleanly running in-page, the same module can pivot into an itch.io link without redesigning the whole section.
-              </p>
-            </section>
-            <section class="project-note">
-              <h3>Design Notes</h3>
-              <p>
-                Rules work, interface decisions, character styling, card art, and implementation notes can live here once the current build is ready to document.
-              </p>
-            </section>
-          </div>
-        </article>
-
-        <section class="projects-writing-zone" aria-labelledby="projects-writing-title">
-          <p class="project-feature__label">Open notebook</p>
-          <h2 id="projects-writing-title">Process Notes</h2>
-          <p>
-            This lower section is intentionally open for longer thoughts, development logs, screenshots, sketches, postmortems, and whatever future projects need room to breathe.
-          </p>
-        </section>
+        </div>
       </section>
     </main>
 

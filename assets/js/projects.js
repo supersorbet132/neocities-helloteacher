@@ -9,8 +9,15 @@
 	const readerSwitches = [...document.querySelectorAll("[data-project-reader-switch]")];
 	const closeButtons = [...document.querySelectorAll("[data-project-close]")];
 	const pokerGameFrame = document.querySelector("[data-project-game-frame]");
+	const pokerLaunchThumbnailSrc = "/assets/images/projects/sprites/pokertab/poker_launch_thumbnail.png";
 	const projectsHero = document.querySelector(".projects-hero");
 	const projectsTitleCard = document.querySelector(".projects-title-card[data-sprite-card='projects']");
+	const comicViewer = document.querySelector("[data-comic-viewer]");
+	const comicPageImage = document.querySelector("[data-comic-page-image]");
+	const comicPageStrip = document.querySelector("[data-comic-page-strip]");
+	const comicChapterButtons = [...document.querySelectorAll("[data-comic-chapter]")];
+	const beetZoomViewers = [...document.querySelectorAll("[data-zoom-viewer]")];
+	const spriteViewers = [...document.querySelectorAll("[data-sprite-viewer]")];
 
 	if (!stack || !tabs.length) {
 		return;
@@ -37,6 +44,14 @@
 	let titleAnimationNearViewport = true;
 	let readerTransitionToken = 0;
 	let activeReaderFlyer = null;
+	const comicChapters = [
+		{ title: "Chapter 1", dir: "ch1", pages: Array.from({ length: 16 }, (_, index) => index) },
+		{ title: "Chapter 2", dir: "ch2", pages: Array.from({ length: 20 }, (_, index) => index + 1) },
+		{ title: "Chapter 3", dir: "ch3", pages: Array.from({ length: 20 }, (_, index) => index + 1) },
+	];
+	let comicChapterIndex = 0;
+	let comicPageIndex = 0;
+	const zoomViewerStates = new WeakMap();
 
 	const isReaderOpen = () => Boolean(reader && !reader.hidden);
 
@@ -52,6 +67,12 @@
 
 	const getNumberVar = (element, name, fallback) => {
 		const parsed = Number.parseFloat(getComputedStyle(element).getPropertyValue(name));
+
+		return Number.isFinite(parsed) ? parsed : fallback;
+	};
+
+	const getDatasetNumber = (element, name, fallback) => {
+		const parsed = Number.parseFloat(element?.dataset?.[name]);
 
 		return Number.isFinite(parsed) ? parsed : fallback;
 	};
@@ -365,10 +386,20 @@
 	};
 
 	const createGamePlaceholder = () => {
-		const placeholder = document.createElement("div");
-		placeholder.className = "project-reader__game-placeholder";
-		placeholder.textContent = pokerGameFrame?.dataset.projectGamePlaceholder || "Game build sleeps while this project is closed.";
-		return placeholder;
+		const button = document.createElement("button");
+		button.className = "project-reader__game-launch";
+		button.type = "button";
+		button.setAttribute("aria-label", "Play Poker");
+		button.setAttribute("data-project-game-start", "");
+		button.innerHTML = `
+			<span class="project-reader__game-launch-art" aria-hidden="true">
+				<img src="${pokerLaunchThumbnailSrc}" alt="" width="1844" height="1250" decoding="async">
+			</span>
+			<span class="project-reader__game-launch-copy" aria-hidden="true">
+				<span class="project-reader__game-play-icon"></span>
+			</span>
+		`;
+		return button;
 	};
 
 	const mountPokerGame = () => {
@@ -398,12 +429,159 @@
 	};
 
 	const syncProjectRuntime = (id) => {
-		if (id === "poker" && isReaderOpen() && !document.hidden) {
-			mountPokerGame();
+		if (id !== "poker") {
+			unmountPokerGame();
+		}
+	};
+
+	const comicPageSrc = (chapterIndex, pageIndex) => {
+		const chapter = comicChapters[chapterIndex];
+		const page = chapter.pages[pageIndex];
+		return `/assets/images/projects/comic/${chapter.dir}/${page}.jpg`;
+	};
+
+	const setComicPage = (chapterIndex, pageIndex) => {
+		if (!comicPageImage || !comicPageStrip) {
 			return;
 		}
 
-		unmountPokerGame();
+		const chapter = comicChapters[chapterIndex] || comicChapters[0];
+		const nextPageIndex = Math.max(0, Math.min(pageIndex, chapter.pages.length - 1));
+		comicChapterIndex = Math.max(0, Math.min(chapterIndex, comicChapters.length - 1));
+		comicPageIndex = nextPageIndex;
+
+		comicPageImage.src = comicPageSrc(comicChapterIndex, comicPageIndex);
+		comicPageImage.alt = `${chapter.title} page ${comicPageIndex + 1}.`;
+
+		comicChapterButtons.forEach((button, index) => {
+			const isActive = index === comicChapterIndex;
+			button.classList.toggle("is-active", isActive);
+			button.setAttribute("aria-pressed", isActive ? "true" : "false");
+		});
+
+		comicPageStrip.querySelectorAll("[data-comic-page]").forEach((button) => {
+			const isActive = Number(button.dataset.comicPage) === comicPageIndex;
+			button.classList.toggle("is-active", isActive);
+			button.setAttribute("aria-pressed", isActive ? "true" : "false");
+		});
+	};
+
+	const renderComicPageStrip = () => {
+		if (!comicPageStrip) {
+			return;
+		}
+
+		comicPageStrip.replaceChildren();
+		comicChapters[comicChapterIndex].pages.forEach((_, index) => {
+			const button = document.createElement("button");
+			button.type = "button";
+			button.dataset.comicPage = String(index);
+			button.textContent = String(index + 1);
+			button.setAttribute("aria-label", `Open page ${index + 1}`);
+			button.addEventListener("click", () => setComicPage(comicChapterIndex, index));
+			comicPageStrip.append(button);
+		});
+		setComicPage(comicChapterIndex, comicPageIndex);
+	};
+
+	const stepComicPage = (direction) => {
+		const chapter = comicChapters[comicChapterIndex];
+		let nextChapterIndex = comicChapterIndex;
+		let nextPageIndex = comicPageIndex + direction;
+
+		if (nextPageIndex < 0 && comicChapterIndex > 0) {
+			nextChapterIndex -= 1;
+			nextPageIndex = comicChapters[nextChapterIndex].pages.length - 1;
+		} else if (nextPageIndex >= chapter.pages.length && comicChapterIndex < comicChapters.length - 1) {
+			nextChapterIndex += 1;
+			nextPageIndex = 0;
+		}
+
+		if (nextChapterIndex !== comicChapterIndex) {
+			comicChapterIndex = nextChapterIndex;
+			comicPageIndex = nextPageIndex;
+			renderComicPageStrip();
+			return;
+		}
+
+		setComicPage(nextChapterIndex, nextPageIndex);
+	};
+
+	const getZoomContent = (viewer) => viewer?.querySelector("[data-zoom-content]");
+
+	const getZoomViewerState = (viewer) => {
+		if (!viewer) {
+			return null;
+		}
+
+		const content = getZoomContent(viewer);
+
+		if (!content) {
+			return null;
+		}
+
+		if (!zoomViewerStates.has(viewer)) {
+			const defaultScale = getDatasetNumber(viewer, "zoomDefaultScale", 1);
+			const minScale = getDatasetNumber(viewer, "zoomMinScale", Math.min(0.45, defaultScale));
+			const maxScale = getDatasetNumber(viewer, "zoomMaxScale", 4);
+
+			zoomViewerStates.set(viewer, {
+				content,
+				defaultScale,
+				minScale,
+				maxScale,
+				scale: defaultScale,
+				x: 0,
+				y: 0,
+				dragging: false,
+				startX: 0,
+				startY: 0,
+				originX: 0,
+				originY: 0,
+			});
+		}
+
+		const state = zoomViewerStates.get(viewer);
+		state.content = content;
+		return state;
+	};
+
+	const clampZoomScale = (state, scale) => Math.max(state.minScale, Math.min(state.maxScale, scale));
+
+	const applyBeetZoom = (viewer) => {
+		const state = getZoomViewerState(viewer);
+
+		if (!state) {
+			return;
+		}
+
+		state.content.style.transform = `translate3d(${state.x}px, ${state.y}px, 0) scale(${state.scale})`;
+	};
+
+	const resetBeetZoom = (viewer, scale = null) => {
+		const state = getZoomViewerState(viewer);
+
+		if (!state) {
+			return;
+		}
+
+		const nextDefaultScale = Number.isFinite(scale) ? scale : state.defaultScale;
+		state.defaultScale = clampZoomScale(state, nextDefaultScale);
+		state.scale = state.defaultScale;
+		state.x = 0;
+		state.y = 0;
+		applyBeetZoom(viewer);
+	};
+
+	const adjustBeetZoom = (viewer, delta) => {
+		const state = getZoomViewerState(viewer);
+
+		if (!state) {
+			return;
+		}
+
+		state.scale = clampZoomScale(state, state.scale + delta);
+		applyBeetZoom(viewer);
 	};
 
 	const getActiveProjectId = () => readerPanels.find((panel) => panel.classList.contains("is-active"))?.dataset.projectReaderPanel
@@ -522,10 +700,10 @@
 				activeReaderFlyer = null;
 			}
 
-			const activeSwitch = reader?.querySelector(`[data-project-reader-switch="${id}"]`);
-			const closeButton = reader?.querySelector(".project-reader__close");
+			const activePanel = readerPanels.find((panel) => panel.dataset.projectReaderPanel === id);
+			const closeButton = activePanel?.querySelector("[data-project-close]");
 
-			(activeSwitch || closeButton)?.focus({ preventScroll: true });
+			closeButton?.focus({ preventScroll: true });
 		});
 	};
 
@@ -748,6 +926,130 @@
 		button.addEventListener("click", closeReader);
 	});
 
+	comicChapterButtons.forEach((button) => {
+		button.setAttribute("aria-pressed", button.classList.contains("is-active") ? "true" : "false");
+		button.addEventListener("click", () => {
+			comicChapterIndex = Number(button.dataset.comicChapter) || 0;
+			comicPageIndex = 0;
+			renderComicPageStrip();
+		});
+	});
+
+	document.querySelector("[data-comic-prev]")?.addEventListener("click", () => stepComicPage(-1));
+	document.querySelector("[data-comic-next]")?.addEventListener("click", () => stepComicPage(1));
+	renderComicPageStrip();
+
+	beetZoomViewers.forEach((viewer) => {
+		const content = getZoomContent(viewer);
+
+		content?.setAttribute("draggable", "false");
+		content?.addEventListener("dragstart", (event) => event.preventDefault());
+		content?.querySelectorAll?.("img").forEach((image) => {
+			image.setAttribute("draggable", "false");
+			image.addEventListener("dragstart", (event) => event.preventDefault());
+		});
+		resetBeetZoom(viewer);
+
+		viewer.querySelector("[data-zoom-out]")?.addEventListener("click", () => adjustBeetZoom(viewer, -0.25));
+		viewer.querySelector("[data-zoom-in]")?.addEventListener("click", () => adjustBeetZoom(viewer, 0.25));
+		viewer.querySelector("[data-zoom-reset]")?.addEventListener("click", () => resetBeetZoom(viewer));
+
+		viewer.addEventListener("wheel", (event) => {
+			event.preventDefault();
+			adjustBeetZoom(viewer, event.deltaY > 0 ? -0.2 : 0.2);
+		}, { passive: false });
+
+		viewer.addEventListener("pointerdown", (event) => {
+			if (event.target.closest(".project-zoom-viewer__controls")) {
+				return;
+			}
+
+			if (event.button !== undefined && event.button !== 0) {
+				return;
+			}
+
+			const state = getZoomViewerState(viewer);
+
+			if (!state) {
+				return;
+			}
+
+			event.preventDefault();
+			state.dragging = true;
+			state.startX = event.clientX;
+			state.startY = event.clientY;
+			state.originX = state.x;
+			state.originY = state.y;
+			viewer.setPointerCapture(event.pointerId);
+			viewer.classList.add("is-dragging");
+		});
+
+		viewer.addEventListener("pointermove", (event) => {
+			const state = getZoomViewerState(viewer);
+
+			if (!state?.dragging) {
+				return;
+			}
+
+			state.x = state.originX + event.clientX - state.startX;
+			state.y = state.originY + event.clientY - state.startY;
+			applyBeetZoom(viewer);
+		});
+
+		const stopBeetDrag = () => {
+			const state = getZoomViewerState(viewer);
+
+			if (state) {
+				state.dragging = false;
+			}
+
+			viewer.classList.remove("is-dragging");
+		};
+
+		viewer.addEventListener("pointerup", stopBeetDrag);
+		viewer.addEventListener("pointercancel", stopBeetDrag);
+	});
+
+	const setSpriteViewerIndex = (viewer, index) => {
+		const image = viewer.querySelector("[data-sprite-viewer-image]");
+		const thumbs = [...viewer.querySelectorAll("[data-sprite-thumb]")];
+
+		if (!image || !thumbs.length) {
+			return;
+		}
+
+		const nextIndex = (index + thumbs.length) % thumbs.length;
+		const activeThumb = thumbs[nextIndex];
+
+		image.src = activeThumb.dataset.spriteSrc;
+		image.alt = activeThumb.dataset.spriteAlt || "";
+		viewer.dataset.spriteIndex = String(nextIndex);
+
+		thumbs.forEach((thumb, thumbIndex) => {
+			const isActive = thumbIndex === nextIndex;
+
+			thumb.classList.toggle("is-active", isActive);
+			thumb.setAttribute("aria-pressed", isActive ? "true" : "false");
+		});
+	};
+
+	spriteViewers.forEach((viewer) => {
+		const thumbs = [...viewer.querySelectorAll("[data-sprite-thumb]")];
+
+		thumbs.forEach((thumb, index) => {
+			thumb.setAttribute("aria-pressed", thumb.classList.contains("is-active") ? "true" : "false");
+			thumb.addEventListener("click", () => setSpriteViewerIndex(viewer, index));
+		});
+
+		viewer.querySelector("[data-sprite-prev]")?.addEventListener("click", () => {
+			setSpriteViewerIndex(viewer, Number(viewer.dataset.spriteIndex || 0) - 1);
+		});
+		viewer.querySelector("[data-sprite-next]")?.addEventListener("click", () => {
+			setSpriteViewerIndex(viewer, Number(viewer.dataset.spriteIndex || 0) + 1);
+		});
+		setSpriteViewerIndex(viewer, 0);
+	});
+
 	if (typeof reduceMotion.addEventListener === "function") {
 		reduceMotion.addEventListener("change", () => {
 			tabs.forEach((tab) => stopTabParallax(tab));
@@ -778,23 +1080,45 @@
 	window.addEventListener("pagehide", unmountPokerGame);
 
 	document.addEventListener("click", (event) => {
+		const gameStart = event.target.closest("[data-project-game-start]");
+
+		if (gameStart) {
+			mountPokerGame();
+			return;
+		}
+
 		const previewButton = event.target.closest("[data-project-preview]");
 
 		if (!previewButton) {
 			return;
 		}
 
-		const panel = previewButton.closest("[data-project-reader-panel]");
-		const previewImage = panel?.querySelector("[data-project-preview-image]");
+		const previewScope = previewButton.closest("[data-project-preview-scope]")
+			|| previewButton.closest("[data-project-reader-panel]");
+		const previewImage = previewScope?.querySelector("[data-project-preview-image]");
 
 		if (!previewImage) {
 			return;
 		}
 
-		previewImage.src = previewButton.dataset.projectPreviewSrc;
+		if (previewButton.dataset.projectPreviewWidth && previewButton.dataset.projectPreviewHeight) {
+			previewImage.width = Number(previewButton.dataset.projectPreviewWidth);
+			previewImage.height = Number(previewButton.dataset.projectPreviewHeight);
+		}
 		previewImage.alt = previewButton.dataset.projectPreviewAlt || "";
+		previewImage.setAttribute("draggable", "false");
 
-		panel.querySelectorAll("[data-project-preview]").forEach((button) => {
+		const zoomViewer = previewImage.closest("[data-zoom-viewer]");
+		if (zoomViewer) {
+			const previewScale = Number.parseFloat(previewButton.dataset.projectPreviewScale);
+			previewImage.addEventListener("load", () => resetBeetZoom(zoomViewer, previewScale), { once: true });
+			previewImage.src = previewButton.dataset.projectPreviewSrc;
+			resetBeetZoom(zoomViewer, previewScale);
+		} else {
+			previewImage.src = previewButton.dataset.projectPreviewSrc;
+		}
+
+		previewScope.querySelectorAll("[data-project-preview]").forEach((button) => {
 			const isActive = button === previewButton;
 
 			button.classList.toggle("is-active", isActive);
@@ -835,6 +1159,12 @@
 		if (event.key === "Escape") {
 			event.preventDefault();
 			closeReader();
+			return;
+		}
+
+		if (getActiveProjectId() === "comic" && (event.key === "ArrowLeft" || event.key === "ArrowRight")) {
+			event.preventDefault();
+			stepComicPage(event.key === "ArrowRight" ? 1 : -1);
 			return;
 		}
 
