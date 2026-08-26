@@ -55,6 +55,8 @@
 	const DRIFT_X_MAX = 14;
 	const DRIFT_Y_MAX = 18;
 	const DRIFT_ROTATE_MAX = 0.7;
+	const DRIFT_START_DELAY_MAX = 1.8;
+	const DRIFT_SETTLE_MS = 360;
 	const RELAYOUT_WIDTH_THRESHOLD = 12;
 	const VISIBLE_YEAR_LAYER_COUNT = 4;
 	const DEPTH_ATTRIBUTE_LAYER_COUNT = 6;
@@ -496,7 +498,7 @@
 			title: entry.title || artwork.title,
 			year: entry.year || artwork.year || "",
 			medium: entry.medium || "",
-			description: entry.description || `Placeholder note for ${artwork.title}. Add this artwork's final description in assets/data/art-descriptions.json.`,
+			description: typeof entry.description === "string" ? entry.description : "",
 		};
 	};
 
@@ -643,13 +645,70 @@
 		state.card.style.setProperty("--artwork-aspect", (state.cardWidth / state.cardHeight).toFixed(5));
 	};
 
-	const setDriftActive = (state, isActive) => {
-		if (state.isDriftActive === isActive) {
+	const clearDriftSettle = (state) => {
+		if (state.driftSettleTimer) {
+			window.clearTimeout(state.driftSettleTimer);
+			state.driftSettleTimer = null;
+		}
+
+		if (!state.driftWrap) {
 			return;
 		}
 
-		state.isDriftActive = isActive;
-		state.card.classList.toggle("is-drift-active", isActive);
+		state.driftWrap.style.animation = "";
+		state.driftWrap.style.transition = "";
+		state.driftWrap.style.transform = "";
+	};
+
+	const settleDriftToNeutral = (state) => {
+		if (!state.driftWrap || !state.isDriftActive) {
+			return;
+		}
+
+		const currentTransform = window.getComputedStyle(state.driftWrap).transform;
+
+		state.isDriftActive = false;
+		state.card.classList.remove("is-drift-active");
+
+		if (!currentTransform || currentTransform === "none") {
+			clearDriftSettle(state);
+			return;
+		}
+
+		if (state.driftSettleTimer) {
+			window.clearTimeout(state.driftSettleTimer);
+		}
+
+		state.driftWrap.style.animation = "none";
+		state.driftWrap.style.transition = "none";
+		state.driftWrap.style.transform = currentTransform;
+		state.driftWrap.getBoundingClientRect();
+		state.driftWrap.style.transition = `transform ${DRIFT_SETTLE_MS}ms cubic-bezier(0.16, 0.92, 0.18, 1)`;
+		state.driftWrap.style.transform = "translate3d(0, 0, 0) rotate(0deg)";
+		state.driftSettleTimer = window.setTimeout(() => clearDriftSettle(state), DRIFT_SETTLE_MS + 80);
+	};
+
+	const settleActiveDriftToNeutral = () => {
+		getActiveStates().forEach(settleDriftToNeutral);
+	};
+
+	const setDriftActive = (state, isActive) => {
+		const shouldBeActive = isActive
+			&& state.isActive
+			&& !viewerState
+			&& !isYearTransitioning
+			&& !reduceMotion.matches;
+
+		if (state.isDriftActive === shouldBeActive) {
+			return;
+		}
+
+		if (shouldBeActive) {
+			clearDriftSettle(state);
+		}
+
+		state.isDriftActive = shouldBeActive;
+		state.card.classList.toggle("is-drift-active", shouldBeActive);
 	};
 
 	const updateDriftActivation = (metrics) => {
@@ -720,6 +779,14 @@
 		renderArtwork(state, parallaxContext, true);
 	};
 
+	const renderActiveLayerGeometry = () => {
+		const parallaxContext = measureParallaxContext();
+
+		getActiveStates().forEach((state) => {
+			renderArtwork(state, parallaxContext, true);
+		});
+	};
+
 	const requestRender = ({ includeGeometry = false, includeDepthGeometry = false } = {}) => {
 		pendingFullRender = pendingFullRender || includeGeometry;
 		pendingDepthRender = pendingDepthRender || includeDepthGeometry;
@@ -784,7 +851,7 @@
 		state.yearGroup.topLayerRank += 1;
 		state.layerRank = state.yearGroup.topLayerRank;
 		updateLayering(options);
-		requestRender({ includeGeometry: true });
+		renderActiveLayerGeometry();
 	};
 
 	const isLayerVisibleAtIndex = (groupIndex) => {
@@ -1584,6 +1651,7 @@
 		}
 
 		cancelActiveMotion();
+		settleActiveDriftToNeutral();
 
 		if (yearTransitionTimer) {
 			window.clearTimeout(yearTransitionTimer);
@@ -1667,7 +1735,7 @@
 		card.style.setProperty("--artwork-drift-rotate", `${driftRotate.toFixed(3)}deg`);
 		card.style.setProperty("--artwork-drift-rotate-alt", `${(-driftRotate).toFixed(3)}deg`);
 		card.style.setProperty("--artwork-drift-duration", `${driftDuration.toFixed(2)}s`);
-		card.style.setProperty("--artwork-drift-delay", `${(-driftRandom() * driftDuration).toFixed(2)}s`);
+		card.style.setProperty("--artwork-drift-delay", `${(driftRandom() * DRIFT_START_DELAY_MAX).toFixed(2)}s`);
 
 		const driftWrap = document.createElement("span");
 		driftWrap.className = "artwork-card__drift";
@@ -1699,6 +1767,7 @@
 			artwork,
 			yearGroup: group,
 			card,
+			driftWrap,
 			imageWrap,
 			image,
 			x: 0,
@@ -1716,6 +1785,7 @@
 			cardHeight: 260,
 			hasCustomPosition: false,
 			inertiaFrame: null,
+			driftSettleTimer: null,
 		};
 
 		card.addEventListener("pointerdown", (event) => handlePointerDown(event, state));

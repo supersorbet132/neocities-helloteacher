@@ -28,6 +28,7 @@
 	const scrollHeldHoverClass = "is-scroll-held-hover";
 	const comicCloudDriftClass = "is-comic-cloud-drifting";
 	const comicParallaxActiveClass = "is-comic-parallax-active";
+	const beetParallaxActiveClass = "is-beet-parallax-active";
 	const pokerParallaxActiveClass = "is-poker-parallax-active";
 	const readerOriginHiddenClass = "is-project-reader-origin-hidden";
 	const scrollIdleHoverDelay = 220;
@@ -60,6 +61,7 @@
 	};
 
 	const isComicTab = (tab) => tab?.classList.contains("project-bar--comic");
+	const isBeetTab = (tab) => tab?.classList.contains("project-bar--beet");
 	const isPokerTab = (tab) => tab?.classList.contains("project-bar--poker");
 	const getProjectTab = (id) => tabs.find((tab) => tab.dataset.projectTab === id);
 
@@ -105,6 +107,21 @@
 				rangeYVar: "--poker-parallax-range-y",
 				xVar: "--poker-parallax-x",
 				yVar: "--poker-parallax-y",
+			};
+		}
+
+		if (isBeetTab(tab)) {
+			return {
+				activeClass: beetParallaxActiveClass,
+				artSelector: ".project-beet-tab",
+				defaultRangeX: 14,
+				defaultRangeY: 8,
+				depthVar: "--beet-parallax-depth",
+				layerSelector: ".project-beet-tab__layer, .project-beet-tab__title",
+				rangeXVar: "--beet-parallax-range-x",
+				rangeYVar: "--beet-parallax-range-y",
+				xVar: "--beet-parallax-x",
+				yVar: "--beet-parallax-y",
 			};
 		}
 
