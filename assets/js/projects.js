@@ -151,7 +151,13 @@
 			layer,
 			depth: getNumberVar(layer, config.depthVar, 0),
 		}));
-		const data = { art, config, layers };
+		const data = {
+			art,
+			config,
+			layers,
+			maxX: getNumberVar(art, config.rangeXVar, config.defaultRangeX),
+			maxY: getNumberVar(art, config.rangeYVar, config.defaultRangeY),
+		};
 		tabParallaxCache.set(tab, data);
 
 		return data;
@@ -205,6 +211,10 @@
 			return;
 		}
 
+		if (!tab.classList.contains(data.config.activeClass)) {
+			return;
+		}
+
 		tab.classList.remove(data.config.activeClass);
 		data.layers.forEach(({ layer }) => {
 			layer.style.setProperty(data.config.xVar, "0px");
@@ -232,13 +242,11 @@
 
 		const progressX = Math.max(Math.min(((pointerClientX - rect.left) / rect.width - 0.5) * 2, 1), -1);
 		const progressY = Math.max(Math.min(((pointerClientY - rect.top) / rect.height - 0.5) * 2, 1), -1);
-		const maxX = getNumberVar(data.art, data.config.rangeXVar, data.config.defaultRangeX);
-		const maxY = getNumberVar(data.art, data.config.rangeYVar, data.config.defaultRangeY);
 
 		tab.classList.add(data.config.activeClass);
 		data.layers.forEach(({ layer, depth }) => {
-			layer.style.setProperty(data.config.xVar, `${(progressX * maxX * depth).toFixed(2)}px`);
-			layer.style.setProperty(data.config.yVar, `${(progressY * maxY * depth).toFixed(2)}px`);
+			layer.style.setProperty(data.config.xVar, `${(progressX * data.maxX * depth).toFixed(2)}px`);
+			layer.style.setProperty(data.config.yVar, `${(progressY * data.maxY * depth).toFixed(2)}px`);
 		});
 	};
 
@@ -410,7 +418,7 @@
 		button.setAttribute("data-project-game-start", "");
 		button.innerHTML = `
 			<span class="project-reader__game-launch-art" aria-hidden="true">
-				<img src="${pokerLaunchThumbnailSrc}" alt="" width="1844" height="1250" decoding="async">
+				<img src="${pokerLaunchThumbnailSrc}" alt="" width="1844" height="1250" loading="lazy" decoding="async">
 			</span>
 			<span class="project-reader__game-launch-copy" aria-hidden="true">
 				<span class="project-reader__game-play-icon"></span>
@@ -622,7 +630,7 @@
 		const thumbnail = document.createElement("div");
 		thumbnail.className = [...projectBarClasses(tab), className].join(" ");
 		thumbnail.setAttribute("aria-hidden", "true");
-		thumbnail.innerHTML = tab.innerHTML;
+		tab.childNodes.forEach((child) => thumbnail.append(child.cloneNode(true)));
 
 		if (expanded) {
 			thumbnail.classList.add(scrollHeldHoverClass);
@@ -826,7 +834,7 @@
 		clearScrollHeldHover();
 		setTabHoverReady(false);
 		setActiveProject(id, { syncRuntime: false, updateHeader: false });
-		setReaderHeader(id);
+		readerHeader?.replaceChildren();
 
 		const targetRect = readerHeader?.getBoundingClientRect();
 		const flyer = triggerTab && sourceRect && targetRect

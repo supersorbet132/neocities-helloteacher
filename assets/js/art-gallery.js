@@ -378,7 +378,6 @@
 
 	const initialYearIndex = 0;
 	let activeYearIndex = initialYearIndex;
-	let states = [];
 	let activeDrag = null;
 	let resizeQueued = false;
 	let lastLayoutWidth = 0;
@@ -466,7 +465,7 @@
 			return;
 		}
 
-		window.fetch(DESCRIPTION_SRC, { cache: "no-store" })
+		window.fetch(DESCRIPTION_SRC)
 			.then((response) => {
 				if (!response.ok) {
 					throw new Error(`Description request failed: ${response.status}`);
@@ -1137,7 +1136,7 @@
 	};
 
 	const cancelActiveMotion = () => {
-		states.forEach((state) => {
+		getActiveStates().forEach((state) => {
 			cancelInertia(state);
 			resetTilt(state);
 			state.card.classList.remove("is-pressed", "is-dragging");
@@ -1150,8 +1149,14 @@
 			return;
 		}
 
+		const wasTilting = activeTilt?.state === state || state.card.classList.contains("is-tilting");
+
 		if (activeTilt?.state === state) {
 			activeTilt = null;
+		}
+
+		if (!wasTilting) {
+			return;
 		}
 
 		state.card.classList.remove("is-tilting");
@@ -1461,6 +1466,7 @@
 		viewerDescriptionBody.textContent = "";
 		viewerDescription.removeAttribute("data-layout");
 		resetDescriptionGlint();
+		document.documentElement.classList.remove("is-art-viewer-open");
 		document.body.classList.remove("is-art-viewer-open");
 	};
 
@@ -1499,6 +1505,7 @@
 
 		viewer.classList.add("is-active");
 		viewer.setAttribute("aria-hidden", "false");
+		document.documentElement.classList.add("is-art-viewer-open");
 		document.body.classList.add("is-art-viewer-open");
 		state.card.classList.add("is-viewer-source");
 		viewerImage.getBoundingClientRect();
@@ -1566,7 +1573,6 @@
 			velocityY: 0,
 			isDragging: false,
 		};
-		event.preventDefault();
 	};
 
 	const handlePointerMove = (event) => {
@@ -1849,7 +1855,6 @@
 		gallery.append(layer);
 		layer.append(createYearTitle(group));
 		group.states = group.artworks.map((artwork, artworkIndex) => createArtworkCard(group, artwork, artworkIndex));
-		states.push(...group.states);
 	};
 
 	yearGroups.forEach(createYearLayer);

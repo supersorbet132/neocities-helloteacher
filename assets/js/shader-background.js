@@ -291,6 +291,7 @@
 			contrast: clamp(getNumber("--gradient-wavefront-contrast", 1), 0.2, 3),
 		};
 	};
+	let settings = readSettings();
 
 	const useProgram = (programInfo) => {
 		gl.useProgram(programInfo.program);
@@ -457,7 +458,6 @@
 
 		animationFrame = window.requestAnimationFrame(render);
 
-		const settings = readSettings();
 		const frameInterval = 1000 / settings.fps;
 
 		if (lastFrameTime && time - lastFrameTime < frameInterval) {
@@ -467,7 +467,6 @@
 		const delta = lastFrameTime ? clamp((time - lastFrameTime) * 0.03, 0.2, 2.0) : 1;
 
 		lastFrameTime = time;
-		resizeCanvas(settings);
 
 		if (!ensureSimulation(settings)) {
 			return;
@@ -498,10 +497,10 @@
 	gl.bufferData(gl.ARRAY_BUFFER, positions, gl.STATIC_DRAW);
 	gl.disable(gl.DEPTH_TEST);
 	gl.disable(gl.STENCIL_TEST);
+	resizeCanvas(settings);
 
 	window.addEventListener("resize", () => {
-		const settings = readSettings();
-
+		settings = readSettings();
 		resizeCanvas(settings);
 	});
 	document.addEventListener("visibilitychange", () => {

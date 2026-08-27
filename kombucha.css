@@ -1435,7 +1435,6 @@
 		--project-reader-panel-slide-distance: 110svh;
 		--project-reader-transition-duration: 680ms;
 		--project-reader-transition-ease: cubic-bezier(0.16, 0.92, 0.18, 1);
-		--project-comic-viewer-width: min(36.5rem, 46vw);
 		--project-comic-copy-min: 20rem;
 		--project-comic-page-height: min(92svh, 72rem);
 		--project-comic-process-image-height: clamp(20rem, 42svh, 36rem);
@@ -1888,27 +1887,28 @@
 		--poker-letter-p-x: 2.8334%;
 		--poker-letter-p-y: 36.25%;
 		--poker-letter-p-width: 12.0833%;
-		--poker-letter-p-scale: 1;
+		--poker-letter-scale: 0.92;
+		--poker-letter-p-scale: var(--poker-letter-scale);
 		--poker-letter-p-depth: 0.58;
 		--poker-letter-o-x: 8.5833%;
 		--poker-letter-o-y: 50.625%;
 		--poker-letter-o-width: 10.8333%;
-		--poker-letter-o-scale: 1;
+		--poker-letter-o-scale: var(--poker-letter-scale);
 		--poker-letter-o-depth: 0.6;
 		--poker-letter-k-x: 19.5833%;
 		--poker-letter-k-y: 35.875%;
 		--poker-letter-k-width: 11.8333%;
-		--poker-letter-k-scale: 1;
+		--poker-letter-k-scale: var(--poker-letter-scale);
 		--poker-letter-k-depth: 0.62;
 		--poker-letter-e-x: 31%;
 		--poker-letter-e-y: 37.625%;
 		--poker-letter-e-width: 8.75%;
-		--poker-letter-e-scale: 1;
+		--poker-letter-e-scale: var(--poker-letter-scale);
 		--poker-letter-e-depth: 0.64;
 		--poker-letter-r-x: 40.5%;
 		--poker-letter-r-y: 36.75%;
 		--poker-letter-r-width: 12.75%;
-		--poker-letter-r-scale: 1;
+		--poker-letter-r-scale: var(--poker-letter-scale);
 		--poker-letter-r-depth: 0.66;
 		/* Unhovered POKER group dials. 1cqw equals 1% of the tab width. */
 		--poker-letter-rest-group-x: -6.7cqw;
@@ -2716,7 +2716,6 @@
 			transform var(--project-reader-transition-duration) var(--project-reader-transition-ease),
 			width var(--project-reader-transition-duration) var(--project-reader-transition-ease),
 			height var(--project-reader-transition-duration) var(--project-reader-transition-ease),
-			filter var(--project-reader-transition-duration) var(--project-reader-transition-ease),
 			opacity 180ms ease;
 		will-change: transform, width, height;
 	}
@@ -2914,7 +2913,8 @@
 	}
 	.project-comic-workspace {
 		display: grid;
-		grid-template-columns: minmax(8.5rem, 11rem) minmax(0, var(--project-comic-viewer-width)) minmax(var(--project-comic-copy-min), 1fr);
+		grid-template-columns: minmax(8.5rem, 11rem) max-content minmax(var(--project-comic-copy-min), 1fr);
+		align-items: start;
 		justify-content: center;
 		gap: 0.75rem;
 		min-height: calc(100svh - 8rem);
@@ -2965,8 +2965,9 @@
 		grid-template-rows: minmax(0, 1fr) auto;
 		gap: 0.65rem;
 		justify-self: center;
-		width: min(100%, var(--project-comic-viewer-width));
+		width: max-content;
 		min-width: 0;
+		max-width: none;
 		padding: 0.7rem;
 		border-radius: 8px;
 		outline: none;
@@ -3027,9 +3028,13 @@
 	.project-comic-page-strip {
 		display: flex;
 		gap: 0.35rem;
+		width: 100%;
 		min-height: 2.7rem;
+		min-width: 0;
+		max-width: 100%;
 		padding: 0.35rem;
 		overflow-x: auto;
+		contain: inline-size;
 		background: rgba(255, 249, 236, 0.04);
 		border: 1px solid rgba(255, 249, 236, 0.08);
 		border-radius: 6px;
@@ -4609,6 +4614,28 @@
 	body.projects-page .site-footer p {
 		text-align: left;
 	}
+	@media (max-width: 75rem), (max-width: 90rem) and (max-aspect-ratio: 6 / 5) {
+		.project-comic-workspace {
+			grid-template-columns: 1fr;
+		}
+		.project-comic-sidebar,
+		.project-reader__copy--comic {
+			width: 100%;
+		}
+		.project-comic-viewer {
+			width: max-content;
+			max-width: 100%;
+		}
+		.project-comic-page-frame {
+			min-height: 0;
+		}
+		.project-comic-page-frame img {
+			width: auto;
+			height: auto;
+			max-width: calc(100vw - 4.5rem);
+			max-height: var(--project-comic-page-height);
+		}
+	}
 	@media (max-width: 60rem) {
 		body.projects-page {
 			--projects-hero-card-width: 132vw;
@@ -4620,7 +4647,6 @@
 			--project-tab-hover-max: 34rem;
 			--project-reader-header-height: 92svh;
 			--project-reader-header-overlap: 38svh;
-			--project-comic-viewer-width: 100%;
 			--project-comic-page-height: min(104svh, 66rem);
 		}
 		.projects-hero,
@@ -4720,7 +4746,6 @@
 			--project-tab-stack-overlap: calc(-8.8 * var(--projects-stage-unit));
 			--project-reader-header-height: 90svh;
 			--project-reader-header-overlap: 34svh;
-			--project-comic-viewer-width: 100%;
 			--project-comic-page-height: min(90svh, 54rem);
 			--project-beet-sprite-viewer-width: 100%;
 			--project-beet-sprite-viewer-height: clamp(18rem, 48svh, 26rem);
@@ -4829,8 +4854,9 @@
 			padding: 0.45rem;
 		}
 		.project-comic-page-frame img {
-			height: var(--project-comic-page-height);
-			max-height: none;
+			height: auto;
+			max-width: calc(100vw - 4.5rem);
+			max-height: var(--project-comic-page-height);
 		}
 		.project-comic-arrow {
 			width: 22%;
@@ -4954,8 +4980,9 @@
 		min-height: 100%;
 		overflow-x: hidden;
 		overflow-x: clip;
+		overflow-y: auto;
 		background: #81F5FC;
-		overscroll-behavior-y: none;
+		overscroll-behavior-y: auto;
 	}
 	body.art-page {
 		--art-page-gradient: linear-gradient(
@@ -4970,12 +4997,12 @@
 		--art-glint-pink: rgba(255, 91, 205, 0.28);
 		--art-glint-gold: rgba(255, 219, 108, 0.28);
 		min-height: 100vh;
-		overflow-x: hidden;
-		overflow-y: auto;
+		overflow: visible;
 		background: #81F5FC;
 		background-attachment: scroll;
-		overscroll-behavior-y: none;
+		overscroll-behavior-y: auto;
 	}
+	html.art-page-root.is-art-viewer-open,
 	body.art-page.is-art-viewer-open {
 		overflow: hidden;
 	}
@@ -5361,7 +5388,7 @@
 		cursor: grab;
 		opacity: 1;
 		user-select: none;
-		touch-action: none;
+		touch-action: pan-y pinch-zoom;
 		transform: translate3d(var(--artwork-x), calc(var(--artwork-y) + var(--artwork-parallax-y)), 0);
 		transform-origin: center center;
 	}

@@ -56,8 +56,9 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 })();
 
 (() => {
-	const cards = new Set();
+	const cards = new Map();
 	const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+	const viewportMarginRatio = 0.75;
 	let ticking = false;
 
 	const getNumberVar = (element, name, fallback) => {
@@ -89,25 +90,33 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 		return "--art-source-width";
 	};
 
-	const getParallaxRange = (card, rect) => {
-		const baseRange = getNumberVar(card, getParallaxRangeVar(card), 70);
-		const sourceWidth = getNumberVar(card, getSourceWidthVar(card), rect.width || 2560);
-		const widthScale = sourceWidth > 0 && rect.width > 0 ? rect.width / sourceWidth : 1;
+	const createCardData = (card) => ({
+		card,
+		layers: [...card.querySelectorAll("[data-card-parallax-layer]")].map((layer) => ({
+			layer,
+			strength: Number.parseFloat(layer.dataset.spriteParallaxStrength) || 0,
+		})),
+		baseRange: getNumberVar(card, getParallaxRangeVar(card), 70),
+		sourceWidth: getNumberVar(card, getSourceWidthVar(card), 2560),
+	});
 
-		return baseRange * widthScale;
+	const getParallaxRange = (data, rect) => {
+		const widthScale = data.sourceWidth > 0 && rect.width > 0 ? rect.width / data.sourceWidth : 1;
+
+		return data.baseRange * widthScale;
 	};
 
-	const getParallaxLayers = (card) => [...card.querySelectorAll("[data-card-parallax-layer]")];
-
-	const clearCardParallax = (card) => {
-		getParallaxLayers(card).forEach((layer) => {
+	const clearCardParallax = (data) => {
+		data.layers.forEach(({ layer }) => {
 			layer.style.removeProperty("--sprite-parallax-y");
 		});
 	};
 
-	const setCardParallax = (card) => {
+	const setCardParallax = (data) => {
+		const { card, layers } = data;
+
 		if (reduceMotion.matches) {
-			clearCardParallax(card);
+			clearCardParallax(data);
 			return;
 		}
 
@@ -121,14 +130,18 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 		if (viewportHeight <= 0) {
 			return;
 		}
+		const viewportMargin = viewportHeight * viewportMarginRatio;
+
+		if (rect.bottom < -viewportMargin || rect.top > viewportHeight + viewportMargin) {
+			return;
+		}
 
 		const viewportCenter = viewportHeight / 2;
 		const cardCenter = rect.top + (rect.height / 2);
 		const progress = Math.max(Math.min((viewportCenter - cardCenter) / viewportHeight, 1), -1);
-		const range = getParallaxRange(card, rect);
+		const range = getParallaxRange(data, rect);
 
-		getParallaxLayers(card).forEach((layer) => {
-			const strength = Number.parseFloat(layer.dataset.spriteParallaxStrength) || 0;
+		layers.forEach(({ layer, strength }) => {
 			const y = progress * range * strength;
 
 			layer.style.setProperty("--sprite-parallax-y", `${y.toFixed(2)}px`);
@@ -136,7 +149,7 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 	};
 
 	const setAllParallax = () => {
-		cards.forEach((card) => setCardParallax(card));
+		cards.forEach(setCardParallax);
 	};
 
 	const requestParallax = () => {
@@ -153,14 +166,20 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 
 	window.helloTeacherSpriteParallax = {
 		register(card) {
-			cards.add(card);
+			cards.set(card, createCardData(card));
 			requestParallax();
 		},
 		refresh: requestParallax,
 	};
+	const refreshCardData = () => {
+		cards.forEach((_, card) => {
+			cards.set(card, createCardData(card));
+		});
+		requestParallax();
+	};
 
 	window.addEventListener("scroll", requestParallax, { passive: true });
-	window.addEventListener("resize", requestParallax);
+	window.addEventListener("resize", refreshCardData);
 
 	if (typeof reduceMotion.addEventListener === "function") {
 		reduceMotion.addEventListener("change", setAllParallax);
@@ -1510,27 +1529,45 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 		sprite.style.setProperty("--sprite-fade-duration", `${fadeDuration}ms`);
 	};
 
-	const getFloatingSprites = (card) => [...card.querySelectorAll("[data-art-float]")];
+	const getFloatingSprites = (card) => [...card.querySelectorAll("[data-art-float]")]
+		.map((sprite) => ({
+			config: floatConfigs.get(sprite.dataset.artLayer),
+			image: sprite.querySelector(".art-sprite-card__sprite-image"),
+			layerName: sprite.dataset.artLayer,
+		}))
+		.filter(({ config, image }) => config && image);
 
-	const applyFloatFrame = (card, sprites, time) => {
-		const starAmplitude = getNumberVar(card, "--art-star-jitter-amplitude", 5);
-		const triangleJitterAmplitude = getNumberVar(card, "--art-triangle-jitter-amplitude", 2.5);
-		const triangleAmplitude = getNumberVar(card, "--art-triangle-drift-amplitude", 10);
-		const letterAmplitude = getNumberVar(card, "--art-letter-sway-amplitude", 5);
-		const letterPeriod = getNumberVar(card, "--art-letter-sway-period", 2600);
-		const letterMotionDuration = getNumberVar(card, "--art-letter-sway-motion-duration", 1900);
-		const bobAmplitude = getNumberVar(card, "--art-sun-moon-bob-amplitude", 5);
+	const getFloatSettings = (card) => ({
+		starAmplitude: getNumberVar(card, "--art-star-jitter-amplitude", 5),
+		triangleJitterAmplitude: getNumberVar(card, "--art-triangle-jitter-amplitude", 2.5),
+		triangleAmplitude: getNumberVar(card, "--art-triangle-drift-amplitude", 10),
+		letterAmplitude: getNumberVar(card, "--art-letter-sway-amplitude", 5),
+		letterPeriod: getNumberVar(card, "--art-letter-sway-period", 2600),
+		letterMotionDuration: getNumberVar(card, "--art-letter-sway-motion-duration", 1900),
+		bobAmplitude: getNumberVar(card, "--art-sun-moon-bob-amplitude", 5),
+	});
 
-		sprites.forEach((sprite) => {
-			const layerName = sprite.dataset.artLayer;
-			const config = floatConfigs.get(layerName);
-			const image = sprite.querySelector(".art-sprite-card__sprite-image");
+	const resetFloatingSprites = (sprites) => {
+		sprites.forEach(({ image }) => {
+			image.style.removeProperty("--sprite-float-x");
+			image.style.removeProperty("--sprite-float-y");
+		});
+	};
+
+	const applyFloatFrame = (state, time) => {
+		const {
+			starAmplitude,
+			triangleJitterAmplitude,
+			triangleAmplitude,
+			letterAmplitude,
+			letterPeriod,
+			letterMotionDuration,
+			bobAmplitude,
+		} = state.settings;
+
+		state.sprites.forEach(({ config, image, layerName }) => {
 			let x = 0;
 			let y = 0;
-
-			if (!config || !image) {
-				return;
-			}
 
 			if (config.kind === "letter") {
 				const cycleTime = time % letterPeriod;
@@ -1570,18 +1607,11 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 	const runFloatLoop = (time) => {
 		activeFloatCards.forEach((state, card) => {
 			if (isArtCardActive(card)) {
-				applyFloatFrame(card, state.sprites, time - state.startTime);
+				applyFloatFrame(state, time - state.startTime);
 				return;
 			}
 
-			state.sprites.forEach((sprite) => {
-				const image = sprite.querySelector(".art-sprite-card__sprite-image");
-
-				if (image) {
-					image.style.removeProperty("--sprite-float-x");
-					image.style.removeProperty("--sprite-float-y");
-				}
-			});
+			resetFloatingSprites(state.sprites);
 			activeFloatCards.delete(card);
 		});
 
@@ -1595,16 +1625,21 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 	};
 
 	const setFloatActive = (card, active) => {
-		const sprites = getFloatingSprites(card);
-
-		if (!sprites.length || reduceMotion.matches) {
+		if (reduceMotion.matches) {
 			return;
 		}
 
 		if (active) {
 			if (!activeFloatCards.has(card)) {
+				const sprites = getFloatingSprites(card);
+
+				if (!sprites.length) {
+					return;
+				}
+
 				activeFloatCards.set(card, {
 					sprites,
+					settings: getFloatSettings(card),
 					startTime: performance.now(),
 				});
 			}
@@ -1612,14 +1647,11 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 			return;
 		}
 
-		sprites.forEach((sprite) => {
-			const image = sprite.querySelector(".art-sprite-card__sprite-image");
+		const state = activeFloatCards.get(card);
 
-			if (image) {
-				image.style.removeProperty("--sprite-float-x");
-				image.style.removeProperty("--sprite-float-y");
-			}
-		});
+		if (state) {
+			resetFloatingSprites(state.sprites);
+		}
 		activeFloatCards.delete(card);
 	};
 
@@ -1753,14 +1785,7 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 	if (typeof reduceMotion.addEventListener === "function") {
 		reduceMotion.addEventListener("change", () => {
 			activeFloatCards.forEach((state) => {
-				state.sprites.forEach((sprite) => {
-					const image = sprite.querySelector(".art-sprite-card__sprite-image");
-
-					if (image) {
-						image.style.removeProperty("--sprite-float-x");
-						image.style.removeProperty("--sprite-float-y");
-					}
-				});
+				resetFloatingSprites(state.sprites);
 			});
 			activeFloatCards.clear();
 		});
