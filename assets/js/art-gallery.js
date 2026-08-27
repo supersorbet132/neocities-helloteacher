@@ -1,6 +1,9 @@
 (() => {
 	const gallery = document.querySelector("[data-art-gallery]");
 	const homeLink = document.querySelector("[data-art-home-link]");
+	const mobileControls = document.querySelector("[data-art-mobile-controls]");
+	const newerYearButton = document.querySelector("[data-art-year-newer]");
+	const olderYearButton = document.querySelector("[data-art-year-older]");
 
 	if (!gallery) {
 		return;
@@ -14,6 +17,8 @@
 	const FULL_ROOT = "/assets/images/art/artworks/";
 	const DESCRIPTION_SRC = "/assets/data/art-descriptions.json";
 	const DRAG_THRESHOLD = 7;
+	const TOUCH_LONG_PRESS_MS = 360;
+	const TOUCH_SCROLL_CANCEL_THRESHOLD = 12;
 	const INERTIA_MIN_SPEED = 0.018;
 	const INERTIA_FRICTION = 0.86;
 	const INERTIA_RELEASE_DAMPING = 0.42;
@@ -97,6 +102,7 @@
 	const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 	const lerp = (from, to, progress) => from + ((to - from) * progress);
 	const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+	const touchInput = window.matchMedia("(hover: none) and (pointer: coarse)");
 
 	const hashString = (value) => {
 		let hash = 2166136261;
@@ -878,6 +884,24 @@
 		galleryPageTop = gallery.getBoundingClientRect().top + window.scrollY;
 	};
 
+	const updateMobileControls = () => {
+		if (!mobileControls) {
+			return;
+		}
+
+		const isMobile = touchInput.matches;
+		mobileControls.hidden = !isMobile;
+		mobileControls.setAttribute("aria-hidden", isMobile ? "false" : "true");
+
+		if (newerYearButton) {
+			newerYearButton.disabled = !isMobile || activeYearIndex === 0 || isYearTransitioning;
+		}
+
+		if (olderYearButton) {
+			olderYearButton.disabled = !isMobile || activeYearIndex === yearGroups.length - 1 || isYearTransitioning;
+		}
+	};
+
 	const updateYearLabel = () => {
 		const activeGroup = getActiveGroup();
 		const year = activeGroup.year;
@@ -895,9 +919,15 @@
 			}
 
 			if (group.titleHint) {
-				group.titleHint.hidden = !(isActiveTitle && activeYearIndex === initialYearIndex);
+				group.titleHint.textContent = touchInput.matches
+					? "Use the side arrows to change years. Press and hold an artwork to drag it."
+					: "Q/E to move forward/backward in time";
+				group.titleHint.hidden = touchInput.matches
+					? !isActiveTitle
+					: !(isActiveTitle && activeYearIndex === initialYearIndex);
 			}
 		});
+		updateMobileControls();
 	};
 
 	const updateYearLayers = ({ updateLabel = true } = {}) => {
@@ -1135,7 +1165,15 @@
 		}
 	};
 
+	const clearLongPressTimer = (drag = activeDrag) => {
+		if (drag?.longPressTimer) {
+			window.clearTimeout(drag.longPressTimer);
+			drag.longPressTimer = null;
+		}
+	};
+
 	const cancelActiveMotion = () => {
+		clearLongPressTimer();
 		getActiveStates().forEach((state) => {
 			cancelInertia(state);
 			resetTilt(state);
@@ -1551,17 +1589,44 @@
 		fullImage.src = state.artwork.fullSrc;
 	};
 
+	const beginArtworkDrag = (drag, { resetPointerOrigin = false } = {}) => {
+		if (!drag || drag.isDragging || activeDrag !== drag) {
+			return;
+		}
+
+		const { state } = drag;
+		drag.isDragging = true;
+		state.hasCustomPosition = true;
+		state.card.classList.add("is-dragging");
+		resetTilt(state);
+		bringToFront(state, { preserveVisualPosition: true });
+		drag.startX = state.x;
+		drag.startY = state.y;
+
+		if (resetPointerOrigin) {
+			drag.startClientX = drag.lastClientX;
+			drag.startClientY = drag.lastClientY;
+		}
+
+		try {
+			state.card.setPointerCapture(drag.pointerId);
+		} catch (error) {
+			// The pointer may already have been released or cancelled by the browser.
+		}
+	};
+
 	const handlePointerDown = (event, state) => {
 		if (!state.isActive || viewerState || event.button !== 0 || isYearTransitioning) {
 			return;
 		}
 
 		cancelInertia(state);
-		state.card.setPointerCapture(event.pointerId);
 		state.card.classList.add("is-pressed");
-		activeDrag = {
+		const isTouch = touchInput.matches && event.pointerType === "touch";
+		const drag = {
 			state,
 			pointerId: event.pointerId,
+			isTouch,
 			startClientX: event.clientX,
 			startClientY: event.clientY,
 			startX: state.x,
@@ -1572,7 +1637,19 @@
 			velocityX: 0,
 			velocityY: 0,
 			isDragging: false,
+			longPressTimer: null,
 		};
+		activeDrag = drag;
+
+		if (isTouch) {
+			drag.longPressTimer = window.setTimeout(() => {
+				drag.longPressTimer = null;
+				beginArtworkDrag(drag, { resetPointerOrigin: true });
+			}, TOUCH_LONG_PRESS_MS);
+			return;
+		}
+
+		state.card.setPointerCapture(event.pointerId);
 	};
 
 	const handlePointerMove = (event) => {
@@ -1584,13 +1661,21 @@
 		const moveX = event.clientX - activeDrag.startClientX;
 		const moveY = event.clientY - activeDrag.startClientY;
 
+		if (activeDrag.isTouch && !activeDrag.isDragging) {
+			activeDrag.lastClientX = event.clientX;
+			activeDrag.lastClientY = event.clientY;
+
+			if (Math.hypot(moveX, moveY) > TOUCH_SCROLL_CANCEL_THRESHOLD) {
+				const cancelledDrag = activeDrag;
+				clearLongPressTimer(cancelledDrag);
+				cancelledDrag.state.card.classList.remove("is-pressed");
+				activeDrag = null;
+			}
+			return;
+		}
+
 		if (!activeDrag.isDragging && Math.hypot(moveX, moveY) > DRAG_THRESHOLD) {
-			activeDrag.isDragging = true;
-			state.hasCustomPosition = true;
-			state.card.classList.add("is-dragging");
-			resetTilt(state);
-			bringToFront(state, { preserveVisualPosition: true });
-			activeDrag.startY = state.y;
+			beginArtworkDrag(activeDrag);
 		}
 
 		if (!activeDrag.isDragging) {
@@ -1618,6 +1703,7 @@
 
 		const drag = activeDrag;
 		const state = drag.state;
+		clearLongPressTimer(drag);
 		activeDrag = null;
 
 		if (state.card.hasPointerCapture(event.pointerId)) {
@@ -1639,7 +1725,9 @@
 			return;
 		}
 
-		const state = activeDrag.state;
+		const drag = activeDrag;
+		const state = drag.state;
+		clearLongPressTimer(drag);
 		activeDrag = null;
 
 		if (state.card.hasPointerCapture(event.pointerId)) {
@@ -1681,6 +1769,7 @@
 		transitionToIndex = clampedIndex;
 		isYearTransitioning = true;
 		document.body.classList.add("is-art-year-transitioning");
+		updateMobileControls();
 		updateYearLayers({ updateLabel: false });
 		gallery.offsetHeight;
 
@@ -1833,7 +1922,9 @@
 		const hint = document.createElement("span");
 		hint.className = "art-year-title__hint";
 		hint.hidden = true;
-		hint.textContent = "Q/E to move forward/backward in time";
+		hint.textContent = touchInput.matches
+			? "Use the side arrows to change years. Press and hold an artwork to drag it."
+			: "Q/E to move forward/backward in time";
 
 		surface.append(text, hint);
 		title.append(surface);
@@ -1894,9 +1985,17 @@
 		getCurrentYear: () => getActiveGroup().year,
 	};
 
+	newerYearButton?.addEventListener("click", () => goToYearIndex(activeYearIndex - 1));
+	olderYearButton?.addEventListener("click", () => goToYearIndex(activeYearIndex + 1));
+
 	window.addEventListener("pointermove", handlePointerMove, { passive: false });
 	window.addEventListener("pointerup", endPointerInteraction);
 	window.addEventListener("pointercancel", cancelPointerInteraction);
+	window.addEventListener("touchmove", (event) => {
+		if (activeDrag?.isTouch && activeDrag.isDragging) {
+			event.preventDefault();
+		}
+	}, { passive: false });
 	window.addEventListener("keydown", handleYearKeydown);
 	window.addEventListener("scroll", handleScroll, { passive: true });
 	window.addEventListener("resize", requestLayout);
@@ -1927,7 +2026,20 @@
 		});
 	}
 
+	const syncTouchInput = () => {
+		document.documentElement.classList.toggle("is-touch-mode", touchInput.matches);
+		cancelActiveMotion();
+		updateYearLabel();
+	};
+
+	if (typeof touchInput.addEventListener === "function") {
+		touchInput.addEventListener("change", syncTouchInput);
+	} else {
+		touchInput.addListener(syncTouchInput);
+	}
+
 	loadArtworkDescriptions();
 	calculateLayout();
+	syncTouchInput();
 	renderAll({ includeGeometry: true, includeDepthGeometry: true });
 })();

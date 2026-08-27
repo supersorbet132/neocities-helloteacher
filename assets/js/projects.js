@@ -26,6 +26,7 @@
 	const visiblePanels = new Map();
 	const tabHoverReadyClass = "is-project-tabs-hover-ready";
 	const scrollHeldHoverClass = "is-scroll-held-hover";
+	const touchPreviewClass = "is-touch-preview";
 	const comicCloudDriftClass = "is-comic-cloud-drifting";
 	const comicParallaxActiveClass = "is-comic-parallax-active";
 	const beetParallaxActiveClass = "is-beet-parallax-active";
@@ -33,6 +34,7 @@
 	const readerOriginHiddenClass = "is-project-reader-origin-hidden";
 	const scrollIdleHoverDelay = 220;
 	const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+	const touchInput = window.matchMedia("(hover: none) and (pointer: coarse)");
 	const tabParallaxCache = new WeakMap();
 	let lastTrigger = null;
 	let hoverReadyTimer = 0;
@@ -57,7 +59,7 @@
 	const isReaderOpen = () => Boolean(reader && !reader.hidden);
 
 	const setTabHoverReady = (ready) => {
-		document.body.classList.toggle(tabHoverReadyClass, ready && !isReaderOpen());
+		document.body.classList.toggle(tabHoverReadyClass, ready && !touchInput.matches && !isReaderOpen());
 	};
 
 	const isComicTab = (tab) => tab?.classList.contains("project-bar--comic");
@@ -222,6 +224,18 @@
 		});
 	};
 
+	const clearTouchPreview = (except = null) => {
+		tabs.forEach((tab) => {
+			if (tab === except || !tab.classList.contains(touchPreviewClass)) {
+				return;
+			}
+
+			tab.classList.remove(touchPreviewClass);
+			stopComicCloudDrift(tab);
+			stopTabParallax(tab);
+		});
+	};
+
 	const updateTabParallax = (tab) => {
 		if (!hasPointerPosition || !shouldRunTabParallax(tab)) {
 			stopTabParallax(tab);
@@ -347,6 +361,12 @@
 	};
 
 	const suspendTabHover = () => {
+		if (touchInput.matches) {
+			clearScrollHeldHover();
+			setTabHoverReady(false);
+			return;
+		}
+
 		if (!scrollHeldHoverTab && document.body.classList.contains(tabHoverReadyClass) && !isReaderOpen()) {
 			setScrollHeldHover(tabs.find((tab) => tab.matches(":hover")));
 		}
@@ -647,10 +667,12 @@
 		const tab = getProjectTab(id);
 
 		if (!tab) {
+			readerHeader.removeAttribute("data-project-reader-current");
 			readerHeader.replaceChildren();
 			return;
 		}
 
+		readerHeader.dataset.projectReaderCurrent = id;
 		readerHeader.replaceChildren(createReaderThumbnail(tab, "project-reader__thumbnail-art", true));
 	};
 
@@ -733,6 +755,7 @@
 	};
 
 	const finishReaderClose = (targetTab, flyer) => {
+		readerHeader?.removeAttribute("data-project-reader-current");
 		readerHeader?.replaceChildren();
 		targetTab?.classList.remove(readerOriginHiddenClass);
 
@@ -825,6 +848,7 @@
 		const token = ++readerTransitionToken;
 
 		clearActiveReaderFlyer();
+		clearTouchPreview();
 		lastTrigger = triggerTab || document.activeElement;
 		reader.hidden = false;
 		reader.classList.add("is-opening");
@@ -937,8 +961,21 @@
 		tab.addEventListener("click", () => {
 			const id = tab.dataset.projectTab;
 
+			if (touchInput.matches && !isReaderOpen() && !tab.classList.contains(touchPreviewClass)) {
+				clearTouchPreview(tab);
+				tab.classList.add(touchPreviewClass);
+				startComicCloudDrift(tab);
+				return;
+			}
+
 			openReader(id);
 		});
+	});
+
+	document.addEventListener("pointerdown", (event) => {
+		if (touchInput.matches && !isReaderOpen() && !event.target.closest("[data-project-tab]")) {
+			clearTouchPreview();
+		}
 	});
 
 	readerSwitches.forEach((button) => {
@@ -1085,11 +1122,25 @@
 		});
 	}
 
+	const syncTouchInput = () => {
+		document.documentElement.classList.toggle("is-touch-mode", touchInput.matches);
+		clearScrollHeldHover();
+		clearTouchPreview();
+		setTabHoverReady(!touchInput.matches);
+	};
+
+	if (typeof touchInput.addEventListener === "function") {
+		touchInput.addEventListener("change", syncTouchInput);
+	} else {
+		touchInput.addListener(syncTouchInput);
+	}
+
 	document.addEventListener("pointermove", updatePointerPosition, { passive: true });
 	window.addEventListener("scroll", suspendTabHover, { passive: true });
 	window.addEventListener("wheel", suspendTabHover, { passive: true });
 	window.addEventListener("touchmove", suspendTabHover, { passive: true });
 	window.addEventListener("load", () => suspendTabHover(), { once: true });
+	syncTouchInput();
 	suspendTabHover();
 	initTitleAnimationPause();
 

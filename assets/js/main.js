@@ -479,6 +479,13 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 
 		hitbox.addEventListener("pointerenter", enter);
 		hitbox.addEventListener("pointerleave", leave);
+		card.addEventListener("helloteacher:touch-focus", (event) => {
+			if (event.detail?.active) {
+				enter();
+			} else {
+				leave();
+			}
+		});
 		card.addEventListener("focusin", enter);
 		card.addEventListener("focusout", (event) => {
 			if (!card.contains(event.relatedTarget)) {
@@ -741,6 +748,13 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 
 		hitbox.addEventListener("pointerenter", enter);
 		hitbox.addEventListener("pointerleave", leave);
+		card.addEventListener("helloteacher:touch-focus", (event) => {
+			if (event.detail?.active) {
+				enter();
+			} else {
+				leave();
+			}
+		});
 		card.addEventListener("focusin", enter);
 		card.addEventListener("focusout", (event) => {
 			if (!card.contains(event.relatedTarget)) {
@@ -1255,6 +1269,13 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 
 		hitbox.addEventListener("pointerenter", enter);
 		hitbox.addEventListener("pointerleave", leave);
+		card.addEventListener("helloteacher:touch-focus", (event) => {
+			if (event.detail?.active) {
+				enter();
+			} else {
+				leave();
+			}
+		});
 		card.addEventListener("focusin", enter);
 		card.addEventListener("focusout", (event) => {
 			if (!card.contains(event.relatedTarget)) {
@@ -1681,12 +1702,20 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 		card.dataset.artFloatingReady = "true";
 		hitbox.addEventListener("pointerenter", enter);
 		hitbox.addEventListener("pointerleave", leave);
+		card.addEventListener("helloteacher:touch-focus", (event) => {
+			if (event.detail?.active) {
+				enter();
+			} else {
+				leave();
+			}
+		});
 		card.addEventListener("focusin", enter);
 		card.addEventListener("focusout", (event) => {
 			if (!card.contains(event.relatedTarget)) {
 				leave();
 			}
 		});
+		syncFloatActiveState(card);
 	};
 
 	const buildArtCard = (card, sprites) => {
@@ -1790,4 +1819,88 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 			activeFloatCards.clear();
 		});
 	}
+})();
+
+(() => {
+	const grid = document.querySelector(".home-card-grid");
+
+	if (!grid) {
+		return;
+	}
+
+	const cards = [...grid.querySelectorAll("[data-sprite-card], .home-card")];
+	const touchInput = window.matchMedia("(hover: none) and (pointer: coarse)");
+	let activeCard = null;
+	let frame = 0;
+
+	const setActiveCard = (nextCard) => {
+		if (activeCard === nextCard) {
+			return;
+		}
+
+		if (activeCard) {
+			activeCard.dispatchEvent(new CustomEvent("helloteacher:touch-focus", {
+				detail: { active: false },
+			}));
+			activeCard.classList.remove("is-hovered", "is-touch-focused");
+		}
+
+		activeCard = nextCard;
+
+		if (activeCard) {
+			activeCard.dispatchEvent(new CustomEvent("helloteacher:touch-focus", {
+				detail: { active: true },
+			}));
+			activeCard.classList.add(activeCard.matches(".home-card") ? "is-touch-focused" : "is-hovered");
+		}
+	};
+
+	const updateCenteredCard = () => {
+		frame = 0;
+		document.documentElement.classList.toggle("is-touch-mode", touchInput.matches);
+
+		if (!touchInput.matches) {
+			setActiveCard(null);
+			return;
+		}
+
+		const viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+		const viewportCenter = viewportHeight * 0.5;
+		let closestCard = null;
+		let closestDistance = Number.POSITIVE_INFINITY;
+
+		cards.forEach((card) => {
+			const rect = card.getBoundingClientRect();
+
+			if (rect.bottom <= 0 || rect.top >= viewportHeight) {
+				return;
+			}
+
+			const distance = Math.abs(rect.top + (rect.height * 0.5) - viewportCenter);
+
+			if (distance < closestDistance) {
+				closestCard = card;
+				closestDistance = distance;
+			}
+		});
+
+		setActiveCard(closestCard);
+	};
+
+	const requestCenteredCardUpdate = () => {
+		if (!frame) {
+			frame = window.requestAnimationFrame(updateCenteredCard);
+		}
+	};
+
+	window.addEventListener("scroll", requestCenteredCardUpdate, { passive: true });
+	window.addEventListener("resize", requestCenteredCardUpdate);
+
+	if (typeof touchInput.addEventListener === "function") {
+		touchInput.addEventListener("change", updateCenteredCard);
+	} else {
+		touchInput.addListener(updateCenteredCard);
+	}
+
+	updateCenteredCard();
 })();

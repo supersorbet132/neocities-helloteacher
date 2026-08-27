@@ -6,14 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
 
-  <link href="/kombucha.css?v=20260826-scroll-fix" rel="stylesheet" type="text/css" media="all">
+  <link href="/kombucha.css?v=20260827-mobile5" rel="stylesheet" type="text/css" media="all">
   <script src="/assets/js/art-manifest.js?v=20260820-webp" defer></script>
-  <script src="/assets/js/art-gallery.js?v=20260826-scroll-fix" defer></script>
+  <script src="/assets/js/art-gallery.js?v=20260827-mobile1" defer></script>
 </head>
 
 <body class="art-page">
   <main class="art-page__surface" aria-label="Art gallery">
     <section class="art-gallery" data-art-gallery aria-label="Draggable artwork gallery"></section>
+    <nav class="art-mobile-controls" data-art-mobile-controls aria-label="Art year navigation" hidden>
+      <button class="art-mobile-control art-mobile-control--newer" type="button" data-art-year-newer aria-label="Show newer art year">‹</button>
+      <button class="art-mobile-control art-mobile-control--older" type="button" data-art-year-older aria-label="Show older art year">›</button>
+    </nav>
     <a class="art-home-link" href="/" aria-label="Back to homepage" data-art-home-link>
       <span class="art-home-link__surface">
         <span class="art-home-link__text" data-text="Home">Home</span>

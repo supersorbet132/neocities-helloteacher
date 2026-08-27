@@ -81,8 +81,9 @@
 	const simulationFragmentSource = `
 		${sharedFragmentHelpers}
 
-		uniform sampler2D u_state;
-		uniform vec2 u_simulationSize;
+			uniform sampler2D u_state;
+			uniform vec2 u_simulationSize;
+			uniform float u_viewAspect;
 		uniform float u_time;
 		uniform float u_delta;
 		uniform float u_scrollY;
@@ -106,7 +107,7 @@
 		}
 
 		void main() {
-			float aspect = u_simulationSize.x / max(u_simulationSize.y, 1.0);
+				float aspect = u_viewAspect;
 			float t = u_time * u_speed;
 			float scale = max(u_scale, 0.001);
 			float strength = max(u_strength, 0.0);
@@ -239,6 +240,7 @@
 	const simulationUniforms = {
 		state: gl.getUniformLocation(simulationProgram.program, "u_state"),
 		simulationSize: gl.getUniformLocation(simulationProgram.program, "u_simulationSize"),
+		viewAspect: gl.getUniformLocation(simulationProgram.program, "u_viewAspect"),
 		time: gl.getUniformLocation(simulationProgram.program, "u_time"),
 		delta: gl.getUniformLocation(simulationProgram.program, "u_delta"),
 		scrollY: gl.getUniformLocation(simulationProgram.program, "u_scrollY"),
@@ -265,6 +267,7 @@
 	let animationFrame = 0;
 	let lastFrameTime = 0;
 	const maxDpr = 1.15;
+	const referenceViewportAspect = 2560 / 1600;
 	const settingsRoot = document.body;
 
 	const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
@@ -414,6 +417,9 @@
 		gl.bindTexture(gl.TEXTURE_2D, simulation.textures[simulation.readIndex]);
 		gl.uniform1i(simulationUniforms.state, 0);
 		gl.uniform2f(simulationUniforms.simulationSize, simulation.width, simulation.height);
+		const simulationAspect = simulation.width / Math.max(simulation.height, 1);
+		const viewportAspect = width / Math.max(height, 1);
+		gl.uniform1f(simulationUniforms.viewAspect, viewportAspect * (simulationAspect / referenceViewportAspect));
 		gl.uniform1f(simulationUniforms.time, time);
 		gl.uniform1f(simulationUniforms.delta, delta);
 		gl.uniform1f(simulationUniforms.scrollY, scrollY);
