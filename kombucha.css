@@ -124,6 +124,8 @@
 		overflow: visible;
 	}
 	.home-main {
+		--home-source-width: 2560;
+		--home-unit: calc(100vw / var(--home-source-width));
 		position: relative;
 		flex: 1;
 		margin: 0;
@@ -250,7 +252,7 @@
 		position: relative;
 		z-index: 1;
 		margin: 0;
-		padding: clamp(4rem, 10vw, 9rem) 0 clamp(4rem, 10vw, 8rem);
+		padding: calc(144 * var(--home-unit)) 0 calc(128 * var(--home-unit));
 		width: 100vw;
 		max-width: none;
 		overflow-x: clip;
@@ -260,7 +262,7 @@
 	.home-card-grid {
 		display: grid;
 		grid-template-columns: 1fr;
-		gap: clamp(4rem, 12vh, 7rem);
+		gap: calc(112 * var(--home-unit));
 		width: 100vw;
 		max-width: none;
 		margin: 0;
@@ -273,8 +275,8 @@
 		--art-source-x: 0;
 		--art-source-y: 2200;
 		/* Moves the whole clickable Art card, including hover/click detection. */
-		--art-card-shift-y: -500px;
-		--art-card-rest-x: -30px;
+		--art-card-shift-y: calc(-500 * var(--home-unit));
+		--art-card-rest-x: calc(-30 * var(--home-unit));
 		--art-motion-ease: cubic-bezier(0.16, 0.92, 0.18, 1);
 		--art-move-base-duration: 1100ms;
 		--art-move-duration-spread: 420ms;
@@ -291,12 +293,12 @@
 		--art-letter-sway-period: 2600;
 		--art-letter-sway-motion-duration: 1900;
 		--art-sun-moon-bob-amplitude: 5;
-		--art-card-parallax-range: 76px;
+		--art-card-parallax-range: 76;
 		--art-card-parallax-min-strength: 0.18;
 		--art-card-parallax-max-strength: 1;
-		--art-hitbox-top: 150px;
+		--art-hitbox-top: calc(150 * var(--home-unit));
 		--art-hitbox-right: 33.333vw;
-		--art-hitbox-bottom: 150px;
+		--art-hitbox-bottom: calc(150 * var(--home-unit));
 		--art-hitbox-left: 0px;
 		position: relative;
 		display: block;
@@ -395,9 +397,9 @@
 		--cad-source-y: 3702;
 		--cad-unit: calc(100vw / var(--cad-source-width));
 		/* Places CAD visually about 200px below the shifted Art card. */
-		--cad-card-shift-y: -750px;
-		--cad-rest-left-x: -40px;
-		--cad-rest-right-x: 40px;
+		--cad-card-shift-y: calc(-750 * var(--cad-unit));
+		--cad-rest-left-x: calc(-40 * var(--cad-unit));
+		--cad-rest-right-x: calc(40 * var(--cad-unit));
 		--cad-motion-ease: cubic-bezier(0.42, 0, 0.58, 1);
 		--cad-motion-return-ease: var(--cad-motion-ease);
 		--cad-move-duration: 1320ms;
@@ -415,15 +417,15 @@
 		--cad-effect-flicker-out-duration: 520ms;
 		--cad-hover-flicker-duration: 1800ms;
 		--cad-leave-animation-window: 3200ms;
-		--cad-card-parallax-range: 64px;
+		--cad-card-parallax-range: 64;
 		--cad-parallax-front-strength: 0.22;
 		--cad-parallax-title-strength: 0.55;
 		--cad-parallax-engine-strength: 0.68;
 		--cad-parallax-back-strength: 0.85;
 		--cad-parallax-fallback-strength: 0.4;
-		--cad-hitbox-top: 250px;
+		--cad-hitbox-top: calc(250 * var(--cad-unit));
 		--cad-hitbox-right: 0px;
-		--cad-hitbox-bottom: 250px;
+		--cad-hitbox-bottom: calc(250 * var(--cad-unit));
 		--cad-hitbox-left: 0px;
 		position: relative;
 		display: block;
@@ -452,12 +454,12 @@
 	}
 	.cad-sprite-card__sprite {
 		position: absolute;
-		left: calc(var(--sprite-left) * var(--cad-unit));
-		top: calc(var(--sprite-top) * var(--cad-unit));
+		left: var(--sprite-left);
+		top: var(--sprite-top);
 		z-index: var(--sprite-z);
 		display: block;
-		width: calc(var(--sprite-width) * var(--cad-unit));
-		height: calc(var(--sprite-height) * var(--cad-unit));
+		width: var(--sprite-width);
+		height: var(--sprite-height);
 		max-width: none;
 		opacity: var(--sprite-rest-opacity, 1);
 		mix-blend-mode: var(--sprite-blend, normal);
@@ -549,8 +551,8 @@
 		--journal-source-x: 0;
 		--journal-source-y: 5151;
 		--journal-unit: calc(100vw / var(--journal-source-width));
-		--journal-card-shift-y: -1100px;
-		--journal-card-rest-x: -30px;
+		--journal-card-shift-y: calc(-1100 * var(--journal-unit));
+		--journal-card-rest-x: calc(-30 * var(--journal-unit));
 		--journal-motion-ease: cubic-bezier(0.16, 0.92, 0.18, 1);
 		--journal-motion-return-ease: cubic-bezier(0.42, 0, 0.58, 1);
 		--journal-move-duration: 1200ms;
@@ -568,9 +570,9 @@
 		--journal-title-move-out-delay: 0ms;
 		--journal-effect-fade-in-delay: 0ms;
 		--journal-effect-fade-out-delay: 0ms;
-		--journal-hitbox-top: 200px;
-		--journal-hitbox-right: 400px;
-		--journal-hitbox-bottom: 400px;
+		--journal-hitbox-top: calc(200 * var(--journal-unit));
+		--journal-hitbox-right: calc(400 * var(--journal-unit));
+		--journal-hitbox-bottom: calc(400 * var(--journal-unit));
 		--journal-hitbox-left: 0px;
 		position: relative;
 		display: block;
@@ -599,12 +601,12 @@
 	}
 	.journal-sprite-card__sprite {
 		position: absolute;
-		left: calc(var(--sprite-left) * var(--journal-unit));
-		top: calc(var(--sprite-top) * var(--journal-unit));
+		left: var(--sprite-left);
+		top: var(--sprite-top);
 		z-index: var(--sprite-z);
 		display: block;
-		width: calc(var(--sprite-width) * var(--journal-unit));
-		height: calc(var(--sprite-height) * var(--journal-unit));
+		width: var(--sprite-width);
+		height: var(--sprite-height);
 		max-width: none;
 		opacity: var(--sprite-rest-opacity, 1);
 		mix-blend-mode: var(--sprite-blend, normal);
@@ -668,8 +670,10 @@
 		--projects-source-x: 0;
 		--projects-source-y: 1800;
 		--projects-unit: calc(100vw / var(--projects-source-width));
-		--projects-card-shift-y: -1300px;
-		--projects-rest-offset-x: 40px;
+		--projects-unit-x: calc(100% / var(--projects-source-width));
+		--projects-unit-y: calc(100% / var(--projects-source-height));
+		--projects-card-shift-y: calc(-1300 * var(--projects-unit));
+		--projects-rest-offset-x: calc(40 * var(--projects-unit));
 		--projects-rest-offset-y: 0px;
 		--projects-title-rest-x: var(--projects-rest-offset-x);
 		--projects-motion-ease: cubic-bezier(0.16, 0.92, 0.18, 1);
@@ -682,7 +686,7 @@
 		--projects-effect-fade-duration: 560ms;
 		--projects-effect-flicker-out-duration: 520ms;
 		--projects-leave-animation-window: 2000ms;
-		--projects-card-parallax-range: 86px;
+		--projects-card-parallax-range: 86;
 		--projects-parallax-title-strength: 0.82;
 		--projects-parallax-board-strength: 0.24;
 		--projects-parallax-blueprint-strength: 0.58;
@@ -692,45 +696,45 @@
 		--projects-rest-saturation: 0.9;
 		--projects-hover-brightness: 1;
 		--projects-hover-saturation: 1;
-		--projects-letter-dance-distance: 15px;
+		--projects-letter-dance-distance: calc(15 * var(--projects-unit));
 		--projects-letter-dance-duration: 4s;
 		--projects-letter-return-duration: 420ms;
 		--projects-letter-bounce-ease: cubic-bezier(0.34, 1.56, 0.64, 1);
 		--projects-letter-return-ease: cubic-bezier(0.22, 1, 0.36, 1);
 		--projects-blueprint-flicker-cycle: 3s;
 		--projects-blueprint-flicker-start-delay: 900ms;
-		--projects-board-drift-x: 24px;
-		--projects-board-drift-y: 16px;
+		--projects-board-drift-x: calc(24 * var(--projects-unit));
+		--projects-board-drift-y: calc(16 * var(--projects-unit));
 		--projects-board-drift-duration: 12.6s;
 		--projects-board-drift-delay: 120ms;
-		--projects-blueprint-drift-x: 30px;
-		--projects-blueprint-drift-y: 18px;
+		--projects-blueprint-drift-x: calc(30 * var(--projects-unit));
+		--projects-blueprint-drift-y: calc(18 * var(--projects-unit));
 		--projects-blueprint-drift-duration: 14.2s;
 		--projects-blueprint-drift-delay: 0ms;
-		--projects-metal-drift-x: 22px;
-		--projects-metal-drift-y: 26px;
+		--projects-metal-drift-x: calc(22 * var(--projects-unit));
+		--projects-metal-drift-y: calc(26 * var(--projects-unit));
 		--projects-metal-drift-duration: 13.4s;
 		--projects-metal-drift-delay: 260ms;
-		--projects-ruler-drift-x: 28px;
-		--projects-ruler-drift-y: 20px;
+		--projects-ruler-drift-x: calc(28 * var(--projects-unit));
+		--projects-ruler-drift-y: calc(20 * var(--projects-unit));
 		--projects-ruler-drift-duration: 11.8s;
 		--projects-ruler-drift-delay: 440ms;
-		--projects-pencil-drift-x: 24px;
-		--projects-pencil-drift-y: 28px;
+		--projects-pencil-drift-x: calc(24 * var(--projects-unit));
+		--projects-pencil-drift-y: calc(28 * var(--projects-unit));
 		--projects-pencil-drift-duration: 10.9s;
 		--projects-pencil-drift-delay: 680ms;
-		--projects-triangle-drift-x: 30px;
-		--projects-triangle-drift-y: 24px;
+		--projects-triangle-drift-x: calc(30 * var(--projects-unit));
+		--projects-triangle-drift-y: calc(24 * var(--projects-unit));
 		--projects-triangle-drift-duration: 15.1s;
 		--projects-triangle-drift-delay: 320ms;
-		--projects-eraser-drift-x: 20px;
-		--projects-eraser-drift-y: 24px;
+		--projects-eraser-drift-x: calc(20 * var(--projects-unit));
+		--projects-eraser-drift-y: calc(24 * var(--projects-unit));
 		--projects-eraser-drift-duration: 12.9s;
 		--projects-eraser-drift-delay: 760ms;
-		--projects-hitbox-top: 260px;
+		--projects-hitbox-top: calc(260 * var(--projects-unit));
 		--projects-hitbox-right: 0px;
-		--projects-hitbox-bottom: 420px;
-		--projects-hitbox-left: 200px;
+		--projects-hitbox-bottom: calc(420 * var(--projects-unit));
+		--projects-hitbox-left: calc(200 * var(--projects-unit));
 		--projects-title-x: 0;
 		--projects-title-y: 0;
 		--projects-p-x: 150;
@@ -787,20 +791,20 @@
 		--projects-triangle-y: 150;
 		--projects-eraser-x: 200;
 		--projects-eraser-y: 1200;
-		--projects-board-hover-shift-x: 20px;
-		--projects-board-hover-shift-y: 8px;
-		--projects-blueprint-hover-shift-x: 14px;
-		--projects-blueprint-hover-shift-y: 8px;
-		--projects-metal-hover-shift-x: -4px;
-		--projects-metal-hover-shift-y: 14px;
-		--projects-ruler-hover-shift-x: -20px;
-		--projects-ruler-hover-shift-y: 2px;
-		--projects-pencil-hover-shift-x: -18px;
-		--projects-pencil-hover-shift-y: -14px;
-		--projects-triangle-hover-shift-x: -18px;
-		--projects-triangle-hover-shift-y: -14px;
-		--projects-eraser-hover-shift-x: -18px;
-		--projects-eraser-hover-shift-y: -16px;
+		--projects-board-hover-shift-x: calc(20 * var(--projects-unit));
+		--projects-board-hover-shift-y: calc(8 * var(--projects-unit));
+		--projects-blueprint-hover-shift-x: calc(14 * var(--projects-unit));
+		--projects-blueprint-hover-shift-y: calc(8 * var(--projects-unit));
+		--projects-metal-hover-shift-x: calc(-4 * var(--projects-unit));
+		--projects-metal-hover-shift-y: calc(14 * var(--projects-unit));
+		--projects-ruler-hover-shift-x: calc(-20 * var(--projects-unit));
+		--projects-ruler-hover-shift-y: calc(2 * var(--projects-unit));
+		--projects-pencil-hover-shift-x: calc(-18 * var(--projects-unit));
+		--projects-pencil-hover-shift-y: calc(-14 * var(--projects-unit));
+		--projects-triangle-hover-shift-x: calc(-18 * var(--projects-unit));
+		--projects-triangle-hover-shift-y: calc(-14 * var(--projects-unit));
+		--projects-eraser-hover-shift-x: calc(-18 * var(--projects-unit));
+		--projects-eraser-hover-shift-y: calc(-16 * var(--projects-unit));
 		position: relative;
 		display: block;
 		justify-self: end;
@@ -832,8 +836,8 @@
 		top: var(--sprite-top);
 		z-index: var(--sprite-z);
 		display: block;
-		width: calc(var(--sprite-width) * var(--projects-unit));
-		height: calc(var(--sprite-height) * var(--projects-unit));
+		width: var(--sprite-width);
+		height: var(--sprite-height);
 		max-width: none;
 		opacity: var(--sprite-rest-opacity, 1);
 		mix-blend-mode: var(--sprite-blend, normal);
@@ -1396,6 +1400,8 @@
 		overflow: hidden;
 	}
 	body.projects-page {
+		--projects-reference-width: 2560;
+		--projects-stage-unit: calc(100vw / var(--projects-reference-width));
 		--projects-page-pad: clamp(1rem, 4vw, 4rem);
 		--projects-page-max: 76rem;
 		--projects-paper: #fff9ec;
@@ -1413,17 +1419,17 @@
 		--projects-hero-card-left: 50%;
 		--projects-hero-card-top: 0px;
 		--projects-hero-card-offset-x: -50%;
-		--projects-hero-card-offset-y: -150px;
+		--projects-hero-card-offset-y: calc(-150 * var(--projects-stage-unit));
 		--project-tab-rest-height: 24vh;
 		--project-tab-rest-min: 18rem;
 		--project-tab-rest-max: 20rem;
 		--project-tab-hover-height: 60vh;
 		--project-tab-hover-min: 28rem;
 		--project-tab-hover-max: 52rem;
-		--project-tab-rest-extra: 30px;
-		--project-tab-hover-extra: 270px;
+		--project-tab-rest-extra: calc(30 * var(--projects-stage-unit));
+		--project-tab-hover-extra: calc(270 * var(--projects-stage-unit));
 		--project-tab-expand-duration: 420ms;
-		--project-tab-stack-overlap: -0.85rem;
+		--project-tab-stack-overlap: calc(-13.6 * var(--projects-stage-unit));
 		--project-reader-header-height: 96svh;
 		--project-reader-header-overlap: 42svh;
 		--project-reader-panel-slide-distance: 110svh;
@@ -1807,7 +1813,7 @@
 	}
 	.project-poker-tab {
 		/* Poker tab tuning dials. Stage values use the original 1200x800 game canvas. */
-		--poker-tab-stage-width: 100cqw;
+		--poker-tab-stage-width: max(100cqw, 150cqh);
 		--poker-tab-stage-left: 50%;
 		--poker-tab-stage-top: 0px;
 		--poker-tab-stage-offset-x: 0px;
@@ -2223,14 +2229,15 @@
 		}
 	}
 	.project-comic-tab {
-		--comic-tab-stage-width: 100cqw;
+		--comic-tab-stage-width: max(100cqw, calc(132.51cqh + 3.78cqw));
 		--comic-tab-stage-left: 50%;
-		--comic-tab-stage-top: -73px;
+		--comic-tab-stage-top: -2.8516cqw;
 		--comic-tab-stage-offset-x: 0px;
 		--comic-tab-stage-offset-y: 0px;
 		--comic-title-14-rest-x: -28%;
 		--comic-title-15-rest-x: 18%;
-		--comic-title-15-rest-y: -85%;
+		--comic-title-15-rest-y: -95%;
+		--comic-tab-layer-shift-y: 4.2753%;
 		--comic-tab-rest-brightness: 0.58;
 		--comic-tab-rest-saturation: 0.86;
 		--comic-cloud-return-duration: 720ms;
@@ -2249,11 +2256,13 @@
 		max-width: none;
 		overflow: hidden;
 		background: #6ccfc4;
+		isolation: isolate;
 	}
 	.project-comic-tab__stage {
 		position: absolute;
 		top: var(--comic-tab-stage-top);
 		left: var(--comic-tab-stage-left);
+		z-index: 1;
 		display: block;
 		width: var(--comic-tab-stage-width);
 		max-width: none;
@@ -2264,7 +2273,7 @@
 	}
 	.project-comic-tab__layer {
 		position: absolute;
-		top: var(--comic-top);
+		top: calc(var(--comic-top) - var(--comic-tab-layer-shift-y));
 		left: var(--comic-left);
 		z-index: var(--comic-z);
 		display: block;
@@ -2370,6 +2379,7 @@
 		transform: translate3d(var(--comic-title-15-rest-x), var(--comic-title-15-rest-y), 0);
 	}
 	.project-comic-tab__layer--title {
+		top: var(--comic-top);
 		transition: transform 520ms cubic-bezier(0.16, 0.92, 0.18, 1);
 	}
 	.project-bar--comic.is-comic-cloud-drifting .project-comic-tab__layer--cloud {
@@ -4707,7 +4717,7 @@
 			--project-tab-hover-height: 58vh;
 			--project-tab-hover-min: 20rem;
 			--project-tab-hover-max: 32rem;
-			--project-tab-stack-overlap: -0.55rem;
+			--project-tab-stack-overlap: calc(-8.8 * var(--projects-stage-unit));
 			--project-reader-header-height: 90svh;
 			--project-reader-header-overlap: 34svh;
 			--project-comic-viewer-width: 100%;
@@ -4942,6 +4952,8 @@
 /* art page */
 	html.art-page-root {
 		min-height: 100%;
+		overflow-x: hidden;
+		overflow-x: clip;
 		background: #81F5FC;
 		overscroll-behavior-y: none;
 	}
@@ -5095,6 +5107,7 @@
 		min-height: var(--art-gallery-height);
 		margin: 0;
 		overflow: visible;
+		overflow-x: clip;
 		perspective: 1200px;
 	}
 	.art-year-title-slot {

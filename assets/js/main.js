@@ -67,14 +67,34 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 		return Number.isFinite(parsed) ? parsed : fallback;
 	};
 
-	const getParallaxRange = (card) => {
+	const getParallaxRangeVar = (card) => {
 		const rangeVar = card.dataset.spriteCard === "cad"
 			? "--cad-card-parallax-range"
 			: card.dataset.spriteCard === "projects"
 				? "--projects-card-parallax-range"
 				: "--art-card-parallax-range";
 
-		return getNumberVar(card, rangeVar, 70);
+		return rangeVar;
+	};
+
+	const getSourceWidthVar = (card) => {
+		if (card.dataset.spriteCard === "cad") {
+			return "--cad-source-width";
+		}
+
+		if (card.dataset.spriteCard === "projects") {
+			return "--projects-source-width";
+		}
+
+		return "--art-source-width";
+	};
+
+	const getParallaxRange = (card, rect) => {
+		const baseRange = getNumberVar(card, getParallaxRangeVar(card), 70);
+		const sourceWidth = getNumberVar(card, getSourceWidthVar(card), rect.width || 2560);
+		const widthScale = sourceWidth > 0 && rect.width > 0 ? rect.width / sourceWidth : 1;
+
+		return baseRange * widthScale;
 	};
 
 	const getParallaxLayers = (card) => [...card.querySelectorAll("[data-card-parallax-layer]")];
@@ -105,7 +125,7 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 		const viewportCenter = viewportHeight / 2;
 		const cardCenter = rect.top + (rect.height / 2);
 		const progress = Math.max(Math.min((viewportCenter - cardCenter) / viewportHeight, 1), -1);
-		const range = getParallaxRange(card);
+		const range = getParallaxRange(card, rect);
 
 		getParallaxLayers(card).forEach((layer) => {
 			const strength = Number.parseFloat(layer.dataset.spriteParallaxStrength) || 0;
@@ -274,6 +294,7 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 		return Number.isFinite(parsed) ? parsed : fallback;
 	};
 
+	const asPercent = (value) => `${value.toFixed(4)}%`;
 	const cssLengthList = (items) => items.join(", ");
 	const cssUrlList = (items) => items.map((item) => `url("${assetBase}${item}")`).join(", ");
 
@@ -455,6 +476,8 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 			return;
 		}
 
+		const sourceWidth = getNumberVar(card, "--cad-source-width", 2560);
+		const sourceHeight = getNumberVar(card, "--cad-source-height", 2039);
 		const sourceX = getNumberVar(card, "--cad-source-x", 0);
 		const sourceY = getNumberVar(card, "--cad-source-y", 3702);
 		const spritesByName = new Map(sprites.map((sprite) => [stripImageExtension(sprite.file), sprite]));
@@ -491,10 +514,10 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 			image.decoding = "async";
 			image.loading = "lazy";
 			sprite.setAttribute("aria-hidden", "true");
-			sprite.style.setProperty("--sprite-left", box.left - sourceX);
-			sprite.style.setProperty("--sprite-top", box.top - sourceY);
-			sprite.style.setProperty("--sprite-width", box.width);
-			sprite.style.setProperty("--sprite-height", box.height);
+			sprite.style.setProperty("--sprite-left", asPercent(((box.left - sourceX) / sourceWidth) * 100));
+			sprite.style.setProperty("--sprite-top", asPercent(((box.top - sourceY) / sourceHeight) * 100));
+			sprite.style.setProperty("--sprite-width", asPercent((box.width / sourceWidth) * 100));
+			sprite.style.setProperty("--sprite-height", asPercent((box.height / sourceHeight) * 100));
 			sprite.style.setProperty("--sprite-z", bottomIndex + 1);
 
 			if (extraRestOffsets.has(layerName)) {
@@ -609,6 +632,7 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 		return Number.isFinite(parsed) ? parsed : fallback;
 	};
 
+	const asPercent = (value) => `${value.toFixed(4)}%`;
 	const cssLengthList = (items) => items.join(", ");
 	const cssUrlList = (items) => items.map((item) => `url("${assetBase}${item}")`).join(", ");
 
@@ -714,6 +738,8 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 			return;
 		}
 
+		const sourceWidth = getNumberVar(card, "--journal-source-width", 2560);
+		const sourceHeight = getNumberVar(card, "--journal-source-height", 2563);
 		const sourceX = getNumberVar(card, "--journal-source-x", 0);
 		const sourceY = getNumberVar(card, "--journal-source-y", 5151);
 		const spritesByName = new Map(sprites.map((sprite) => [stripImageExtension(sprite.file), sprite]));
@@ -742,10 +768,10 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 			image.decoding = "async";
 			image.loading = "lazy";
 			sprite.setAttribute("aria-hidden", "true");
-			sprite.style.setProperty("--sprite-left", box.left - sourceX);
-			sprite.style.setProperty("--sprite-top", box.top - sourceY);
-			sprite.style.setProperty("--sprite-width", box.width);
-			sprite.style.setProperty("--sprite-height", box.height);
+			sprite.style.setProperty("--sprite-left", asPercent(((box.left - sourceX) / sourceWidth) * 100));
+			sprite.style.setProperty("--sprite-top", asPercent(((box.top - sourceY) / sourceHeight) * 100));
+			sprite.style.setProperty("--sprite-width", asPercent((box.width / sourceWidth) * 100));
+			sprite.style.setProperty("--sprite-height", asPercent((box.height / sourceHeight) * 100));
 			sprite.style.setProperty("--sprite-z", bottomIndex + 1);
 
 			if (hiddenAtRest.has(layerName)) {
@@ -922,6 +948,8 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 		return Number.isFinite(parsed) ? parsed : fallback;
 	};
 
+	const asPercent = (value) => `${value.toFixed(4)}%`;
+
 	const getLetterPart = (layerName) => {
 		const match = layerName.match(/^projects_([a-z])(?:_(outline|colordodge|hardmix))?$/);
 
@@ -941,11 +969,12 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 		return original.width === 2560 && original.height === 7130;
 	};
 
-	const projectsCalc = (...terms) => `calc((${terms.filter(Boolean).join(" + ")}) * var(--projects-unit))`;
+	const projectsLengthCalc = (...terms) => `calc((${terms.filter(Boolean).join(" + ")}) * var(--projects-unit))`;
+	const projectsPositionCalc = (axis, ...terms) => `calc((${terms.filter(Boolean).join(" + ")}) * var(--projects-unit-${axis}))`;
 	const cssLengthList = (items) => items.join(", ");
 	const cssUrlList = (items) => items.map((item) => `url("${assetBase}${item}")`).join(", ");
 
-	const getPositionTerm = (spriteData, layerName, axis, sourceOffset) => {
+	const getPositionTerms = (spriteData, layerName, axis, sourceOffset) => {
 		const box = spriteData.cropBox;
 		const letterPart = getLetterPart(layerName);
 		const coordinate = axis === "x" ? box.left : box.top;
@@ -956,23 +985,31 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 				? "0"
 				: `var(--projects-${letterPart.letter}-${letterPart.variant}-${axis})`;
 
-			return projectsCalc(`var(--projects-title-${axis})`, baseVar, variantVar, coordinate);
+			return [`var(--projects-title-${axis})`, baseVar, variantVar, coordinate];
 		}
 
 		if (letterPart && letterPart.variant === "colordodge") {
-			return projectsCalc(
+			return [
 				`var(--projects-title-${axis})`,
 				`var(--projects-${letterPart.letter}-colordodge-${axis})`,
 				coordinate - (usesFullCanvasCoordinates(spriteData) ? sourceOffset : 0),
-			);
+			];
 		}
 
 		const layerDialName = layerName.replace(/^projects_/, "").replaceAll("_", "-");
 		const layerDial = `var(--projects-${layerDialName}-${axis}, 0)`;
 		const adjustedCoordinate = coordinate - (usesFullCanvasCoordinates(spriteData) ? sourceOffset : 0);
 
-		return projectsCalc(layerDial, adjustedCoordinate);
+		return [layerDial, adjustedCoordinate];
 	};
+
+	const getPositionTerm = (spriteData, layerName, axis, sourceOffset) => (
+		projectsPositionCalc(axis, ...getPositionTerms(spriteData, layerName, axis, sourceOffset))
+	);
+
+	const getPositionLengthTerm = (spriteData, layerName, axis, sourceOffset) => (
+		projectsLengthCalc(...getPositionTerms(spriteData, layerName, axis, sourceOffset))
+	);
 
 	const setMask = (maskElement, layerName, spriteData, spritesByName, sourceX, sourceY) => {
 		const targets = blendMaskTargets.get(layerName);
@@ -992,14 +1029,14 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 			return;
 		}
 
-		const effectLeft = getPositionTerm(spriteData, layerName, "x", sourceX);
-		const effectTop = getPositionTerm(spriteData, layerName, "y", sourceY);
+		const effectLeft = getPositionLengthTerm(spriteData, layerName, "x", sourceX);
+		const effectTop = getPositionLengthTerm(spriteData, layerName, "y", sourceY);
 
 		maskElement.classList.add("is-masked");
 		maskElement.style.setProperty("--sprite-mask-image", cssUrlList(validTargets.map((target) => target.data.file)));
 		maskElement.style.setProperty("--sprite-mask-position", cssLengthList(validTargets.map((target) => {
-			const targetLeft = getPositionTerm(target.data, target.name, "x", sourceX);
-			const targetTop = getPositionTerm(target.data, target.name, "y", sourceY);
+			const targetLeft = getPositionLengthTerm(target.data, target.name, "x", sourceX);
+			const targetTop = getPositionLengthTerm(target.data, target.name, "y", sourceY);
 
 			return `calc(${targetLeft} - ${effectLeft}) calc(${targetTop} - ${effectTop})`;
 		})));
@@ -1215,6 +1252,8 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 			return;
 		}
 
+		const sourceWidth = getNumberVar(card, "--projects-source-width", 2560);
+		const sourceHeight = getNumberVar(card, "--projects-source-height", 2050);
 		const sourceX = getNumberVar(card, "--projects-source-x", 0);
 		const sourceY = getNumberVar(card, "--projects-source-y", 1800);
 		const spritesByName = new Map(sprites.map((sprite) => [stripImageExtension(sprite.file), sprite]));
@@ -1262,8 +1301,8 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 			sprite.setAttribute("aria-hidden", "true");
 			sprite.style.setProperty("--sprite-left", getPositionTerm(spriteData, layerName, "x", sourceX));
 			sprite.style.setProperty("--sprite-top", getPositionTerm(spriteData, layerName, "y", sourceY));
-			sprite.style.setProperty("--sprite-width", box.width);
-			sprite.style.setProperty("--sprite-height", box.height);
+			sprite.style.setProperty("--sprite-width", asPercent((box.width / sourceWidth) * 100));
+			sprite.style.setProperty("--sprite-height", asPercent((box.height / sourceHeight) * 100));
 			sprite.style.setProperty("--sprite-z", bottomIndex + 1);
 
 			if (blendModes.has(layerName)) {
