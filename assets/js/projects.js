@@ -18,6 +18,7 @@
 	const comicChapterButtons = [...document.querySelectorAll("[data-comic-chapter]")];
 	const beetZoomViewers = [...document.querySelectorAll("[data-zoom-viewer]")];
 	const spriteViewers = [...document.querySelectorAll("[data-sprite-viewer]")];
+	const deferredImageGroups = [...document.querySelectorAll("[data-deferred-image-group]")];
 
 	if (!stack || !tabs.length) {
 		return;
@@ -31,10 +32,19 @@
 	const comicParallaxActiveClass = "is-comic-parallax-active";
 	const beetParallaxActiveClass = "is-beet-parallax-active";
 	const pokerParallaxActiveClass = "is-poker-parallax-active";
-	const readerOriginHiddenClass = "is-project-reader-origin-hidden";
+	const readerOriginFadedClass = "is-project-reader-origin-faded";
+	const readerOriginHoverHeldClass = "is-project-reader-origin-hover-held";
+	const readerMotionClass = "is-project-reader-clip-motion";
+	const readerStartingClass = "is-project-reader-starting";
+	const readerLandingClass = "is-project-reader-landing";
+	const readerSnapshotClass = "is-project-reader-snapshot";
+	const readerTakeoffDuration = 180;
+	const readerLandingDuration = 240;
+	const readerLandingLead = 300;
 	const scrollIdleHoverDelay = 220;
 	const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 	const touchInput = window.matchMedia("(hover: none) and (pointer: coarse)");
+	const desktopSnapshotMotion = window.matchMedia("(min-width: 60.01rem) and (hover: hover) and (pointer: fine)");
 	const tabParallaxCache = new WeakMap();
 	let lastTrigger = null;
 	let hoverReadyTimer = 0;
@@ -47,6 +57,7 @@
 	let titleAnimationNearViewport = true;
 	let readerTransitionToken = 0;
 	let activeReaderFlyer = null;
+	let deferredImageObserver = null;
 	const comicChapters = [
 		{ title: "Chapter 1", dir: "ch1", pages: Array.from({ length: 16 }, (_, index) => index) },
 		{ title: "Chapter 2", dir: "ch2", pages: Array.from({ length: 20 }, (_, index) => index + 1) },
@@ -659,6 +670,213 @@
 		return thumbnail;
 	};
 
+	const getSnapshotOpacity = (element, root) => {
+		let opacity = 1;
+		let current = element;
+
+		while (current && current !== root.parentElement) {
+			opacity *= Number.parseFloat(getComputedStyle(current).opacity) || 0;
+
+			if (current === root) {
+				break;
+			}
+
+			current = current.parentElement;
+		}
+
+		return opacity;
+	};
+
+	const getSnapshotFilter = (element, root) => {
+		const filters = [];
+		let current = element;
+
+		while (current && current !== root.parentElement) {
+			const filter = getComputedStyle(current).filter;
+
+			if (filter && filter !== "none") {
+				filters.unshift(filter);
+			}
+
+			if (current === root) {
+				break;
+			}
+
+			current = current.parentElement;
+		}
+
+		return filters.join(" ") || "none";
+	};
+
+	const captureReaderSnapshot = (tab) => {
+		if (!tab || !desktopSnapshotMotion.matches || (!isComicTab(tab) && !isBeetTab(tab))) {
+			return null;
+		}
+
+		const rect = tab.getBoundingClientRect();
+		const images = [...tab.querySelectorAll("img")];
+
+		if (!rect.width || !rect.height || !images.length || images.some((image) => !image.complete || !image.naturalWidth)) {
+			return null;
+		}
+
+		const backgroundElement = tab.querySelector(".project-comic-tab, .project-beet-tab, .project-bar__clip") || tab;
+		const imageData = images.map((image) => {
+			const imageRect = image.getBoundingClientRect();
+			const style = getComputedStyle(image);
+
+			return {
+				image,
+				filter: getSnapshotFilter(image, tab),
+				height: imageRect.height,
+				left: imageRect.left - rect.left,
+				objectFit: style.objectFit,
+				opacity: getSnapshotOpacity(image, tab),
+				top: imageRect.top - rect.top,
+				width: imageRect.width,
+			};
+		});
+		const shade = tab.querySelector(".project-beet-tab__shade");
+		const title = tab.querySelector(".project-beet-tab__title");
+		let titleData = null;
+
+		if (title) {
+			const titleRect = title.getBoundingClientRect();
+			const style = getComputedStyle(title);
+			const matrix = style.transform && style.transform !== "none" ? new DOMMatrixReadOnly(style.transform) : null;
+
+			titleData = {
+				color: style.color,
+				fontFamily: style.fontFamily,
+				fontSize: Number.parseFloat(style.fontSize) * (matrix ? Math.hypot(matrix.a, matrix.b) : 1),
+				fontWeight: style.fontWeight,
+				height: titleRect.height,
+				left: titleRect.left - rect.left,
+				top: titleRect.top - rect.top,
+				text: title.textContent,
+			};
+		}
+
+		return {
+			backgroundColor: getComputedStyle(backgroundElement).backgroundColor,
+			height: rect.height,
+			images: imageData,
+			isBeet: isBeetTab(tab),
+			shadeOpacity: shade ? Number.parseFloat(getComputedStyle(shade).opacity) || 0 : 0,
+			title: titleData,
+			width: rect.width,
+		};
+	};
+
+	const drawSnapshotImage = (context, item) => {
+		if (item.width <= 0 || item.height <= 0 || item.opacity <= 0) {
+			return;
+		}
+
+		context.save();
+		context.globalAlpha = item.opacity;
+		context.filter = item.filter;
+
+		if (item.objectFit === "cover") {
+			const imageRatio = item.image.naturalWidth / item.image.naturalHeight;
+			const boxRatio = item.width / item.height;
+			let sourceX = 0;
+			let sourceY = 0;
+			let sourceWidth = item.image.naturalWidth;
+			let sourceHeight = item.image.naturalHeight;
+
+			if (imageRatio > boxRatio) {
+				sourceWidth = item.image.naturalHeight * boxRatio;
+				sourceX = (item.image.naturalWidth - sourceWidth) / 2;
+			} else {
+				sourceHeight = item.image.naturalWidth / boxRatio;
+				sourceY = (item.image.naturalHeight - sourceHeight) / 2;
+			}
+
+			context.drawImage(item.image, sourceX, sourceY, sourceWidth, sourceHeight, item.left, item.top, item.width, item.height);
+		} else {
+			context.drawImage(item.image, item.left, item.top, item.width, item.height);
+		}
+
+		context.restore();
+	};
+
+	const drawBeetSnapshotDetails = (context, capture) => {
+		if (capture.shadeOpacity > 0) {
+			const vertical = context.createLinearGradient(0, 0, 0, capture.height);
+			vertical.addColorStop(0, "rgba(5, 10, 12, 0.12)");
+			vertical.addColorStop(1, "rgba(5, 10, 12, 0.64)");
+			context.save();
+			context.globalAlpha = capture.shadeOpacity;
+			context.fillStyle = vertical;
+			context.fillRect(0, 0, capture.width, capture.height);
+
+			const horizontal = context.createLinearGradient(0, 0, capture.width, 0);
+			horizontal.addColorStop(0, "rgba(5, 10, 12, 0.78)");
+			horizontal.addColorStop(0.46, "rgba(5, 10, 12, 0.34)");
+			horizontal.addColorStop(1, "rgba(5, 10, 12, 0.2)");
+			context.fillStyle = horizontal;
+			context.fillRect(0, 0, capture.width, capture.height);
+			context.restore();
+		}
+
+		if (!capture.title) {
+			return;
+		}
+
+		const title = capture.title;
+		context.save();
+		context.fillStyle = title.color;
+		context.font = `${title.fontWeight} ${title.fontSize}px ${title.fontFamily}`;
+		context.textBaseline = "alphabetic";
+		context.shadowColor = "rgba(0, 0, 0, 0.48)";
+		context.shadowBlur = title.fontSize * 0.1;
+		context.shadowOffsetY = title.fontSize * 0.08;
+		const metrics = context.measureText(title.text);
+		const ascent = metrics.actualBoundingBoxAscent || title.fontSize * 0.78;
+		const descent = metrics.actualBoundingBoxDescent || title.fontSize * 0.16;
+		const baseline = title.top + (title.height + ascent - descent) / 2;
+		context.fillText(title.text, title.left, baseline);
+		context.restore();
+	};
+
+	const createStaticReaderThumbnail = (tab, capture, className, height) => {
+		if (!capture) {
+			return null;
+		}
+
+		const thumbnail = document.createElement("div");
+		const canvas = document.createElement("canvas");
+		const canvasHeight = Math.max(capture.height, height || 0);
+		const resolution = Math.min(Math.max(window.devicePixelRatio || 1, 1), 1.5);
+		const context = canvas.getContext("2d", { alpha: false });
+
+		if (!context) {
+			return null;
+		}
+
+		thumbnail.className = [...projectBarClasses(tab), className, readerSnapshotClass].join(" ");
+		thumbnail.setAttribute("aria-hidden", "true");
+		canvas.className = "project-reader__snapshot-canvas";
+		canvas.width = Math.ceil(capture.width * resolution);
+		canvas.height = Math.ceil(canvasHeight * resolution);
+		canvas.style.width = `${capture.width}px`;
+		canvas.style.height = `${canvasHeight}px`;
+		context.scale(resolution, resolution);
+		context.fillStyle = capture.backgroundColor && capture.backgroundColor !== "rgba(0, 0, 0, 0)"
+			? capture.backgroundColor
+			: "#120b10";
+		context.fillRect(0, 0, capture.width, canvasHeight);
+		capture.images.forEach((item) => drawSnapshotImage(context, item));
+
+		if (capture.isBeet) {
+			drawBeetSnapshotDetails(context, capture);
+		}
+
+		thumbnail.append(canvas);
+		return thumbnail;
+	};
+
 	const setReaderHeader = (id) => {
 		if (!readerHeader) {
 			return;
@@ -692,10 +910,78 @@
 		return match[2] === "s" ? value * 1000 : value;
 	};
 
-	const setFlyerRect = (flyer, rect) => {
-		flyer.style.width = `${Math.max(1, rect.width)}px`;
-		flyer.style.height = `${Math.max(1, rect.height)}px`;
-		flyer.style.transform = `translate3d(${rect.left}px, ${rect.top}px, 0)`;
+	const setReaderFlyerFrame = (flyer, visibleRect, layoutRect) => {
+		const layoutWidth = Math.max(1, layoutRect.width);
+		const layoutHeight = Math.max(1, layoutRect.height);
+		const clipRight = Math.max(0, layoutWidth - Math.max(1, visibleRect.width));
+		const clipBottom = Math.max(0, layoutHeight - Math.max(1, visibleRect.height));
+		const clip = `inset(0px ${clipRight}px ${clipBottom}px 0px)`;
+
+		flyer.style.width = `${layoutWidth}px`;
+		flyer.style.height = `${layoutHeight}px`;
+		flyer.style.transform = `translate3d(${visibleRect.left}px, ${visibleRect.top}px, 0)`;
+		flyer.style.clipPath = clip;
+		flyer.style.webkitClipPath = clip;
+	};
+
+	const clearFlyerRect = (flyer) => {
+		flyer.style.removeProperty("width");
+		flyer.style.removeProperty("height");
+		flyer.style.removeProperty("transform");
+		flyer.style.removeProperty("clip-path");
+		flyer.style.removeProperty("-webkit-clip-path");
+	};
+
+	const promoteFlyerToHeader = (id, flyer) => {
+		if (!readerHeader || !flyer || flyer.classList.contains(readerSnapshotClass)) {
+			return false;
+		}
+
+		flyer.classList.remove(
+			"project-reader__thumb-flyer",
+			"is-returning",
+			readerMotionClass,
+			readerStartingClass,
+			readerLandingClass,
+		);
+		flyer.classList.add("project-reader__thumbnail-art");
+		clearFlyerRect(flyer);
+		readerHeader.dataset.projectReaderCurrent = id;
+		readerHeader.replaceChildren(flyer);
+
+		if (activeReaderFlyer === flyer) {
+			activeReaderFlyer = null;
+		}
+
+		return true;
+	};
+
+	const takeHeaderArtwork = () => {
+		const artwork = readerHeader?.querySelector(".project-reader__thumbnail-art.project-bar");
+
+		if (!reader || !artwork) {
+			return null;
+		}
+
+		const rect = artwork.getBoundingClientRect();
+		const capture = captureReaderSnapshot(artwork);
+		const snapshot = createStaticReaderThumbnail(artwork, capture, "project-reader__thumb-flyer is-returning", rect.height);
+
+		if (snapshot) {
+			readerHeader.removeAttribute("data-project-reader-current");
+			readerHeader.replaceChildren();
+			reader.append(snapshot);
+			setReaderFlyerFrame(snapshot, rect, rect);
+			return { artwork: snapshot, rect };
+		}
+
+		artwork.classList.remove("project-reader__thumbnail-art");
+		artwork.classList.add("project-reader__thumb-flyer", "is-returning", readerMotionClass);
+		reader.append(artwork);
+		setReaderFlyerFrame(artwork, rect, rect);
+		readerHeader.removeAttribute("data-project-reader-current");
+
+		return { artwork, rect };
 	};
 
 	const primeReaderFlyer = (flyer) => {
@@ -711,12 +997,14 @@
 		}
 
 		let settled = false;
+		let fallbackTimer = 0;
 		const finish = () => {
 			if (settled) {
 				return;
 			}
 
 			settled = true;
+			window.clearTimeout(fallbackTimer);
 			flyer.removeEventListener("transitionend", onTransitionEnd);
 			resolve();
 		};
@@ -727,7 +1015,7 @@
 		};
 
 		flyer.addEventListener("transitionend", onTransitionEnd);
-		window.setTimeout(finish, duration + 120);
+		fallbackTimer = window.setTimeout(finish, duration + 120);
 	});
 
 	const clearActiveReaderFlyer = () => {
@@ -735,18 +1023,99 @@
 		activeReaderFlyer = null;
 	};
 
-	const finishReaderOpen = (id, triggerTab, flyer) => {
-		triggerTab?.classList.remove(readerOriginHiddenClass);
-		reader?.classList.remove("is-opening", "is-sheet-visible");
-		setReaderHeader(id);
-		syncProjectRuntime(id);
+	const holdReaderOriginHover = (tab) => {
+		if (!tab) {
+			return;
+		}
 
-		window.requestAnimationFrame(() => {
+		if (scrollHeldHoverTab && scrollHeldHoverTab !== tab) {
+			clearScrollHeldHover();
+		}
+
+		tab.classList.add(scrollHeldHoverClass, readerOriginHoverHeldClass);
+	};
+
+	const releaseReaderOriginHover = (tab) => {
+		if (!tab) {
+			return;
+		}
+
+		if (scrollHeldHoverTab === tab) {
+			scrollHeldHoverTab = null;
+		}
+
+		tab.classList.remove(scrollHeldHoverClass, touchPreviewClass, readerOriginHoverHeldClass);
+		stopComicCloudDrift(tab);
+		stopTabParallax(tab);
+	};
+
+	const hideReaderOrigin = (tab, animate = false) => {
+		if (!tab) {
+			return;
+		}
+
+		if (!animate || reduceMotion.matches || typeof tab.animate !== "function") {
+			tab.classList.add(readerOriginFadedClass);
+			releaseReaderOriginHover(tab);
+			return;
+		}
+
+		const animation = tab.animate([
+			{ opacity: 1 },
+			{ opacity: 0 },
+		], {
+			duration: readerTakeoffDuration,
+			easing: "ease",
+			fill: "both",
+		});
+
+		animation.finished.catch(() => {}).then(() => {
+			tab.classList.add(readerOriginFadedClass);
+			releaseReaderOriginHover(tab);
+			animation.cancel();
+		});
+	};
+
+	const revealReaderOrigin = (tab, animate = false) => {
+		if (!tab) {
+			return;
+		}
+
+		tab.classList.remove(readerOriginFadedClass);
+
+		if (animate && readerLandingDuration && !reduceMotion.matches && typeof tab.animate === "function") {
+			const animation = tab.animate([
+				{ opacity: 0 },
+				{ opacity: 1 },
+			], {
+				duration: readerLandingDuration,
+				easing: "ease",
+				fill: "both",
+			});
+
+			animation.finished.catch(() => {}).then(() => animation.cancel());
+		}
+	};
+
+	const finishReaderOpen = (id, triggerTab, flyer) => {
+		const reusedFlyer = promoteFlyerToHeader(id, flyer);
+
+		if (!reusedFlyer) {
+			if (!readerHeader?.querySelector(".project-reader__thumbnail-art.project-bar")) {
+				setReaderHeader(id);
+			}
 			flyer?.remove();
 			if (activeReaderFlyer === flyer) {
 				activeReaderFlyer = null;
 			}
+		}
 
+		releaseReaderOriginHover(triggerTab);
+		revealReaderOrigin(triggerTab);
+		reader?.classList.remove("is-opening", "is-sheet-visible");
+		syncProjectRuntime(id);
+
+		window.requestAnimationFrame(() => {
 			const activePanel = readerPanels.find((panel) => panel.dataset.projectReaderPanel === id);
 			const closeButton = activePanel?.querySelector("[data-project-close]");
 
@@ -757,7 +1126,7 @@
 	const finishReaderClose = (targetTab, flyer) => {
 		readerHeader?.removeAttribute("data-project-reader-current");
 		readerHeader?.replaceChildren();
-		targetTab?.classList.remove(readerOriginHiddenClass);
+		revealReaderOrigin(targetTab);
 
 		window.requestAnimationFrame(() => {
 			flyer?.remove();
@@ -839,30 +1208,34 @@
 		}
 
 		if (!reader.hidden) {
-			setActiveProject(id);
+			if (!reader.classList.contains("is-opening") && !reader.classList.contains("is-closing")) {
+				setActiveProject(id);
+			}
 			return;
 		}
 
 		const triggerTab = getProjectTab(id);
 		const sourceRect = triggerTab?.getBoundingClientRect();
+		const snapshotCapture = captureReaderSnapshot(triggerTab);
 		const token = ++readerTransitionToken;
 
 		clearActiveReaderFlyer();
-		clearTouchPreview();
+		clearTouchPreview(triggerTab);
+		holdReaderOriginHover(triggerTab);
 		lastTrigger = triggerTab || document.activeElement;
 		reader.hidden = false;
 		reader.classList.add("is-opening");
 		reader.classList.remove("is-closing", "is-sheet-visible");
 		document.documentElement.classList.add("is-project-reader-open");
 		document.body.classList.add("is-project-reader-open");
-		clearScrollHeldHover();
 		setTabHoverReady(false);
 		setActiveProject(id, { syncRuntime: false, updateHeader: false });
 		readerHeader?.replaceChildren();
 
 		const targetRect = readerHeader?.getBoundingClientRect();
 		const flyer = triggerTab && sourceRect && targetRect
-			? createReaderThumbnail(triggerTab, "project-reader__thumb-flyer", true)
+			? createStaticReaderThumbnail(triggerTab, snapshotCapture, "project-reader__thumb-flyer", targetRect.height)
+				|| createReaderThumbnail(triggerTab, "project-reader__thumb-flyer", true)
 			: null;
 
 		if (!flyer) {
@@ -870,10 +1243,12 @@
 			return;
 		}
 
-		triggerTab.classList.add(readerOriginHiddenClass);
+		hideReaderOrigin(triggerTab, true);
+		flyer.classList.add(readerMotionClass, readerStartingClass);
+
 		reader.append(flyer);
 		activeReaderFlyer = flyer;
-		setFlyerRect(flyer, sourceRect);
+		setReaderFlyerFrame(flyer, sourceRect, targetRect);
 		primeReaderFlyer(flyer);
 
 		window.requestAnimationFrame(() => {
@@ -881,8 +1256,20 @@
 				return;
 			}
 
-			setFlyerRect(flyer, targetRect);
+			flyer.classList.remove(readerStartingClass);
+			setReaderFlyerFrame(flyer, targetRect, targetRect);
 			reader.classList.add("is-sheet-visible");
+
+			if (flyer.classList.contains(readerSnapshotClass)) {
+				window.setTimeout(() => {
+					if (token !== readerTransitionToken) {
+						return;
+					}
+
+					setReaderHeader(id);
+					flyer.classList.add(readerLandingClass);
+				}, Math.max(0, readerTransitionMs() - readerLandingLead));
+			}
 		});
 
 		waitForFlyerTransition(flyer).then(() => {
@@ -893,20 +1280,22 @@
 	};
 
 	const closeReader = () => {
-		if (!reader || reader.hidden) {
+		if (!reader || reader.hidden || reader.classList.contains("is-closing")) {
 			return;
 		}
 
 		const id = getActiveProjectId();
 		const targetTab = getProjectTab(id) || (lastTrigger?.matches?.("[data-project-tab]") ? lastTrigger : null);
-		const sourceRect = readerHeader?.getBoundingClientRect();
 		const targetRect = targetTab?.getBoundingClientRect();
 		const token = ++readerTransitionToken;
-		const flyer = targetTab && sourceRect && targetRect
-			? createReaderThumbnail(targetTab, "project-reader__thumb-flyer is-returning", true)
-			: null;
 
 		clearActiveReaderFlyer();
+		const headerArtwork = targetTab && targetRect ? takeHeaderArtwork() : null;
+		const sourceRect = headerArtwork?.rect || readerHeader?.getBoundingClientRect();
+		const flyer = targetTab && sourceRect && targetRect
+			? headerArtwork?.artwork || createReaderThumbnail(targetTab, "project-reader__thumb-flyer is-returning", true)
+			: null;
+
 		unmountPokerGame();
 		reader.classList.remove("is-opening", "is-sheet-visible");
 		reader.classList.add("is-closing");
@@ -917,10 +1306,13 @@
 			return;
 		}
 
-		targetTab.classList.add(readerOriginHiddenClass);
-		reader.append(flyer);
+		flyer.classList.add(readerMotionClass);
+		hideReaderOrigin(targetTab);
+		if (!headerArtwork) {
+			reader.append(flyer);
+			setReaderFlyerFrame(flyer, sourceRect, sourceRect);
+		}
 		activeReaderFlyer = flyer;
-		setFlyerRect(flyer, sourceRect);
 		primeReaderFlyer(flyer);
 
 		window.requestAnimationFrame(() => {
@@ -929,7 +1321,16 @@
 			}
 
 			flyer.classList.remove(scrollHeldHoverClass);
-			setFlyerRect(flyer, targetRect);
+			setReaderFlyerFrame(flyer, targetRect, sourceRect);
+
+			window.setTimeout(() => {
+				if (token !== readerTransitionToken) {
+					return;
+				}
+
+				revealReaderOrigin(targetTab, true);
+				flyer.classList.add(readerLandingClass);
+			}, Math.max(0, readerTransitionMs() - readerLandingLead));
 		});
 
 		waitForFlyerTransition(flyer).then(() => {
@@ -1095,6 +1496,39 @@
 		});
 	};
 
+	const loadDeferredImageGroup = (group) => {
+		group.querySelectorAll("img[data-deferred-src]").forEach((image) => {
+			image.src = image.dataset.deferredSrc;
+			image.removeAttribute("data-deferred-src");
+		});
+		group.dataset.deferredImagesLoaded = "true";
+		deferredImageObserver?.unobserve(group);
+	};
+
+	const initDeferredImageGroups = () => {
+		if (!deferredImageGroups.length) {
+			return;
+		}
+
+		if (!("IntersectionObserver" in window) || !reader) {
+			deferredImageGroups.forEach(loadDeferredImageGroup);
+			return;
+		}
+
+		deferredImageObserver = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					loadDeferredImageGroup(entry.target);
+				}
+			});
+		}, {
+			root: reader,
+			rootMargin: "650px 0px",
+			threshold: 0,
+		});
+		deferredImageGroups.forEach((group) => deferredImageObserver.observe(group));
+	};
+
 	spriteViewers.forEach((viewer) => {
 		const thumbs = [...viewer.querySelectorAll("[data-sprite-thumb]")];
 
@@ -1111,6 +1545,7 @@
 		});
 		setSpriteViewerIndex(viewer, 0);
 	});
+	initDeferredImageGroups();
 
 	if (typeof reduceMotion.addEventListener === "function") {
 		reduceMotion.addEventListener("change", () => {
