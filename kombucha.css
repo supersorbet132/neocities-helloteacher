@@ -28,6 +28,25 @@
 	}
 
 /* page layout */
+	html {
+		max-width: 100%;
+		overscroll-behavior: none;
+		scrollbar-width: none;
+	}
+	body {
+		max-width: 100%;
+		overscroll-behavior: none;
+	}
+	html::-webkit-scrollbar,
+	body::-webkit-scrollbar,
+	.project-reader::-webkit-scrollbar {
+		display: none;
+		width: 0;
+		height: 0;
+	}
+	.project-reader {
+		scrollbar-width: none;
+	}
 	* {
 		scrollbar-color: var(--link) var(--border);
 		box-sizing: border-box;
@@ -1409,6 +1428,30 @@ html.home-page-root {
 		z-index: 2;
 		margin: 0;
 		background: #01040f;
+	}
+	html.cad-page-root {
+		min-height: 100%;
+		background: #01040f;
+	}
+	body.cad-page {
+		--page-pad: calc(2.25rem + 1vw);
+		display: flex;
+		flex-direction: column;
+		min-height: 100svh;
+		overflow-x: hidden;
+		background: #01040f;
+		background-attachment: scroll;
+	}
+	.cad-page .site-footer {
+		margin: auto 0 0;
+		width: 100%;
+		color: #FFFDED;
+		background: transparent;
+		border-top: 0;
+	}
+	.cad-page .site-footer a:link,
+	.cad-page .site-footer a:visited {
+		color: #FFFDED;
 	}
 	.footer-nav {
 		display: flex;
@@ -5255,7 +5298,7 @@ html.home-page-root {
 		overflow-x: clip;
 		overflow-y: auto;
 		background: #81F5FC;
-		overscroll-behavior-y: auto;
+		overscroll-behavior-y: none;
 	}
 	body.art-page {
 		--art-page-gradient: linear-gradient(
@@ -5273,7 +5316,7 @@ html.home-page-root {
 		overflow: visible;
 		background: #81F5FC;
 		background-attachment: scroll;
-		overscroll-behavior-y: auto;
+		overscroll-behavior-y: none;
 	}
 	html.art-page-root.is-art-viewer-open,
 	body.art-page.is-art-viewer-open {
