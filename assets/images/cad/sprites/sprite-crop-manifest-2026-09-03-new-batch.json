@@ -1,0 +1,664 @@
+{
+  "generatedAt": "2026-09-03T22:02:09.824584Z",
+  "batchName": "cad-sprites-replacement-batch-2026-09-03",
+  "batchNote": "This manifest describes the new batch of files present in assets/images/cad/sprites on 2026-09-03 after the previous sprite files were removed and replaced. Older manifest files in this folder were intentionally preserved and may refer to earlier batches.",
+  "preservedManifestFiles": [
+    "sprite-crop-manifest.json"
+  ],
+  "alphaRule": "Tight crop includes every pixel whose alpha channel is greater than 0; no low-alpha threshold was applied.",
+  "coordinateSystem": "Pixel coordinates use the original uncropped image with origin at the top-left. right and bottom are exclusive.",
+  "positioningNote": "To preserve the original placement after cropping, position each cropped sprite at original anchor + offset.x and original anchor + offset.y.",
+  "root": "assets/images/cad/sprites",
+  "nativeDirectoryOrderBeforeCrop": [
+    "cad_display_left5.png",
+    "cad_display_left4.png",
+    "cad_display_left6.png",
+    "cad_display_left7.png",
+    "cad_display_left3.png",
+    "cad_display_left2.png",
+    "cad_display_left1.png",
+    "cad_display_right8.png",
+    "cad_display_right7.png",
+    "cad_display_right6.png",
+    "cad_display_right4.png",
+    "cad_display_right5.png",
+    "cad_display_right1.png",
+    "cad_display_rails.png",
+    "cad_display_right2.png",
+    "cad_display_right3.png",
+    "cad_display_beam.png",
+    "cad_display_colordodge.png"
+  ],
+  "sprites": [
+    {
+      "file": "cad_display_left5.png",
+      "relativePath": "cad_display_left5.png",
+      "nativeDirectoryIndex": 0,
+      "original": {
+        "width": 2560,
+        "height": 9792,
+        "bytes": 441840,
+        "birthTime": "2026-09-03T21:53:37Z",
+        "modifiedTime": "2026-09-03T21:53:37Z"
+      },
+      "cropBox": {
+        "left": 1292,
+        "top": 1437,
+        "right": 1365,
+        "bottom": 1614,
+        "width": 73,
+        "height": 177
+      },
+      "offset": {
+        "x": 1292,
+        "y": 1437
+      },
+      "originalInsets": {
+        "right": 1195,
+        "bottom": 8178
+      },
+      "cropped": {
+        "width": 73,
+        "height": 177,
+        "bytes": 1823,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "cad_display_left4.png",
+      "relativePath": "cad_display_left4.png",
+      "nativeDirectoryIndex": 1,
+      "original": {
+        "width": 2560,
+        "height": 9792,
+        "bytes": 451389,
+        "birthTime": "2026-09-03T21:53:37Z",
+        "modifiedTime": "2026-09-03T21:53:37Z"
+      },
+      "cropBox": {
+        "left": 599,
+        "top": 1415,
+        "right": 1053,
+        "bottom": 1632,
+        "width": 454,
+        "height": 217
+      },
+      "offset": {
+        "x": 599,
+        "y": 1415
+      },
+      "originalInsets": {
+        "right": 1507,
+        "bottom": 8160
+      },
+      "cropped": {
+        "width": 454,
+        "height": 217,
+        "bytes": 6693,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "cad_display_left6.png",
+      "relativePath": "cad_display_left6.png",
+      "nativeDirectoryIndex": 2,
+      "original": {
+        "width": 2560,
+        "height": 9792,
+        "bytes": 469174,
+        "birthTime": "2026-09-03T21:53:37Z",
+        "modifiedTime": "2026-09-03T21:53:37Z"
+      },
+      "cropBox": {
+        "left": 0,
+        "top": 1304,
+        "right": 620,
+        "bottom": 1682,
+        "width": 620,
+        "height": 378
+      },
+      "offset": {
+        "x": 0,
+        "y": 1304
+      },
+      "originalInsets": {
+        "right": 1940,
+        "bottom": 8110
+      },
+      "cropped": {
+        "width": 620,
+        "height": 378,
+        "bytes": 14878,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "cad_display_left7.png",
+      "relativePath": "cad_display_left7.png",
+      "nativeDirectoryIndex": 3,
+      "original": {
+        "width": 2560,
+        "height": 9792,
+        "bytes": 447628,
+        "birthTime": "2026-09-03T21:53:38Z",
+        "modifiedTime": "2026-09-03T21:53:38Z"
+      },
+      "cropBox": {
+        "left": 1028,
+        "top": 1419,
+        "right": 1297,
+        "bottom": 1655,
+        "width": 269,
+        "height": 236
+      },
+      "offset": {
+        "x": 1028,
+        "y": 1419
+      },
+      "originalInsets": {
+        "right": 1263,
+        "bottom": 8137
+      },
+      "cropped": {
+        "width": 269,
+        "height": 236,
+        "bytes": 4612,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "cad_display_left3.png",
+      "relativePath": "cad_display_left3.png",
+      "nativeDirectoryIndex": 4,
+      "original": {
+        "width": 2560,
+        "height": 9792,
+        "bytes": 770750,
+        "birthTime": "2026-09-03T21:53:35Z",
+        "modifiedTime": "2026-09-03T21:53:35Z"
+      },
+      "cropBox": {
+        "left": 0,
+        "top": 837,
+        "right": 1288,
+        "bottom": 1584,
+        "width": 1288,
+        "height": 747
+      },
+      "offset": {
+        "x": 0,
+        "y": 837
+      },
+      "originalInsets": {
+        "right": 1272,
+        "bottom": 8208
+      },
+      "cropped": {
+        "width": 1288,
+        "height": 747,
+        "bytes": 191207,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "cad_display_left2.png",
+      "relativePath": "cad_display_left2.png",
+      "nativeDirectoryIndex": 5,
+      "original": {
+        "width": 2560,
+        "height": 9792,
+        "bytes": 440630,
+        "birthTime": "2026-09-03T21:53:35Z",
+        "modifiedTime": "2026-09-03T21:53:35Z"
+      },
+      "cropBox": {
+        "left": 1357,
+        "top": 1450,
+        "right": 1403,
+        "bottom": 1593,
+        "width": 46,
+        "height": 143
+      },
+      "offset": {
+        "x": 1357,
+        "y": 1450
+      },
+      "originalInsets": {
+        "right": 1157,
+        "bottom": 8199
+      },
+      "cropped": {
+        "width": 46,
+        "height": 143,
+        "bytes": 1349,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "cad_display_left1.png",
+      "relativePath": "cad_display_left1.png",
+      "nativeDirectoryIndex": 6,
+      "original": {
+        "width": 2560,
+        "height": 9792,
+        "bytes": 463292,
+        "birthTime": "2026-09-03T21:53:34Z",
+        "modifiedTime": "2026-09-03T21:53:34Z"
+      },
+      "cropBox": {
+        "left": 0,
+        "top": 626,
+        "right": 889,
+        "bottom": 1565,
+        "width": 889,
+        "height": 939
+      },
+      "offset": {
+        "x": 0,
+        "y": 626
+      },
+      "originalInsets": {
+        "right": 1671,
+        "bottom": 8227
+      },
+      "cropped": {
+        "width": 889,
+        "height": 939,
+        "bytes": 16899,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "cad_display_right8.png",
+      "relativePath": "cad_display_right8.png",
+      "nativeDirectoryIndex": 7,
+      "original": {
+        "width": 2560,
+        "height": 9792,
+        "bytes": 446274,
+        "birthTime": "2026-09-03T21:53:38Z",
+        "modifiedTime": "2026-09-03T21:53:38Z"
+      },
+      "cropBox": {
+        "left": 2352,
+        "top": 618,
+        "right": 2560,
+        "bottom": 832,
+        "width": 208,
+        "height": 214
+      },
+      "offset": {
+        "x": 2352,
+        "y": 618
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 8960
+      },
+      "cropped": {
+        "width": 208,
+        "height": 214,
+        "bytes": 3729,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "cad_display_right7.png",
+      "relativePath": "cad_display_right7.png",
+      "nativeDirectoryIndex": 8,
+      "original": {
+        "width": 2560,
+        "height": 9792,
+        "bytes": 444318,
+        "birthTime": "2026-09-03T21:53:38Z",
+        "modifiedTime": "2026-09-03T21:53:38Z"
+      },
+      "cropBox": {
+        "left": 2402,
+        "top": 1478,
+        "right": 2560,
+        "bottom": 1659,
+        "width": 158,
+        "height": 181
+      },
+      "offset": {
+        "x": 2402,
+        "y": 1478
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 8133
+      },
+      "cropped": {
+        "width": 158,
+        "height": 181,
+        "bytes": 2966,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "cad_display_right6.png",
+      "relativePath": "cad_display_right6.png",
+      "nativeDirectoryIndex": 9,
+      "original": {
+        "width": 2560,
+        "height": 9792,
+        "bytes": 483563,
+        "birthTime": "2026-09-03T21:53:36Z",
+        "modifiedTime": "2026-09-03T21:53:36Z"
+      },
+      "cropBox": {
+        "left": 2145,
+        "top": 975,
+        "right": 2560,
+        "bottom": 1470,
+        "width": 415,
+        "height": 495
+      },
+      "offset": {
+        "x": 2145,
+        "y": 975
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 8322
+      },
+      "cropped": {
+        "width": 415,
+        "height": 495,
+        "bytes": 18925,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "cad_display_right4.png",
+      "relativePath": "cad_display_right4.png",
+      "nativeDirectoryIndex": 10,
+      "original": {
+        "width": 2560,
+        "height": 9792,
+        "bytes": 452431,
+        "birthTime": "2026-09-03T21:53:36Z",
+        "modifiedTime": "2026-09-03T21:53:36Z"
+      },
+      "cropBox": {
+        "left": 2347,
+        "top": 791,
+        "right": 2560,
+        "bottom": 1056,
+        "width": 213,
+        "height": 265
+      },
+      "offset": {
+        "x": 2347,
+        "y": 791
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 8736
+      },
+      "cropped": {
+        "width": 213,
+        "height": 265,
+        "bytes": 5914,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "cad_display_right5.png",
+      "relativePath": "cad_display_right5.png",
+      "nativeDirectoryIndex": 11,
+      "original": {
+        "width": 2560,
+        "height": 9792,
+        "bytes": 447539,
+        "birthTime": "2026-09-03T21:53:36Z",
+        "modifiedTime": "2026-09-03T21:53:36Z"
+      },
+      "cropBox": {
+        "left": 2319,
+        "top": 1305,
+        "right": 2529,
+        "bottom": 1518,
+        "width": 210,
+        "height": 213
+      },
+      "offset": {
+        "x": 2319,
+        "y": 1305
+      },
+      "originalInsets": {
+        "right": 31,
+        "bottom": 8274
+      },
+      "cropped": {
+        "width": 210,
+        "height": 213,
+        "bytes": 3868,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "cad_display_right1.png",
+      "relativePath": "cad_display_right1.png",
+      "nativeDirectoryIndex": 12,
+      "original": {
+        "width": 2560,
+        "height": 9792,
+        "bytes": 441239,
+        "birthTime": "2026-09-03T21:53:34Z",
+        "modifiedTime": "2026-09-03T21:53:34Z"
+      },
+      "cropBox": {
+        "left": 2319,
+        "top": 666,
+        "right": 2394,
+        "bottom": 821,
+        "width": 75,
+        "height": 155
+      },
+      "offset": {
+        "x": 2319,
+        "y": 666
+      },
+      "originalInsets": {
+        "right": 166,
+        "bottom": 8971
+      },
+      "cropped": {
+        "width": 75,
+        "height": 155,
+        "bytes": 1545,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "cad_display_rails.png",
+      "relativePath": "cad_display_rails.png",
+      "nativeDirectoryIndex": 13,
+      "original": {
+        "width": 2560,
+        "height": 9792,
+        "bytes": 450521,
+        "birthTime": "2026-09-03T21:53:33Z",
+        "modifiedTime": "2026-09-03T21:53:33Z"
+      },
+      "cropBox": {
+        "left": 51,
+        "top": 691,
+        "right": 2560,
+        "bottom": 1588,
+        "width": 2509,
+        "height": 897
+      },
+      "offset": {
+        "x": 51,
+        "y": 691
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 8204
+      },
+      "cropped": {
+        "width": 2509,
+        "height": 897,
+        "bytes": 15622,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "cad_display_right2.png",
+      "relativePath": "cad_display_right2.png",
+      "nativeDirectoryIndex": 14,
+      "original": {
+        "width": 2560,
+        "height": 9792,
+        "bytes": 442356,
+        "birthTime": "2026-09-03T21:53:34Z",
+        "modifiedTime": "2026-09-03T21:53:34Z"
+      },
+      "cropBox": {
+        "left": 1910,
+        "top": 1429,
+        "right": 2061,
+        "bottom": 1620,
+        "width": 151,
+        "height": 191
+      },
+      "offset": {
+        "x": 1910,
+        "y": 1429
+      },
+      "originalInsets": {
+        "right": 499,
+        "bottom": 8172
+      },
+      "cropped": {
+        "width": 151,
+        "height": 191,
+        "bytes": 2228,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "cad_display_right3.png",
+      "relativePath": "cad_display_right3.png",
+      "nativeDirectoryIndex": 15,
+      "original": {
+        "width": 2560,
+        "height": 9792,
+        "bytes": 471814,
+        "birthTime": "2026-09-03T21:53:35Z",
+        "modifiedTime": "2026-09-03T21:53:35Z"
+      },
+      "cropBox": {
+        "left": 1988,
+        "top": 1394,
+        "right": 2560,
+        "bottom": 1798,
+        "width": 572,
+        "height": 404
+      },
+      "offset": {
+        "x": 1988,
+        "y": 1394
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 7994
+      },
+      "cropped": {
+        "width": 572,
+        "height": 404,
+        "bytes": 15104,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "cad_display_beam.png",
+      "relativePath": "cad_display_beam.png",
+      "nativeDirectoryIndex": 16,
+      "original": {
+        "width": 2560,
+        "height": 9792,
+        "bytes": 1196393,
+        "birthTime": "2026-09-03T21:53:33Z",
+        "modifiedTime": "2026-09-03T21:53:33Z"
+      },
+      "cropBox": {
+        "left": 0,
+        "top": 573,
+        "right": 2560,
+        "bottom": 1832,
+        "width": 2560,
+        "height": 1259
+      },
+      "offset": {
+        "x": 0,
+        "y": 573
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 7960
+      },
+      "cropped": {
+        "width": 2560,
+        "height": 1259,
+        "bytes": 463449,
+        "format": "png"
+      },
+      "rewritten": true
+    },
+    {
+      "file": "cad_display_colordodge.png",
+      "relativePath": "cad_display_colordodge.png",
+      "nativeDirectoryIndex": 17,
+      "original": {
+        "width": 2560,
+        "height": 9792,
+        "bytes": 2156956,
+        "birthTime": "2026-09-03T21:53:33Z",
+        "modifiedTime": "2026-09-03T21:53:33Z"
+      },
+      "cropBox": {
+        "left": 0,
+        "top": 257,
+        "right": 2560,
+        "bottom": 2040,
+        "width": 2560,
+        "height": 1783
+      },
+      "offset": {
+        "x": 0,
+        "y": 257
+      },
+      "originalInsets": {
+        "right": 0,
+        "bottom": 7752
+      },
+      "cropped": {
+        "width": 2560,
+        "height": 1783,
+        "bytes": 1344423,
+        "format": "png"
+      },
+      "rewritten": true
+    }
+  ]
+}

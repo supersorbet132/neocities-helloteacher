@@ -4,12 +4,126 @@
   <title>CAD — HELLOTEACHER</title>
   <meta name="description" content="Personal art, CAD, design, and journal site.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="utf-8">
+	<meta charset="utf-8">
 
-	<link href="/kombucha.css?v=20260902-scrollbound2" rel="stylesheet" type="text/css" media="all">
+	<link href="/kombucha.css?v=20260905-model2" rel="stylesheet" type="text/css" media="all">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+	<script src="/assets/js/cad-display.js?v=20260905-model2" defer></script>
+	<script src="/assets/js/cad-model-viewer.js?v=20260905-model2" defer></script>
+	<script src="/assets/js/cad-archive.js?v=20260905-model2" defer></script>
 </head>
 
 <body class="cad-page">
+  <div id="cad-display-window" class="cad-display-window" data-cad-display-window role="dialog" aria-modal="true" aria-labelledby="cad-window-title" aria-hidden="true">
+    <section class="cad-display-window__panel cad-display-window__panel--left" data-cad-display-window-content aria-label="CAD model viewer">
+      <div class="cad-display-window__panel-inner cad-display-window__panel-inner--model">
+        <div class="cad-display-window__viewer-shell" data-cad-model-viewer data-cad-model-src="/assets/models/Phone_holder_assembled.glb" data-cad-model-title="Phone Holder Assembly">
+          <div class="cad-display-window__model-stage" data-cad-model-stage>
+            <button class="cad-display-window__model-launch" type="button" data-cad-model-start aria-label="Load interactive phone holder model">
+              <span class="cad-display-window__model-play-icon" aria-hidden="true"></span>
+              <span class="cad-display-window__model-launch-text" aria-hidden="true">Load 3D Model</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cad-display-window__panel cad-display-window__panel--right" data-cad-display-window-content aria-label="CAD model details">
+      <div class="cad-display-window__panel-inner cad-display-window__panel-inner--detail">
+        <button class="cad-display-window__close" type="button" data-cad-display-window-close aria-label="Close CAD viewer">Close</button>
+
+        <div class="cad-display-window__title-box">
+          <p data-cad-viewer-kicker>Active File / Featured</p>
+          <h2 id="cad-window-title" data-cad-viewer-title>Phone Holder Assembly</h2>
+        </div>
+
+        <div class="cad-display-window__text-box">
+          <p data-cad-viewer-copy>Placeholder notes for the selected model will live here: design intent, constraints, fabrication notes, failures, revisions, and whatever else earns its place in the archive.</p>
+        </div>
+
+        <div class="cad-display-window__diagram-region" aria-label="Orthographic diagram placeholders">
+          <div class="cad-display-window__diagram-cell">
+            <span>Top</span>
+          </div>
+          <div class="cad-display-window__diagram-cell">
+            <span>Front</span>
+          </div>
+          <div class="cad-display-window__diagram-cell">
+            <span>Right</span>
+          </div>
+          <div class="cad-display-window__diagram-cell">
+            <span>Iso</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <main id="content" class="cad-page__main" aria-label="CAD design archive">
+    <section class="cad-hero" aria-labelledby="cad-page-title">
+      <div class="cad-hero__copy cad-holo-panel">
+        <p class="cad-hero__eyebrow">Featured Design / Phone Holder Assembly</p>
+        <h1 id="cad-page-title">CAD Archive</h1>
+        <p class="cad-hero__lede">Assemblies, fixtures, mechanisms, and study parts staged for inspection.</p>
+        <dl class="cad-hero__readout" aria-label="Featured model summary">
+          <div>
+            <dt>Mode</dt>
+            <dd>Preview</dd>
+          </div>
+          <div>
+            <dt>Viewer</dt>
+            <dd>Lazy Load</dd>
+          </div>
+          <div>
+            <dt>Asset Bay</dt>
+            <dd>Phone Holder</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="cad-page__display-zone" aria-label="Featured CAD display preview">
+        <button class="cad-display" type="button" data-cad-display aria-label="Open phone holder assembly preview" aria-controls="cad-display-window" aria-expanded="false" aria-pressed="false">
+          <span class="cad-display__scene" aria-hidden="true" data-cad-display-scene></span>
+          <span class="cad-display__fallback">Phone holder assembly display</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="cad-archive" data-cad-archive aria-labelledby="cad-archive-title">
+      <div class="cad-section-header cad-holo-panel">
+        <p class="cad-section-header__eyebrow">Design Inventory / Non-Featured Models</p>
+        <h2 id="cad-archive-title">Model Index</h2>
+        <p>Parts and assemblies can be staged here while the larger inspection viewer stays load-on-demand.</p>
+      </div>
+
+      <div class="cad-archive__frame">
+        <aside class="cad-archive__filters cad-holo-panel" aria-label="Model filters">
+          <button class="cad-filter is-active" type="button" data-cad-filter="all" aria-pressed="true">All</button>
+          <button class="cad-filter" type="button" data-cad-filter="assemblies" aria-pressed="false">Assemblies</button>
+          <button class="cad-filter" type="button" data-cad-filter="parts" aria-pressed="false">Parts</button>
+          <button class="cad-filter" type="button" data-cad-filter="mechanisms" aria-pressed="false">Mechanisms</button>
+          <button class="cad-filter" type="button" data-cad-filter="fixtures" aria-pressed="false">Fixtures</button>
+          <button class="cad-filter" type="button" data-cad-filter="experiments" aria-pressed="false">Experiments</button>
+        </aside>
+
+        <div class="cad-archive__panel cad-holo-panel">
+          <div class="cad-archive__toolbar">
+            <p class="cad-archive__count" data-cad-model-count>0 records</p>
+            <p class="cad-archive__status" data-cad-archive-status>Viewport / Archive Bay 02</p>
+          </div>
+          <div class="cad-model-list" data-cad-model-list></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer class="site-footer">
     <nav id="nav" class="footer-nav" aria-label="Footer navigation">
       <a href="/">Home</a>
