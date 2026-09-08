@@ -7,11 +7,13 @@
 
 	const scene = display.querySelector("[data-cad-display-scene]");
 	const expandedWindow = document.querySelector("[data-cad-display-window]");
+	const featuredModelViewer = expandedWindow?.querySelector("[data-cad-model-viewer]");
 	const viewerTitle = expandedWindow?.querySelector("[data-cad-viewer-title]");
 	const viewerKicker = expandedWindow?.querySelector("[data-cad-viewer-kicker]");
 	const viewerStatus = expandedWindow?.querySelector("[data-cad-viewer-status]");
 	const viewerCopy = expandedWindow?.querySelector("[data-cad-viewer-copy]");
 	const viewerCloseButtons = expandedWindow?.querySelectorAll("[data-cad-display-window-close]") || [];
+	const featuredModelTitle = featuredModelViewer?.dataset.cadModelTitle || "Phone Holder Assembly";
 
 	if (!scene) {
 		return;
@@ -32,6 +34,11 @@
 	const hoverTimers = new WeakMap();
 	let lockedScrollY = 0;
 	let lastFocusWasPointer = false;
+	let activeViewerDetail = {
+		action: "featured",
+		hasModel: true,
+		model: featuredModelTitle,
+	};
 
 	const getNumberVar = (element, name, fallback) => {
 		const value = getComputedStyle(element).getPropertyValue(name).trim();
@@ -173,8 +180,14 @@
 	};
 
 	const setViewerContent = (detail = {}) => {
-		const modelName = detail.model || "Phone Holder Assembly";
-		const action = detail.action || "featured";
+		activeViewerDetail = {
+			action: detail.action || "featured",
+			hasModel: detail.hasModel === true || detail.action === "featured" || !detail.action,
+			model: detail.model || featuredModelTitle,
+		};
+
+		const modelName = activeViewerDetail.model;
+		const action = activeViewerDetail.action;
 		const modelLabel = modelName.replace(/\s+/g, " ").trim();
 		const viewerMode = action === "inspect" ? "Detail Record" : "Model Viewer";
 
@@ -222,7 +235,9 @@
 		document.body.classList.toggle("is-cad-viewer-open", open);
 
 		if (wasOpen !== open) {
-			document.dispatchEvent(new CustomEvent(open ? "cad:viewer-opened" : "cad:viewer-closed"));
+			document.dispatchEvent(new CustomEvent(open ? "cad:viewer-opened" : "cad:viewer-closed", {
+				detail: activeViewerDetail,
+			}));
 		}
 
 		if (!open) {
@@ -258,7 +273,10 @@
 		setWindowOpen(true);
 	});
 	document.addEventListener("cad:open-viewer", (event) => {
-		setViewerContent(event.detail || {});
+		setViewerContent({
+			...(event.detail || {}),
+			hasModel: false,
+		});
 		setWindowOpen(true);
 	});
 	viewerCloseButtons.forEach((button) => {

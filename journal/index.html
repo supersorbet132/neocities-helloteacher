@@ -1,70 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="journal-page-root" lang="en">
 <head>
-  <title>Journal — HELLOTEACHER</title>
-  <meta name="description" content="Personal art, CAD, design, and journal site.">
+  <title>Journal - HELLOTEACHER</title>
+  <meta name="description" content="Journal entries from HELLOTEACHER.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
 
-	<link href="/kombucha.css?v=20260902-scrollbound2" rel="stylesheet" type="text/css" media="all">
-  <script src="/assets/js/main.js?v=20260827-mobile1" defer></script>
+	<link href="/kombucha.css?v=20260908-journal1" rel="stylesheet" type="text/css" media="all">
+  <script src="/assets/js/journal.js?v=20260908-journal1" defer></script>
 </head>
 
-<body>
-  <div class="container">
+<body class="journal-page">
+  <main class="journal-page__surface" data-journal-app>
+    <header class="journal-page__topline">
+      <a class="journal-page__home" href="/">Home</a>
+      <h1>Journal</h1>
+      <p data-journal-count>Loading entries</p>
+    </header>
 
-    <ul>
-      <li><a href="/">home</a></li>
-      <li><a href="#nav">navigation</a></li>
-    </ul>
+    <section class="journal-index" data-journal-index aria-label="Journal entries">
+      <p class="journal-index__status">Loading entries...</p>
+    </section>
 
-    <main>
-      <h1>My Journal</h1>
+    <section class="journal-reader" data-journal-reader role="dialog" aria-modal="true" aria-labelledby="journal-reader-title" hidden>
+      <div class="journal-reader__shell">
+        <header class="journal-reader__topline">
+          <button class="journal-reader__back" type="button" data-journal-close>Back</button>
+          <div class="journal-reader__heading">
+            <p><time data-journal-reader-date></time></p>
+            <h2 id="journal-reader-title" data-journal-reader-title></h2>
+          </div>
+        </header>
 
-      <p>
-        This page is for my journal entries. I may or may not update it.
-      </p>
-
-      <h2>ENTRIES</h2>
-
-      <p>
-        Entries sorted by date added
-      </p>
-    </main>
-
-  <div class="post-list">
-    <article class="post-summary">
-      <p class="post-summary__date">
-        <time datetime="2026-06-22">June 27, 2026</time>
-      </p>
-
-      <h2>
-        <a href="/journal/2026/first-post/">Greetings</a>
-      </h2>
-
-      <p>
-        This is a test index. I want to turn this into a preview eventually.
-      </p>
-    </article>
-  </div>
-
-    <nav id="nav">
-      <p>Navigation</p>
-
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/art/">Art</a></li>
-        <li><a href="/cad/">CAD</a></li>
-        <li><a href="/journal/">Journal</a></li>
-        <li><a href="/about/">About</a></li>
-      </ul>
-    </nav>
-
-    <footer>
-      <p>HELLOTEACHER</p>
-      <p>Hosted on Neocities.</p>
-    </footer>
-
-  </div>
+        <article class="journal-reader__content" data-journal-reader-content tabindex="0"></article>
+      </div>
+    </section>
+  </main>
 </body>
 </html>

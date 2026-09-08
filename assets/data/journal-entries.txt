@@ -1,0 +1,27 @@
+# HELLOTEACHER journal entries
+# Entries can go in any order. The page sorts them newest-first by date.
+# Supported fields: title, date, summary, image, imageAlt.
+# Leave a blank line after the fields, then write the entry body.
+
+
+---
+title: Site notes
+date: 2026-09-07
+summary: Some random stuff about this page + plans so I don't forget
+
+I'm gonna come clean, this page specifically was entirely vibe coded. In the future, this will change, but for now, I needed a shell to base my UI around.
+
+My plan is for the journal page to eventually resemble some sort of old, musty library. I want it to really feel like a journal, with volumes dedicated to each year I write entries for. 
+
+For now, it'll just be this though. 
+
+Some future plans for the site: I still need to manage a couple of aspect ratio fixes, especially in the main page's art spread. Furthermore, there are optimization issues, especially in the art gallery/projects page. 
+A lot of the site really struggles, mostly because of all the insanely image dense regions (a necessary evil for a pretty looking art site). I might come around to fixing that one day.
+
+---
+title: Hello
+date: 2026-09-07
+summary: It's my birthday today
+
+This is a test entry. Today is my birthday!
+

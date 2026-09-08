@@ -23,6 +23,7 @@
 	let isLoaded = false;
 	let isLoading = false;
 	let isViewerOpen = false;
+	let activeModelAvailable = true;
 
 	const setStatus = (message) => {
 		if (status) {
@@ -79,14 +80,14 @@
 	};
 
 	const startRendering = () => {
-		if (!renderer || !scene || !camera || animationFrame || !isViewerOpen || document.hidden) {
+		if (!renderer || !scene || !camera || animationFrame || !isViewerOpen || !activeModelAvailable || document.hidden) {
 			return;
 		}
 
 		resizeRenderer();
 
 		const render = () => {
-			if (!isViewerOpen || document.hidden) {
+			if (!isViewerOpen || !activeModelAvailable || document.hidden) {
 				stopRendering();
 				return;
 			}
@@ -97,6 +98,39 @@
 		};
 
 		animationFrame = window.requestAnimationFrame(render);
+	};
+
+	const setModelAvailable = (available) => {
+		activeModelAvailable = available;
+		viewer.classList.toggle("is-model-blank", !available);
+
+		if (controls) {
+			controls.enabled = available;
+		}
+
+		if (renderer?.domElement) {
+			renderer.domElement.setAttribute("aria-hidden", String(!available));
+		}
+
+		if (!available) {
+			stopRendering();
+			viewer.classList.remove("is-model-loading");
+			setLaunchLabel("Load 3D Model");
+			setStatus("No Model Assigned");
+			return;
+		}
+
+		if (isLoaded) {
+			viewer.classList.add("is-model-loaded");
+			setStatus("Interactive Model Ready");
+			startRendering();
+			return;
+		}
+
+		if (!isLoading) {
+			setLaunchLabel("Load 3D Model");
+			setStatus("Viewer Standby");
+		}
 	};
 
 	const tuneModelMaterials = (THREE, root) => {
@@ -163,8 +197,8 @@
 		camera.updateProjectionMatrix();
 
 		controls.target.set(0, 0, 0);
-		controls.minDistance = maxDimension * 0.36;
-		controls.maxDistance = maxDimension * 2.6;
+		controls.minDistance = maxDimension * 0.12;
+		controls.maxDistance = maxDimension * 0.9;
 		controls.update();
 
 		const grid = new THREE.GridHelper(maxDimension * 2.7, 24, 0x8af7ff, 0x155667);
@@ -175,7 +209,7 @@
 	};
 
 	const mountModel = async () => {
-		if (isLoaded || isLoading || !modelSrc || !stage) {
+		if (isLoaded || isLoading || !activeModelAvailable || !modelSrc || !stage) {
 			return;
 		}
 
@@ -288,13 +322,14 @@
 		mountModel();
 	});
 
-	document.addEventListener("cad:viewer-opened", () => {
+	document.addEventListener("cad:viewer-opened", (event) => {
 		isViewerOpen = true;
+		setModelAvailable(event.detail?.hasModel !== false);
 
-		if (isLoaded) {
+		if (isLoaded && activeModelAvailable) {
 			setStatus("Interactive Model Ready");
 			startRendering();
-		} else if (!isLoading) {
+		} else if (!isLoading && activeModelAvailable) {
 			setLaunchLabel("Load 3D Model");
 			setStatus("Viewer Standby");
 		}
