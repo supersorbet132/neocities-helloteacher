@@ -8,70 +8,44 @@
 	// Add, remove, or reorder CAD records here as the archive grows.
 	const models = [
 		{
-			name: "Primary Assembly Study",
-			date: "2026-09",
+			name: "Placeholder (1)",
+			date: "TBD",
 			category: "assemblies",
 			type: "Assembly",
-			status: "Featured-adjacent",
-			description: "A larger SolidWorks assembly slot reserved for a written process note and eventual on-demand model viewer.",
-			tags: ["assembly", "solidworks", "process"],
+			status: "Coming soon",
+			tags: [],
 		},
 		{
-			name: "Actuated Rail Concept",
-			date: "2026-09",
-			category: "mechanisms",
-			type: "Mechanism",
-			status: "In progress",
-			description: "Motion layout and component spacing study for an animated mechanism display.",
-			tags: ["motion", "rail", "prototype"],
-		},
-		{
-			name: "Fixture Clamp Plate",
-			date: "2026-08",
-			category: "fixtures",
-			type: "Fixture",
-			status: "Cataloged",
-			tags: ["fixture", "plate", "setup"],
-		},
-		{
-			name: "Bracket Variant A",
-			date: "2026-08",
+			name: "Placeholder (2)",
+			date: "TBD",
 			category: "parts",
 			type: "Part",
-			status: "Cataloged",
-			tags: ["bracket", "part", "iteration"],
+			status: "Coming soon",
+			tags: [],
 		},
 		{
-			name: "Gear Train Blockout",
-			date: "2026-07",
+			name: "Placeholder (3)",
+			date: "TBD",
 			category: "mechanisms",
 			type: "Mechanism",
-			status: "Draft",
-			tags: ["gear", "clearance", "study"],
+			status: "Coming soon",
+			tags: [],
 		},
 		{
-			name: "Housing Form Test",
-			date: "2026-07",
+			name: "Placeholder (4)",
+			date: "TBD",
+			category: "fixtures",
+			type: "Fixture",
+			status: "Coming soon",
+			tags: [],
+		},
+		{
+			name: "Placeholder (5)",
+			date: "TBD",
 			category: "experiments",
 			type: "Experiment",
-			status: "Draft",
-			tags: ["housing", "surface", "test"],
-		},
-		{
-			name: "Panel Fastener Layout",
-			date: "2026-06",
-			category: "parts",
-			type: "Part",
-			status: "Cataloged",
-			tags: ["fastener", "layout", "part"],
-		},
-		{
-			name: "Alignment Jig",
-			date: "2026-06",
-			category: "fixtures",
-			type: "Fixture",
-			status: "Cataloged",
-			tags: ["jig", "alignment", "fixture"],
+			status: "Coming soon",
+			tags: [],
 		},
 	];
 
@@ -88,7 +62,7 @@
 		return;
 	}
 
-	const formatDescription = (model) => model.description || `${model.name} is a ${model.date} ${model.type.toLowerCase()} record staged for a generated archive summary and future on-demand viewer.`;
+	const formatDescription = (model) => model.description || "";
 
 	const createMetaItem = (label, value) => {
 		const item = document.createElement("div");
@@ -122,7 +96,6 @@
 		const meta = document.createElement("dl");
 		const tags = document.createElement("div");
 		const actions = document.createElement("div");
-		const inspect = document.createElement("button");
 		const load = document.createElement("button");
 
 		article.className = "cad-model-row";
@@ -156,15 +129,11 @@
 		(model.tags || []).forEach((tag) => tags.append(createTag(tag)));
 
 		actions.className = "cad-model-row__actions";
-		inspect.className = "cad-model-row__action";
-		inspect.type = "button";
-		inspect.dataset.cadModelAction = "inspect";
-		inspect.textContent = "Inspect";
-		load.className = "cad-model-row__action cad-model-row__action--secondary";
+		load.className = "cad-model-row__action";
 		load.type = "button";
 		load.dataset.cadModelAction = "load";
 		load.textContent = "Load Viewer";
-		actions.append(inspect, load);
+		actions.append(load);
 
 		detail.append(header, description, meta, tags, actions);
 		article.append(preview, detail);
@@ -272,14 +241,14 @@
 		row.classList.add("is-selected");
 
 		if (archiveStatus) {
-			archiveStatus.textContent = action.dataset.cadModelAction === "load"
-				? `${row.dataset.cadModelName} / Viewer standby`
-				: `${row.dataset.cadModelName} / Detail standby`;
+			archiveStatus.textContent = `${row.dataset.cadModelName} / Viewer standby`;
 		}
 
 		document.dispatchEvent(new CustomEvent("cad:open-viewer", {
 			detail: {
 				action: action.dataset.cadModelAction,
+				copy: "",
+				hasModel: false,
 				model: row.dataset.cadModelName,
 			},
 		}));

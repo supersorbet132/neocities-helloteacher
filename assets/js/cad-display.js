@@ -14,6 +14,7 @@
 	const viewerCopy = expandedWindow?.querySelector("[data-cad-viewer-copy]");
 	const viewerCloseButtons = expandedWindow?.querySelectorAll("[data-cad-display-window-close]") || [];
 	const featuredModelTitle = featuredModelViewer?.dataset.cadModelTitle || "Phone Holder Assembly";
+	const featuredViewerCopy = viewerCopy?.textContent || "";
 
 	if (!scene) {
 		return;
@@ -180,16 +181,18 @@
 	};
 
 	const setViewerContent = (detail = {}) => {
+		const action = detail.action || "featured";
+
 		activeViewerDetail = {
-			action: detail.action || "featured",
-			hasModel: detail.hasModel === true || detail.action === "featured" || !detail.action,
+			action,
+			copy: typeof detail.copy === "string" ? detail.copy : action === "featured" ? featuredViewerCopy : "",
+			hasModel: detail.hasModel === true || action === "featured" || !detail.action,
 			model: detail.model || featuredModelTitle,
 		};
 
 		const modelName = activeViewerDetail.model;
-		const action = activeViewerDetail.action;
 		const modelLabel = modelName.replace(/\s+/g, " ").trim();
-		const viewerMode = action === "inspect" ? "Detail Record" : "Model Viewer";
+		const viewerMode = "Model Viewer";
 
 		if (viewerTitle) {
 			viewerTitle.textContent = modelLabel;
@@ -208,9 +211,7 @@
 		}
 
 		if (viewerCopy) {
-			viewerCopy.textContent = action === "featured"
-				? "Placeholder notes for the featured design will live here: design intent, constraints, fabrication notes, failures, revisions, and whatever else earns its place in the archive."
-				: `${modelLabel} is staged for the future ${action === "inspect" ? "inspection record" : "load-on-demand viewer"}. This panel will hold the model notes, revision context, material callouts, and supporting diagrams once the archive records are wired in.`;
+			viewerCopy.textContent = activeViewerDetail.copy;
 		}
 	};
 
