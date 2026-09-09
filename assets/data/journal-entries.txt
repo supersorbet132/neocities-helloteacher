@@ -4,6 +4,18 @@
 # Leave a blank line after the fields, then write the entry body.
 
 ---
+title: test
+date: 2026-09-09
+summary: image test
+image: /assets/images/journal/1.webp
+
+This is a process entry and a test to make sure the images actually work.
+
+! [Bugged out screenshot of the projects page](/assets/images/journal/2.webp)
+
+Here are some screenshots from the development of this site. A lot of it is the art side. I'm sure the code isn't that interesting.
+
+---
 title: Good day
 date: 2026-09-08
 summary: Webdev Interview + Club meeting
