@@ -3,6 +3,18 @@
 # Supported fields: title, date, summary, image, imageAlt.
 # Leave a blank line after the fields, then write the entry body.
 
+---
+title: Good day
+date: 2026-09-08
+summary: Webdev Interview + Club meeting
+
+I think I got into the Turtle robotics webdev committee. Glad it went well!
+
+Today was also the first visdev club meeting.
+
+It feels pretty corny writing journal entries like this, but I lowkey just want to test what editing files in-house looks like. 
+
+Hopefully when I update the page, the journal entries will reflect my changes.
 
 ---
 title: Site notes
@@ -24,4 +36,3 @@ date: 2026-09-07
 summary: It's my birthday today
 
 This is a test entry. Today is my birthday!
-
