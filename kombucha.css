@@ -529,6 +529,19 @@ html.home-page-root {
 		--cad-effect-flicker-out-duration: 520ms;
 		--cad-hover-flicker-duration: 1800ms;
 		--cad-leave-animation-window: 3200ms;
+		--cad-model-reel-base-delay: var(--cad-effect-delay);
+		--cad-model-reel-enter-duration: 1080ms;
+		--cad-model-reel-scroll-duration: 12000ms;
+		--cad-model-reel-exit-duration: 1480ms;
+		--cad-model-reel-enter-ease: cubic-bezier(0.13, 0.86, 0.14, 1);
+		--cad-model-reel-exit-ease: cubic-bezier(0.48, 0, 0.86, 0.28);
+		--cad-model-reel-size: calc(1000 * var(--cad-unit));
+		--cad-model-reel-gap: calc(72 * var(--cad-unit));
+		--cad-model-reel-loop-distance: calc(2144 * var(--cad-unit));
+		--cad-model-reel-enter-start-x: calc(-2152 * var(--cad-unit));
+		--cad-model-reel-active-x: 0px;
+		--cad-model-reel-sever-left: 0px;
+		--cad-model-reel-flicker-duration: 160ms;
 		--cad-card-parallax-range: 64;
 		--cad-parallax-front-strength: 0.22;
 		--cad-parallax-title-strength: 0.55;
@@ -609,6 +622,86 @@ html.home-page-root {
 		height: 100%;
 		max-width: none;
 	}
+	.cad-sprite-card__model-reel {
+		position: absolute;
+		left: var(--sprite-left);
+		top: var(--sprite-top);
+		z-index: var(--sprite-z);
+		display: block;
+		width: var(--sprite-width);
+		height: var(--sprite-height);
+		max-width: none;
+		opacity: 0;
+		pointer-events: none;
+		mix-blend-mode: screen;
+		-webkit-mask-image: var(--cad-model-reel-mask-image);
+		mask-image: var(--cad-model-reel-mask-image);
+		-webkit-mask-position: var(--cad-model-reel-mask-position);
+		mask-position: var(--cad-model-reel-mask-position);
+		-webkit-mask-size: var(--cad-model-reel-mask-size);
+		mask-size: var(--cad-model-reel-mask-size);
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		animation: none;
+		will-change: opacity;
+	}
+	.cad-sprite-card__model-reel-parallax,
+	.cad-sprite-card__model-reel-viewport {
+		display: block;
+		width: 100%;
+		height: 100%;
+		max-width: none;
+	}
+	.cad-sprite-card__model-reel-viewport {
+		position: relative;
+		overflow: hidden;
+	}
+	.cad-sprite-card__model-reel-track {
+		position: absolute;
+		top: var(--cad-model-reel-center-y);
+		left: 0;
+		display: block;
+		width: max-content;
+		height: var(--cad-model-reel-size);
+		max-width: none;
+		transform: translate3d(var(--cad-model-reel-enter-start-x), -50%, 0);
+		will-change: transform;
+	}
+	.cad-sprite-card__model-reel-strip {
+		display: flex;
+		align-items: center;
+		gap: var(--cad-model-reel-gap);
+		width: max-content;
+		height: 100%;
+		max-width: none;
+		transform: translate3d(calc(-1 * var(--cad-model-reel-loop-distance)), 0, 0);
+		clip-path: inset(0 0 0 0);
+		will-change: transform;
+	}
+	.cad-sprite-card__model-reel-item {
+		flex: 0 0 var(--cad-model-reel-size);
+		display: block;
+		width: var(--cad-model-reel-size);
+		height: var(--cad-model-reel-size);
+		max-width: none;
+	}
+	.cad-sprite-card__model-reel-image {
+		display: block;
+		width: 100%;
+		height: 100%;
+		max-width: none;
+		object-fit: contain;
+		filter:
+			brightness(1.28)
+			contrast(1.2)
+			saturate(1.35)
+			drop-shadow(0 0 calc(12 * var(--cad-unit)) rgba(138, 247, 255, 0.56))
+			drop-shadow(0 0 calc(34 * var(--cad-unit)) rgba(57, 189, 255, 0.3));
+		transform: translate3d(0, 0, 0);
+		-webkit-user-drag: none;
+		user-select: none;
+		will-change: opacity;
+	}
 	.cad-sprite-card__hitbox {
 		position: absolute;
 		top: var(--cad-hitbox-top);
@@ -646,6 +739,37 @@ html.home-page-root {
 	}
 	.cad-sprite-card.is-leaving .cad-sprite-card__sprite.is-hover-only {
 		animation: cad-flicker-out var(--cad-effect-flicker-out-duration) steps(1, end) 0ms both;
+	}
+	.cad-sprite-card:focus-visible .cad-sprite-card__model-reel,
+	.cad-sprite-card.is-hovered .cad-sprite-card__model-reel {
+		animation: cad-model-reel-appear var(--cad-effect-fade-duration) linear var(--cad-model-reel-base-delay) 1 both;
+	}
+	.cad-sprite-card:focus-visible .cad-sprite-card__model-reel-track,
+	.cad-sprite-card.is-hovered .cad-sprite-card__model-reel-track {
+		animation: cad-model-reel-enter var(--cad-model-reel-enter-duration) var(--cad-model-reel-enter-ease) var(--cad-model-reel-base-delay) 1 both;
+	}
+	.cad-sprite-card:focus-visible .cad-sprite-card__model-reel-strip,
+	.cad-sprite-card.is-hovered .cad-sprite-card__model-reel-strip {
+		animation: cad-model-reel-scroll var(--cad-model-reel-scroll-duration) linear var(--cad-model-reel-base-delay) infinite both;
+	}
+	.cad-sprite-card:focus-visible .cad-sprite-card__model-reel-image,
+	.cad-sprite-card.is-hovered .cad-sprite-card__model-reel-image {
+		animation: cad-model-reel-flicker var(--cad-model-reel-flicker-duration) steps(1, end) var(--cad-model-reel-base-delay) infinite;
+	}
+	.cad-sprite-card.is-leaving .cad-sprite-card__model-reel[data-cad-model-reel-exiting="true"] {
+		opacity: 1;
+		animation: cad-flicker-out var(--cad-effect-flicker-out-duration) steps(1, end) 0ms both;
+	}
+	.cad-sprite-card.is-leaving .cad-sprite-card__model-reel[data-cad-model-reel-exiting="true"] .cad-sprite-card__model-reel-track {
+		animation: cad-model-reel-exit var(--cad-model-reel-exit-duration) var(--cad-model-reel-exit-ease) both;
+	}
+	.cad-sprite-card.is-leaving .cad-sprite-card__model-reel-strip {
+		animation: none;
+		transform: translate3d(0, 0, 0);
+		clip-path: inset(0 0 0 var(--cad-model-reel-sever-left));
+	}
+	.cad-sprite-card.is-leaving .cad-sprite-card__model-reel-image {
+		animation: cad-model-reel-flicker var(--cad-model-reel-flicker-duration) steps(1, end) infinite;
 	}
 	.cad-sprite-card__fallback {
 		position: absolute;
@@ -1302,6 +1426,73 @@ html.home-page-root {
 		70% { opacity: 1; }
 		84% { opacity: 0.86; }
 	}
+	@keyframes cad-model-reel-enter {
+		0% {
+			transform: translate3d(var(--cad-model-reel-enter-start-x), -50%, 0);
+		}
+		100% {
+			transform: translate3d(var(--cad-model-reel-active-x), -50%, 0);
+		}
+	}
+	@keyframes cad-model-reel-scroll {
+		0% {
+			transform: translate3d(calc(-1 * var(--cad-model-reel-loop-distance)), 0, 0);
+		}
+		100% {
+			transform: translate3d(0, 0, 0);
+		}
+	}
+	@keyframes cad-model-reel-exit {
+		0% {
+			transform: translate3d(var(--cad-model-reel-exit-start-x, var(--cad-model-reel-active-x)), -50%, 0);
+		}
+		100% {
+			transform: translate3d(calc(100vw + var(--cad-model-reel-size)), -50%, 0);
+		}
+	}
+	@keyframes cad-model-reel-appear {
+		0% {
+			opacity: 0;
+		}
+		16% {
+			opacity: 0.18;
+		}
+		24% {
+			opacity: 0.08;
+		}
+		42% {
+			opacity: 0.48;
+		}
+		58% {
+			opacity: 0.36;
+		}
+		78% {
+			opacity: 0.84;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+	@keyframes cad-model-reel-flicker {
+		0%, 100% {
+			opacity: 1;
+		}
+		14% {
+			opacity: 0.72;
+		}
+		20% {
+			opacity: 0.94;
+		}
+		46% {
+			opacity: 0.8;
+		}
+		52% {
+			opacity: 1;
+		}
+		78% {
+			opacity: 0.86;
+		}
+	}
 	.home-card {
 		--card-accent: var(--link);
 		--card-edge-overlap: clamp(1.5rem, 6vw, 5rem);
@@ -1483,7 +1674,20 @@ html.home-page-root {
 		--cad-display-beam-idle-delay: 360ms;
 		--cad-display-beam-idle-flicker-duration: 3200ms;
 		--cad-display-colordodge-idle-delay: 180ms;
-		--cad-display-colordodge-idle-flicker-duration: 2600ms;
+		--cad-display-colordodge-idle-flicker-duration: 720ms;
+		--cad-display-preview-z: 2;
+		--cad-display-preview-size: 50vw;
+		--cad-display-preview-center-y: 45.35%;
+		--cad-display-preview-enter-extra: 8vw;
+		--cad-display-preview-target-x: 66.666vw;
+		--cad-display-preview-exit-x: calc(100vw + var(--cad-display-preview-enter-extra) + var(--cad-display-preview-size));
+		--cad-display-preview-idle-shift: 3.05vw;
+		--cad-display-preview-enter-delay: 160ms;
+		--cad-display-preview-enter-duration: 1040ms;
+		--cad-display-preview-exit-duration: 760ms;
+		--cad-display-preview-power-duration: 820ms;
+		--cad-display-preview-idle-duration: 4200ms;
+		--cad-display-preview-flicker-duration: 320ms;
 		--cad-display-leave-animation-window: 820ms;
 		--cad-display-machine-clank-delay: 180ms;
 		--cad-display-machine-clank-duration: 900ms;
@@ -2181,10 +2385,59 @@ html.home-page-root {
 			border-bottom-color: var(--cad-neon-strong);
 		}
 	}
+	@media (max-width: 980px) and (orientation: portrait) {
+		body.cad-page {
+			--cad-model-row-height: clamp(26.5rem, 54svh, 32rem);
+		}
+		.cad-model-row {
+			grid-template-columns: 1fr;
+			grid-template-rows: minmax(7.75rem, 34%) minmax(0, 1fr);
+			padding: 0.82rem;
+		}
+		.cad-model-row__preview {
+			min-height: 7.75rem;
+		}
+		.cad-model-row__detail {
+			min-height: 0;
+			overflow: hidden;
+		}
+		.cad-model-row__header {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.38rem;
+			margin-bottom: 0.5rem;
+		}
+		.cad-model-row__header p {
+			text-align: left;
+		}
+		.cad-model-row__description {
+			-webkit-line-clamp: 1;
+		}
+		.cad-model-row__meta {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 0.32rem;
+			margin-top: 0.54rem;
+		}
+		.cad-model-row__meta div {
+			padding: 0.34rem 0.42rem;
+		}
+		.cad-model-row__tags:empty {
+			display: none;
+		}
+		.cad-model-row__actions {
+			position: static;
+			z-index: 1;
+			justify-content: flex-start;
+			margin-top: auto;
+		}
+		.cad-model-row__action {
+			padding-block: 0.62rem;
+		}
+	}
 	@media (max-width: 680px) {
 		body.cad-page {
 			--page-pad: 1rem;
-			--cad-model-row-height: 25rem;
+			--cad-model-row-height: clamp(27.5rem, 58svh, 34rem);
 		}
 		.cad-page__main {
 			padding-top: 1rem;
@@ -2290,6 +2543,78 @@ html.home-page-root {
 		max-width: none;
 		-webkit-user-drag: none;
 		user-select: none;
+	}
+	.cad-display__model-preview {
+		position: absolute;
+		inset: 0;
+		z-index: var(--cad-display-preview-z, 2);
+		display: block;
+		max-width: none;
+		overflow: hidden;
+		opacity: 0;
+		filter: brightness(1.18);
+		mix-blend-mode: normal;
+		pointer-events: none;
+		-webkit-mask-image: none;
+		mask-image: none;
+		will-change: opacity, filter;
+	}
+	.cad-display__model-preview-track {
+		position: absolute;
+		top: var(--cad-display-preview-center-y);
+		left: 0;
+		display: block;
+		width: var(--cad-display-preview-size);
+		height: var(--cad-display-preview-size);
+		max-width: none;
+		transform: translate3d(calc(0px - var(--cad-display-preview-size) - var(--cad-display-preview-enter-extra)), -50%, 0) translateX(-50%);
+		will-change: transform;
+	}
+	.cad-display__model-preview-drift,
+	.cad-display__model-preview-image {
+		display: block;
+		width: 100%;
+		height: 100%;
+		max-width: none;
+	}
+	.cad-display__model-preview-drift {
+		transform: translate3d(0, 0, 0);
+		will-change: transform;
+	}
+	.cad-display__model-preview-image {
+		object-fit: contain;
+		opacity: 1;
+		filter:
+			brightness(1.34)
+			contrast(1.24)
+			saturate(1.38)
+			drop-shadow(0 0 0.63vw rgba(138, 247, 255, 0.6))
+			drop-shadow(0 0 1.64vw rgba(57, 189, 255, 0.34));
+		mix-blend-mode: normal;
+		-webkit-user-drag: none;
+		user-select: none;
+		will-change: opacity, filter;
+	}
+	.cad-display:is(:hover, .is-hovered) .cad-display__model-preview {
+		animation: cad-display-model-preview-power-in var(--cad-display-preview-power-duration) ease-out var(--cad-display-preview-enter-delay) both;
+	}
+	.cad-display:is(:hover, .is-hovered) .cad-display__model-preview-track {
+		animation: cad-display-model-preview-enter var(--cad-display-preview-enter-duration) cubic-bezier(0.16, 0.92, 0.18, 1) var(--cad-display-preview-enter-delay) both;
+	}
+	.cad-display:is(:hover, .is-hovered) .cad-display__model-preview-drift {
+		animation: cad-display-model-preview-idle-drift var(--cad-display-preview-idle-duration) ease-in-out calc(var(--cad-display-preview-enter-delay) + var(--cad-display-preview-enter-duration)) infinite;
+	}
+	.cad-display:is(:hover, .is-hovered) .cad-display__model-preview-image {
+		animation: cad-display-model-preview-flicker var(--cad-display-preview-flicker-duration) linear calc(var(--cad-display-preview-enter-delay) + 180ms) infinite;
+	}
+	.cad-display.is-leaving .cad-display__model-preview {
+		animation: cad-display-model-preview-power-out var(--cad-display-preview-exit-duration) ease-in both;
+	}
+	.cad-display.is-leaving .cad-display__model-preview-track {
+		animation: cad-display-model-preview-exit var(--cad-display-preview-exit-duration) cubic-bezier(0.42, 0, 0.58, 1) both;
+	}
+	.cad-display.is-leaving .cad-display__model-preview-image {
+		animation: cad-display-model-preview-flicker var(--cad-display-preview-flicker-duration) linear infinite;
 	}
 	.cad-display__layer[data-cad-display-layer^="cad_display_left"] {
 		--cad-layer-rest-x: calc(var(--cad-display-left-x) + var(--cad-layer-nudge-x, 0px) - var(--cad-display-side-rest-shift));
@@ -3291,29 +3616,160 @@ html.home-page-root {
 		}
 	}
 	@keyframes cad-display-colordodge-idle-flicker {
-		0%, 18%, 24%, 47%, 53%, 66%, 70%, 80%, 85%, 100% {
+		0%, 100% {
+			opacity: 0.96;
+		}
+		12% {
+			opacity: 0.82;
+		}
+		24% {
 			opacity: 1;
 		}
-		20% {
-			opacity: 0.78;
+		38% {
+			opacity: 0.88;
 		}
-		22% {
-			opacity: 0.94;
+		50% {
+			opacity: 0.98;
 		}
-		49% {
-			opacity: 0.72;
-		}
-		51% {
-			opacity: 0.92;
-		}
-		68% {
+		63% {
 			opacity: 0.84;
 		}
-		82% {
-			opacity: 0.76;
+		78% {
+			opacity: 1;
 		}
-		84% {
+		90% {
+			opacity: 0.87;
+		}
+	}
+	@keyframes cad-display-model-preview-power-in {
+		0%, 8% {
+			opacity: 0;
+			filter: brightness(1);
+		}
+		14% {
+			opacity: 0.38;
+			filter: brightness(1.32);
+		}
+		19% {
+			opacity: 0.16;
+			filter: brightness(1.12);
+		}
+		31% {
+			opacity: 0.72;
+			filter: brightness(1.4);
+		}
+		43% {
+			opacity: 0.48;
+			filter: brightness(1.16);
+		}
+		58% {
 			opacity: 0.94;
+			filter: brightness(1.34);
+		}
+		73% {
+			opacity: 0.82;
+			filter: brightness(1.2);
+		}
+		100% {
+			opacity: 1;
+			filter: brightness(1.24);
+		}
+	}
+	@keyframes cad-display-model-preview-power-out {
+		0% {
+			opacity: 1;
+			filter: brightness(1.24);
+		}
+		18% {
+			opacity: 0.74;
+			filter: brightness(1.15);
+		}
+		36% {
+			opacity: 0.86;
+			filter: brightness(1.08);
+		}
+		55% {
+			opacity: 0.42;
+			filter: brightness(1.12);
+		}
+		72% {
+			opacity: 0.26;
+			filter: brightness(1.04);
+		}
+		100% {
+			opacity: 0;
+			filter: brightness(0.96);
+		}
+	}
+	@keyframes cad-display-model-preview-enter {
+		0% {
+			transform: translate3d(calc(0px - var(--cad-display-preview-size) - var(--cad-display-preview-enter-extra)), -50%, 0) translateX(-50%);
+		}
+		74% {
+			transform: translate3d(var(--cad-display-preview-target-x), -50%, 0) translateX(-50%);
+		}
+		87% {
+			transform: translate3d(calc(var(--cad-display-preview-target-x) - 0.86vw), -50%, 0) translateX(-50%);
+		}
+		100% {
+			transform: translate3d(var(--cad-display-preview-target-x), -50%, 0) translateX(-50%);
+		}
+	}
+	@keyframes cad-display-model-preview-exit {
+		0% {
+			transform: translate3d(var(--cad-display-preview-target-x), -50%, 0) translateX(-50%);
+		}
+		100% {
+			transform: translate3d(var(--cad-display-preview-exit-x), -50%, 0) translateX(-50%);
+		}
+	}
+	@keyframes cad-display-model-preview-idle-drift {
+		0%, 100% {
+			transform: translate3d(0, 0, 0);
+		}
+		26% {
+			transform: translate3d(calc(var(--cad-display-preview-idle-shift) * -0.42), 0, 0);
+		}
+		52% {
+			transform: translate3d(var(--cad-display-preview-idle-shift), 0, 0);
+		}
+		78% {
+			transform: translate3d(calc(var(--cad-display-preview-idle-shift) * -0.24), 0, 0);
+		}
+	}
+	@keyframes cad-display-model-preview-flicker {
+		0%, 100% {
+			opacity: 1;
+			filter:
+				brightness(1.34)
+				contrast(1.24)
+				saturate(1.38)
+				drop-shadow(0 0 0.63vw rgba(138, 247, 255, 0.6))
+				drop-shadow(0 0 1.64vw rgba(57, 189, 255, 0.34));
+		}
+		17% {
+			opacity: 0.9;
+			filter:
+				brightness(1.52)
+				contrast(1.28)
+				saturate(1.46)
+				drop-shadow(0 0 0.7vw rgba(138, 247, 255, 0.68))
+				drop-shadow(0 0 1.88vw rgba(57, 189, 255, 0.4));
+		}
+		19% {
+			opacity: 1;
+		}
+		43% {
+			opacity: 0.92;
+		}
+		46% {
+			opacity: 1;
+		}
+		71% {
+			opacity: 0.9;
+		}
+		75% {
+			opacity: 1;
 		}
 	}
 	@keyframes cad-display-machine-clank {
@@ -3381,6 +3837,13 @@ html.home-page-root {
 		.cad-display:is(:hover, .is-hovered) .cad-display__layer[data-cad-display-layer^="cad_display_right"] .cad-display__image,
 		.cad-display:is(:hover, .is-hovered) .cad-display__layer--cad_display_beam,
 		.cad-display:is(:hover, .is-hovered) .cad-display__layer--cad_display_colordodge,
+		.cad-display:is(:hover, .is-hovered) .cad-display__model-preview,
+		.cad-display:is(:hover, .is-hovered) .cad-display__model-preview-track,
+		.cad-display:is(:hover, .is-hovered) .cad-display__model-preview-drift,
+		.cad-display:is(:hover, .is-hovered) .cad-display__model-preview-image,
+		.cad-display.is-leaving .cad-display__model-preview,
+		.cad-display.is-leaving .cad-display__model-preview-track,
+		.cad-display.is-leaving .cad-display__model-preview-image,
 		.cad-display-window__viewer-shell.is-model-loading .cad-display-window__model-launch,
 		.cad-display-window__title-box h2 {
 			animation-duration: 0.01ms !important;
@@ -3440,6 +3903,11 @@ html.home-page-root {
 		.cad-sprite-card,
 		.cad-sprite-card__sprite,
 		.cad-sprite-card__sprite-image,
+		.cad-sprite-card__model-reel,
+		.cad-sprite-card__model-reel-track,
+		.cad-sprite-card__model-reel-strip,
+		.cad-sprite-card__model-reel-item,
+		.cad-sprite-card__model-reel-image,
 		.projects-sprite-card,
 		.projects-sprite-card__sprite,
 		.projects-sprite-card__parallax,
@@ -7535,16 +8003,15 @@ html.home-page-root {
 	}
 	.journal-reader__image {
 		display: block;
-		width: 100%;
-		max-width: none;
-		margin: 0 0 1.5rem;
-	}
-	.journal-reader__image img {
-		display: block;
-		width: 100%;
+		width: auto;
 		height: auto;
-		max-width: none;
+		max-width: 100%;
+		margin: 1.25rem 0;
+		padding: 0;
+		background: transparent;
+		border: 0;
 		border-radius: 0;
+		box-shadow: none;
 	}
 	@media (max-width: 48rem) {
 		.journal-page__topline {

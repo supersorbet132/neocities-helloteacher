@@ -304,6 +304,20 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 	]);
 	const manifestUrl = "/assets/images/site/sprite-crop-manifest.json?v=20260820-webp";
 	const assetBase = "/assets/images/site/cad/";
+	const modelReelModels = [
+		{
+			src: "/assets/models/phone_holder_anim/phone-holder-preview.webp?v=20260909-preview6",
+			fallback: "/assets/models/phone_holder_anim/0001.png?v=20260909-preview6",
+			label: "Phone Holder Assembly",
+		},
+	];
+	const modelReelLayerAfter = "cad_beam_color";
+	const modelReelFrameLayer = "cad_beam_add";
+	const modelReelMaskLayer = "cad_beam_color";
+	const modelReelMinSequenceItems = 2;
+	const modelReelRepeatCycles = 3;
+	const modelReelItemUnits = 1100;
+	const modelReelGapUnits = 72;
 	const leaveTimers = new WeakMap();
 
 	const getNumberVar = (element, name, fallback) => {
@@ -316,6 +330,7 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 	const asPercent = (value) => `${value.toFixed(4)}%`;
 	const cssLengthList = (items) => items.join(", ");
 	const cssUrlList = (items) => items.map((item) => `url("${assetBase}${item}")`).join(", ");
+	const cssUrl = (url) => `url("${url}")`;
 
 	const getRestSide = (layerName) => {
 		if (layerName.includes("right") || rightRestLayers.has(layerName)) {
@@ -439,6 +454,193 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 		sprite.style.setProperty("--sprite-loop-delay", `${effectDelay + effectFadeDuration}ms`);
 	};
 
+	const getModelReelSequence = () => {
+		const sequence = [];
+		const targetLength = Math.max(modelReelMinSequenceItems, modelReelModels.length);
+
+		while (sequence.length < targetLength) {
+			sequence.push(...modelReelModels);
+		}
+
+		return sequence.slice(0, targetLength);
+	};
+
+	const applyModelReelFallback = (image, fallbackSrc) => {
+		if (!fallbackSrc) {
+			return;
+		}
+
+		image.addEventListener("error", () => {
+			if (image.dataset.cadModelReelFallbackApplied === "true") {
+				return;
+			}
+
+			image.dataset.cadModelReelFallbackApplied = "true";
+			image.src = fallbackSrc;
+		});
+	};
+
+	const getTranslateX = (element) => {
+		if (!element) {
+			return 0;
+		}
+
+		const transform = getComputedStyle(element).transform;
+
+		if (!transform || transform === "none") {
+			return 0;
+		}
+
+		const Matrix = window.DOMMatrixReadOnly || window.DOMMatrix || window.WebKitCSSMatrix;
+
+		if (Matrix) {
+			try {
+				const matrix = new Matrix(transform);
+				return Number.isFinite(matrix.m41) ? matrix.m41 : 0;
+			} catch (error) {
+				// Fall through to the manual parser for older WebKit transform strings.
+			}
+		}
+
+		const matrixMatch = transform.match(/^matrix\((.+)\)$/);
+		const matrix3dMatch = transform.match(/^matrix3d\((.+)\)$/);
+		const values = (matrix3dMatch || matrixMatch)?.[1]
+			.split(",")
+			.map((value) => Number.parseFloat(value.trim()));
+
+		if (!values?.length) {
+			return 0;
+		}
+
+		return matrix3dMatch ? values[12] || 0 : values[4] || 0;
+	};
+
+	const getModelReelParts = (card) => ({
+		reel: card.querySelector("[data-cad-model-reel]"),
+		track: card.querySelector("[data-cad-model-reel-track]"),
+		strip: card.querySelector("[data-cad-model-reel-strip]"),
+	});
+
+	const resetModelReelExit = (card) => {
+		const { reel } = getModelReelParts(card);
+
+		if (!reel) {
+			return;
+		}
+
+		reel.dataset.cadModelReelExiting = "false";
+		reel.style.removeProperty("--cad-model-reel-exit-start-x");
+		reel.style.removeProperty("--cad-model-reel-sever-left");
+	};
+
+	const captureModelReelExit = (card) => {
+		const { reel, track, strip } = getModelReelParts(card);
+
+		if (!reel || !track || !strip) {
+			return;
+		}
+
+		const opacity = Number.parseFloat(getComputedStyle(reel).opacity) || 0;
+		const isVisible = opacity > 0.05;
+
+		reel.dataset.cadModelReelExiting = String(isVisible);
+
+		if (!isVisible) {
+			reel.style.removeProperty("--cad-model-reel-exit-start-x");
+			reel.style.removeProperty("--cad-model-reel-sever-left");
+			return;
+		}
+
+		const currentX = getTranslateX(track) + getTranslateX(strip);
+		const sourceWidth = getNumberVar(card, "--cad-source-width", 2560);
+		const unit = card.getBoundingClientRect().width / sourceWidth;
+		const severBuffer = 48 * unit;
+		const severLeft = Math.max(0, -currentX - severBuffer);
+
+		reel.style.setProperty("--cad-model-reel-exit-start-x", `${currentX.toFixed(2)}px`);
+		reel.style.setProperty("--cad-model-reel-sever-left", `${severLeft.toFixed(2)}px`);
+	};
+
+	const createModelReel = (card, frameSprite, maskSprite, sourceWidth, sourceHeight, sourceX, sourceY, zIndex) => {
+		const frameBox = frameSprite.cropBox;
+		const maskBox = maskSprite.cropBox;
+		const reelBox = {
+			left: Math.min(frameBox.left, maskBox.left),
+			top: Math.min(frameBox.top, maskBox.top),
+			right: Math.max(frameBox.right, maskBox.right),
+			bottom: Math.max(frameBox.bottom, maskBox.bottom),
+		};
+		reelBox.width = reelBox.right - reelBox.left;
+		reelBox.height = reelBox.bottom - reelBox.top;
+		const sequence = getModelReelSequence();
+		const itemStepUnits = modelReelItemUnits + modelReelGapUnits;
+		const loopDistanceUnits = sequence.length * itemStepUnits;
+		const sequenceContentUnits = ((sequence.length - 1) * itemStepUnits) + modelReelItemUnits;
+		const enterStartUnits = sequenceContentUnits + 80;
+		const reel = document.createElement("span");
+		const parallax = document.createElement("span");
+		const viewport = document.createElement("span");
+		const track = document.createElement("span");
+		const strip = document.createElement("span");
+
+		reel.className = "cad-sprite-card__model-reel";
+		reel.dataset.cadModelReel = "";
+		reel.dataset.cadModelReelExiting = "false";
+		reel.setAttribute("aria-hidden", "true");
+		reel.style.setProperty("--sprite-left", asPercent(((reelBox.left - sourceX) / sourceWidth) * 100));
+		reel.style.setProperty("--sprite-top", asPercent(((reelBox.top - sourceY) / sourceHeight) * 100));
+		reel.style.setProperty("--sprite-width", asPercent((reelBox.width / sourceWidth) * 100));
+		reel.style.setProperty("--sprite-height", asPercent((reelBox.height / sourceHeight) * 100));
+		reel.style.setProperty("--sprite-z", zIndex);
+		reel.style.setProperty("--cad-model-reel-size", `calc(${modelReelItemUnits} * var(--cad-unit))`);
+		reel.style.setProperty("--cad-model-reel-gap", `calc(${modelReelGapUnits} * var(--cad-unit))`);
+		reel.style.setProperty("--cad-model-reel-loop-distance", `calc(${loopDistanceUnits} * var(--cad-unit))`);
+		reel.style.setProperty("--cad-model-reel-enter-start-x", `calc(-${enterStartUnits} * var(--cad-unit))`);
+		reel.style.setProperty("--cad-model-reel-active-x", "0px");
+		reel.style.setProperty("--cad-model-reel-mask-image", cssUrl(`${assetBase}${maskSprite.file}`));
+		reel.style.setProperty("--cad-model-reel-mask-position", `calc(${maskBox.left - reelBox.left} * var(--cad-unit)) calc(${maskBox.top - reelBox.top} * var(--cad-unit))`);
+		reel.style.setProperty("--cad-model-reel-mask-size", `calc(${maskBox.width} * var(--cad-unit)) calc(${maskBox.height} * var(--cad-unit))`);
+		reel.style.setProperty("--cad-model-reel-center-y", `calc(${maskBox.top - reelBox.top + (maskBox.height / 2)} * var(--cad-unit))`);
+
+		parallax.className = "cad-sprite-card__parallax cad-sprite-card__model-reel-parallax";
+		parallax.dataset.cardParallaxLayer = "cad_model_reel";
+		parallax.dataset.spriteParallaxStrength = getNumberVar(card, "--cad-parallax-engine-strength", 0.68).toFixed(3);
+		viewport.className = "cad-sprite-card__model-reel-viewport";
+		track.className = "cad-sprite-card__model-reel-track";
+		track.dataset.cadModelReelTrack = "";
+		strip.className = "cad-sprite-card__model-reel-strip";
+		strip.dataset.cadModelReelStrip = "";
+
+		for (let cycleIndex = 0; cycleIndex < modelReelRepeatCycles; cycleIndex += 1) {
+			sequence.forEach((model) => {
+				const item = document.createElement("span");
+				const image = document.createElement("img");
+
+				item.className = "cad-sprite-card__model-reel-item";
+				image.className = "cad-sprite-card__model-reel-image";
+				image.src = model.src;
+				image.alt = "";
+				image.width = 1080;
+				image.height = 1080;
+				image.decoding = "async";
+				image.loading = "eager";
+				image.fetchPriority = "low";
+				image.draggable = false;
+				image.dataset.cadModelLabel = model.label || "";
+				applyModelReelFallback(image, model.fallback);
+				item.append(image);
+				strip.append(item);
+			});
+		}
+
+		track.append(strip);
+		viewport.append(track);
+		parallax.append(viewport);
+		reel.append(parallax);
+
+		return reel;
+	};
+
 	const bindCadCardState = (card) => {
 		if (card.dataset.cadStateBound === "true") {
 			return;
@@ -451,6 +653,7 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 			if (timer) {
 				window.clearTimeout(timer);
 			}
+			resetModelReelExit(card);
 			card.classList.remove("is-leaving");
 			card.classList.add("is-hovered");
 		};
@@ -469,6 +672,7 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 			if (existingTimer) {
 				window.clearTimeout(existingTimer);
 			}
+			captureModelReelExit(card);
 			card.classList.remove("is-hovered");
 			card.classList.add("is-leaving");
 			leaveTimers.set(card, window.setTimeout(() => {
@@ -564,6 +768,15 @@ const stripImageExtension = (fileName) => fileName.replace(HELLOTEACHER_IMAGE_EX
 			parallax.append(image);
 			sprite.append(parallax);
 			fragment.append(sprite);
+
+			if (layerName === modelReelLayerAfter) {
+				const frameSprite = spritesByName.get(modelReelFrameLayer) || spriteData;
+				const maskSprite = spritesByName.get(modelReelMaskLayer);
+
+				if (maskSprite) {
+					fragment.append(createModelReel(card, frameSprite, maskSprite, sourceWidth, sourceHeight, sourceX, sourceY, bottomIndex + 1));
+				}
+			}
 		});
 
 		scene.replaceChildren(fragment);

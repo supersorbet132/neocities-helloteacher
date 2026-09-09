@@ -6,6 +6,8 @@
 	}
 
 	const scene = display.querySelector("[data-cad-display-scene]");
+	const modelPreview = display.querySelector("[data-cad-model-preview]");
+	const modelPreviewImage = display.querySelector("[data-cad-model-preview-image]");
 	const expandedWindow = document.querySelector("[data-cad-display-window]");
 	const featuredModelViewer = expandedWindow?.querySelector("[data-cad-model-viewer]");
 	const viewerTitle = expandedWindow?.querySelector("[data-cad-viewer-title]");
@@ -15,9 +17,21 @@
 	const viewerCloseButtons = expandedWindow?.querySelectorAll("[data-cad-display-window-close]") || [];
 	const featuredModelTitle = featuredModelViewer?.dataset.cadModelTitle || "Phone Holder Assembly";
 	const featuredViewerCopy = viewerCopy?.textContent || "";
+	const touchHoverQuery = window.matchMedia("(hover: none) and (pointer: coarse)");
 
 	if (!scene) {
 		return;
+	}
+
+	if (modelPreviewImage?.dataset.cadModelPreviewFallback) {
+		modelPreviewImage.addEventListener("error", () => {
+			if (modelPreviewImage.dataset.cadModelPreviewFallbackApplied === "true") {
+				return;
+			}
+
+			modelPreviewImage.dataset.cadModelPreviewFallbackApplied = "true";
+			modelPreviewImage.src = modelPreviewImage.dataset.cadModelPreviewFallback;
+		});
 	}
 
 	const baseLayerOrderBottomToTop = [
@@ -35,6 +49,7 @@
 	const hoverTimers = new WeakMap();
 	let lockedScrollY = 0;
 	let lastFocusWasPointer = false;
+	let touchHoverFrame = 0;
 	let activeViewerDetail = {
 		action: "featured",
 		hasModel: true,
@@ -112,6 +127,7 @@
 		}
 
 		const fragment = document.createDocumentFragment();
+		let modelPreviewAdded = false;
 
 		layerOrderBottomToTop.forEach((layerName, index) => {
 			const spriteData = spritesByName.get(layerName);
@@ -148,7 +164,16 @@
 			setMask(layer, layerName, box, spritesByName);
 			layer.append(image);
 			fragment.append(layer);
+
+			if (layerName === "cad_display_colordodge" && modelPreview) {
+				fragment.append(modelPreview);
+				modelPreviewAdded = true;
+			}
 		});
+
+		if (modelPreview && !modelPreviewAdded) {
+			fragment.append(modelPreview);
+		}
 
 		scene.replaceChildren(fragment);
 		display.dataset.cadDisplayReady = "true";
@@ -178,6 +203,51 @@
 			display.classList.remove("is-leaving");
 			hoverTimers.delete(display);
 		}, getNumberVar(display, "--cad-display-leave-animation-window", 960)));
+	};
+
+	const isWindowOpen = () => expandedWindow?.classList.contains("is-window-open") || false;
+
+	const isDisplayInTouchBand = () => {
+		const viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+		if (viewportHeight <= 0 || isWindowOpen()) {
+			return false;
+		}
+
+		const rect = display.getBoundingClientRect();
+		const displayCenter = rect.top + (rect.height * 0.5);
+		const bandTop = viewportHeight / 6;
+		const bandBottom = viewportHeight * (5 / 6);
+
+		return rect.bottom > 0
+			&& rect.top < viewportHeight
+			&& displayCenter >= bandTop
+			&& displayCenter <= bandBottom;
+	};
+
+	const updateTouchHover = () => {
+		touchHoverFrame = 0;
+
+		if (!touchHoverQuery.matches) {
+			return;
+		}
+
+		setHover(isDisplayInTouchBand());
+	};
+
+	const requestTouchHoverUpdate = () => {
+		if (!touchHoverFrame) {
+			touchHoverFrame = window.requestAnimationFrame(updateTouchHover);
+		}
+	};
+
+	const handleTouchHoverModeChange = () => {
+		if (touchHoverQuery.matches) {
+			requestTouchHoverUpdate();
+			return;
+		}
+
+		setHover(false);
 	};
 
 	const setViewerContent = (detail = {}) => {
@@ -247,16 +317,22 @@
 		}
 	};
 
-	const isWindowOpen = () => expandedWindow?.classList.contains("is-window-open") || false;
-
 	display.addEventListener("pointerdown", () => {
 		lastFocusWasPointer = true;
 	});
 	display.addEventListener("keydown", () => {
 		lastFocusWasPointer = false;
 	});
-	display.addEventListener("pointerenter", () => setHover(true));
-	display.addEventListener("pointerleave", () => setHover(false));
+	display.addEventListener("pointerenter", () => {
+		if (!touchHoverQuery.matches) {
+			setHover(true);
+		}
+	});
+	display.addEventListener("pointerleave", () => {
+		if (!touchHoverQuery.matches) {
+			setHover(false);
+		}
+	});
 	display.addEventListener("focus", () => {
 		if (!lastFocusWasPointer || display.matches(":focus-visible")) {
 			setHover(true);
@@ -298,6 +374,18 @@
 			display.focus();
 		}
 	});
+	document.addEventListener("cad:viewer-closed", () => {
+		window.setTimeout(requestTouchHoverUpdate, 0);
+	});
+	window.addEventListener("scroll", requestTouchHoverUpdate, { passive: true });
+	window.addEventListener("resize", requestTouchHoverUpdate);
+	window.addEventListener("orientationchange", requestTouchHoverUpdate);
+
+	if (typeof touchHoverQuery.addEventListener === "function") {
+		touchHoverQuery.addEventListener("change", handleTouchHoverModeChange);
+	} else {
+		touchHoverQuery.addListener(handleTouchHoverModeChange);
+	}
 
 	const loadManifest = () => manifestUrls.reduce((promise, manifestUrl) => promise.catch(() => fetch(manifestUrl)
 		.then((response) => {
@@ -312,8 +400,13 @@
 		});
 
 	loadManifest()
-		.then((manifest) => buildDisplay(manifest?.sprites || []))
+		.then((manifest) => {
+			buildDisplay(manifest?.sprites || []);
+			requestTouchHoverUpdate();
+		})
 		.catch((error) => {
 			console.warn("CAD display sprites were not loaded", error);
 		});
+
+	requestTouchHoverUpdate();
 })();

@@ -4,7 +4,7 @@
 # Leave a blank line after the fields, then write the entry body.
 
 ---
-title: test
+title: Test
 date: 2026-09-09
 summary: image test
 image: /assets/images/journal/1.webp

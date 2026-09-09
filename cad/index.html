@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 
-	<link href="/kombucha.css?v=20260906-model3" rel="stylesheet" type="text/css" media="all">
+	<link href="/kombucha.css?v=20260909-touch3" rel="stylesheet" type="text/css" media="all">
   <script type="importmap">
     {
       "imports": {
@@ -15,7 +15,7 @@
       }
     }
   </script>
-	<script src="/assets/js/cad-display.js?v=20260907-copy1" defer></script>
+	<script src="/assets/js/cad-display.js?v=20260909-touch1" defer></script>
 	<script src="/assets/js/cad-model-viewer.js?v=20260906-model3" defer></script>
 	<script src="/assets/js/cad-archive.js?v=20260907-copy1" defer></script>
 </head>
@@ -78,6 +78,13 @@
       <div class="cad-page__display-zone" aria-label="Featured CAD display preview">
         <button class="cad-display" type="button" data-cad-display aria-label="Open phone holder assembly preview" aria-controls="cad-display-window" aria-expanded="false" aria-pressed="false">
           <span class="cad-display__scene" aria-hidden="true" data-cad-display-scene></span>
+          <span class="cad-display__model-preview" aria-hidden="true" data-cad-model-preview>
+            <span class="cad-display__model-preview-track">
+              <span class="cad-display__model-preview-drift">
+                <img class="cad-display__model-preview-image" src="/assets/models/phone_holder_anim/phone-holder-preview.webp?v=20260909-preview5" data-cad-model-preview-image data-cad-model-preview-fallback="/assets/models/phone_holder_anim/0001.png?v=20260909-preview5" alt="" width="1080" height="1080" decoding="async" loading="eager" draggable="false">
+              </span>
+            </span>
+          </span>
           <span class="cad-display__fallback">Phone holder assembly display</span>
         </button>
       </div>

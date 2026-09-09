@@ -152,16 +152,14 @@
 			return;
 		}
 
-		const figure = document.createElement("figure");
 		const image = document.createElement("img");
 
-		figure.className = "journal-reader__image";
+		image.className = "journal-reader__image";
 		image.src = imageSrc;
 		image.alt = alt || "";
 		image.loading = "lazy";
 		image.decoding = "async";
-		figure.append(image);
-		fragment.append(figure);
+		fragment.append(image);
 	};
 
 	const renderBody = (entry) => {
